@@ -1,0 +1,153 @@
+{
+  "slug": "engagement",
+  "route": "/initiatives/engagement",
+  "icon": "Users",
+  "color": "text-green-700",
+  "bgSolid": "bg-green-700",
+  "bg": "bg-green-700/10",
+  "borderColor": "border-green-700/30",
+  "gradientFrom": "from-green-700",
+  "gradientTo": "to-green-800",
+  "titleKey": "nav.projects.engagement",
+  "descKey": "projectThemes.engagement.desc",
+  "fr": {
+    "heroTitle": "Engagement Citoyen et Renforcement du Réseau Panafricain",
+    "heroSubtitle": "Développer la dynamique de réseau et des communautés de bonnes pratiques panafricaines.",
+    "introduction": "Ce pilier est axé sur le développement de la dynamique de réseau et des communautés de bonnes pratiques panafricaines. AfricTivistes mise sur la force de son réseau de plus de 400 membres dans 45 pays pour créer des synergies, partager les expériences et amplifier l'impact des actions citoyennes à travers le continent.",
+    "vision": "Un réseau panafricain dynamique et interconnecté, où chaque citoyen engagé dispose des outils et des connexions nécessaires pour contribuer activement au changement social dans son pays et sur le continent.",
+    "objectifs": [
+      "Renforcer et étendre le réseau panafricain AfricTivistes",
+      "Déployer le programme AfricTivistes Civic Engagement Tour (ACET) dans toutes les régions d'Afrique",
+      "Mettre en place la Plateforme d'Intelligence Collective et d'Actions Citoyennes (PICA)",
+      "Créer des communautés de pratiques thématiques transnationales",
+      "Organiser des sommets et événements panafricains réguliers",
+      "Soutenir les initiatives locales d'engagement citoyen"
+    ],
+    "actions": [
+      {
+        "titre": "AfricTivistes Civic Engagement Tour (ACET)",
+        "description": "Programme itinérant de renforcement de l'engagement citoyen à travers le continent, combinant formation, mobilisation et mise en réseau.",
+        "details": [
+          "Tournées dans les 5 régions d'Afrique (Ouest, Est, Centre, Nord, Australe)",
+          "Ateliers de formation sur l'engagement citoyen numérique",
+          "Rencontres avec les communautés locales d'activistes",
+          "Création de noyaux d'engagement citoyen par pays"
+        ]
+      },
+      {
+        "titre": "Plateforme d'Intelligence Collective (PICA)",
+        "description": "Espace numérique collaboratif permettant aux membres du réseau de partager leurs expériences, co-construire des solutions et coordonner leurs actions à l'échelle du continent.",
+        "details": [
+          "Plateforme en ligne de partage de connaissances",
+          "Espaces de collaboration thématiques",
+          "Système de mentorat entre pairs",
+          "Outils de coordination pour les campagnes panafricaines"
+        ]
+      },
+      {
+        "titre": "Sommets AfricTivistes",
+        "description": "Organisation de sommets continentaux et régionaux réunissant les acteurs de changement, les partenaires et les institutions pour tracer les perspectives de la démocratie numérique en Afrique.",
+        "details": [
+          "Sommets biennaux avec 300+ participants de 35+ pays",
+          "Événements régionaux thématiques",
+          "Sessions de networking et de co-création",
+          "Déclarations et feuilles de route collectives"
+        ]
+      },
+      {
+        "titre": "Communautés de bonnes pratiques",
+        "description": "Animation de communautés thématiques transnationales permettant l'échange de bonnes pratiques et le renforcement mutuel entre acteurs de changement.",
+        "details": [
+          "8 communautés d'acteurs propulsées",
+          "Groupes de travail thématiques actifs",
+          "Partage d'outils et de méthodologies",
+          "Documentation des bonnes pratiques africaines"
+        ]
+      }
+    ],
+    "impact": {
+      "chiffres": [
+        { "valeur": "400+", "label": "Membres actifs" },
+        { "valeur": "45", "label": "Pays représentés" },
+        { "valeur": "8", "label": "Communautés propulsées" },
+        { "valeur": "2", "label": "Sommets continentaux" }
+      ]
+    },
+    "programmes": [
+      "AfricTivistes Civic Engagement Tour (ACET)",
+      "Plateforme PICA",
+      "Sommets AfricTivistes",
+      "Communautés de bonnes pratiques"
+    ]
+  },
+  "en": {
+    "heroTitle": "Citizen Engagement and Pan-African Network Strengthening",
+    "heroSubtitle": "Developing network dynamics and pan-African communities of good practices.",
+    "introduction": "This pillar focuses on developing network dynamics and pan-African communities of good practices. AfricTivistes leverages the strength of its network of over 400 members in 45 countries to create synergies, share experiences and amplify the impact of citizen actions across the continent.",
+    "vision": "A dynamic and interconnected pan-African network where every engaged citizen has the tools and connections needed to actively contribute to social change in their country and across the continent.",
+    "objectifs": [
+      "Strengthen and extend the pan-African AfricTivistes network",
+      "Deploy the AfricTivistes Civic Engagement Tour (ACET) programme across all regions of Africa",
+      "Establish the Collective Intelligence and Citizen Action Platform (PICA)",
+      "Create transnational thematic communities of practice",
+      "Organize regular pan-African summits and events",
+      "Support local citizen engagement initiatives"
+    ],
+    "actions": [
+      {
+        "titre": "AfricTivistes Civic Engagement Tour (ACET)",
+        "description": "A touring programme for strengthening citizen engagement across the continent, combining training, mobilization and networking.",
+        "details": [
+          "Tours across 5 African regions (West, East, Central, North, Southern)",
+          "Workshops on digital citizen engagement",
+          "Meetings with local activist communities",
+          "Creation of citizen engagement hubs per country"
+        ]
+      },
+      {
+        "titre": "Collective Intelligence Platform (PICA)",
+        "description": "A collaborative digital space enabling network members to share their experiences, co-create solutions and coordinate their actions continent-wide.",
+        "details": [
+          "Online knowledge-sharing platform",
+          "Thematic collaboration spaces",
+          "Peer mentoring system",
+          "Coordination tools for pan-African campaigns"
+        ]
+      },
+      {
+        "titre": "AfricTivistes Summits",
+        "description": "Organization of continental and regional summits bringing together change agents, partners and institutions to chart the future of digital democracy in Africa.",
+        "details": [
+          "Biennial summits with 300+ participants from 35+ countries",
+          "Thematic regional events",
+          "Networking and co-creation sessions",
+          "Collective declarations and roadmaps"
+        ]
+      },
+      {
+        "titre": "Communities of good practices",
+        "description": "Facilitation of transnational thematic communities enabling exchange of best practices and mutual strengthening among change agents.",
+        "details": [
+          "8 communities of actors empowered",
+          "Active thematic working groups",
+          "Sharing of tools and methodologies",
+          "Documentation of African best practices"
+        ]
+      }
+    ],
+    "impact": {
+      "chiffres": [
+        { "valeur": "400+", "label": "Active members" },
+        { "valeur": "45", "label": "Countries represented" },
+        { "valeur": "8", "label": "Communities empowered" },
+        { "valeur": "2", "label": "Continental summits" }
+      ]
+    },
+    "programmes": [
+      "AfricTivistes Civic Engagement Tour (ACET)",
+      "PICA Platform",
+      "AfricTivistes Summits",
+      "Communities of good practices"
+    ]
+  }
+}

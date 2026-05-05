@@ -1,0 +1,8 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import IndexPage from "@/components/pages/Index";
+const lang = "fr";
+---
+<BaseLayout lang={lang}>
+  <IndexPage client:only="react" />
+</BaseLayout>

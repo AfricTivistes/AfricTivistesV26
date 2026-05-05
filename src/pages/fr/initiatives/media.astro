@@ -1,0 +1,10 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ThematiquePage from "@/components/pages/ThematiquePage";
+import { thematiques } from "@/data/thematiques";
+const lang = "fr";
+const data = thematiques["media"];
+---
+<BaseLayout lang={lang}>
+  <ThematiquePage data={data} client:only="react" />
+</BaseLayout>

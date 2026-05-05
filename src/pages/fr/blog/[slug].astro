@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import BlogPost from "@/components/pages/BlogPost";
+import { fetchPostBySlug } from "@/lib/wordpress";
+
+const lang = "fr";
+const { slug } = Astro.params;
+
+let post = null;
+try {
+  post = await fetchPostBySlug(slug);
+} catch (err) {
+  console.error("[BlogPost SSR prefetch] failed:", err);
+}
+
+const preload = post ? [{ key: ["post", slug], data: post }] : [];
+---
+<BaseLayout lang={lang}>
+  <script is:inline define:vars={{ slug, preload }}>
+    window.__ASTRO_PARAMS__ = { slug };
+    window.__PRELOAD__ = preload;
+  </script>
+  <BlogPost client:only="react" />
+</BaseLayout>

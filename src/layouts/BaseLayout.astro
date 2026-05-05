@@ -1,0 +1,41 @@
+---
+import "@/index.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: "fr" | "en";
+}
+
+const {
+  title = "AfricTivistes - Ligue des Cybercitoyens Africains",
+  description = "AfricTivistes est une organisation panafricaine de civic tech qui promeut la démocratie numérique en Afrique.",
+  lang = "fr",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="AfricTivistes" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://africtivistes.org" />
+    <meta property="og:image" content="https://africtivistes.org/favicon.svg" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@AfricTivistes" />
+    <meta name="twitter:image" content="https://africtivistes.org/favicon.svg" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

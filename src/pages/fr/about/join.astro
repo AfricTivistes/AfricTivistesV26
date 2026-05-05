@@ -1,0 +1,8 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AdhesionPage from "@/components/pages/Adhesion";
+const lang = "fr";
+---
+<BaseLayout lang={lang}>
+  <AdhesionPage client:only="react" />
+</BaseLayout>

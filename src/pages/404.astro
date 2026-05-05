@@ -1,0 +1,9 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import NotFound from "@/components/pages/NotFound";
+const lang = "fr";
+Astro.response.status = 404;
+---
+<BaseLayout lang={lang}>
+  <NotFound client:only="react" />
+</BaseLayout>

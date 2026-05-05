@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ProjetDetail from "@/components/pages/ProjetDetail";
+import { fetchProjetBySlugWithLang } from "@/lib/wordpress";
+
+const lang = "fr";
+const { slug } = Astro.params;
+
+let projet = null;
+try {
+  projet = await fetchProjetBySlugWithLang(slug, lang);
+} catch (err) {
+  console.error("[ProjetDetail SSR prefetch] failed:", err);
+}
+
+const preload = projet ? [{ key: ["projet", slug, lang], data: projet }] : [];
+---
+<BaseLayout lang={lang}>
+  <script is:inline define:vars={{ slug, preload }}>
+    window.__ASTRO_PARAMS__ = { slug };
+    window.__PRELOAD__ = preload;
+  </script>
+  <ProjetDetail client:only="react" />
+</BaseLayout>

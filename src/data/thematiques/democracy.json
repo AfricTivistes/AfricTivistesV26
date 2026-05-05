@@ -1,0 +1,153 @@
+{
+  "slug": "democracy",
+  "route": "/initiatives/democracy",
+  "icon": "Vote",
+  "color": "text-red-700",
+  "bgSolid": "bg-red-700",
+  "bg": "bg-red-700/10",
+  "borderColor": "border-red-700/30",
+  "gradientFrom": "from-red-700",
+  "gradientTo": "to-red-900",
+  "titleKey": "nav.projects.democracy",
+  "descKey": "projectThemes.democracy.desc",
+  "fr": {
+    "heroTitle": "Élections, Démocratie et Gouvernance",
+    "heroSubtitle": "Renforcer l'intégration du numérique dans les processus électoraux démocratiques en Afrique.",
+    "introduction": "Ce pilier stratégique a pour objectif de renforcer l'intégration du numérique dans les processus électoraux démocratiques en Afrique. Face aux manipulations électorales, aux restrictions de l'espace civique et aux défis de transparence, AfricTivistes développe des outils et des méthodologies innovantes pour garantir des élections libres, transparentes et inclusives sur le continent.",
+    "vision": "Des processus électoraux transparents et inclusifs en Afrique, soutenus par des outils numériques fiables et une citoyenneté vigilante et informée.",
+    "objectifs": [
+      "Développer des outils numériques de pointe pour l'observation électorale citoyenne",
+      "Renforcer les capacités des acteurs citoyens pour le monitoring des processus électoraux",
+      "Mettre en place des plateformes régionales d'information électorale",
+      "Créer des outils de transparence électorale accessibles à tous",
+      "Former les observateurs électoraux aux méthodologies numériques",
+      "Documenter et analyser les processus électoraux africains"
+    ],
+    "actions": [
+      {
+        "titre": "Observation électorale numérique",
+        "description": "Déploiement de plateformes et d'outils numériques pour l'observation citoyenne des élections, permettant une collecte et une analyse des données en temps réel.",
+        "details": [
+          "Développement de plateformes de remontée d'incidents électoraux",
+          "Formation d'observateurs citoyens aux outils numériques",
+          "Couverture en temps réel des élections présidentielles",
+          "Publication de rapports d'observation électorale"
+        ]
+      },
+      {
+        "titre": "Renforcement des capacités électorales",
+        "description": "Programmes de formation pour les acteurs civiques, les journalistes et les citoyens sur les processus électoraux et les droits démocratiques.",
+        "details": [
+          "MOOC Démocratie, Élections et Gouvernance avec 2000+ inscrits",
+          "Ateliers de formation dans les pays en période électorale",
+          "Guides pratiques pour les observateurs citoyens",
+          "Webinaires thématiques sur la gouvernance démocratique"
+        ]
+      },
+      {
+        "titre": "Plateformes d'information électorale",
+        "description": "Création et gestion de plateformes régionales fournissant des informations fiables et vérifiées sur les processus électoraux en Afrique.",
+        "details": [
+          "Agrégation d'informations électorales vérifiées",
+          "Cartographie interactive des processus électoraux",
+          "Alertes en temps réel sur les incidents électoraux",
+          "Base de données des résultats électoraux africains"
+        ]
+      },
+      {
+        "titre": "Plaidoyer pour la démocratie",
+        "description": "Actions de plaidoyer et de sensibilisation pour la défense des droits démocratiques, la liberté d'expression et l'espace civique en Afrique.",
+        "details": [
+          "Communiqués et déclarations sur les atteintes aux droits démocratiques",
+          "Coalitions avec les organisations de la société civile",
+          "Campagnes de sensibilisation sur les droits civiques",
+          "Soutien aux activistes et journalistes en danger"
+        ]
+      }
+    ],
+    "impact": {
+      "chiffres": [
+        { "valeur": "15+", "label": "Élections couvertes" },
+        { "valeur": "2 000+", "label": "Inscrits au MOOC" },
+        { "valeur": "45", "label": "Pays couverts" },
+        { "valeur": "500+", "label": "Observateurs formés" }
+      ]
+    },
+    "programmes": [
+      "Observation électorale numérique",
+      "MOOC Démocratie, Élections et Gouvernance",
+      "Plateforme d'information électorale",
+      "Programme de plaidoyer démocratique"
+    ]
+  },
+  "en": {
+    "heroTitle": "Elections, Democracy and Governance",
+    "heroSubtitle": "Strengthening digital integration in democratic electoral processes in Africa.",
+    "introduction": "This strategic pillar aims to strengthen the integration of digital tools in democratic electoral processes in Africa. Faced with electoral manipulation, restrictions on civic space and transparency challenges, AfricTivistes develops innovative tools and methodologies to ensure free, transparent and inclusive elections across the continent.",
+    "vision": "Transparent and inclusive electoral processes in Africa, supported by reliable digital tools and a vigilant, informed citizenry.",
+    "objectifs": [
+      "Develop cutting-edge digital tools for citizen election observation",
+      "Strengthen the capacities of civic actors for electoral process monitoring",
+      "Establish regional electoral information platforms",
+      "Create electoral transparency tools accessible to all",
+      "Train election observers in digital methodologies",
+      "Document and analyze African electoral processes"
+    ],
+    "actions": [
+      {
+        "titre": "Digital election observation",
+        "description": "Deployment of digital platforms and tools for citizen election observation, enabling real-time data collection and analysis.",
+        "details": [
+          "Development of electoral incident reporting platforms",
+          "Training citizen observers in digital tools",
+          "Real-time coverage of presidential elections",
+          "Publication of election observation reports"
+        ]
+      },
+      {
+        "titre": "Electoral capacity building",
+        "description": "Training programs for civic actors, journalists and citizens on electoral processes and democratic rights.",
+        "details": [
+          "MOOC on Democracy, Elections and Governance with 2000+ enrollees",
+          "Training workshops in countries during electoral periods",
+          "Practical guides for citizen observers",
+          "Thematic webinars on democratic governance"
+        ]
+      },
+      {
+        "titre": "Electoral information platforms",
+        "description": "Creation and management of regional platforms providing reliable and verified information on electoral processes in Africa.",
+        "details": [
+          "Aggregation of verified electoral information",
+          "Interactive mapping of electoral processes",
+          "Real-time alerts on electoral incidents",
+          "Database of African electoral results"
+        ]
+      },
+      {
+        "titre": "Advocacy for democracy",
+        "description": "Advocacy and awareness-raising actions for the defense of democratic rights, freedom of expression and civic space in Africa.",
+        "details": [
+          "Statements and declarations on democratic rights violations",
+          "Coalitions with civil society organizations",
+          "Awareness campaigns on civic rights",
+          "Support for at-risk activists and journalists"
+        ]
+      }
+    ],
+    "impact": {
+      "chiffres": [
+        { "valeur": "15+", "label": "Elections covered" },
+        { "valeur": "2,000+", "label": "MOOC enrollees" },
+        { "valeur": "45", "label": "Countries covered" },
+        { "valeur": "500+", "label": "Observers trained" }
+      ]
+    },
+    "programmes": [
+      "Digital election observation",
+      "MOOC on Democracy, Elections and Governance",
+      "Electoral information platform",
+      "Democratic advocacy programme"
+    ]
+  }
+}

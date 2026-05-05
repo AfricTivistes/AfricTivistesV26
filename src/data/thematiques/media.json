@@ -1,0 +1,153 @@
+{
+  "slug": "media",
+  "route": "/initiatives/media",
+  "icon": "Radio",
+  "color": "text-orange-600",
+  "bgSolid": "bg-orange-600",
+  "bg": "bg-orange-600/10",
+  "borderColor": "border-orange-600/30",
+  "gradientFrom": "from-orange-600",
+  "gradientTo": "to-red-700",
+  "titleKey": "nav.projects.media",
+  "descKey": "projectThemes.media.desc",
+  "fr": {
+    "heroTitle": "Médias et Résilience Informationnelle",
+    "heroSubtitle": "Consolider la résilience des médias et des acteurs de l'information face aux menaces numériques.",
+    "introduction": "Ce pilier se concentre sur la consolidation de la résilience des médias et des acteurs de l'information en Afrique. Face à la montée de la désinformation, des manipulations informationnelles et des menaces cybernétiques, AfricTivistes développe des programmes de protection, de formation et de soutien pour les journalistes et les médias indépendants du continent.",
+    "vision": "Un espace informationnel africain sain, résilient et pluraliste, où les médias indépendants et les journalistes disposent des compétences et des outils nécessaires pour exercer leur mission en toute sécurité.",
+    "objectifs": [
+      "Former les journalistes et les acteurs des médias à la cybersécurité et à la protection numérique",
+      "Développer des outils de protection adaptés au contexte africain",
+      "Lutter contre la désinformation par la mise en place de brigades de vérification",
+      "Soutenir les médias indépendants menacés",
+      "Renforcer la résilience informationnelle des communautés africaines",
+      "Documenter et analyser les menaces informationnelles sur le continent"
+    ],
+    "actions": [
+      {
+        "titre": "Cybersécurité pour les journalistes",
+        "description": "Programmes de formation en cybersécurité adaptés aux réalités des journalistes africains, couvrant la protection des sources, la sécurité des communications et la prévention des cyberattaques.",
+        "details": [
+          "Formations en présentiel et en ligne sur la sécurité numérique",
+          "Distribution d'outils de protection (VPN, chiffrement, etc.)",
+          "Accompagnement personnalisé pour les journalistes en danger",
+          "Création d'un réseau d'entraide en cybersécurité médiatique"
+        ]
+      },
+      {
+        "titre": "Lutte contre la désinformation",
+        "description": "Mise en place de brigades de vérification et de dispositifs de fact-checking pour contrer la désinformation et les manipulations informationnelles en Afrique.",
+        "details": [
+          "Formation de vérificateurs d'informations dans plusieurs pays",
+          "Développement d'outils de détection de la désinformation",
+          "Campagnes de sensibilisation à la littératie médiatique",
+          "Recherche analytique sur la manipulation de l'information (FIMI)"
+        ]
+      },
+      {
+        "titre": "Soutien aux médias indépendants",
+        "description": "Programme de soutien technique, éditorial et financier aux médias indépendants africains menacés ou en difficulté.",
+        "details": [
+          "Soutien technique pour la sécurisation des infrastructures médiatiques",
+          "Formation aux modèles économiques durables pour les médias",
+          "Plaidoyer pour la liberté de la presse et la protection des journalistes",
+          "Mise en réseau des médias indépendants africains"
+        ]
+      },
+      {
+        "titre": "Recherche sur les menaces informationnelles",
+        "description": "Recherche et documentation sur la manipulation et l'ingérence étrangère par l'information (FIMI) en Afrique, avec des recommandations pour renforcer la résilience démocratique.",
+        "details": [
+          "Rapport analytique FIMI au Sénégal et dans d'autres pays",
+          "Analyse des dynamiques de manipulation informationnelle",
+          "Recommandations pour les institutions et les médias",
+          "Conférences et présentations des résultats de recherche"
+        ]
+      }
+    ],
+    "impact": {
+      "chiffres": [
+        { "valeur": "200+", "label": "Journalistes formés" },
+        { "valeur": "15+", "label": "Pays d'intervention" },
+        { "valeur": "50+", "label": "Médias soutenus" },
+        { "valeur": "3", "label": "Rapports FIMI publiés" }
+      ]
+    },
+    "programmes": [
+      "Programme de cybersécurité médiatique",
+      "Brigades de vérification",
+      "Soutien aux médias indépendants",
+      "Recherche FIMI"
+    ]
+  },
+  "en": {
+    "heroTitle": "Media and Informational Resilience",
+    "heroSubtitle": "Strengthening the resilience of media and information actors against digital threats.",
+    "introduction": "This pillar focuses on strengthening the resilience of media and information actors in Africa. Faced with the rise of disinformation, information manipulation and cyber threats, AfricTivistes develops protection, training and support programs for journalists and independent media across the continent.",
+    "vision": "A healthy, resilient and pluralistic African information space where independent media and journalists have the skills and tools needed to carry out their mission safely.",
+    "objectifs": [
+      "Train journalists and media actors in cybersecurity and digital protection",
+      "Develop protection tools adapted to the African context",
+      "Fight disinformation through the establishment of verification brigades",
+      "Support threatened independent media",
+      "Strengthen the informational resilience of African communities",
+      "Document and analyze information threats on the continent"
+    ],
+    "actions": [
+      {
+        "titre": "Cybersecurity for journalists",
+        "description": "Cybersecurity training programs adapted to the realities of African journalists, covering source protection, communication security and cyberattack prevention.",
+        "details": [
+          "In-person and online digital security training",
+          "Distribution of protection tools (VPN, encryption, etc.)",
+          "Personalized support for journalists at risk",
+          "Creation of a media cybersecurity support network"
+        ]
+      },
+      {
+        "titre": "Fight against disinformation",
+        "description": "Establishment of verification brigades and fact-checking mechanisms to counter disinformation and information manipulation in Africa.",
+        "details": [
+          "Training of information verifiers in multiple countries",
+          "Development of disinformation detection tools",
+          "Media literacy awareness campaigns",
+          "Analytical research on foreign information manipulation (FIMI)"
+        ]
+      },
+      {
+        "titre": "Support for independent media",
+        "description": "Technical, editorial and financial support program for threatened or struggling African independent media.",
+        "details": [
+          "Technical support for securing media infrastructure",
+          "Training on sustainable business models for media",
+          "Advocacy for press freedom and journalist protection",
+          "Networking of African independent media"
+        ]
+      },
+      {
+        "titre": "Research on information threats",
+        "description": "Research and documentation on foreign information manipulation and interference (FIMI) in Africa, with recommendations to strengthen democratic resilience.",
+        "details": [
+          "FIMI analytical report in Senegal and other countries",
+          "Analysis of information manipulation dynamics",
+          "Recommendations for institutions and media",
+          "Conferences and presentation of research findings"
+        ]
+      }
+    ],
+    "impact": {
+      "chiffres": [
+        { "valeur": "200+", "label": "Journalists trained" },
+        { "valeur": "15+", "label": "Countries of intervention" },
+        { "valeur": "50+", "label": "Media supported" },
+        { "valeur": "3", "label": "FIMI reports published" }
+      ]
+    },
+    "programmes": [
+      "Media cybersecurity programme",
+      "Verification brigades",
+      "Independent media support",
+      "FIMI Research"
+    ]
+  }
+}

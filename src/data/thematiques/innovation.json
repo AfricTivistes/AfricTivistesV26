@@ -1,0 +1,154 @@
+{
+  "slug": "innovation",
+  "route": "/initiatives/innovation",
+  "icon": "Lightbulb",
+  "color": "text-amber-400",
+  "bgSolid": "bg-amber-400",
+  "bg": "bg-amber-400/10",
+  "borderColor": "border-amber-400/30",
+  "gradientFrom": "from-amber-400",
+  "gradientTo": "to-yellow-500",
+  "heroImage": "https://update.africtivistes.org/wp-content/uploads/2025/03/Plan-strategique-AfricTivistes-Francais-1.pdf",
+  "titleKey": "nav.projects.innovation",
+  "descKey": "projectThemes.innovation.desc",
+  "fr": {
+    "heroTitle": "Innovation Technologique et Participation Citoyenne",
+    "heroSubtitle": "Renforcer la participation citoyenne par l'innovation technologique, l'intelligence artificielle et l'endogénéité.",
+    "introduction": "Ce pilier stratégique vise à positionner AfricTivistes comme un catalyseur de l'innovation technologique au service de la démocratie et de la participation citoyenne en Afrique. En misant sur l'intelligence artificielle, la blockchain et les solutions technologiques endogènes, nous cherchons à transformer la manière dont les citoyens interagissent avec les institutions et participent à la vie publique.",
+    "vision": "Une Afrique où la technologie endogène sert de levier à la démocratie participative et à l'engagement citoyen, permettant à chaque citoyen de contribuer activement à la gouvernance de son pays.",
+    "objectifs": [
+      "Identifier et développer les talents technologiques africains à travers des hackathons et des programmes d'incubation",
+      "Développer des solutions technologiques locales adaptées aux réalités africaines",
+      "Mettre en place des laboratoires d'innovation citoyenne (CitizenLab) dans plusieurs pays",
+      "Utiliser la blockchain pour renforcer la transparence et la gouvernance",
+      "Intégrer l'intelligence artificielle dans la lutte contre la désinformation",
+      "Promouvoir l'endogénéité technologique et la souveraineté numérique"
+    ],
+    "actions": [
+      {
+        "titre": "AfricTivistes CitizenLab",
+        "description": "Déploiement de laboratoires d'innovation citoyenne dans plusieurs pays africains. Ces espaces servent d'incubateurs pour les projets civic tech portés par les jeunes et les communautés locales.",
+        "details": [
+          "Installation de CitizenLabs au Bénin, Madagascar, Mauritanie, Tchad, Cameroun, Guinée et Sénégal",
+          "Formation théorique et pratique de 40 acteurs de changement par pays",
+          "Accompagnement de projets d'innovation citoyenne locaux",
+          "Création d'écosystèmes technologiques durables"
+        ]
+      },
+      {
+        "titre": "Hackathons et identification de talents",
+        "description": "Organisation de hackathons panafricains pour identifier les talents technologiques et stimuler l'innovation civic tech sur le continent.",
+        "details": [
+          "Hackathons thématiques sur la gouvernance, l'élection et la transparence",
+          "Programmes de mentorat pour les développeurs africains",
+          "Financement de projets innovants issus des hackathons",
+          "Création d'un réseau de développeurs civic tech"
+        ]
+      },
+      {
+        "titre": "Fonds de l'innovation pour la participation citoyenne",
+        "description": "Le Election Civic Tech Fund finance et accompagne les projets innovants qui utilisent la technologie pour renforcer la participation citoyenne dans les processus électoraux en Afrique.",
+        "details": [
+          "Sélection et financement de 12 projets civic tech parmi plus de 170 candidatures",
+          "Accompagnement technique et mentorat des porteurs de projets",
+          "Mise en réseau avec les partenaires et les institutions",
+          "Suivi et évaluation de l'impact des projets financés"
+        ]
+      },
+      {
+        "titre": "Intelligence artificielle et blockchain",
+        "description": "Exploration et intégration des technologies avancées pour la gouvernance et la lutte contre la désinformation.",
+        "details": [
+          "Développement d'outils IA pour la vérification d'informations",
+          "Pilotes blockchain pour la transparence électorale",
+          "Formation aux technologies émergentes pour les acteurs civiques",
+          "Recherche sur les applications de l'IA pour la démocratie"
+        ]
+      }
+    ],
+    "impact": {
+      "chiffres": [
+        { "valeur": "7", "label": "CitizenLabs déployés" },
+        { "valeur": "280+", "label": "Acteurs formés" },
+        { "valeur": "170+", "label": "Candidatures au Fonds" },
+        { "valeur": "12", "label": "Projets financés" }
+      ]
+    },
+    "programmes": [
+      "AfricTivistes CitizenLab",
+      "Election Civic Tech Fund",
+      "Hackathons panafricains",
+      "Programme IA & Blockchain"
+    ]
+  },
+  "en": {
+    "heroTitle": "Technological Innovation and Citizen Participation",
+    "heroSubtitle": "Strengthening citizen participation through technological innovation, artificial intelligence and endogeneity.",
+    "introduction": "This strategic pillar aims to position AfricTivistes as a catalyst for technological innovation in service of democracy and citizen participation in Africa. By leveraging artificial intelligence, blockchain and endogenous technological solutions, we seek to transform how citizens interact with institutions and participate in public life.",
+    "vision": "An Africa where endogenous technology serves as a lever for participatory democracy and citizen engagement, enabling every citizen to actively contribute to the governance of their country.",
+    "objectifs": [
+      "Identify and develop African technological talent through hackathons and incubation programs",
+      "Develop local technological solutions adapted to African realities",
+      "Establish citizen innovation laboratories (CitizenLab) in multiple countries",
+      "Use blockchain to strengthen transparency and governance",
+      "Integrate artificial intelligence in the fight against disinformation",
+      "Promote technological endogeneity and digital sovereignty"
+    ],
+    "actions": [
+      {
+        "titre": "AfricTivistes CitizenLab",
+        "description": "Deployment of citizen innovation laboratories across multiple African countries. These spaces serve as incubators for civic tech projects led by youth and local communities.",
+        "details": [
+          "Installation of CitizenLabs in Benin, Madagascar, Mauritania, Chad, Cameroon, Guinea and Senegal",
+          "Theoretical and practical training of 40 change agents per country",
+          "Support for local citizen innovation projects",
+          "Creation of sustainable technological ecosystems"
+        ]
+      },
+      {
+        "titre": "Hackathons and talent identification",
+        "description": "Organization of pan-African hackathons to identify technological talent and stimulate civic tech innovation across the continent.",
+        "details": [
+          "Thematic hackathons on governance, elections and transparency",
+          "Mentoring programs for African developers",
+          "Funding of innovative projects from hackathons",
+          "Creation of a civic tech developer network"
+        ]
+      },
+      {
+        "titre": "Innovation Fund for Citizen Participation",
+        "description": "The Election Civic Tech Fund finances and supports innovative projects that use technology to strengthen citizen participation in electoral processes in Africa.",
+        "details": [
+          "Selection and funding of 12 civic tech projects from over 170 applications",
+          "Technical support and mentoring for project leaders",
+          "Networking with partners and institutions",
+          "Monitoring and evaluation of funded project impact"
+        ]
+      },
+      {
+        "titre": "Artificial Intelligence and Blockchain",
+        "description": "Exploration and integration of advanced technologies for governance and the fight against disinformation.",
+        "details": [
+          "Development of AI tools for information verification",
+          "Blockchain pilots for electoral transparency",
+          "Training in emerging technologies for civic actors",
+          "Research on AI applications for democracy"
+        ]
+      }
+    ],
+    "impact": {
+      "chiffres": [
+        { "valeur": "7", "label": "CitizenLabs deployed" },
+        { "valeur": "280+", "label": "Agents trained" },
+        { "valeur": "170+", "label": "Fund applications" },
+        { "valeur": "12", "label": "Projects funded" }
+      ]
+    },
+    "programmes": [
+      "AfricTivistes CitizenLab",
+      "Election Civic Tech Fund",
+      "Pan-African Hackathons",
+      "AI & Blockchain Programme"
+    ]
+  }
+}

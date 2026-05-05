@@ -1,0 +1,153 @@
+{
+  "slug": "training",
+  "route": "/initiatives/training",
+  "icon": "BookOpen",
+  "color": "text-emerald-700",
+  "bgSolid": "bg-emerald-700",
+  "bg": "bg-emerald-700/10",
+  "borderColor": "border-emerald-700/30",
+  "gradientFrom": "from-emerald-700",
+  "gradientTo": "to-green-900",
+  "titleKey": "nav.projects.training",
+  "descKey": "projectThemes.training.desc",
+  "fr": {
+    "heroTitle": "Formation, Recherche et Documentation",
+    "heroSubtitle": "Développer les programmes d'accès à la connaissance et promouvoir la recherche/action sur la démocratie et la participation citoyenne.",
+    "introduction": "Ce pilier vise à développer les programmes d'accès à la connaissance et la promotion de la recherche/action sur la démocratie et la participation citoyenne en Afrique. AfricTivistes investit dans la création de savoirs, la formation continue et la documentation des expériences citoyennes pour construire une base de connaissances solide au service du continent.",
+    "vision": "Un écosystème africain de connaissance et de recherche sur la citoyenneté numérique, où chaque acteur de changement a accès aux formations, aux outils et aux connaissances nécessaires pour agir efficacement.",
+    "objectifs": [
+      "Créer des centres de recherche sur la citoyenneté numérique et la démocratie",
+      "Développer des programmes de formation en ligne accessibles et de qualité",
+      "Documenter les expériences citoyennes et les bonnes pratiques africaines",
+      "Produire des recherches et des analyses thématiques de référence",
+      "Mettre en place une académie de formation permanente",
+      "Publier des ressources pédagogiques ouvertes et multilingues"
+    ],
+    "actions": [
+      {
+        "titre": "AfricTivistes Academy",
+        "description": "Plateforme de formation en ligne offrant des cours et des certifications sur la citoyenneté numérique, la governance, les droits numériques et les civic tech.",
+        "details": [
+          "Cours en ligne accessibles en français et en anglais",
+          "Certifications reconnues en civic tech et gouvernance numérique",
+          "Parcours de formation adaptés aux différents profils",
+          "Accompagnement pédagogique et mentorat"
+        ]
+      },
+      {
+        "titre": "MOOC Démocratie, Élections et Gouvernance",
+        "description": "Formation massive ouverte en ligne (MOOC) sur la démocratie, les processus électoraux et la gouvernance en Afrique, accessible gratuitement à tous.",
+        "details": [
+          "Plus de 2 000 apprenants inscrits depuis le lancement",
+          "Modules couvrant la démocratie, les élections et la gouvernance",
+          "Certifications de fin de parcours",
+          "Communauté d'apprenants actifs"
+        ]
+      },
+      {
+        "titre": "Recherche et publications",
+        "description": "Production de recherches, d'analyses et de publications thématiques sur la démocratie numérique, la participation citoyenne et les droits numériques en Afrique.",
+        "details": [
+          "Rapports de recherche sur les enjeux démocratiques numériques",
+          "Analyses thématiques sur la manipulation de l'information",
+          "Publications sur les bonnes pratiques civic tech",
+          "Contributions aux revues académiques et conférences"
+        ]
+      },
+      {
+        "titre": "Boîte à outils #TaxawTemm",
+        "description": "Ensemble de ressources pédagogiques et méthodologiques en accès libre pour les acteurs de changement, les organisations de la société civile et les citoyens engagés.",
+        "details": [
+          "Guides pratiques sur l'observation électorale",
+          "Fiches méthodologiques pour les campagnes numériques",
+          "Ressources de formation à la cybersécurité",
+          "Outils de plaidoyer et de mobilisation citoyenne"
+        ]
+      }
+    ],
+    "impact": {
+      "chiffres": [
+        { "valeur": "2 000+", "label": "Apprenants MOOC" },
+        { "valeur": "500+", "label": "Certifications délivrées" },
+        { "valeur": "20+", "label": "Publications de recherche" },
+        { "valeur": "10+", "label": "Programmes de formation" }
+      ]
+    },
+    "programmes": [
+      "AfricTivistes Academy",
+      "MOOC Démocratie, Élections et Gouvernance",
+      "Programme de recherche",
+      "Boîte à outils #TaxawTemm"
+    ]
+  },
+  "en": {
+    "heroTitle": "Training, Research and Documentation",
+    "heroSubtitle": "Developing knowledge access programmes and promoting research/action on democracy and citizen participation.",
+    "introduction": "This pillar aims to develop knowledge access programmes and promote research/action on democracy and citizen participation in Africa. AfricTivistes invests in knowledge creation, continuous training and documentation of citizen experiences to build a solid knowledge base serving the continent.",
+    "vision": "An African ecosystem of knowledge and research on digital citizenship, where every change agent has access to the training, tools and knowledge needed to act effectively.",
+    "objectifs": [
+      "Create research centers on digital citizenship and democracy",
+      "Develop accessible, quality online training programmes",
+      "Document citizen experiences and African best practices",
+      "Produce benchmark thematic research and analyses",
+      "Establish a permanent training academy",
+      "Publish open and multilingual educational resources"
+    ],
+    "actions": [
+      {
+        "titre": "AfricTivistes Academy",
+        "description": "Online training platform offering courses and certifications on digital citizenship, governance, digital rights and civic tech.",
+        "details": [
+          "Online courses accessible in French and English",
+          "Recognized certifications in civic tech and digital governance",
+          "Training paths adapted to different profiles",
+          "Pedagogical support and mentoring"
+        ]
+      },
+      {
+        "titre": "MOOC on Democracy, Elections and Governance",
+        "description": "Massive Open Online Course (MOOC) on democracy, electoral processes and governance in Africa, freely accessible to all.",
+        "details": [
+          "Over 2,000 learners enrolled since launch",
+          "Modules covering democracy, elections and governance",
+          "End-of-course certifications",
+          "Active learner community"
+        ]
+      },
+      {
+        "titre": "Research and publications",
+        "description": "Production of research, analyses and thematic publications on digital democracy, citizen participation and digital rights in Africa.",
+        "details": [
+          "Research reports on digital democratic issues",
+          "Thematic analyses on information manipulation",
+          "Publications on civic tech best practices",
+          "Contributions to academic journals and conferences"
+        ]
+      },
+      {
+        "titre": "#TaxawTemm Toolkit",
+        "description": "Set of pedagogical and methodological resources in open access for change agents, civil society organizations and engaged citizens.",
+        "details": [
+          "Practical guides on election observation",
+          "Methodology sheets for digital campaigns",
+          "Cybersecurity training resources",
+          "Advocacy and citizen mobilization tools"
+        ]
+      }
+    ],
+    "impact": {
+      "chiffres": [
+        { "valeur": "2,000+", "label": "MOOC learners" },
+        { "valeur": "500+", "label": "Certifications delivered" },
+        { "valeur": "20+", "label": "Research publications" },
+        { "valeur": "10+", "label": "Training programmes" }
+      ]
+    },
+    "programmes": [
+      "AfricTivistes Academy",
+      "MOOC on Democracy, Elections and Governance",
+      "Research Programme",
+      "#TaxawTemm Toolkit"
+    ]
+  }
+}

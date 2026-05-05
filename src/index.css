@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base -- #fefefe blanc, #000000 noir */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    /* Rouge AfricTivistes #aa201f -- couleur primaire */
+    --primary: 0 69% 39%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Jaune/Or AfricTivistes #febd59 */
+    --secondary: 37 99% 67%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 37 20% 94%;
+    --muted-foreground: 0 0% 35%;
+
+    /* Vert AfricTivistes #008037 */
+    --accent: 146 100% 25%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 69% 39%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 37 15% 88%;
+    --input: 37 15% 88%;
+    --ring: 0 69% 39%;
+
+    --radius: 0.75rem;
+
+    /* Brand tokens AfricTivistes */
+    --hero-gradient: linear-gradient(135deg, hsl(0, 69%, 30%) 0%, hsl(0, 60%, 20%) 50%, hsl(37, 70%, 40%) 100%);
+    --gold: 37 99% 67%;
+    --gold-light: 40 98% 78%;
+    --pan-red: 0 69% 39%;
+    --pan-green: 146 100% 25%;
+    --pan-gold: 37 99% 67%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 15%;
+    --sidebar-primary: 0 69% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 37 20% 96%;
+    --sidebar-accent-foreground: 0 0% 15%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 69% 39%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 96%;
+    /* Rouge plus clair en dark pour lisibilite */
+    --primary: 0 65% 50%;
+    --primary-foreground: 0 0% 100%;
+    /* Jaune/Or legerement desature en dark */
+    --secondary: 37 90% 60%;
+    --secondary-foreground: 0 0% 5%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 60%;
+    /* Vert plus clair en dark pour contraste */
+    --accent: 146 80% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 65% 40%;
+    --destructive-foreground: 0 0% 96%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 65% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+    line-height: 1.2;
+  }
+  
+  /* Amélioration de la lisibilité */
+  p {
+    line-height: 1.7;
+  }
+  
+  /* Amélioration du focus visible pour l'accessibilité */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+  
+  /* Skip to content link pour l'accessibilité */
+  .skip-to-content {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1rem 1.5rem;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    text-decoration: none;
+    border-radius: 0 0 0.5rem 0;
+  }
+  
+  .skip-to-content:focus {
+    left: 0;
+    top: 0;
+  }
+  
+  /* Amélioration du contraste pour le texte muted */
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+  }
+  
+  /* Meilleure gestion des mouvements pour les utilisateurs avec préférences réduites */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .pattern-african {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(var(--gold) / 0.08) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, hsl(var(--gold) / 0.06) 2px, transparent 2px),
+      radial-gradient(circle at 50% 50%, hsl(var(--pan-red) / 0.04) 1px, transparent 1px);
+    background-size: 60px 60px, 80px 80px, 40px 40px;
+  }
+  .pattern-kente {
+    background-image: 
+      repeating-linear-gradient(45deg, hsl(var(--gold) / 0.06) 0px, hsl(var(--gold) / 0.06) 2px, transparent 2px, transparent 20px),
+      repeating-linear-gradient(-45deg, hsl(var(--pan-green) / 0.05) 0px, hsl(var(--pan-green) / 0.05) 2px, transparent 2px, transparent 20px);
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Empêcher les images WordPress de déborder des conteneurs */
+  .prose img,
+  .section-container img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .prose figure,
+  .section-container figure {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .prose iframe,
+  .section-container iframe {
+    max-width: 100%;
+  }
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker {
+  animation: ticker 40s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+.animate-stats-ticker {
+  animation: ticker 20s linear infinite;
+}
+
+.animate-marquee {
+  animation: ticker 6s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-reverse {
+  animation: ticker-reverse 6s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+@media (min-width: 768px) {
+  .animate-marquee {
+    animation-duration: 12s;
+  }
+  .animate-marquee-reverse {
+    animation-duration: 12s;
+  }
+}
+
+@keyframes ticker-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

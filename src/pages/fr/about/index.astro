@@ -1,0 +1,8 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AboutPage from "@/components/pages/About";
+const lang = "fr";
+---
+<BaseLayout lang={lang}>
+  <AboutPage client:only="react" />
+</BaseLayout>

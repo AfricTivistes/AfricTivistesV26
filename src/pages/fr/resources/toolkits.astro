@@ -1,0 +1,8 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ResourcesToolkits from "@/components/pages/ResourcesToolkits";
+const lang = "fr";
+---
+<BaseLayout lang={lang}>
+  <ResourcesToolkits client:only="react" />
+</BaseLayout>
