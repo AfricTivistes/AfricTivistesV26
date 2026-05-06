@@ -5,7 +5,7 @@ import StickyArticlesTicker from "@/components/StickyArticlesTicker";
 import AboutPreview from "@/components/AboutPreview.astro";
 import VideoPlaylist from "@/components/VideoPlaylist";
 import LatestNews from "@/components/LatestNews.astro";
-import StatsSection from "@/components/StatsSection";
+import StatsSection from "@/components/StatsSection.astro";
 import Publications from "@/components/Publications";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import ProjectThemes from "@/components/ProjectThemes.astro";
@@ -73,7 +73,7 @@ const preload = [
   <ProjectThemes lang={lang} />
   <ProjectsGrid lang={lang} client:visible />
   <VideoPlaylist lang={lang} client:visible />
-  <StatsSection lang={lang} client:visible />
+  <StatsSection lang={lang} />
   <Publications lang={lang} client:visible />
   <LatestNews lang={lang} />
   <Testimonials lang={lang} client:visible />

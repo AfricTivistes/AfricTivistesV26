@@ -1,0 +1,119 @@
+---
+import Reveal from "@/components/astro/Reveal.astro";
+import { t, type Lang } from "@/lib/i18n";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+
+const stats = [
+  { icon: "graduation-cap", value: 2000,   suffix: "+",  labelKey: "stats.trainees" },
+  { icon: "book-open-check", value: 7000,  suffix: "+",  labelKey: "stats.mooc" },
+  { icon: "laptop",         value: 3,      suffix: "",   labelKey: "stats.elearning" },
+  { icon: "vote",           value: 15,     suffix: "",   labelKey: "stats.elections" },
+  { icon: "shield-alert",   value: 10,     suffix: "+",  labelKey: "stats.activists" },
+  { icon: "wrench",         value: 7,      suffix: "",   labelKey: "stats.technical" },
+  { icon: "network",        value: 30,     suffix: "+",  labelKey: "stats.communities" },
+  { icon: "users",          value: 1200,   suffix: "+",  labelKey: "stats.summitParticipants" },
+  { icon: "award",          value: 7,      suffix: "",   labelKey: "stats.awards" },
+  { icon: "globe",          value: 30,     suffix: "+",  labelKey: "stats.youth" },
+  { icon: "cpu",            value: 25,     suffix: "+",  labelKey: "stats.civicTech" },
+  { icon: "bar-chart-2",    value: 25,     suffix: "+",  labelKey: "stats.research" },
+  { icon: "coins",          value: 420000, suffix: " €", labelKey: "stats.grants" },
+];
+
+const icons: Record<string, string> = {
+  "users": '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  "award": '<path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/>',
+  "globe": '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+  "graduation-cap": '<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>',
+  "book-open-check": '<path d="M12 21V7"/><path d="m16 12 2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/>',
+  "vote": '<path d="m9 12 2 2 4-4"/><path d="M5 7c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v12H5V7Z"/><path d="M22 19H2"/>',
+  "shield-alert": '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/>',
+  "network": '<rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/>',
+  "cpu": '<rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/>',
+  "wrench": '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
+  "bar-chart-2": '<line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/>',
+  "laptop": '<path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/>',
+  "coins": '<circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/>',
+};
+
+const yearsExistence = new Date().getFullYear() - 2015 - 1;
+const locale = lang === "fr" ? "fr-FR" : "en-US";
+const fmt = new Intl.NumberFormat(locale);
+---
+<section class="py-12 lg:py-16 bg-muted/40" aria-labelledby="stats-heading">
+  <div class="section-container">
+    <Reveal class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8">
+      <div>
+        <span class="text-sm font-semibold text-primary uppercase tracking-wider">
+          {t("stats.label", lang)}
+        </span>
+        <h2 id="stats-heading" class="text-2xl lg:text-3xl font-bold text-foreground mt-1">
+          <span class="text-primary">+{yearsExistence}</span> {t("stats.title", lang)}
+        </h2>
+      </div>
+    </Reveal>
+
+    <div
+      class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3"
+      role="list"
+      aria-label={t("stats.title", lang)}
+    >
+      {stats.map((stat, i) => (
+        <Reveal
+          delay={i * 40}
+          class="bg-card rounded-lg p-3 border border-border hover:border-primary/25 hover:shadow-sm transition-all group"
+        >
+          <div role="listitem">
+            <div class="w-7 h-7 rounded-md bg-primary/10 flex items-center justify-center mb-2 group-hover:bg-primary/20 transition-colors" aria-hidden="true">
+              <svg class="text-primary" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={icons[stat.icon]}></svg>
+            </div>
+            <div class="text-xl lg:text-2xl font-heading font-bold text-primary leading-none mb-1">
+              <span
+                class="tabular-nums stat-counter"
+                data-stat-value={stat.value}
+                data-stat-suffix={stat.suffix}
+                aria-label={`${stat.value}${stat.suffix}`}
+              >{fmt.format(stat.value)}{stat.suffix}</span>
+            </div>
+            <div class="text-[10px] text-muted-foreground leading-snug font-medium">
+              {t(stat.labelKey, lang)}
+            </div>
+          </div>
+        </Reveal>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script is:inline define:vars={{ locale }}>
+  (() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const fmt = new Intl.NumberFormat(locale);
+    const els = document.querySelectorAll(".stat-counter");
+    if (reduce || !("IntersectionObserver" in window)) return;
+    const tween = (el) => {
+      const value = Number(el.getAttribute("data-stat-value")) || 0;
+      const suffix = el.getAttribute("data-stat-suffix") || "";
+      const duration = Math.min(2000, Math.max(800, value * 2));
+      const start = performance.now();
+      el.textContent = "0" + suffix;
+      const step = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt.format(Math.floor(eased * value)) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          tween(e.target);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    els.forEach((el) => io.observe(el));
+  })();
+</script>
