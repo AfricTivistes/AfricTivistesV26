@@ -1,5 +1,5 @@
 import { withDataProviders } from "@/lib/withProviders";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { Send, User, Building2, Users as UsersIcon, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
 import { useI18n } from "@/lib/i18n";

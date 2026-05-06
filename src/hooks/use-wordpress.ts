@@ -27,13 +27,16 @@ import {
 } from "@/lib/wordpress";
 import { useI18n } from "@/lib/i18n";
 
-export function usePosts(options: Omit<FetchPostsOptions, "lang"> = {}) {
+export function usePosts(
+  options: Omit<FetchPostsOptions, "lang"> & { enabled?: boolean } = {},
+) {
   const { lang } = useI18n();
-  const { page = 1, perPage = 9, categories, categoriesExclude, search } = options;
+  const { page = 1, perPage = 9, categories, categoriesExclude, search, enabled = true } = options;
 
   return useQuery({
     queryKey: ["posts", { page, perPage, categories, categoriesExclude, search, lang }],
     queryFn: () => fetchPosts({ page, perPage, categories, categoriesExclude, search, lang }),
+    enabled,
   });
 }
 

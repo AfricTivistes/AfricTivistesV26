@@ -1,7 +1,7 @@
 import { withDataProviders } from "@/lib/withProviders";
 import { useState, useEffect } from "react";
 import { Link } from "@/lib/router-shim";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Wrench, Package, ChevronRight as ChevRight } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import { useI18n } from "@/lib/i18n";

@@ -1,6 +1,6 @@
 import { withDataProviders } from "@/lib/withProviders";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m as motion, AnimatePresence } from "framer-motion";
 import { Play, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
 import GradientHero from "@/components/GradientHero";
 import SectionHeader from "@/components/SectionHeader";

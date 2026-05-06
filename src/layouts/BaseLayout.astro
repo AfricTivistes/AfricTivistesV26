@@ -85,6 +85,10 @@ const isDefaultOg = ogImageUrl === "/og-default.jpg";
       />
     )}
 
+    {/* Preconnect to WordPress media CDN (used by most subpages) */}
+    <link rel="preconnect" href="https://update.africtivistes.org" crossorigin />
+    <link rel="dns-prefetch" href="https://update.africtivistes.org" />
+
     {/* Fonts: preconnect + non-blocking stylesheet.
         Reduced to actually-used weights (400/600/700) to keep payload small. */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -155,6 +159,6 @@ const isDefaultOg = ogImageUrl === "/og-default.jpg";
       </main>
       <Footer lang={lang} client:visible />
     </div>
-    <ToastersIsland client:load />
+      <ToastersIsland client:idle />
   </body>
 </html>

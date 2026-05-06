@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import type { WPProjet } from "@/lib/wordpress";
 import type { Lang } from "@/lib/i18n";
 

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { Eye } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import type { ThematiqueLangData } from "@/data/thematiques";

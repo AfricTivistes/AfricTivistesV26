@@ -2,7 +2,7 @@ import { withDataProviders } from "@/lib/withProviders";
 import { useState } from "react";
 import { Link, useLocation } from "@/lib/router-shim";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m as motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.svg?url";
 import { useI18n, type Lang } from "@/lib/i18n";
 import { CATEGORY_IDS } from "@/lib/wordpress";

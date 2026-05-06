@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { Link } from "@/lib/router-shim";
 import { ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";

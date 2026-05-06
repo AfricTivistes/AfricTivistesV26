@@ -1,5 +1,5 @@
 import { withDataProviders } from "@/lib/withProviders";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { Link } from "@/lib/router-shim";
 import { Lightbulb, Vote, Users, Radio, BookOpen, ArrowRight, LayoutGrid } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";

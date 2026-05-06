@@ -1,5 +1,5 @@
 import { withDataProviders } from "@/lib/withProviders";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 
 const galleryImages = [
   { src: "https://citizenlabbenin.org/_astro/formation1.bc0f03e8_daRtv.webp", alt: "Engagement citoyen" },

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { ArrowRight, Calendar, Globe } from "lucide-react";
 import { computeProgress, formatDate } from "@/lib/utils";
 import { getCountryName, stripHtml } from "@/lib/wordpress";

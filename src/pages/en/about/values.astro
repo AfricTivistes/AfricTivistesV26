@@ -1,4 +1,5 @@
 ---
+export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ValuesHero from "@/components/values/ValuesHero";
 import ValuesIntro from "@/components/values/ValuesIntro";
@@ -8,8 +9,9 @@ import ValuesPrinciples from "@/components/values/ValuesPrinciples";
 import ValuesGallery from "@/components/values/ValuesGallery";
 import CtaBanner from "@/components/CtaBanner";
 const lang = "en";
+const heroImage = "https://update.africtivistes.org/wp-content/uploads/2025/11/image.jpeg";
 ---
-<BaseLayout lang={lang}>
+<BaseLayout lang={lang} preloadImage={heroImage}>
   
     <ValuesHero lang={lang} client:load />
     <ValuesIntro lang={lang} client:visible />

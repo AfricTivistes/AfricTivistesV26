@@ -1,4 +1,5 @@
 ---
+export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero";
 import TwoColumnTextImage from "@/components/TwoColumnTextImage";
@@ -9,8 +10,9 @@ import ImpactMap from "@/components/ImpactMap";
 import CtaBanner from "@/components/CtaBanner";
 import WebPlatforms from "@/components/WebPlatforms";
 const lang = "en";
+const heroImage = "https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg";
 ---
-<BaseLayout lang={lang}>
+<BaseLayout lang={lang} preloadImage={heroImage}>
   
     <PageHero
       lang={lang} client:load

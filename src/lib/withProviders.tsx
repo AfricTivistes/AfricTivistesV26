@@ -1,10 +1,15 @@
 import type { ComponentType } from "react";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { LazyMotion } from "framer-motion";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { getQueryClient } from "@/lib/query-client";
 import { I18nProvider, type Lang } from "@/lib/i18n";
+
+// Lazy-loaded animation features keep framer-motion out of the critical path.
+// `domAnimation` adds ~21KB min only when an island actually animates (after hydration).
+const loadFeatures = () => import("framer-motion").then((mod) => mod.domAnimation);
 
 type WithLang<P> = P & { lang?: Lang };
 
@@ -22,11 +27,13 @@ export function withProviders<P extends object>(Component: ComponentType<P>): Co
   const Wrapped = ({ lang, ...rest }: WithLang<P>) => (
     <QueryClientProvider client={getQueryClient()}>
       <I18nProvider initialLang={lang}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <Component {...(rest as P)} />
-        </TooltipProvider>
+        <LazyMotion features={loadFeatures} strict>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <Component {...(rest as P)} />
+          </TooltipProvider>
+        </LazyMotion>
       </I18nProvider>
     </QueryClientProvider>
   );
@@ -48,9 +55,11 @@ export function withDataProviders<P extends object>(Component: ComponentType<P>)
   const Wrapped = ({ lang, ...rest }: WithLang<P>) => (
     <QueryClientProvider client={getQueryClient()}>
       <I18nProvider initialLang={lang}>
-        <TooltipProvider>
-          <Component {...(rest as P)} />
-        </TooltipProvider>
+        <LazyMotion features={loadFeatures} strict>
+          <TooltipProvider>
+            <Component {...(rest as P)} />
+          </TooltipProvider>
+        </LazyMotion>
       </I18nProvider>
     </QueryClientProvider>
   );

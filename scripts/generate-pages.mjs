@@ -31,6 +31,7 @@ const thematiqueRoutes = [
 
 function staticPage(lang, importName, importPath) {
   return `---
+export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ${importName} from "${importPath}";
 const lang = "${lang}";
@@ -43,6 +44,7 @@ const lang = "${lang}";
 
 function thematiquePage(lang, key) {
   return `---
+export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ThematiquePage from "@/components/pages/ThematiquePage";
 import { thematiques } from "@/data/thematiques";

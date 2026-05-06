@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { m as motion, AnimatePresence } from "framer-motion";
 import { Link } from "@/lib/router-shim";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import SectionHeading from "@/components/projet/SectionHeading";

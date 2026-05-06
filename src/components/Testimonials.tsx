@@ -1,5 +1,5 @@
 import { withDataProviders } from "@/lib/withProviders";
-import { motion, AnimatePresence } from "framer-motion";
+import { m as motion, AnimatePresence } from "framer-motion";
 import { useI18n, type Lang } from "@/lib/i18n";
 import { useState, useEffect, useCallback } from "react";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";

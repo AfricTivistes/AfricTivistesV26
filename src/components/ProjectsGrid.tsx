@@ -1,6 +1,6 @@
 import { withDataProviders } from "@/lib/withProviders";
 import { useState, useRef } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { m as motion, useAnimation } from "framer-motion";
 import { Link } from "@/lib/router-shim";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useQueryClient } from "@tanstack/react-query";

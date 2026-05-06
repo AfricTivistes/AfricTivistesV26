@@ -1,5 +1,5 @@
 import { withDataProviders } from "@/lib/withProviders";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import {
   Target, Heart, Users, Globe, Lightbulb, Shield, CheckCircle2,
 } from "lucide-react";

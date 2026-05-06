@@ -1,5 +1,5 @@
 import { Link } from "@/lib/router-shim";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { ChevronRight, Globe, MapPin } from "lucide-react";
 import { getCountryName } from "@/lib/wordpress";
 import { useI18n } from "@/lib/i18n";

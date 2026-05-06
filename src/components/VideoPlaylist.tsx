@@ -1,6 +1,6 @@
 import { withDataProviders } from "@/lib/withProviders";
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m as motion, AnimatePresence } from "framer-motion";
 import { Play, X, ExternalLink, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { getYouTubeEmbedUrl, PLAYLISTS } from "@/lib/youtube";

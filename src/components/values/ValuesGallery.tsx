@@ -1,5 +1,5 @@
 import { withDataProviders } from "@/lib/withProviders";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 
 const galleryItems = [
   { src: "https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg", span: "md:col-span-2 md:row-span-2" },

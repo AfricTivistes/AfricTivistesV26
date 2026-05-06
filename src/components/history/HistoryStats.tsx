@@ -1,5 +1,5 @@
 import { withDataProviders } from "@/lib/withProviders";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { Calendar, MapPin, Users, GraduationCap, Vote, Wifi } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import { useI18n } from "@/lib/i18n";

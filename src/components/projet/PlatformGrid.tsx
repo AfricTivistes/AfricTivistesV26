@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { ExternalLink, Globe } from "lucide-react";
 import { type WPPlateforme, getPlateformeImageUrl, stripHtml } from "@/lib/wordpress";
 

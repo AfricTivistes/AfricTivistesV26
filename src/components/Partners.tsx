@@ -1,5 +1,5 @@
 import { withDataProviders } from "@/lib/withProviders";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 import { usePartenaires } from "@/hooks/use-wordpress";
 import { getPartenaireImageUrl, stripHtml } from "@/lib/wordpress";

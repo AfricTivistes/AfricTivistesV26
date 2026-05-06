@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import PlatformGrid from "@/components/projet/PlatformGrid";
 import type { WPPlateforme } from "@/lib/wordpress";
 

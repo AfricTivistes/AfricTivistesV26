@@ -1,5 +1,5 @@
 import { withDataProviders } from "@/lib/withProviders";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { GraduationCap, Network, Wrench, Megaphone } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import { useI18n } from "@/lib/i18n";

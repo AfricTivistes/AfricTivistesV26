@@ -1,11 +1,11 @@
 import { withDataProviders } from "@/lib/withProviders";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import PageHero from "@/components/PageHero";
 
 const ValuesHero = () => {
   return (
     <PageHero
-      backgroundImage="https://citizenlabbenin.org/_astro/formation1.bc0f03e8_daRtv.webp"
+      backgroundImage="https://update.africtivistes.org/wp-content/uploads/2025/11/image.jpeg"
       labelKey="nav.about.values"
       titleKey="values.title"
       subtitleKey="values.subtitle"

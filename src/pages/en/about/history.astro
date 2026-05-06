@@ -1,4 +1,5 @@
 ---
+export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero";
 import TwoColumnTextImage from "@/components/TwoColumnTextImage";
@@ -6,8 +7,9 @@ import HistoryTimeline from "@/components/history/HistoryTimeline";
 import HistoryStats from "@/components/history/HistoryStats";
 import CtaBanner from "@/components/CtaBanner";
 const lang = "en";
+const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg";
 ---
-<BaseLayout lang={lang}>
+<BaseLayout lang={lang} preloadImage={heroImage}>
   
     <PageHero
       lang={lang} client:load

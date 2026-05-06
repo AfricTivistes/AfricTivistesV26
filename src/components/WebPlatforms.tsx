@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { getPlateformeImageUrl, stripHtml } from "@/lib/wordpress";

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 import type { ThematiqueImpact as ThematiqueImpactType } from "@/data/thematiques";
 

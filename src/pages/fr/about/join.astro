@@ -1,4 +1,5 @@
 ---
+export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import JoinHero from "@/components/join/JoinHero";
 import TwoColumnTextImage from "@/components/TwoColumnTextImage";
@@ -6,8 +7,9 @@ import JoinReasons from "@/components/JoinReasons";
 import JoinSteps from "@/components/JoinSteps";
 import JoinForm from "@/components/JoinForm";
 const lang = "fr";
+const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg";
 ---
-<BaseLayout lang={lang}>
+<BaseLayout lang={lang} preloadImage={heroImage}>
   <JoinHero lang={lang} client:load />
   <TwoColumnTextImage
     lang={lang} client:visible

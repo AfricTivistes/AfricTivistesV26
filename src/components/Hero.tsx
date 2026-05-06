@@ -1,7 +1,7 @@
 import { withDataProviders } from "@/lib/withProviders";
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "@/lib/router-shim";
-import { motion, AnimatePresence } from "framer-motion";
+import { m as motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg?url";
 import heroBgWebp from "@/assets/hero-bg.webp?url";

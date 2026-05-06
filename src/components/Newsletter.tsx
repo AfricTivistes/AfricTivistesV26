@@ -1,6 +1,6 @@
 import { withDataProviders } from "@/lib/withProviders";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { Send, Mail } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 

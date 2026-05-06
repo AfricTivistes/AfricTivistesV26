@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useSearchParams } from "@/lib/router-shim";
 import { Link } from "@/lib/router-shim";
 import { ChevronLeft, ChevronRight, Newspaper, Scale, Radio, PenLine, Trophy, LayoutGrid } from "lucide-react";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import GradientHero from "@/components/GradientHero";
 import PostCard from "@/components/PostCard";
 import { useI18n } from "@/lib/i18n";
