@@ -1,4 +1,4 @@
-import { withDataProviders } from "@/lib/withProviders";
+import { withI18n } from "@/lib/providers/withI18n";
 import { useState } from "react";
 import { Link } from "@/lib/router-shim";
 import { Phone, Mail, MapPin, Send, Twitter, Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
@@ -169,4 +169,4 @@ const Footer = () => {
   );
 };
 
-export default withDataProviders(Footer);
+export default withI18n(Footer);

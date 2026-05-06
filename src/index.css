@@ -126,22 +126,6 @@
     top: 0;
   }
   
-  /* Amélioration du contraste pour le texte muted */
-  .text-muted-foreground {
-    color: hsl(var(--muted-foreground));
-  }
-  
-  /* Meilleure gestion des mouvements pour les utilisateurs avec préférences réduites */
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-  }
 }
 
 @layer utilities {
@@ -205,6 +189,10 @@
   }
 }
 
+/* ===========================================
+   Ticker / marquee animations
+   =========================================== */
+
 @keyframes ticker {
   0% {
     transform: translateX(0);
@@ -214,53 +202,53 @@
   }
 }
 
-.animate-ticker {
-  animation: ticker 40s linear infinite;
-}
-
-.animate-ticker:hover {
-  animation-play-state: paused;
-}
-
-.animate-stats-ticker {
-  animation: ticker 20s linear infinite;
-}
-
-.animate-marquee {
-  animation: ticker 6s linear infinite;
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-
-.animate-marquee-reverse {
-  animation: ticker-reverse 6s linear infinite;
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-.animate-marquee-reverse:hover {
-  animation-play-state: paused;
-}
-
-@media (min-width: 768px) {
-  .animate-marquee {
-    animation-duration: 12s;
-  }
-  .animate-marquee-reverse {
-    animation-duration: 12s;
-  }
-}
-
 @keyframes ticker-reverse {
   0% {
     transform: translateX(-50%);
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@layer utilities {
+  .animate-ticker {
+    animation: ticker 40s linear infinite;
+  }
+
+  .animate-ticker:hover {
+    animation-play-state: paused;
+  }
+
+  .animate-stats-ticker {
+    animation: ticker 20s linear infinite;
+  }
+
+  .animate-marquee {
+    animation: ticker 6s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  .animate-marquee-reverse {
+    animation: ticker-reverse 6s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  .animate-marquee-reverse:hover {
+    animation-play-state: paused;
+  }
+
+  @media (min-width: 768px) {
+    .animate-marquee,
+    .animate-marquee-reverse {
+      animation-duration: 12s;
+    }
   }
 }
 
@@ -274,62 +262,63 @@
 @keyframes a-fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes a-grow-x { from { width: 0; } to { width: var(--a-grow-to, 5rem); } }
 
-.a-fade,
-.a-fade-sm,
-.a-fade-in {
-  opacity: 0;
-  animation-fill-mode: forwards;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-out;
-  animation-delay: var(--a-delay, 0ms);
-}
-.a-fade { animation-name: a-fade-up; }
-.a-fade-sm { animation-name: a-fade-up-sm; }
-.a-fade-in { animation-name: a-fade-in; }
-.a-grow-x { width: 0; animation: a-grow-x 0.6s ease-out var(--a-delay, 0ms) forwards; }
+@layer utilities {
+  .a-fade,
+  .a-fade-sm,
+  .a-fade-in {
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-delay: var(--a-delay, 0ms);
+  }
+  .a-fade { animation-name: a-fade-up; }
+  .a-fade-sm { animation-name: a-fade-up-sm; }
+  .a-fade-in { animation-name: a-fade-in; }
+  .a-grow-x { width: 0; animation: a-grow-x 0.6s ease-out var(--a-delay, 0ms) forwards; }
 
-/* Reveal on scroll (below-the-fold, requires IntersectionObserver script) */
-.a-reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.7s ease-out var(--a-delay, 0ms),
-    transform 0.7s ease-out var(--a-delay, 0ms);
-  will-change: opacity, transform;
-}
-.a-reveal.in-view {
-  opacity: 1;
-  transform: none;
+  /* Reveal on scroll (below-the-fold, requires IntersectionObserver script) */
+  .a-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.7s ease-out var(--a-delay, 0ms),
+      transform 0.7s ease-out var(--a-delay, 0ms);
+    will-change: opacity, transform;
+  }
+  .a-reveal.in-view {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Reveal variants — slide left/right + scale (used by TwoColumnTextImage etc.) */
+  .a-reveal-left {
+    opacity: 0; transform: translateX(-20px);
+    transition: opacity 0.7s ease-out var(--a-delay, 0ms), transform 0.7s ease-out var(--a-delay, 0ms);
+  }
+  .a-reveal-right {
+    opacity: 0; transform: translateX(20px);
+    transition: opacity 0.7s ease-out var(--a-delay, 0ms), transform 0.7s ease-out var(--a-delay, 0ms);
+  }
+  .a-reveal-scale {
+    opacity: 0; transform: scale(0.95);
+    transition: opacity 0.7s ease-out var(--a-delay, 0ms), transform 0.7s ease-out var(--a-delay, 0ms);
+  }
+  .a-reveal-left.in-view,
+  .a-reveal-right.in-view,
+  .a-reveal-scale.in-view { opacity: 1; transform: none; }
 }
 
+/* Reduced motion — single source of truth: bypass animations entirely.
+   Keeps reveal elements visible even if the IntersectionObserver script
+   never runs (defensive a11y). */
 @media (prefers-reduced-motion: reduce) {
-  .a-fade, .a-fade-sm, .a-fade-in, .a-grow-x, .a-reveal {
+  .a-fade, .a-fade-sm, .a-fade-in, .a-grow-x,
+  .a-reveal, .a-reveal-left, .a-reveal-right, .a-reveal-scale {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;
     transform: none !important;
     width: auto !important;
-  }
-}
-
-/* Reveal variants — slide left/right + scale (used by TwoColumnTextImage etc.) */
-.a-reveal-left {
-  opacity: 0; transform: translateX(-20px);
-  transition: opacity 0.7s ease-out var(--a-delay, 0ms), transform 0.7s ease-out var(--a-delay, 0ms);
-}
-.a-reveal-right {
-  opacity: 0; transform: translateX(20px);
-  transition: opacity 0.7s ease-out var(--a-delay, 0ms), transform 0.7s ease-out var(--a-delay, 0ms);
-}
-.a-reveal-scale {
-  opacity: 0; transform: scale(0.95);
-  transition: opacity 0.7s ease-out var(--a-delay, 0ms), transform 0.7s ease-out var(--a-delay, 0ms);
-}
-.a-reveal-left.in-view,
-.a-reveal-right.in-view,
-.a-reveal-scale.in-view { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) {
-  .a-reveal-left, .a-reveal-right, .a-reveal-scale {
-    transition: none !important; opacity: 1 !important; transform: none !important;
   }
 }

@@ -1,4 +1,4 @@
-import { withDataProviders } from "@/lib/withProviders";
+import { withI18nMotion } from "@/lib/providers/withI18nMotion";
 import { m as motion } from "framer-motion";
 import { type ReactNode } from "react";
 import { useI18n } from "@/lib/i18n";
@@ -58,4 +58,4 @@ const GradientHero = ({
   );
 };
 
-export default withDataProviders(GradientHero);
+export default withI18nMotion(GradientHero);

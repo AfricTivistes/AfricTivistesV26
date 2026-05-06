@@ -1,4 +1,4 @@
-import { withDataProviders } from "@/lib/withProviders";
+import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
 import { Link } from "@/lib/router-shim";
 import { ArrowRight, Newspaper } from "lucide-react";
 import { stripHtml, formatDate, type WPPost } from "@/lib/wordpress";
@@ -89,4 +89,4 @@ const StickyArticlesTicker = () => {
   );
 };
 
-export default withDataProviders(StickyArticlesTicker);
+export default withI18nQueryMotion(StickyArticlesTicker);

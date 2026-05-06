@@ -1,4 +1,4 @@
-import { withDataProviders } from "@/lib/withProviders";
+import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
 import { useState, useRef, useEffect } from "react";
 import { m as motion, AnimatePresence } from "framer-motion";
 import { Play, X, ExternalLink, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
@@ -359,4 +359,4 @@ const VideoPlaylist = () => {
   );
 };
 
-export default withDataProviders(VideoPlaylist);
+export default withI18nQueryMotion(VideoPlaylist);

@@ -1,4 +1,4 @@
-import { withDataProviders } from "@/lib/withProviders";
+import { withI18nMotion } from "@/lib/providers/withI18nMotion";
 import { useState } from "react";
 import { Link, useLocation } from "@/lib/router-shim";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -384,4 +384,4 @@ const Navbar = () => {
   );
 };
 
-export default withDataProviders(Navbar);
+export default withI18nMotion(Navbar);

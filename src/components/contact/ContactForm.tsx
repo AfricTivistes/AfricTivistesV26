@@ -1,4 +1,4 @@
-import { withDataProviders } from "@/lib/withProviders";
+import { withI18nMotion } from "@/lib/providers/withI18nMotion";
 import { m as motion } from "framer-motion";
 import { Mail, MapPin, Send } from "lucide-react";
 import { useState } from "react";
@@ -109,4 +109,4 @@ const ContactForm = () => {
   );
 };
 
-export default withDataProviders(ContactForm);
+export default withI18nMotion(ContactForm);

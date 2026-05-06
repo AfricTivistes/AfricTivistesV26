@@ -1,4 +1,4 @@
-import { withDataProviders } from "@/lib/withProviders";
+import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
 import { m as motion } from "framer-motion";
 import { Link } from "@/lib/router-shim";
 import { ArrowRight } from "lucide-react";
@@ -105,4 +105,4 @@ const Publications = () => {
   );
 };
 
-export default withDataProviders(Publications);
+export default withI18nQueryMotion(Publications);

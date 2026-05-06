@@ -1,4 +1,4 @@
-import { withDataProviders } from "@/lib/withProviders";
+import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
 import { useEffect } from "react";
 import { useSearchParams } from "@/lib/router-shim";
 import { Link } from "@/lib/router-shim";
@@ -314,4 +314,4 @@ const BlogPage = () => {
   );
 };
 
-export default withDataProviders(BlogPage);
+export default withI18nQueryMotion(BlogPage);

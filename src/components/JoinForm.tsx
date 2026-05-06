@@ -1,4 +1,4 @@
-import { withDataProviders } from "@/lib/withProviders";
+import { withI18nMotion } from "@/lib/providers/withI18nMotion";
 import { m as motion } from "framer-motion";
 import { Send, User, Building2, Users as UsersIcon, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
@@ -181,4 +181,4 @@ const JoinForm = () => {
   );
 };
 
-export default withDataProviders(JoinForm);
+export default withI18nMotion(JoinForm);

@@ -1,4 +1,4 @@
-import { withDataProviders } from "@/lib/withProviders";
+import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
 import { useState, useRef } from "react";
 import { m as motion, useAnimation } from "framer-motion";
 import { Link } from "@/lib/router-shim";
@@ -262,4 +262,4 @@ const ProjectsGrid = () => {
   );
 };
 
-export default withDataProviders(ProjectsGrid);
+export default withI18nQueryMotion(ProjectsGrid);

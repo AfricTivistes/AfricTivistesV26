@@ -1,4 +1,4 @@
-import { withDataProviders } from "@/lib/withProviders";
+import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
 import { useState } from "react";
 import { m as motion, AnimatePresence } from "framer-motion";
 import { Play, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -272,4 +272,4 @@ const ResourcesMedia = () => {
   );
 };
 
-export default withDataProviders(ResourcesMedia);
+export default withI18nQueryMotion(ResourcesMedia);

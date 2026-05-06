@@ -1,4 +1,4 @@
-import { withDataProviders } from "@/lib/withProviders";
+import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
 import { useParams, Link, useLocation } from "@/lib/router-shim";
 
 function formatPostContent(html: string): string {
@@ -177,4 +177,4 @@ const BlogPost = ({ slug: slugProp }: BlogPostProps = {}) => {
   );
 };
 
-export default withDataProviders(BlogPost);
+export default withI18nQueryMotion(BlogPost);

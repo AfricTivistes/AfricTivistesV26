@@ -1,4 +1,4 @@
-import { withDataProviders } from "@/lib/withProviders";
+import { withI18nMotion } from "@/lib/providers/withI18nMotion";
 import { useState } from "react";
 import { m as motion } from "framer-motion";
 import { Send, Mail } from "lucide-react";
@@ -69,4 +69,4 @@ const Newsletter = () => {
   );
 };
 
-export default withDataProviders(Newsletter);
+export default withI18nMotion(Newsletter);

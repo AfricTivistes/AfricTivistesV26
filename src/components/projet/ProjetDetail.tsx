@@ -1,4 +1,4 @@
-import { withDataProviders } from "@/lib/withProviders";
+import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
 import { useMemo, useState } from "react";
 import { useParams } from "@/lib/router-shim";
 import HeroSection from "@/components/projet/HeroSection";
@@ -246,4 +246,4 @@ const ProjetDetail = ({ slug: slugProp }: ProjetDetailProps = {}) => {
   );
 };
 
-export default withDataProviders(ProjetDetail);
+export default withI18nQueryMotion(ProjetDetail);

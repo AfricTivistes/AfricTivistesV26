@@ -1,4 +1,4 @@
-import { withDataProviders } from "@/lib/withProviders";
+import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
 import { useState, useEffect } from "react";
 import { Link } from "@/lib/router-shim";
 import { m as motion } from "framer-motion";
@@ -247,4 +247,4 @@ const ResourcesPublications = () => {
   );
 };
 
-export default withDataProviders(ResourcesPublications);
+export default withI18nQueryMotion(ResourcesPublications);

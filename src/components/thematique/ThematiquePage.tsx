@@ -1,4 +1,4 @@
-import { withDataProviders } from "@/lib/withProviders";
+import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
 import { useMemo } from "react";
 import { Lightbulb, BookOpen, Radio, Users, Vote } from "lucide-react";
 import CtaBanner from "@/components/CtaBanner";
@@ -82,4 +82,4 @@ const ThematiquePage = ({ data }: ThematiquePageProps) => {
   );
 };
 
-export default withDataProviders(ThematiquePage);
+export default withI18nQueryMotion(ThematiquePage);
