@@ -1,0 +1,77 @@
+---
+import Reveal from "@/components/astro/Reveal.astro";
+import { t, type Lang } from "@/lib/i18n";
+
+interface Props {
+  lang: Lang;
+  labelKey: string;
+  titleKey: string;
+  highlightKey?: string;
+  descriptions: string[];
+  imageUrl: string;
+  imageAlt: string;
+  imagePosition?: "left" | "right";
+  sectionBg?: string;
+}
+
+const {
+  lang,
+  labelKey,
+  titleKey,
+  highlightKey,
+  descriptions,
+  imageUrl,
+  imageAlt,
+  imagePosition = "right",
+  sectionBg,
+} = Astro.props;
+
+const textOrder = imagePosition === "left" ? "order-1 lg:order-2" : "";
+const imageOrder = imagePosition === "left" ? "order-2 lg:order-1" : "";
+const textVariant = imagePosition === "right" ? "left" : "right";
+---
+<section class={`py-20 lg:py-24 ${sectionBg || ""}`}>
+  <div class="section-container">
+    <div class="grid lg:grid-cols-2 gap-14 items-center">
+      <Reveal variant={textVariant} class={`max-w-xl ${textOrder}`}>
+        <span class="text-sm font-semibold text-primary uppercase tracking-wider">
+          {t(labelKey, lang)}
+        </span>
+        <h2 class="text-3xl lg:text-4xl font-bold text-foreground mt-2 mb-6">
+          {t(titleKey, lang)}
+          {highlightKey && <span class="text-gradient-gold">{t(highlightKey, lang)}</span>}
+        </h2>
+        {descriptions.map((descKey, i) => (
+          <p class={`text-lg text-muted-foreground leading-relaxed ${i < descriptions.length - 1 ? "mb-6" : ""}`}>
+            {t(descKey, lang)}
+          </p>
+        ))}
+      </Reveal>
+
+      <Reveal variant="scale" class={`relative ${imageOrder}`}>
+        <div class="rounded-2xl overflow-hidden shadow-2xl">
+          <img
+            src={imageUrl}
+            alt={imageAlt}
+            class="w-full h-80 lg:h-[28rem] object-cover"
+            loading="lazy"
+            decoding="async"
+            width="1200"
+            height="900"
+          />
+        </div>
+        {imagePosition === "right" ? (
+          <>
+            <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-secondary/20 rounded-2xl -z-10"></div>
+            <div class="absolute -top-4 -left-4 w-16 h-16 bg-primary/10 rounded-xl -z-10"></div>
+          </>
+        ) : (
+          <>
+            <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-primary/10 rounded-2xl -z-10"></div>
+            <div class="absolute -top-4 -right-4 w-16 h-16 bg-secondary/20 rounded-xl -z-10"></div>
+          </>
+        )}
+      </Reveal>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+---
+import Reveal from "@/components/astro/Reveal.astro";
+import { t, type Lang } from "@/lib/i18n";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+
+const reasons = [
+  { icon: "heart",         titleKey: "join.reason1Title", descKey: "join.reason1Desc", color: "text-primary",   bg: "bg-primary/10"   },
+  { icon: "graduation-cap",titleKey: "join.reason2Title", descKey: "join.reason2Desc", color: "text-secondary", bg: "bg-secondary/10" },
+  { icon: "network",       titleKey: "join.reason3Title", descKey: "join.reason3Desc", color: "text-accent",    bg: "bg-accent/10"    },
+  { icon: "rocket",        titleKey: "join.reason4Title", descKey: "join.reason4Desc", color: "text-primary",   bg: "bg-primary/10"   },
+  { icon: "star",          titleKey: "join.reason5Title", descKey: "join.reason5Desc", color: "text-secondary", bg: "bg-secondary/10" },
+] as const;
+
+// Inlined lucide paths (28x28 stroke=2)
+const icons: Record<string, string> = {
+  "heart": '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
+  "graduation-cap": '<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>',
+  "network": '<rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/>',
+  "rocket": '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>',
+  "star": '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
+};
+---
+<section class="py-20 bg-muted/30">
+  <div class="section-container">
+    <Reveal class="text-center mb-14">
+      <span class="text-sm font-semibold text-primary uppercase tracking-wider">
+        {t("join.whyLabel", lang)}
+      </span>
+      <h2 class="text-3xl lg:text-4xl font-bold text-foreground mt-2">
+        {t("join.whyTitle", lang)}
+      </h2>
+      <div class="w-20 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
+    </Reveal>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {reasons.map((r, i) => (
+        <Reveal delay={i * 100} class="bg-card rounded-xl p-7 border border-border hover:border-primary/20 hover:shadow-lg transition-all group">
+          <div class={`w-14 h-14 rounded-xl ${r.bg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform`}>
+            <svg class={r.color} width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={icons[r.icon]}></svg>
+          </div>
+          <h3 class="font-heading text-lg font-bold text-card-foreground mb-2">{t(r.titleKey, lang)}</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">{t(r.descKey, lang)}</p>
+        </Reveal>
+      ))}
+    </div>
+  </div>
+</section>

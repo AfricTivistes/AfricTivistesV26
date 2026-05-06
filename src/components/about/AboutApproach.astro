@@ -1,0 +1,38 @@
+---
+import Reveal from "@/components/astro/Reveal.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import { t, type Lang } from "@/lib/i18n";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+
+const items = [
+  { icon: "graduation-cap", titleKey: "about.approach1Title", descKey: "about.approach1Desc", bgClass: "bg-primary/10",   textClass: "text-primary"   },
+  { icon: "network",        titleKey: "about.approach2Title", descKey: "about.approach2Desc", bgClass: "bg-secondary/10", textClass: "text-secondary" },
+  { icon: "wrench",         titleKey: "about.approach3Title", descKey: "about.approach3Desc", bgClass: "bg-accent/10",    textClass: "text-accent"    },
+  { icon: "megaphone",      titleKey: "about.approach4Title", descKey: "about.approach4Desc", bgClass: "bg-primary/10",   textClass: "text-primary"   },
+];
+
+const icons: Record<string, string> = {
+  "graduation-cap": '<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>',
+  "network": '<rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/>',
+  "wrench": '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
+  "megaphone": '<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>',
+};
+---
+<section class="py-12 lg:py-16 bg-muted/30">
+  <div class="section-container">
+    <SectionHeader lang={lang} labelKey="about.approachTitle" titleKey="about.approachSubtitle" />
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {items.map((a, i) => (
+        <Reveal delay={i * 100} class="bg-card rounded-xl p-6 border border-border hover:border-primary/20 hover:shadow-lg transition-all group text-center">
+          <div class={`w-14 h-14 rounded-xl ${a.bgClass} flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform`}>
+            <svg class={a.textClass} width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={icons[a.icon]}></svg>
+          </div>
+          <h3 class="font-heading text-lg font-bold text-card-foreground mb-2">{t(a.titleKey, lang)}</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">{t(a.descKey, lang)}</p>
+        </Reveal>
+      ))}
+    </div>
+  </div>
+</section>

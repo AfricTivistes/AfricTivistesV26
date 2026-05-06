@@ -2,12 +2,12 @@
 export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
-import TwoColumnTextImage from "@/components/TwoColumnTextImage";
-import AboutApproach from "@/components/about/AboutApproach";
-import AboutGallery from "@/components/about/AboutGallery";
-import AboutValues from "@/components/about/AboutValues";
+import TwoColumnTextImage from "@/components/TwoColumnTextImage.astro";
+import AboutApproach from "@/components/about/AboutApproach.astro";
+import AboutGallery from "@/components/about/AboutGallery.astro";
+import AboutValues from "@/components/about/AboutValues.astro";
 import ImpactMap from "@/components/ImpactMap";
-import CtaBanner from "@/components/CtaBanner";
+import CtaBanner from "@/components/CtaBanner.astro";
 import WebPlatforms from "@/components/WebPlatforms";
 const lang = "en";
 const heroImage = "https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg";
@@ -22,7 +22,7 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2026/02/U
       subtitleKey="about.subtitle"
     />
     <TwoColumnTextImage
-      lang={lang} client:visible
+      lang={lang}
       labelKey="about.missionTitle"
       titleKey="about.missionSubtitle1"
       highlightKey="about.missionHighlight"
@@ -30,12 +30,12 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2026/02/U
       imageUrl="https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
       imageAlt="AfricTivistes en action"
     />
-    <AboutApproach lang={lang} client:visible />
-    <AboutGallery lang={lang} client:visible />
-    <AboutValues lang={lang} client:visible />
+    <AboutApproach lang={lang} />
+    <AboutGallery lang={lang} />
+    <AboutValues lang={lang} />
     <ImpactMap lang={lang} client:visible />
     <CtaBanner
-      lang={lang} client:visible
+      lang={lang}
       titleKey="about.ctaTitle"
       descKey="about.ctaDesc"
       btnKey="about.ctaBtn"

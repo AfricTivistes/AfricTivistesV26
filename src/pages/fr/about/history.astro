@@ -2,10 +2,10 @@
 export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
-import TwoColumnTextImage from "@/components/TwoColumnTextImage";
-import HistoryTimeline from "@/components/history/HistoryTimeline";
-import HistoryStats from "@/components/history/HistoryStats";
-import CtaBanner from "@/components/CtaBanner";
+import TwoColumnTextImage from "@/components/TwoColumnTextImage.astro";
+import HistoryTimeline from "@/components/history/HistoryTimeline.astro";
+import HistoryStats from "@/components/history/HistoryStats.astro";
+import CtaBanner from "@/components/CtaBanner.astro";
 const lang = "fr";
 const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg";
 ---
@@ -19,7 +19,7 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/I
       subtitleKey="history.subtitle"
     />
     <TwoColumnTextImage
-      lang={lang} client:visible
+      lang={lang}
       labelKey="history.originLabel"
       titleKey="history.originTitle1"
       highlightKey="history.originHighlight"
@@ -27,10 +27,10 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/I
       imageUrl="https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
       imageAlt="Fondation d'AfricTivistes"
     />
-    <HistoryTimeline lang={lang} client:visible />
-    <HistoryStats lang={lang} client:visible />
+    <HistoryTimeline lang={lang} />
+    <HistoryStats lang={lang} />
     <TwoColumnTextImage
-      lang={lang} client:visible
+      lang={lang}
       labelKey="history.visionLabel"
       titleKey="history.visionTitle"
       descriptions={["history.visionDesc"]}
@@ -40,7 +40,7 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/I
       sectionBg="bg-muted/50"
     />
     <CtaBanner
-      lang={lang} client:visible
+      lang={lang}
       titleKey="history.ctaTitle"
       descKey="history.ctaDesc"
       btnKey="history.ctaBtn"

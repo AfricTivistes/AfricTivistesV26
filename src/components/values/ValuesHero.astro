@@ -17,11 +17,5 @@ const { lang } = Astro.props;
 >
   <div class="absolute top-20 right-[15%] w-32 h-32 border-2 border-secondary/20 rounded-full hidden lg:block animate-float"></div>
   <div class="absolute bottom-16 left-[10%] w-20 h-20 border border-white/10 rounded-xl rotate-12 hidden lg:block"></div>
-  <div class="values-bar h-1 bg-secondary rounded-full mt-8"></div>
+  <div class="a-grow-x h-1 bg-secondary rounded-full mt-8" style="--a-delay:400ms"></div>
 </PageHero>
-
-<style>
-  @keyframes valuesBarGrow { from { width: 0; } to { width: 5rem; } }
-  .values-bar { width: 0; animation: valuesBarGrow .6s ease-out .4s forwards; }
-  @media (prefers-reduced-motion: reduce) { .values-bar { width: 5rem; animation: none; } }
-</style>

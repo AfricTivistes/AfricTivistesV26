@@ -1,0 +1,46 @@
+---
+import Reveal from "@/components/astro/Reveal.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import { t, type Lang } from "@/lib/i18n";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+
+const stats = [
+  { valueKey: "history.stat1Value", labelKey: "history.stat1Label", icon: "map-pin",        color: "text-primary"   },
+  { valueKey: "history.stat2Value", labelKey: "history.stat2Label", icon: "users",          color: "text-secondary" },
+  { valueKey: "history.stat3Value", labelKey: "history.stat3Label", icon: "calendar",       color: "text-accent"    },
+  { valueKey: "history.stat4Value", labelKey: "history.stat4Label", icon: "graduation-cap", color: "text-primary"   },
+  { valueKey: "history.stat5Value", labelKey: "history.stat5Label", icon: "vote",           color: "text-secondary" },
+  { valueKey: "history.stat6Value", labelKey: "history.stat6Label", icon: "wifi",           color: "text-accent"    },
+];
+
+const icons: Record<string, string> = {
+  "map-pin": '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+  "users": '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  "calendar": '<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>',
+  "graduation-cap": '<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>',
+  "vote": '<path d="m9 12 2 2 4-4"/><path d="M5 7c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v12H5V7Z"/><path d="M22 19H2"/>',
+  "wifi": '<path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/>',
+};
+---
+<section class="py-12 lg:py-16">
+  <div class="section-container">
+    <SectionHeader lang={lang} labelKey="history.statsLabel" titleKey="history.statsTitle" />
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+      {stats.map((stat, i) => (
+        <Reveal delay={i * 80} class="bg-card rounded-xl p-6 border border-border text-center hover:border-primary/20 hover:shadow-lg transition-all group">
+          <div class="w-12 h-12 rounded-xl bg-muted flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+            <svg class={stat.color} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={icons[stat.icon]}></svg>
+          </div>
+          <div class="text-2xl lg:text-3xl font-bold text-foreground font-heading mb-1">
+            {t(stat.valueKey, lang)}
+          </div>
+          <div class="text-xs text-muted-foreground font-medium uppercase tracking-wider">
+            {t(stat.labelKey, lang)}
+          </div>
+        </Reveal>
+      ))}
+    </div>
+  </div>
+</section>

@@ -12,7 +12,7 @@ const { lang } = Astro.props;
   titleKey="join.title"
   subtitleKey="join.subtitle"
 >
-  <div class="join-cta-fade mt-8">
+  <div class="a-fade mt-8" style="--a-delay:300ms">
     <a
       href="#formulaire"
       class="inline-flex items-center gap-2 rounded-lg bg-secondary px-8 py-3.5 text-sm font-bold text-secondary-foreground hover:bg-secondary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
@@ -22,9 +22,3 @@ const { lang } = Astro.props;
     </a>
   </div>
 </PageHero>
-
-<style>
-  @keyframes joinCtaFadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .join-cta-fade { opacity: 0; animation: joinCtaFadeUp .5s ease-out .3s forwards; }
-  @media (prefers-reduced-motion: reduce) { .join-cta-fade { opacity: 1; transform: none; animation: none; } }
-</style>

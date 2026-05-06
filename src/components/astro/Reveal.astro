@@ -1,0 +1,41 @@
+---
+/**
+ * Reveal — fade animation triggered when scrolled into view.
+ * Relies on the global IntersectionObserver script in BaseLayout.
+ *
+ *   <Reveal>...</Reveal>                    fade-up (default)
+ *   <Reveal variant="left">...</Reveal>     slide from left
+ *   <Reveal variant="right">...</Reveal>    slide from right
+ *   <Reveal variant="scale">...</Reveal>    fade + scale
+ *   <Reveal delay={100} as="section">...</Reveal>
+ */
+type Variant = "up" | "left" | "right" | "scale";
+interface Props {
+  variant?: Variant;
+  delay?: number;
+  as?: string;
+  class?: string;
+  style?: string;
+}
+
+const {
+  variant = "up",
+  delay = 0,
+  as: Tag = "div",
+  class: cls = "",
+  style = "",
+} = Astro.props;
+
+const variantClass =
+  variant === "left" ? "a-reveal-left"
+  : variant === "right" ? "a-reveal-right"
+  : variant === "scale" ? "a-reveal-scale"
+  : "a-reveal";
+
+const finalStyle = delay
+  ? `--a-delay:${delay}ms${style ? ";" + style : ""}`
+  : style;
+---
+<Tag class:list={[variantClass, cls]} style={finalStyle || undefined}>
+  <slot />
+</Tag>

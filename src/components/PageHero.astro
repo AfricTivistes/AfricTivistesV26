@@ -40,33 +40,15 @@ const {
     <div class={`absolute inset-0 pattern-african ${patternOpacity}`}></div>
   </div>
   <div class="section-container relative z-10">
-    <span class="hero-fade hero-fade-1 inline-block text-sm font-semibold text-secondary uppercase tracking-wider mb-4">
+    <span class="a-fade-sm inline-block text-sm font-semibold text-secondary uppercase tracking-wider mb-4">
       {t(labelKey, lang)}
     </span>
-    <h1 class="hero-fade hero-fade-2 text-4xl lg:text-6xl font-bold text-white mb-6 max-w-3xl leading-tight">
+    <h1 class="a-fade text-4xl lg:text-6xl font-bold text-white mb-6 max-w-3xl leading-tight" style="--a-delay:100ms">
       {t(titleKey, lang)}
     </h1>
-    <p class="hero-fade hero-fade-3 text-lg lg:text-xl text-white/85 max-w-2xl leading-relaxed">
+    <p class="a-fade text-lg lg:text-xl text-white/85 max-w-2xl leading-relaxed" style="--a-delay:200ms">
       {t(subtitleKey, lang)}
     </p>
     <slot />
   </div>
 </section>
-
-<style is:global>
-  @keyframes heroFadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes heroFadeUpSm {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .hero-fade { opacity: 0; animation-fill-mode: forwards; animation-duration: .5s; animation-timing-function: ease-out; }
-  .hero-fade-1 { animation-name: heroFadeUpSm; }
-  .hero-fade-2 { animation-name: heroFadeUp; animation-delay: .1s; }
-  .hero-fade-3 { animation-name: heroFadeUp; animation-delay: .2s; }
-  @media (prefers-reduced-motion: reduce) {
-    .hero-fade { animation: none; opacity: 1; transform: none; }
-  }
-</style>

@@ -1,0 +1,51 @@
+---
+import Reveal from "@/components/astro/Reveal.astro";
+import { t, type Lang } from "@/lib/i18n";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+
+const steps = [
+  { icon: "clipboard-list", titleKey: "join.step1Title", descKey: "join.step1Desc" },
+  { icon: "search",         titleKey: "join.step2Title", descKey: "join.step2Desc" },
+  { icon: "mail-check",     titleKey: "join.step3Title", descKey: "join.step3Desc" },
+  { icon: "handshake",      titleKey: "join.step4Title", descKey: "join.step4Desc" },
+];
+
+const icons: Record<string, string> = {
+  "clipboard-list": '<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/>',
+  "search": '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  "mail-check": '<path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="m16 19 2 2 4-4"/>',
+  "handshake": '<path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/>',
+};
+---
+<section class="py-20 lg:py-24">
+  <div class="section-container">
+    <Reveal class="text-center mb-14">
+      <span class="text-sm font-semibold text-primary uppercase tracking-wider">
+        {t("join.howLabel", lang)}
+      </span>
+      <h2 class="text-3xl lg:text-4xl font-bold text-foreground mt-2">
+        {t("join.howTitle", lang)}
+      </h2>
+      <div class="w-20 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
+    </Reveal>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {steps.map((s, i) => (
+        <Reveal delay={i * 100} class="relative bg-card rounded-xl p-6 border border-border text-center hover:border-primary/20 hover:shadow-lg transition-all group">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary text-white text-sm font-bold flex items-center justify-center shadow-md">
+            {i + 1}
+          </div>
+          <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mt-3 mb-5 group-hover:scale-110 transition-transform">
+            <svg class="text-primary" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={icons[s.icon]}></svg>
+          </div>
+          <h3 class="font-heading text-lg font-bold text-card-foreground mb-2">{t(s.titleKey, lang)}</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">{t(s.descKey, lang)}</p>
+          {i < steps.length - 1 && (
+            <div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-border" aria-hidden="true"></div>
+          )}
+        </Reveal>
+      ))}
+    </div>
+  </div>
+</section>

@@ -2,7 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import GradientHero from "@/components/GradientHero.astro";
 import ProjectThemes from "@/components/ProjectThemes";
-import CtaBanner from "@/components/CtaBanner";
+import CtaBanner from "@/components/CtaBanner.astro";
 import InitiativesIntro from "@/components/initiatives/InitiativesIntro";
 import InitiativesProjectGrid from "@/components/initiatives/InitiativesProjectGrid";
 import { fetchProjets, fetchThematiques } from "@/lib/wordpress";
@@ -46,7 +46,7 @@ const preload = [
   />
   <InitiativesProjectGrid lang={lang} client:visible />
   <CtaBanner
-    lang={lang} client:visible
+    lang={lang}
     titleKey="about.ctaTitle"
     descKey="about.ctaDesc"
     btnKey="about.ctaBtn"

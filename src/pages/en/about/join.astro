@@ -2,9 +2,9 @@
 export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import JoinHero from "@/components/join/JoinHero.astro";
-import TwoColumnTextImage from "@/components/TwoColumnTextImage";
-import JoinReasons from "@/components/JoinReasons";
-import JoinSteps from "@/components/JoinSteps";
+import TwoColumnTextImage from "@/components/TwoColumnTextImage.astro";
+import JoinReasons from "@/components/JoinReasons.astro";
+import JoinSteps from "@/components/JoinSteps.astro";
 import JoinForm from "@/components/JoinForm";
 const lang = "en";
 const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg";
@@ -12,7 +12,7 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/I
 <BaseLayout lang={lang} preloadImage={heroImage}>
   <JoinHero lang={lang} />
   <TwoColumnTextImage
-    lang={lang} client:visible
+    lang={lang}
     labelKey="join.communityLabel"
     titleKey="join.communityTitle1"
     highlightKey="join.communityHighlight"
@@ -20,7 +20,7 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/I
     imageUrl="https://update.africtivistes.org/wp-content/uploads/2024/01/Untitled.png"
     imageAlt="AfricTivistes Community"
   />
-  <JoinReasons lang={lang} client:visible />
-  <JoinSteps lang={lang} client:visible />
+  <JoinReasons lang={lang} />
+  <JoinSteps lang={lang} />
   <JoinForm lang={lang} client:visible />
 </BaseLayout>

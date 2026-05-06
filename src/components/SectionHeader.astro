@@ -1,0 +1,42 @@
+---
+import Reveal from "@/components/astro/Reveal.astro";
+import { t, type Lang } from "@/lib/i18n";
+
+interface Props {
+  lang: Lang;
+  titleKey: string;
+  labelKey?: string;
+  subtitleKey?: string;
+  bottomMargin?: string;
+  barWidth?: string;
+  color?: string;
+  bgSolid?: string;
+}
+
+const {
+  lang,
+  titleKey,
+  labelKey,
+  subtitleKey,
+  bottomMargin = "mb-14",
+  barWidth = "w-20",
+  color,
+  bgSolid,
+} = Astro.props;
+---
+<Reveal class={`text-center ${bottomMargin}`}>
+  {labelKey && (
+    <span class={`text-sm font-semibold uppercase tracking-wider ${color ?? "text-primary"}`}>
+      {t(labelKey, lang)}
+    </span>
+  )}
+  <h2 class={`text-3xl lg:text-4xl font-bold text-foreground ${labelKey ? "mt-2" : ""}`}>
+    {t(titleKey, lang)}
+  </h2>
+  {subtitleKey && (
+    <p class="text-muted-foreground mt-4 max-w-xl mx-auto">
+      {t(subtitleKey, lang)}
+    </p>
+  )}
+  <div class={`${barWidth} h-1 mx-auto mt-4 rounded-full opacity-40 ${bgSolid ?? "bg-secondary"}`}></div>
+</Reveal>
