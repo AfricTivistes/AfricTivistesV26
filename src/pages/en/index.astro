@@ -2,7 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Hero from "@/components/Hero";
 import StickyArticlesTicker from "@/components/StickyArticlesTicker";
-import AboutPreview from "@/components/AboutPreview";
+import AboutPreview from "@/components/AboutPreview.astro";
 import VideoPlaylist from "@/components/VideoPlaylist";
 import LatestNews from "@/components/LatestNews";
 import StatsSection from "@/components/StatsSection";
@@ -69,7 +69,7 @@ const preload = [
 
   <Hero lang={lang} client:load />
   <StickyArticlesTicker lang={lang} client:visible />
-  <AboutPreview lang={lang} client:visible />
+  <AboutPreview lang={lang} />
   <ProjectThemes lang={lang} />
   <ProjectsGrid lang={lang} client:visible />
   <VideoPlaylist lang={lang} client:visible />
