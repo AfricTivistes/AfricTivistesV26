@@ -1,0 +1,110 @@
+---
+import Reveal from "@/components/astro/Reveal.astro";
+import { t, type Lang } from "@/lib/i18n";
+import {
+  fetchPosts,
+  getFeaturedImageUrl,
+  getPostCategories,
+  stripHtml,
+  formatDate,
+} from "@/lib/wordpress";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+
+let posts: Awaited<ReturnType<typeof fetchPosts>>["posts"] = [];
+try {
+  const r = await fetchPosts({ perPage: 6, lang });
+  posts = r.posts;
+} catch (e) {
+  posts = [];
+}
+
+const calendarPath = '<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>';
+const arrowRightPath = '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>';
+const dateLocale = lang === "en" ? "en-US" : "fr-FR";
+---
+<section class="py-12 lg:py-16" aria-labelledby="latest-news-heading">
+  <div class="section-container">
+    <Reveal class="text-center mb-14">
+      <h2 id="latest-news-heading" class="text-3xl lg:text-4xl font-bold text-foreground">
+        {t("news.title", lang)}
+      </h2>
+      <div class="w-20 h-1 bg-secondary mx-auto mt-4 rounded-full" aria-hidden="true"></div>
+    </Reveal>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {posts.map((post, i) => {
+        const imageUrl = getFeaturedImageUrl(post);
+        const categories = getPostCategories(post);
+        const excerpt = stripHtml(post.excerpt.rendered).slice(0, 150);
+        const title = stripHtml(post.title.rendered);
+        return (
+          <Reveal delay={i * 60} class="contents">
+            <article>
+              <a
+                href={`/${lang}/blog/${post.slug}`}
+                class="group block bg-card rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 h-full"
+                aria-label={`${t("blog.read", lang)}: ${title}`}
+              >
+                <div class="aspect-[16/10] overflow-hidden bg-muted">
+                  {imageUrl ? (
+                    <img
+                      src={imageUrl}
+                      alt=""
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                      width="640"
+                      height="400"
+                    />
+                  ) : (
+                    <div class="w-full h-full pattern-kente flex items-center justify-center" aria-hidden="true">
+                      <span class="text-4xl font-heading font-bold text-primary/20">AT</span>
+                    </div>
+                  )}
+                </div>
+                <div class="p-5">
+                  {categories.length > 0 && (
+                    <div class="flex flex-wrap gap-2 mb-3" role="list">
+                      {categories.slice(0, 2).map((cat) => (
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-primary/10 text-primary" role="listitem">
+                          {cat.name}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <h3 class="font-heading text-lg font-bold text-card-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors" set:html={post.title.rendered}></h3>
+                  <p class="text-sm text-muted-foreground mb-4 line-clamp-3">
+                    {excerpt}…
+                  </p>
+                  <div class="flex items-center justify-between text-xs text-muted-foreground">
+                    <time datetime={post.date} class="flex items-center gap-1.5">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={calendarPath}></svg>
+                      {formatDate(post.date, dateLocale)}
+                    </time>
+                    <span class="flex items-center gap-1 font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                      {t("blog.read", lang)}
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={arrowRightPath}></svg>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </Reveal>
+        );
+      })}
+    </div>
+
+    <div class="text-center mt-5">
+      <a
+        href={`/${lang}/blog`}
+        class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm"
+        aria-label={t("news.viewAll", lang)}
+      >
+        {t("news.viewAll", lang)}
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={arrowRightPath}></svg>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,72 @@
+---
+import Reveal from "@/components/astro/Reveal.astro";
+import { t, type Lang } from "@/lib/i18n";
+import { fetchPartenaires, getPartenaireImageUrl, stripHtml } from "@/lib/wordpress";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+
+let partenaires: Awaited<ReturnType<typeof fetchPartenaires>> = [];
+try {
+  partenaires = await fetchPartenaires();
+} catch (e) {
+  partenaires = [];
+}
+
+const logos = partenaires
+  .map((p) => ({ name: stripHtml(p.title.rendered), logo: getPartenaireImageUrl(p) }))
+  .filter((p): p is { name: string; logo: string } => Boolean(p.logo))
+  .filter((p, i, arr) => arr.findIndex((x) => x.logo === p.logo) === i);
+
+const mid = Math.ceil(logos.length / 2);
+const row1 = [...logos.slice(0, mid), ...logos.slice(0, mid)];
+const row2 = [...logos.slice(mid), ...logos.slice(mid)];
+---
+{logos.length > 0 && (
+  <section class="py-4 lg:py-6" aria-labelledby="partners-heading">
+    <div class="section-container">
+      <Reveal class="text-center mb-4">
+        <h2 id="partners-heading" class="text-xl lg:text-2xl font-bold text-foreground">
+          {t("partners.title", lang)}
+        </h2>
+      </Reveal>
+
+      <div class="relative overflow-hidden space-y-2" aria-label={t("partners.title", lang)}>
+        <div class="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-background to-transparent z-10" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-background to-transparent z-10" aria-hidden="true"></div>
+
+        <div class="flex items-center gap-3 animate-marquee">
+          {row1.map((p, i) => (
+            <div class="flex-shrink-0 flex items-center justify-center w-28 h-14 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+              <img
+                src={p.logo}
+                alt={`Logo ${p.name}`}
+                class="max-h-10 max-w-full object-contain"
+                loading="lazy"
+                decoding="async"
+                width="160"
+                height="40"
+              />
+            </div>
+          ))}
+        </div>
+
+        <div class="flex items-center gap-3 animate-marquee-reverse">
+          {row2.map((p, i) => (
+            <div class="flex-shrink-0 flex items-center justify-center w-28 h-14 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+              <img
+                src={p.logo}
+                alt={`Logo ${p.name}`}
+                class="max-h-10 max-w-full object-contain"
+                loading="lazy"
+                decoding="async"
+                width="160"
+                height="40"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+)}

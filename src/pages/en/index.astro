@@ -4,13 +4,13 @@ import Hero from "@/components/Hero";
 import StickyArticlesTicker from "@/components/StickyArticlesTicker";
 import AboutPreview from "@/components/AboutPreview.astro";
 import VideoPlaylist from "@/components/VideoPlaylist";
-import LatestNews from "@/components/LatestNews";
+import LatestNews from "@/components/LatestNews.astro";
 import StatsSection from "@/components/StatsSection";
 import Publications from "@/components/Publications";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import ProjectThemes from "@/components/ProjectThemes.astro";
 import Testimonials from "@/components/Testimonials";
-import Partners from "@/components/Partners";
+import Partners from "@/components/Partners.astro";
 import Newsletter from "@/components/Newsletter";
 import {
   fetchPosts,
@@ -75,8 +75,8 @@ const preload = [
   <VideoPlaylist lang={lang} client:visible />
   <StatsSection lang={lang} client:visible />
   <Publications lang={lang} client:visible />
-  <LatestNews lang={lang} client:visible />
+  <LatestNews lang={lang} />
   <Testimonials lang={lang} client:visible />
-  <Partners lang={lang} client:visible />
+  <Partners lang={lang} />
   <Newsletter lang={lang} client:visible />
 </BaseLayout>
