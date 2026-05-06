@@ -1,8 +1,7 @@
-import { withProviders } from "@/lib/withProviders";
+import { withDataProviders } from "@/lib/withProviders";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
-import PageLayout from "@/components/PageLayout";
 import GradientHero from "@/components/GradientHero";
 import SectionHeader from "@/components/SectionHeader";
 import { useI18n } from "@/lib/i18n";
@@ -147,7 +146,7 @@ const ResourcesMedia = () => {
   };
 
   return (
-    <PageLayout>
+    <>
         <GradientHero
           titleKey="nav.resources.media"
           subtitleKey="media.heroDesc"
@@ -266,8 +265,8 @@ const ResourcesMedia = () => {
             )}
           </div>
         </section>
-    </PageLayout>
+    </>
   );
 };
 
-export default withProviders(ResourcesMedia);
+export default withDataProviders(ResourcesMedia);

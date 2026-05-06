@@ -1,5 +1,5 @@
+import { withDataProviders } from "@/lib/withProviders";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { ArrowRight, GraduationCap, Network, Wrench, Megaphone } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
@@ -36,14 +36,14 @@ const AboutPreview = () => {
             <p className="text-muted-foreground leading-relaxed mb-8 text-base">
               {t("aboutPreview.desc2")}
             </p>
-            <Link
-              to="/about"
+            <a
+              href="/about"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-bold text-primary-foreground hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               aria-label={t("aboutPreview.ctaLabel")}
             >
               {t("aboutPreview.cta")}
               <ArrowRight size={16} aria-hidden="true" />
-            </Link>
+            </a>
           </motion.div>
 
           {/* Pillars grid */}
@@ -72,4 +72,4 @@ const AboutPreview = () => {
   );
 };
 
-export default AboutPreview;
+export default withDataProviders(AboutPreview);

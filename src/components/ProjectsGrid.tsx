@@ -1,6 +1,7 @@
+import { withDataProviders } from "@/lib/withProviders";
 import { useState, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useI18n } from "@/lib/i18n";
@@ -258,4 +259,4 @@ const ProjectsGrid = () => {
   );
 };
 
-export default ProjectsGrid;
+export default withDataProviders(ProjectsGrid);

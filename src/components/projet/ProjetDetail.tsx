@@ -1,8 +1,6 @@
-import { withProviders } from "@/lib/withProviders";
+import { withDataProviders } from "@/lib/withProviders";
 import { useMemo, useState } from "react";
-import { useParams } from "react-router-dom";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { useParams } from "@/lib/router-shim";
 import HeroSection from "@/components/projet/HeroSection";
 import ObjectiveCard from "@/components/projet/ObjectiveCard";
 import ProjetTabs from "@/components/projet/ProjetTabs";
@@ -34,9 +32,11 @@ import {
   useProjetMeres,
 } from "@/hooks/use-wordpress";
 
-const ProjetDetail = () => {
+interface ProjetDetailProps { slug?: string }
+const ProjetDetail = ({ slug: slugProp }: ProjetDetailProps = {}) => {
   const { t, lang } = useI18n();
-  const { slug } = useParams<{ slug: string }>();
+  const params = useParams<{ slug: string }>();
+  const slug = slugProp ?? params.slug;
   const { data: projet, isLoading: loading } = useProjetBySlug(slug);
   const [activeTab, setActiveTab] = useState<"presentation" | "actions">("presentation");
 
@@ -160,9 +160,7 @@ const ProjetDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <article className="pt-20">
+    <article className="pt-20">
 
         <HeroSection
           title={title}
@@ -245,9 +243,7 @@ const ProjetDetail = () => {
         />
 
       </article>
-      <Footer />
-    </div>
   );
 };
 
-export default withProviders(ProjetDetail);
+export default withDataProviders(ProjetDetail);

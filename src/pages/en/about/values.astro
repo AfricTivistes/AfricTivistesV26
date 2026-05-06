@@ -1,8 +1,29 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import ValeursPage from "@/components/pages/Valeurs";
+import ValuesHero from "@/components/values/ValuesHero";
+import ValuesIntro from "@/components/values/ValuesIntro";
+import ValuesCore from "@/components/values/ValuesCore";
+import ValuesQuote from "@/components/values/ValuesQuote";
+import ValuesPrinciples from "@/components/values/ValuesPrinciples";
+import ValuesGallery from "@/components/values/ValuesGallery";
+import CtaBanner from "@/components/CtaBanner";
 const lang = "en";
 ---
 <BaseLayout lang={lang}>
-  <ValeursPage client:only="react" />
+  
+    <ValuesHero lang={lang} client:load />
+    <ValuesIntro lang={lang} client:visible />
+    <ValuesCore lang={lang} client:visible />
+    <ValuesQuote lang={lang} client:visible />
+    <ValuesPrinciples lang={lang} client:visible />
+    <ValuesGallery lang={lang} client:visible />
+    <CtaBanner
+      lang={lang} client:visible
+      titleKey="values.ctaTitle"
+      descKey="values.ctaDesc"
+      btnKey="values.ctaBtn"
+      linkTo="/contact"
+      showDecoShapes
+    />
+  
 </BaseLayout>

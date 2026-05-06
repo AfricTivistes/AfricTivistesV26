@@ -1,5 +1,6 @@
+import { withDataProviders } from "@/lib/withProviders";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { Lightbulb, Vote, Users, Radio, BookOpen, ArrowRight, LayoutGrid } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import { useI18n } from "@/lib/i18n";
@@ -120,4 +121,4 @@ const ProjectThemes = ({
   );
 };
 
-export default ProjectThemes;
+export default withDataProviders(ProjectThemes);

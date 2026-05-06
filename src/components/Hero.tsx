@@ -1,5 +1,6 @@
+import { withDataProviders } from "@/lib/withProviders";
 import { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg?url";
@@ -228,4 +229,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default withDataProviders(Hero);

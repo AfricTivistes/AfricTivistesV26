@@ -1,3 +1,4 @@
+import { withDataProviders } from "@/lib/withProviders";
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 
@@ -94,4 +95,4 @@ const ImpactMap = () => {
   );
 };
 
-export default ImpactMap;
+export default withDataProviders(ImpactMap);

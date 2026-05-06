@@ -1,6 +1,7 @@
+import { withDataProviders } from "@/lib/withProviders";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { useI18n } from "@/lib/i18n";
 
 interface CtaBannerProps {
@@ -61,4 +62,4 @@ const CtaBanner = ({ titleKey, descKey, btnKey, linkTo, showDecoShapes = false, 
   );
 };
 
-export default CtaBanner;
+export default withDataProviders(CtaBanner);

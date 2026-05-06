@@ -1,8 +1,56 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import InitiativesPage from "@/components/pages/Initiatives";
+import GradientHero from "@/components/GradientHero";
+import ProjectThemes from "@/components/ProjectThemes";
+import CtaBanner from "@/components/CtaBanner";
+import InitiativesIntro from "@/components/initiatives/InitiativesIntro";
+import InitiativesProjectGrid from "@/components/initiatives/InitiativesProjectGrid";
+import { fetchProjets, fetchThematiques } from "@/lib/wordpress";
+
 const lang = "en";
+
+const [thematiques, projets] = await Promise.all([
+  fetchThematiques(lang).catch(() => []),
+  fetchProjets(100).catch(() => []),
+]);
+const projetsFiltered = projets.filter((p) => !p.lang || p.lang === lang);
+
+const preload = [
+  { key: ["thematiques", lang], data: thematiques },
+  { key: ["projets", lang, 100, undefined], data: projetsFiltered },
+];
 ---
 <BaseLayout lang={lang}>
-  <InitiativesPage client:only="react" />
+  <script is:inline define:vars={{ preload }}>
+    window.__PRELOAD__ = preload;
+  </script>
+
+  <GradientHero
+    lang={lang} client:load
+    titleKey="programmes.title"
+    subtitleKey="programmes.subtitle"
+  />
+  <InitiativesIntro lang={lang} client:visible />
+  <ProjectThemes
+    lang={lang} client:visible
+    titleKey="initiatives.themesTitle"
+    labelKey="initiatives.themesLabel"
+    subtitleKey="initiatives.themesSubtitle"
+    className="bg-muted/30"
+    ctaCard={{
+      titleKey: "projectThemes.joinNetwork.title",
+      descKey: "projectThemes.joinNetwork.desc",
+      ctaKey: "projectThemes.joinNetwork.cta",
+      to: "/about/join",
+    }}
+  />
+  <InitiativesProjectGrid lang={lang} client:visible />
+  <CtaBanner
+    lang={lang} client:visible
+    titleKey="about.ctaTitle"
+    descKey="about.ctaDesc"
+    btnKey="about.ctaBtn"
+    linkTo="/contact"
+    showDecoShapes
+  />
 </BaseLayout>

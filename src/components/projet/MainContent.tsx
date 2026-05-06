@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import SectionHeading from "@/components/projet/SectionHeading";
 import ActionAccordion from "@/components/projet/ActionAccordion";

@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { withDataProviders } from "@/lib/withProviders";
+import { Link } from "@/lib/router-shim";
 import { ArrowRight, Newspaper } from "lucide-react";
 import { stripHtml, formatDate, type WPPost } from "@/lib/wordpress";
 import { useI18n } from "@/lib/i18n";
@@ -88,4 +89,4 @@ const StickyArticlesTicker = () => {
   );
 };
 
-export default StickyArticlesTicker;
+export default withDataProviders(StickyArticlesTicker);

@@ -1,8 +1,8 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import ContactPage from "@/components/pages/Contact";
+import ContactForm from "@/components/contact/ContactForm";
 const lang = "fr";
 ---
 <BaseLayout lang={lang}>
-  <ContactPage client:only="react" />
+  <ContactForm lang={lang} client:load />
 </BaseLayout>

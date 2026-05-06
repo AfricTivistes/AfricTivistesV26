@@ -1,3 +1,4 @@
+import { withDataProviders } from "@/lib/withProviders";
 import { motion } from "framer-motion";
 import { Send, User, Building2, Users as UsersIcon, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
@@ -180,4 +181,4 @@ const JoinForm = () => {
   );
 };
 
-export default JoinForm;
+export default withDataProviders(JoinForm);

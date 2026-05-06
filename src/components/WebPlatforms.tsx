@@ -3,6 +3,7 @@ import { ExternalLink } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { getPlateformeImageUrl, stripHtml } from "@/lib/wordpress";
 import { usePlateformes } from "@/hooks/use-wordpress";
+import { withDataProviders } from "@/lib/withProviders";
 
 const WebPlatforms = () => {
   const { t } = useI18n();
@@ -78,4 +79,4 @@ const WebPlatforms = () => {
   );
 };
 
-export default WebPlatforms;
+export default withDataProviders(WebPlatforms);

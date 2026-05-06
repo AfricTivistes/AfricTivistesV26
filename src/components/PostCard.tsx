@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { Calendar, ArrowRight } from "lucide-react";
 import type { WPPost } from "@/lib/wordpress";
 import { getFeaturedImageUrl, getPostCategories, stripHtml, formatDate } from "@/lib/wordpress";

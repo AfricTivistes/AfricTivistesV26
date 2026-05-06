@@ -1,3 +1,4 @@
+import { withDataProviders } from "@/lib/withProviders";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Mail } from "lucide-react";
@@ -68,4 +69,4 @@ const Newsletter = () => {
   );
 };
 
-export default Newsletter;
+export default withDataProviders(Newsletter);

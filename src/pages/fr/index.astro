@@ -1,8 +1,81 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import IndexPage from "@/components/pages/Index";
+import Hero from "@/components/Hero";
+import StickyArticlesTicker from "@/components/StickyArticlesTicker";
+import AboutPreview from "@/components/AboutPreview";
+import VideoPlaylist from "@/components/VideoPlaylist";
+import LatestNews from "@/components/LatestNews";
+import StatsSection from "@/components/StatsSection";
+import Publications from "@/components/Publications";
+import ProjectsGrid from "@/components/ProjectsGrid";
+import ProjectThemes from "@/components/ProjectThemes";
+import Testimonials from "@/components/Testimonials";
+import Partners from "@/components/Partners";
+import Newsletter from "@/components/Newsletter";
+import {
+  fetchPosts,
+  fetchStickyPosts,
+  fetchPartenaires,
+  fetchProjets,
+  fetchThematiques,
+  COMMUNIQUE_CATEGORY_IDS,
+  PUBLICATION_CATEGORY_IDS,
+} from "@/lib/wordpress";
+
 const lang = "fr";
+const communiqueCatId = COMMUNIQUE_CATEGORY_IDS[lang] || COMMUNIQUE_CATEGORY_IDS.fr;
+const pubCatId = PUBLICATION_CATEGORY_IDS[lang] || PUBLICATION_CATEGORY_IDS.fr;
+
+// Server-side prefetch en parallele : tout ce que les composants vont consommer.
+const [
+  postsHero,
+  postsLatest,
+  stickyPosts,
+  communiqueData,
+  publicationData,
+  partenaires,
+  thematiques,
+  projets,
+] = await Promise.all([
+  fetchPosts({ perPage: 3, lang }).catch(() => ({ posts: [], totalPages: 1, total: 0 })),
+  fetchPosts({ perPage: 6, lang }).catch(() => ({ posts: [], totalPages: 1, total: 0 })),
+  fetchStickyPosts(10, lang).catch(() => []),
+  fetchPosts({ perPage: 10, categories: [communiqueCatId], lang }).catch(() => ({ posts: [], totalPages: 1, total: 0 })),
+  fetchPosts({ perPage: 3, categories: [pubCatId], lang }).catch(() => ({ posts: [], totalPages: 1, total: 0 })),
+  fetchPartenaires(100).catch(() => []),
+  fetchThematiques(lang).catch(() => []),
+  fetchProjets(100).catch(() => []),
+]);
+
+const projetsFiltered = projets.filter((p) => !p.lang || p.lang === lang);
+
+// QueryClient preload (queryKeys = celles utilisees dans src/hooks/use-wordpress.ts)
+const preload = [
+  { key: ["posts", { page: 1, perPage: 3, lang }], data: postsHero },
+  { key: ["posts", { page: 1, perPage: 6, lang }], data: postsLatest },
+  { key: ["stickyPosts", lang, 10], data: stickyPosts },
+  { key: ["communiquePosts", lang, communiqueCatId, 10], data: communiqueData },
+  { key: ["publicationPosts", lang, pubCatId, 3], data: publicationData },
+  { key: ["partenaires", 100], data: partenaires },
+  { key: ["thematiques", lang], data: thematiques },
+  { key: ["projets", lang, 100, undefined], data: projetsFiltered },
+];
 ---
-<BaseLayout lang={lang}>
-  <IndexPage client:only="react" />
+<BaseLayout lang={lang} mainClass="">
+  <script is:inline define:vars={{ preload }}>
+    window.__PRELOAD__ = preload;
+  </script>
+
+  <Hero lang={lang} client:load />
+  <StickyArticlesTicker lang={lang} client:load />
+  <AboutPreview lang={lang} client:visible />
+  <ProjectThemes lang={lang} client:visible />
+  <ProjectsGrid lang={lang} client:visible />
+  <VideoPlaylist lang={lang} client:visible />
+  <StatsSection lang={lang} client:visible />
+  <Publications lang={lang} client:visible />
+  <LatestNews lang={lang} client:visible />
+  <Testimonials lang={lang} client:visible />
+  <Partners lang={lang} client:visible />
+  <Newsletter lang={lang} client:visible />
 </BaseLayout>

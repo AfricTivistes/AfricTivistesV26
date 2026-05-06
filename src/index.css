@@ -185,6 +185,12 @@
     max-width: 100%;
     height: auto;
   }
+  /* La barre de navigation est elle-même un .section-container : on lui
+     restitue le comportement par défaut pour les images (logo). */
+  nav img {
+    max-width: revert;
+    height: revert;
+  }
 
   .prose figure,
   .section-container figure {

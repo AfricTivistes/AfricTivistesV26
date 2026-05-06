@@ -1,8 +1,44 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import AboutPage from "@/components/pages/About";
+import PageHero from "@/components/PageHero";
+import TwoColumnTextImage from "@/components/TwoColumnTextImage";
+import AboutApproach from "@/components/about/AboutApproach";
+import AboutGallery from "@/components/about/AboutGallery";
+import AboutValues from "@/components/about/AboutValues";
+import ImpactMap from "@/components/ImpactMap";
+import CtaBanner from "@/components/CtaBanner";
+import WebPlatforms from "@/components/WebPlatforms";
 const lang = "en";
 ---
 <BaseLayout lang={lang}>
-  <AboutPage client:only="react" />
+  
+    <PageHero
+      lang={lang} client:load
+      backgroundImage="https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
+      labelKey="nav.about"
+      titleKey="about.title"
+      subtitleKey="about.subtitle"
+    />
+    <TwoColumnTextImage
+      lang={lang} client:visible
+      labelKey="about.missionTitle"
+      titleKey="about.missionSubtitle1"
+      highlightKey="about.missionHighlight"
+      descriptions={["about.mission1", "about.mission2"]}
+      imageUrl="https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
+      imageAlt="AfricTivistes en action"
+    />
+    <AboutApproach lang={lang} client:visible />
+    <AboutGallery lang={lang} client:visible />
+    <AboutValues lang={lang} client:visible />
+    <ImpactMap lang={lang} client:visible />
+    <CtaBanner
+      lang={lang} client:visible
+      titleKey="about.ctaTitle"
+      descKey="about.ctaDesc"
+      btnKey="about.ctaBtn"
+      linkTo="/contact"
+    />
+    <WebPlatforms lang={lang} client:visible />
+  
 </BaseLayout>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { getProjetImageUrl, stripHtml, type WPProjet } from "@/lib/wordpress";

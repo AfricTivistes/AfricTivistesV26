@@ -1,8 +1,24 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import AdhesionPage from "@/components/pages/Adhesion";
+import JoinHero from "@/components/join/JoinHero";
+import TwoColumnTextImage from "@/components/TwoColumnTextImage";
+import JoinReasons from "@/components/JoinReasons";
+import JoinSteps from "@/components/JoinSteps";
+import JoinForm from "@/components/JoinForm";
 const lang = "en";
 ---
 <BaseLayout lang={lang}>
-  <AdhesionPage client:only="react" />
+  <JoinHero lang={lang} client:load />
+  <TwoColumnTextImage
+    lang={lang} client:visible
+    labelKey="join.communityLabel"
+    titleKey="join.communityTitle1"
+    highlightKey="join.communityHighlight"
+    descriptions={["join.communityDesc1"]}
+    imageUrl="https://update.africtivistes.org/wp-content/uploads/2024/01/Untitled.png"
+    imageAlt="AfricTivistes Community"
+  />
+  <JoinReasons lang={lang} client:visible />
+  <JoinSteps lang={lang} client:visible />
+  <JoinForm lang={lang} client:visible />
 </BaseLayout>

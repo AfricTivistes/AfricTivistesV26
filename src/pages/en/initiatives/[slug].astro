@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import ProjetDetail from "@/components/pages/ProjetDetail";
+import ProjetDetail from "@/components/projet/ProjetDetail";
 import { fetchProjetBySlugWithLang } from "@/lib/wordpress";
 
 const lang = "en";
@@ -15,10 +15,10 @@ try {
 
 const preload = projet ? [{ key: ["projet", slug, lang], data: projet }] : [];
 ---
-<BaseLayout lang={lang}>
+<BaseLayout lang={lang} mainClass="">
   <script is:inline define:vars={{ slug, preload }}>
     window.__ASTRO_PARAMS__ = { slug };
     window.__PRELOAD__ = preload;
   </script>
-  <ProjetDetail client:only="react" />
+  <ProjetDetail slug={slug} lang={lang} client:load />
 </BaseLayout>

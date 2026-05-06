@@ -1,5 +1,5 @@
-import { withProviders } from "@/lib/withProviders";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { withDataProviders } from "@/lib/withProviders";
+import { useParams, Link, useLocation } from "@/lib/router-shim";
 
 function formatPostContent(html: string): string {
   // If already has block-level HTML, leave as-is
@@ -13,15 +13,15 @@ function formatPostContent(html: string): string {
 }
 import { useEffect, useRef } from "react";
 import { ArrowLeft, Calendar, Share2, Facebook, Linkedin, Mail } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { getFeaturedImageUrl, getPostCategories, formatDate } from "@/lib/wordpress";
 import { useI18n } from "@/lib/i18n";
 import { usePostBySlug, usePostById } from "@/hooks/use-wordpress";
 
-const BlogPost = () => {
+interface BlogPostProps { slug?: string }
+const BlogPost = ({ slug: slugProp }: BlogPostProps = {}) => {
   const { t, lang } = useI18n();
-  const { slug } = useParams<{ slug: string }>();
+  const params = useParams<{ slug: string }>();
+  const slug = slugProp ?? params.slug;
   const location = useLocation();
   const locationState = location.state as { from?: string; fromLabelKey?: string } | null;
   const backTo = locationState?.from ?? "/blog";
@@ -59,17 +59,14 @@ const BlogPost = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background">
-        <Navbar />
-        <div className="pt-28 section-container animate-pulse">
-          <div className="h-8 bg-muted rounded w-2/3 mb-4" />
-          <div className="h-4 bg-muted rounded w-1/3 mb-8" />
-          <div className="aspect-[2/1] bg-muted rounded-xl mb-8" />
-          <div className="space-y-3 max-w-3xl">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="h-4 bg-muted rounded" style={{ width: `${70 + Math.random() * 30}%` }} />
-            ))}
-          </div>
+      <div className="pt-28 section-container animate-pulse">
+        <div className="h-8 bg-muted rounded w-2/3 mb-4" />
+        <div className="h-4 bg-muted rounded w-1/3 mb-8" />
+        <div className="aspect-[2/1] bg-muted rounded-xl mb-8" />
+        <div className="space-y-3 max-w-3xl">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="h-4 bg-muted rounded" style={{ width: `${70 + Math.random() * 30}%` }} />
+          ))}
         </div>
       </div>
     );
@@ -77,13 +74,9 @@ const BlogPost = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-background">
-        <Navbar />
-        <div className="pt-28 section-container text-center py-12 lg:py-16">
-          <h1 className="text-3xl font-bold text-foreground mb-4">{t("blogPost.notFound")}</h1>
-          <Link to={backTo} className="text-primary font-semibold" data-testid="link-back-blog">← {backLabel}</Link>
-        </div>
-        <Footer />
+      <div className="pt-28 section-container text-center py-12 lg:py-16">
+        <h1 className="text-3xl font-bold text-foreground mb-4">{t("blogPost.notFound")}</h1>
+        <Link to={backTo} className="text-primary font-semibold" data-testid="link-back-blog">← {backLabel}</Link>
       </div>
     );
   }
@@ -92,9 +85,7 @@ const BlogPost = () => {
   const postCategories = getPostCategories(post);
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <article className="pt-24 pb-20">
+    <article className="pt-24 pb-20">
         <div className="section-container">
           <Link to={backTo} className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-8" data-testid="link-back">
             <ArrowLeft size={16} />
@@ -174,9 +165,7 @@ const BlogPost = () => {
           />
         </div>
       </article>
-      <Footer />
-    </div>
   );
 };
 
-export default withProviders(BlogPost);
+export default withDataProviders(BlogPost);

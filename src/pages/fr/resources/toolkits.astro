@@ -1,8 +1,28 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import ResourcesToolkits from "@/components/pages/ResourcesToolkits";
+import ResourcesToolkits from "@/components/resources/ResourcesToolkits";
+import { fetchPosts, TOOLKIT_CATEGORY_IDS } from "@/lib/wordpress";
+
 const lang = "fr";
+const toolkitCatId = TOOLKIT_CATEGORY_IDS[lang] || TOOLKIT_CATEGORY_IDS.fr;
+
+const postsData = await fetchPosts({
+  page: 1,
+  perPage: 9,
+  categories: [toolkitCatId],
+  lang,
+}).catch(() => ({ posts: [], totalPages: 1, total: 0 }));
+
+const preload = [
+  {
+    key: ["posts", { page: 1, perPage: 9, categories: [toolkitCatId], categoriesExclude: undefined, search: undefined, lang }],
+    data: postsData,
+  },
+];
 ---
 <BaseLayout lang={lang}>
-  <ResourcesToolkits client:only="react" />
+  <script is:inline define:vars={{ preload }}>
+    window.__PRELOAD__ = preload;
+  </script>
+  <ResourcesToolkits lang={lang} client:load />
 </BaseLayout>

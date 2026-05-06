@@ -1,3 +1,4 @@
+import { withDataProviders } from "@/lib/withProviders";
 import { motion, AnimatePresence } from "framer-motion";
 import { useI18n, type Lang } from "@/lib/i18n";
 import { useState, useEffect, useCallback } from "react";
@@ -279,4 +280,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default withDataProviders(Testimonials);

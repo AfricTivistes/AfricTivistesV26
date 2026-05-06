@@ -837,6 +837,11 @@ function translate(key: string, lang: Lang): string {
 /**
  * Provider is now optional. When present, it overrides the detected language.
  * When absent, `useI18n` self-initializes from `<html lang>` / URL.
+ *
+ * Nested behaviour: when `initialLang` is not provided AND a parent
+ * `I18nContext` is mounted, this provider becomes a pass-through (returns the
+ * parent context). This prevents nested `withDataProviders` calls (e.g.
+ * `ValuesHero` rendering `PageHero`) from resetting the language during SSR.
  */
 export function I18nProvider({
   children,
@@ -845,6 +850,7 @@ export function I18nProvider({
   children: ReactNode;
   initialLang?: Lang;
 }) {
+  const parent = useContext(I18nContext);
   const [lang, setLangState] = useState<Lang>(() => detectInitialLang(initialLang));
 
   const setLang = useCallback((l: Lang) => {
@@ -856,6 +862,12 @@ export function I18nProvider({
   }, []);
 
   const t = useCallback((key: string) => translate(key, lang), [lang]);
+
+  // Pass-through: parent context already provides a language and caller
+  // didn't ask for an explicit override.
+  if (parent && !initialLang) {
+    return <>{children}</>;
+  }
 
   return <I18nContext.Provider value={{ lang, setLang, t }}>{children}</I18nContext.Provider>;
 }

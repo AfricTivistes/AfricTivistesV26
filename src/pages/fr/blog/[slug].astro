@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import BlogPost from "@/components/pages/BlogPost";
+import BlogPost from "@/components/blog/BlogPost";
 import { fetchPostBySlug } from "@/lib/wordpress";
 
 const lang = "fr";
@@ -15,10 +15,10 @@ try {
 
 const preload = post ? [{ key: ["post", slug], data: post }] : [];
 ---
-<BaseLayout lang={lang}>
+<BaseLayout lang={lang} mainClass="">
   <script is:inline define:vars={{ slug, preload }}>
     window.__ASTRO_PARAMS__ = { slug };
     window.__PRELOAD__ = preload;
   </script>
-  <BlogPost client:only="react" />
+  <BlogPost slug={slug} lang={lang} client:load />
 </BaseLayout>

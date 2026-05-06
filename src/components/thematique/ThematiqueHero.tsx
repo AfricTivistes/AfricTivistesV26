@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { ChevronRight, type LucideIcon } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import type { ThematiqueLangData } from "@/data/thematiques";

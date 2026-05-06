@@ -1,16 +1,21 @@
 ---
 import "@/index.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ToastersIsland from "@/components/ToastersIsland";
 
 interface Props {
   title?: string;
   description?: string;
   lang?: "fr" | "en";
+  mainClass?: string;
 }
 
 const {
   title = "AfricTivistes - Ligue des Cybercitoyens Africains",
   description = "AfricTivistes est une organisation panafricaine de civic tech qui promeut la démocratie numérique en Afrique.",
   lang = "fr",
+  mainClass = "pt-24 pb-20",
 } = Astro.props;
 ---
 
@@ -36,6 +41,14 @@ const {
     <meta name="twitter:image" content="https://africtivistes.org/favicon.svg" />
   </head>
   <body>
-    <slot />
+    <div class="min-h-screen bg-background">
+      <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
+      <Navbar lang={lang} client:load />
+      <main id="main-content" class={mainClass}>
+        <slot />
+      </main>
+      <Footer lang={lang} client:visible />
+    </div>
+    <ToastersIsland client:load />
   </body>
 </html>

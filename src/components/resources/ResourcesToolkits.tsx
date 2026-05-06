@@ -1,9 +1,8 @@
-import { withProviders } from "@/lib/withProviders";
+import { withDataProviders } from "@/lib/withProviders";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Wrench, Package, ChevronRight as ChevRight } from "lucide-react";
-import PageLayout from "@/components/PageLayout";
 import SectionHeader from "@/components/SectionHeader";
 import { useI18n } from "@/lib/i18n";
 import { getFeaturedImageUrl, stripHtml, TOOLKIT_CATEGORY_IDS } from "@/lib/wordpress";
@@ -45,7 +44,7 @@ const ResourcesToolkits = () => {
   const heroImage = posts.length > 0 ? getFeaturedImageUrl(posts[0]) : null;
 
   return (
-    <PageLayout>
+    <>
       {/* Custom Hero */}
       <section className="relative py-12 lg:py-16 overflow-hidden">
         {/* Background image from first post */}
@@ -244,8 +243,8 @@ const ResourcesToolkits = () => {
           )}
         </div>
       </section>
-    </PageLayout>
+    </>
   );
 };
 
-export default withProviders(ResourcesToolkits);
+export default withDataProviders(ResourcesToolkits);

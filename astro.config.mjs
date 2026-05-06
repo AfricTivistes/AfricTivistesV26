@@ -19,9 +19,6 @@ export default defineConfig({
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
-        // Shim react-router-dom so all existing components keep working
-        // without modification (Link -> <a>, useParams reads context, etc.)
-        "react-router-dom": path.resolve(__dirname, "./src/lib/router-shim.tsx"),
       },
     },
   },

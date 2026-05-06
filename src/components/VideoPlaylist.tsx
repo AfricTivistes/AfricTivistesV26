@@ -1,3 +1,4 @@
+import { withDataProviders } from "@/lib/withProviders";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X, ExternalLink, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
@@ -358,4 +359,4 @@ const VideoPlaylist = () => {
   );
 };
 
-export default VideoPlaylist;
+export default withDataProviders(VideoPlaylist);

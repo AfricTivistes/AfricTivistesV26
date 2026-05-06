@@ -1,8 +1,48 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import HistoirePage from "@/components/pages/Histoire";
+import PageHero from "@/components/PageHero";
+import TwoColumnTextImage from "@/components/TwoColumnTextImage";
+import HistoryTimeline from "@/components/history/HistoryTimeline";
+import HistoryStats from "@/components/history/HistoryStats";
+import CtaBanner from "@/components/CtaBanner";
 const lang = "en";
 ---
 <BaseLayout lang={lang}>
-  <HistoirePage client:only="react" />
+  
+    <PageHero
+      lang={lang} client:load
+      backgroundImage="https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg"
+      labelKey="nav.about.history"
+      titleKey="history.title"
+      subtitleKey="history.subtitle"
+    />
+    <TwoColumnTextImage
+      lang={lang} client:visible
+      labelKey="history.originLabel"
+      titleKey="history.originTitle1"
+      highlightKey="history.originHighlight"
+      descriptions={["history.originDesc1", "history.originDesc2"]}
+      imageUrl="https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
+      imageAlt="Fondation d'AfricTivistes"
+    />
+    <HistoryTimeline lang={lang} client:visible />
+    <HistoryStats lang={lang} client:visible />
+    <TwoColumnTextImage
+      lang={lang} client:visible
+      labelKey="history.visionLabel"
+      titleKey="history.visionTitle"
+      descriptions={["history.visionDesc"]}
+      imageUrl="https://update.africtivistes.org/wp-content/uploads/2025/11/image.jpeg"
+      imageAlt="Vision AfricTivistes"
+      imagePosition="left"
+      sectionBg="bg-muted/50"
+    />
+    <CtaBanner
+      lang={lang} client:visible
+      titleKey="history.ctaTitle"
+      descKey="history.ctaDesc"
+      btnKey="history.ctaBtn"
+      linkTo="/contact"
+    />
+  
 </BaseLayout>

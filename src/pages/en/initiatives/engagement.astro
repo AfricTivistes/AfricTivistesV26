@@ -1,10 +1,10 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import ThematiquePage from "@/components/pages/ThematiquePage";
+import ThematiquePage from "@/components/thematique/ThematiquePage";
 import { thematiques } from "@/data/thematiques";
 const lang = "en";
 const data = thematiques["engagement"];
 ---
-<BaseLayout lang={lang}>
-  <ThematiquePage data={data} client:only="react" />
+<BaseLayout lang={lang} mainClass="">
+  <ThematiquePage data={data} lang={lang} client:load />
 </BaseLayout>

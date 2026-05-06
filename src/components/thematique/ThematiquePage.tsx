@@ -1,7 +1,6 @@
-import { withProviders } from "@/lib/withProviders";
+import { withDataProviders } from "@/lib/withProviders";
 import { useMemo } from "react";
 import { Lightbulb, BookOpen, Radio, Users, Vote } from "lucide-react";
-import PageLayout from "@/components/PageLayout";
 import CtaBanner from "@/components/CtaBanner";
 import ThematiqueHero from "@/components/thematique/ThematiqueHero";
 import ThematiqueIntro from "@/components/thematique/ThematiqueIntro";
@@ -49,7 +48,7 @@ const ThematiquePage = ({ data }: ThematiquePageProps) => {
   }, [projets, matchedThematique]);
 
   return (
-    <PageLayout>
+    <>
       <ThematiqueHero content={content} bg={data.bg} gradientFrom={data.gradientFrom} gradientTo={data.gradientTo} IconComponent={IconComponent} />
       <ThematiqueIntro content={content} bg={data.bg} bgSolid={data.bgSolid} color={data.color} />
       <ThematiqueRelatedProjets
@@ -79,8 +78,8 @@ const ThematiquePage = ({ data }: ThematiquePageProps) => {
         gradientFrom={data.gradientFrom}
         gradientTo={data.gradientTo}
       />
-    </PageLayout>
+    </>
   );
 };
 
-export default withProviders(ThematiquePage);
+export default withDataProviders(ThematiquePage);

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { useQueryClient } from "@tanstack/react-query";
+import { withDataProviders } from "@/lib/withProviders";
 import SectionHeader from "@/components/SectionHeader";
 import { useI18n } from "@/lib/i18n";
 import { getProjetImageUrl, stripHtml, getProjetThematique, fetchProjetBySlugWithLang } from "@/lib/wordpress";
@@ -151,4 +152,4 @@ const InitiativesProjectGrid = () => {
   );
 };
 
-export default InitiativesProjectGrid;
+export default withDataProviders(InitiativesProjectGrid);

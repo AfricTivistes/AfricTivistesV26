@@ -6,8 +6,9 @@ const root = path.resolve(process.cwd(), "src/pages");
 const langs = ["fr", "en"];
 
 // Static pages: [relativePath, importName, importPath]
+// Note: index.astro is NOT generated -- it's hand-written as native Astro
+// (Astro orchestrates, sub-components are React islands).
 const staticPages = [
-  ["index.astro",                       "IndexPage",            "@/components/pages/Index"],
   ["contact.astro",                     "ContactPage",          "@/components/pages/Contact"],
   ["about/index.astro",                 "AboutPage",            "@/components/pages/About"],
   ["about/history.astro",               "HistoirePage",         "@/components/pages/Histoire"],

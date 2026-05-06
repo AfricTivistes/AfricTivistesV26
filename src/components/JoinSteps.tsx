@@ -1,3 +1,4 @@
+import { withDataProviders } from "@/lib/withProviders";
 import { motion } from "framer-motion";
 import { ClipboardList, Search, MailCheck, HandshakeIcon } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
@@ -60,4 +61,4 @@ const JoinSteps = () => {
   );
 };
 
-export default JoinSteps;
+export default withDataProviders(JoinSteps);

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { motion } from "framer-motion";
 import { ChevronRight, Globe, MapPin } from "lucide-react";
 import { getCountryName } from "@/lib/wordpress";

@@ -1,5 +1,6 @@
+import { withDataProviders } from "@/lib/withProviders";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { Phone, Mail, MapPin, Send, Twitter, Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
 import logo from "@/assets/logo.svg?url";
 import { useI18n } from "@/lib/i18n";
@@ -157,4 +158,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default withDataProviders(Footer);

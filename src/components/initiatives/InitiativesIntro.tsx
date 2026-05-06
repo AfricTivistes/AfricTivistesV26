@@ -1,3 +1,4 @@
+import { withDataProviders } from "@/lib/withProviders";
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 
@@ -65,4 +66,4 @@ const InitiativesIntro = () => {
   );
 };
 
-export default InitiativesIntro;
+export default withDataProviders(InitiativesIntro);

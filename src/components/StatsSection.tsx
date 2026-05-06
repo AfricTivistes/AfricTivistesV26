@@ -1,3 +1,4 @@
+import { withDataProviders } from "@/lib/withProviders";
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 import { useEffect, useRef, useState } from "react";
@@ -126,4 +127,4 @@ const StatsSection = () => {
   );
 };
 
-export default StatsSection;
+export default withDataProviders(StatsSection);

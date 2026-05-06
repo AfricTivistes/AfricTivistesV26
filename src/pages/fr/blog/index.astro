@@ -1,8 +1,51 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import BlogPage from "@/components/pages/Blog";
+import BlogPage from "@/components/blog/BlogPage";
+import {
+  fetchPosts,
+  fetchCategories,
+  PUBLICATION_CATEGORY_IDS,
+  TOOLKIT_CATEGORY_IDS,
+} from "@/lib/wordpress";
+
 const lang = "fr";
+
+// SSR prefetch : seulement pour le cas par defaut (page=1, pas de filtre).
+// Les filtres/pagination etant pilotes par URL searchParams cote client,
+// le QueryClient prendra le relais pour les autres combinaisons.
+const url = new URL(Astro.request.url);
+const currentPage = parseInt(url.searchParams.get("page") || "1");
+const currentCat = url.searchParams.get("cat") || "";
+
+const publicationCatId = PUBLICATION_CATEGORY_IDS[lang] || PUBLICATION_CATEGORY_IDS.fr;
+const toolkitCatId = TOOLKIT_CATEGORY_IDS[lang] || TOOLKIT_CATEGORY_IDS.fr;
+const excludedCatIds = [publicationCatId, toolkitCatId];
+const categories = currentCat ? [parseInt(currentCat)] : undefined;
+
+const postsOpts = {
+  page: currentPage,
+  perPage: 9,
+  categoriesExclude: excludedCatIds,
+  ...(categories ? { categories } : {}),
+  lang,
+};
+
+const [postsData, allCategories] = await Promise.all([
+  fetchPosts(postsOpts).catch(() => ({ posts: [], totalPages: 1, total: 0 })),
+  fetchCategories(lang).catch(() => []),
+]);
+
+const preload = [
+  {
+    key: ["posts", { page: currentPage, perPage: 9, categories, categoriesExclude: excludedCatIds, search: undefined, lang }],
+    data: postsData,
+  },
+  { key: ["categories", lang], data: allCategories },
+];
 ---
-<BaseLayout lang={lang}>
-  <BlogPage client:only="react" />
+<BaseLayout lang={lang} mainClass="">
+  <script is:inline define:vars={{ preload }}>
+    window.__PRELOAD__ = preload;
+  </script>
+  <BlogPage lang={lang} client:load />
 </BaseLayout>

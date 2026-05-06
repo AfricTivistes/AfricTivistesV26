@@ -1,25 +1,21 @@
 import { type ReactNode } from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 interface PageLayoutProps {
   children: ReactNode;
   mainClassName?: string;
 }
 
-const PageLayout = ({ children, mainClassName = "pt-24 pb-20" }: PageLayoutProps) => {
-  return (
-    <div className="min-h-screen bg-background">
-      <a href="#main-content" className="skip-to-content">
-        Aller au contenu principal
-      </a>
-      <Navbar />
-      <main id="main-content" className={mainClassName}>
-        {children}
-      </main>
-      <Footer />
-    </div>
-  );
+/**
+ * Transparent wrapper kept for backward compatibility with React page
+ * components that still call <PageLayout>...</PageLayout>. The `<main>`
+ * element, navbar offset, and overall layout chrome are now provided by
+ * `BaseLayout.astro`. New pages should not depend on this component.
+ */
+const PageLayout = ({ children, mainClassName }: PageLayoutProps) => {
+  if (mainClassName) {
+    return <div className={mainClassName}>{children}</div>;
+  }
+  return <>{children}</>;
 };
 
 export default PageLayout;
