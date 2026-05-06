@@ -4,6 +4,8 @@ import { Link } from "@/lib/router-shim";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg?url";
+import heroBgWebp from "@/assets/hero-bg.webp?url";
+import heroBgAvif from "@/assets/hero-bg.avif?url";
 import { useI18n } from "@/lib/i18n";
 import { getFeaturedImageUrl, stripHtml, formatDate, getPostCategories } from "@/lib/wordpress";
 import { usePosts } from "@/hooks/use-wordpress";
@@ -39,12 +41,20 @@ const Hero = () => {
     <section className="relative min-h-[90vh] flex items-center overflow-hidden" aria-label="Section d'accueil">
       {/* Background */}
       <div className="absolute inset-0" aria-hidden="true">
-        <img
-          src={heroBg}
-          alt=""
-          className="w-full h-full object-cover"
-          loading="eager"
-        />
+        <picture>
+          <source srcSet={heroBgAvif} type="image/avif" />
+          <source srcSet={heroBgWebp} type="image/webp" />
+          <img
+            src={heroBg}
+            alt=""
+            className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            width="1920"
+            height="1080"
+          />
+        </picture>
         <div className="absolute inset-0 hero-gradient opacity-90" />
         <div className="absolute inset-0 pattern-african" />
       </div>
@@ -143,6 +153,10 @@ const Hero = () => {
                             src={getFeaturedImageUrl(articles[currentSlide])!}
                             alt={stripHtml(articles[currentSlide].title.rendered)}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                            decoding="async"
+                            width="800"
+                            height="600"
                           />
                         ) : (
                           <div className="w-full h-full bg-primary/20 flex items-center justify-center">
@@ -215,6 +229,10 @@ const Hero = () => {
                     src={heroBg}
                     alt=""
                     className="w-full h-full object-cover opacity-60"
+                    loading="lazy"
+                    decoding="async"
+                    width="800"
+                    height="600"
                   />
                 </div>
               )}

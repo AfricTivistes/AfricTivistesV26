@@ -67,6 +67,9 @@ const Partners = () => {
                   alt={`Logo ${p.name}`}
                   className="max-h-10 max-w-full object-contain"
                   loading="lazy"
+                  decoding="async"
+                  width="160"
+                  height="40"
                 />
               </div>
             ))}
@@ -84,6 +87,9 @@ const Partners = () => {
                   alt={`Logo ${p.name}`}
                   className="max-h-10 max-w-full object-contain"
                   loading="lazy"
+                  decoding="async"
+                  width="160"
+                  height="40"
                 />
               </div>
             ))}

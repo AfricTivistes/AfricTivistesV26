@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # Misc
 *.log
+AGENTS.md
+.agents/
+skills-lock.json

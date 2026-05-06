@@ -22,7 +22,16 @@ const HeroSection = ({ title, imageUrl, thematiqueName, thematiqueSlug, pays, la
   <section className="relative overflow-hidden min-h-[420px] lg:min-h-[520px] flex items-end">
     <div className="absolute inset-0">
       {imageUrl ? (
-        <img src={imageUrl} alt="" className="w-full h-full object-cover scale-105" />
+        <img
+          src={imageUrl}
+          alt=""
+          className="w-full h-full object-cover scale-105"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          width="1920"
+          height="1080"
+        />
       ) : (
         <div className="w-full h-full hero-gradient" />
       )}

@@ -155,7 +155,16 @@ const BlogPost = ({ slug: slugProp }: BlogPostProps = {}) => {
 
           {imageUrl && (
             <div className="aspect-[2/1] rounded-xl overflow-hidden mb-10">
-              <img src={imageUrl} alt="" className="w-full h-full object-cover" />
+              <img
+                src={imageUrl}
+                alt=""
+                className="w-full h-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                width="1200"
+                height="600"
+              />
             </div>
           )}
 

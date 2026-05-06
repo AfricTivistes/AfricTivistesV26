@@ -190,7 +190,14 @@ const Navbar = () => {
       <div className="section-container">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link to="/" className="flex items-center gap-2" aria-label="Retour à l'accueil AfricTivistes">
-            <img src={logo} alt="AfricTivistes" className="h-10 lg:h-12 w-auto" />
+            <img
+              src={logo}
+              alt="AfricTivistes"
+              className="h-10 lg:h-12 w-auto"
+              width="134"
+              height="60"
+              decoding="async"
+            />
           </Link>
 
           {/* Desktop Navigation */}

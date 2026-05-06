@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import BlogPost from "@/components/blog/BlogPost";
-import { fetchPostBySlug } from "@/lib/wordpress";
+import { fetchPostBySlug, getOgImageUrl, stripHtml } from "@/lib/wordpress";
 
 const lang = "en";
 const { slug } = Astro.params;
@@ -14,8 +14,18 @@ try {
 }
 
 const preload = post ? [{ key: ["post", slug], data: post }] : [];
+
+const ogTitle = post ? `${stripHtml(post.title.rendered)} | AfricTivistes` : undefined;
+const ogDescription = post ? stripHtml(post.excerpt.rendered).slice(0, 200) : undefined;
+const ogImage = post ? getOgImageUrl(post) ?? undefined : undefined;
 ---
-<BaseLayout lang={lang} mainClass="">
+<BaseLayout
+  lang={lang}
+  mainClass=""
+  title={ogTitle}
+  description={ogDescription}
+  ogImage={ogImage}
+>
   <script is:inline define:vars={{ slug, preload }}>
     window.__ASTRO_PARAMS__ = { slug };
     window.__PRELOAD__ = preload;

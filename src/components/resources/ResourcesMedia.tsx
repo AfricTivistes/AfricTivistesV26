@@ -76,6 +76,9 @@ const VideoCard = ({ video, index, playingId, onPlay, onStop, formatDate, t }: V
                 alt=""
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
+                decoding="async"
+                width="640"
+                height="360"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
               <div className="absolute inset-0 flex items-center justify-center">

@@ -116,6 +116,9 @@ const TestimonialCard = ({ item, lang }: { item: Testimonial; lang: Lang }) => (
         alt={item.name}
         className="w-16 h-16 rounded-full object-cover border-2 border-primary/20 shrink-0"
         loading="lazy"
+        decoding="async"
+        width="64"
+        height="64"
       />
       <div className="min-w-0">
         <p className="font-heading font-bold text-foreground truncate">

@@ -21,7 +21,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
           <div>
-            <img src={logo} alt="AfricTivistes" className="h-10 mb-5 brightness-0 invert" />
+            <img
+              src={logo}
+              alt="AfricTivistes"
+              className="h-10 mb-5 brightness-0 invert"
+              width="134"
+              height="60"
+              loading="lazy"
+              decoding="async"
+            />
             <p className="text-sm text-white/60 leading-relaxed mb-6">
               {t("footer.desc")}
             </p>
@@ -139,6 +147,9 @@ const Footer = () => {
                   alt="NGOsource Equivalency Determination"
                   className="h-10 w-28 object-contain opacity-80 transition-opacity hover:opacity-100"
                   loading="lazy"
+                  decoding="async"
+                  width="112"
+                  height="40"
                 />
               </a>
             </div>

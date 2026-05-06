@@ -18,6 +18,16 @@ interface WPEmbedMedia {
   "wp:featuredmedia"?: Array<{
     source_url: string;
     alt_text: string;
+    media_details?: {
+      width?: number;
+      height?: number;
+      sizes?: Record<string, {
+        source_url: string;
+        width: number;
+        height: number;
+        mime_type?: string;
+      }>;
+    };
   }>;
   "wp:term"?: Array<Array<{
     id: number;
@@ -390,6 +400,33 @@ export async function fetchCategories(lang?: string): Promise<WPCategory[]> {
 
 export function getFeaturedImageUrl(post: WPPost): string | null {
   return post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
+}
+
+/**
+ * Picks an OG-friendly variant from WP media (target ~1200px wide).
+ * Priority: large → medium_large → full → source_url.
+ * Falls back to the original source_url if no sizes are exposed.
+ */
+export function getOgImageUrl(
+  entity: { _embedded?: WPEmbedMedia } | null | undefined,
+): string | null {
+  const media = entity?._embedded?.["wp:featuredmedia"]?.[0];
+  if (!media) return null;
+  const sizes = media.media_details?.sizes;
+  if (sizes) {
+    const preferred = ["large", "medium_large", "full"] as const;
+    for (const key of preferred) {
+      const s = sizes[key];
+      if (s?.source_url) return s.source_url;
+    }
+    // pick the widest size we have ≥ 600px as a safety net
+    const candidates = Object.values(sizes).filter((s) => s?.source_url && s.width >= 600);
+    if (candidates.length) {
+      candidates.sort((a, b) => b.width - a.width);
+      return candidates[0].source_url;
+    }
+  }
+  return media.source_url || null;
 }
 
 export function getPostCategories(post: WPPost): Array<{ id: number; name: string; slug: string }> {

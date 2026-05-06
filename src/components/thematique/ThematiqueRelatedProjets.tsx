@@ -78,6 +78,9 @@ const ThematiqueRelatedProjets = ({ projets, loading, bgSolid, color, borderColo
                           alt=""
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                           loading="lazy"
+                          decoding="async"
+                          width="600"
+                          height="400"
                         />
                       ) : (
                         <div className="w-full h-full pattern-kente" aria-hidden="true" />

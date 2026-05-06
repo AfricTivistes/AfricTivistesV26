@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ProjetDetail from "@/components/projet/ProjetDetail";
-import { fetchProjetBySlugWithLang } from "@/lib/wordpress";
+import { fetchProjetBySlugWithLang, getOgImageUrl, stripHtml } from "@/lib/wordpress";
 
 const lang = "en";
 const { slug } = Astro.params;
@@ -14,8 +14,18 @@ try {
 }
 
 const preload = projet ? [{ key: ["projet", slug, lang], data: projet }] : [];
+
+const ogTitle = projet ? `${stripHtml(projet.title.rendered)} | AfricTivistes` : undefined;
+const ogDescription = projet?.excerpt?.rendered ? stripHtml(projet.excerpt.rendered).slice(0, 200) : undefined;
+const ogImage = projet ? getOgImageUrl(projet) ?? undefined : undefined;
 ---
-<BaseLayout lang={lang} mainClass="">
+<BaseLayout
+  lang={lang}
+  mainClass=""
+  title={ogTitle}
+  description={ogDescription}
+  ogImage={ogImage}
+>
   <script is:inline define:vars={{ slug, preload }}>
     window.__ASTRO_PARAMS__ = { slug };
     window.__PRELOAD__ = preload;

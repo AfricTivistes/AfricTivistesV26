@@ -29,6 +29,9 @@ const ValuesGallery = () => {
                   i === 0 ? "h-48 md:h-full" : "h-48 md:h-56"
                 }`}
                 loading="lazy"
+                decoding="async"
+                width="600"
+                height="400"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </motion.div>

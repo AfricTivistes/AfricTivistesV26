@@ -21,6 +21,7 @@ import {
   COMMUNIQUE_CATEGORY_IDS,
   PUBLICATION_CATEGORY_IDS,
 } from "@/lib/wordpress";
+import heroBg from "@/assets/hero-bg.avif?url";
 
 const lang = "en";
 const communiqueCatId = COMMUNIQUE_CATEGORY_IDS[lang] || COMMUNIQUE_CATEGORY_IDS.en;
@@ -61,7 +62,7 @@ const preload = [
   { key: ["projets", lang, 100, undefined], data: projetsFiltered },
 ];
 ---
-<BaseLayout lang={lang} mainClass="">
+<BaseLayout lang={lang} mainClass="" preloadImage={heroBg}>
   <script is:inline define:vars={{ preload }}>
     window.__PRELOAD__ = preload;
   </script>

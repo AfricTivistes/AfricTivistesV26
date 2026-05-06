@@ -33,7 +33,15 @@ const ObjectiveCard = ({ objectif, objectivesLabel, imageUrl, imageAlt }: Object
           </div>
           {imageUrl && (
             <div className="hidden sm:flex flex-shrink-0 w-20 h-20 lg:w-28 lg:h-28 rounded-2xl overflow-hidden border border-border bg-muted/30">
-              <img src={imageUrl} alt={imageAlt} className="w-full h-full object-contain p-2" />
+              <img
+                src={imageUrl}
+                alt={imageAlt}
+                className="w-full h-full object-contain p-2"
+                width="112"
+                height="112"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           )}
         </div>

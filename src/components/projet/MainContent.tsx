@@ -127,7 +127,15 @@ const MainContent = ({
                       >
                         <div className="flex items-center gap-2.5 mb-2">
                           {pm.pm_image ? (
-                            <img src={pm.pm_image} alt="" className="w-8 h-8 rounded-lg object-cover flex-shrink-0 border border-border" />
+                            <img
+                              src={pm.pm_image}
+                              alt=""
+                              className="w-8 h-8 rounded-lg object-cover flex-shrink-0 border border-border"
+                              width="32"
+                              height="32"
+                              loading="lazy"
+                              decoding="async"
+                            />
                           ) : (
                             <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                               <ExternalLink size={14} className="text-primary" />

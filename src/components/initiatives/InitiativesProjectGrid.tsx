@@ -120,6 +120,9 @@ const InitiativesProjectGrid = () => {
                           alt=""
                           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           loading="lazy"
+                          decoding="async"
+                          width="600"
+                          height="400"
                         />
                       ) : (
                         <div className="absolute inset-0 pattern-kente" aria-hidden="true" />

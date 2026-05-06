@@ -72,6 +72,9 @@ const Publications = () => {
                         alt={title}
                         className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
+                        decoding="async"
+                        width="400"
+                        height="560"
                       />
                     ) : (
                       <div className="w-full h-full pattern-kente" aria-hidden="true" />
