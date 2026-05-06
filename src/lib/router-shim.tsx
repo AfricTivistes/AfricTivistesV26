@@ -140,8 +140,23 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(function NavL
   ref,
 ) {
   const href = resolveTo(to);
-  const pathname = isBrowser ? window.location.pathname : "";
-  const isActive = end ? pathname === href : pathname === href || pathname.startsWith(href + "/");
+  const [pathname, setPathname] = useState("");
+  useEffect(() => {
+    if (!isBrowser) return;
+    setPathname(window.location.pathname);
+    const onChange = () => setPathname(window.location.pathname);
+    window.addEventListener("popstate", onChange);
+    window.addEventListener("hashchange", onChange);
+    return () => {
+      window.removeEventListener("popstate", onChange);
+      window.removeEventListener("hashchange", onChange);
+    };
+  }, []);
+  const isActive = pathname
+    ? end
+      ? pathname === href
+      : pathname === href || pathname.startsWith(href + "/")
+    : false;
   const args = { isActive, isPending: false };
   const resolvedClass = typeof className === "function" ? className(args) : className;
   const resolvedStyle = typeof style === "function" ? style(args) : style;
@@ -192,9 +207,18 @@ function readLocation(): ShimLocation {
 }
 
 export function useLocation(): ShimLocation {
-  const [loc, setLoc] = useState<ShimLocation>(() => readLocation());
+  // Always start with the SSR-safe default so the first CSR render matches the
+  // server-rendered HTML, then sync to real window.location after mount.
+  const [loc, setLoc] = useState<ShimLocation>(() => ({
+    pathname: "/",
+    search: "",
+    hash: "",
+    state: null,
+    key: "default",
+  }));
   useEffect(() => {
     if (!isBrowser) return;
+    setLoc(readLocation());
     const onChange = () => setLoc(readLocation());
     window.addEventListener("popstate", onChange);
     window.addEventListener("hashchange", onChange);
@@ -237,17 +261,18 @@ export function useNavigate(): NavigateFunction {
 export function useSearchParams(
   defaultInit?: URLSearchParams | Record<string, string> | string,
 ): [URLSearchParams, (next: URLSearchParams | Record<string, string>, options?: NavigateOptions) => void] {
-  const initial = useMemo(() => {
-    if (isBrowser) return new URLSearchParams(window.location.search);
+  // Start with SSR-safe state — no browser reads during render — then sync to
+  // the real URL in useEffect so the first CSR render matches the SSR HTML.
+  const [params, setParams] = useState<URLSearchParams>(() => {
     if (defaultInit instanceof URLSearchParams) return new URLSearchParams(defaultInit);
     if (typeof defaultInit === "string") return new URLSearchParams(defaultInit);
-    if (defaultInit && typeof defaultInit === "object") return new URLSearchParams(defaultInit);
+    if (defaultInit && typeof defaultInit === "object") return new URLSearchParams(defaultInit as Record<string, string>);
     return new URLSearchParams();
-  }, []);
-  const [params, setParams] = useState<URLSearchParams>(initial);
+  });
 
   useEffect(() => {
     if (!isBrowser) return;
+    setParams(new URLSearchParams(window.location.search));
     const onChange = () => setParams(new URLSearchParams(window.location.search));
     window.addEventListener("popstate", onChange);
     return () => window.removeEventListener("popstate", onChange);

@@ -72,7 +72,6 @@ const isDefaultOg = ogImageUrl === "/og-default.jpg";
     <meta name="author" content="AfricTivistes" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate icon" href="/favicon.ico" />
 
     {/* LCP image preload — must be before any non-essential resources */}
     {preloadImage && (
@@ -180,7 +179,14 @@ const isDefaultOg = ogImageUrl === "/og-default.jpg";
             }
           });
         }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-        els.forEach(function (el) { io.observe(el); });
+        els.forEach(function (el) {
+          var rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            el.classList.add("in-view");
+          } else {
+            io.observe(el);
+          }
+        });
       })();
     </script>
   </body>
