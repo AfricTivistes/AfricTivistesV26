@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "typecheck": "astro check",
     "astro": "astro"
   },
   "dependencies": {
@@ -66,11 +67,12 @@
     "tailwind-merge": "^2.6.1",
     "tailwindcss": "^3.4.19",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.9.3",
     "vaul": "^0.9.9",
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@types/node": "^25.6.0"
+    "@astrojs/check": "^0.9.9",
+    "@types/node": "^25.6.0",
+    "typescript": "^5.9.3"
   }
 }

@@ -1,4 +1,4 @@
-import logoAfrictivistes from "@/assets/logo.svg";
+import logoAfrictivistes from "@/assets/logo.svg?url";
 
 /* ================================================================
    1. CONFIG
