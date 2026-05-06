@@ -1,0 +1,52 @@
+---
+import Reveal from "@/components/astro/Reveal.astro";
+import { t, type Lang } from "@/lib/i18n";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+
+const quotePath = '<path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>';
+---
+<section class="relative py-12 lg:py-16 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-[hsl(0,60%,15%)] via-[hsl(0,50%,12%)] to-[hsl(37,40%,15%)]"></div>
+  <div class="absolute inset-0 pattern-african opacity-10"></div>
+  <div class="absolute top-12 right-[10%] w-64 h-64 border border-secondary/10 rounded-full hidden lg:block"></div>
+  <div class="absolute -bottom-20 -left-20 w-80 h-80 border border-white/5 rounded-full"></div>
+  <div class="section-container relative z-10">
+    <Reveal class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+      <Reveal variant="scale" delay={200} class="relative flex-shrink-0">
+        <div class="w-40 h-40 lg:w-56 lg:h-56 rounded-full overflow-hidden border-4 border-secondary/40 shadow-2xl ring-4 ring-secondary/10 ring-offset-4 ring-offset-transparent">
+          <img
+            src="https://update.africtivistes.org/wp-content/uploads/2021/07/unnamed-1.jpg"
+            alt="Cheikh Fall - Fondateur d'AfricTivistes"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+            width="400"
+            height="400"
+          />
+        </div>
+        <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-secondary rounded-full flex items-center justify-center shadow-lg">
+          <svg class="text-secondary-foreground" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" set:html={quotePath}></svg>
+        </div>
+      </Reveal>
+      <div class="flex-1 text-center lg:text-left">
+        <svg class="text-secondary/30 mb-4 mx-auto lg:mx-0" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" set:html={quotePath}></svg>
+        <blockquote class="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-white leading-snug mb-8">
+          {t("values.quoteText", lang)}
+        </blockquote>
+        <div class="flex items-center justify-center lg:justify-start gap-4">
+          <div class="w-12 h-0.5 bg-secondary rounded-full"></div>
+          <div class="text-left">
+            <div class="text-lg font-bold text-white font-heading">
+              {t("values.quoteAuthor", lang)}
+            </div>
+            <div class="text-sm text-white/60">
+              {t("values.quoteRole", lang)}
+            </div>
+          </div>
+        </div>
+      </div>
+    </Reveal>
+  </div>
+</section>

@@ -1,0 +1,109 @@
+---
+import Reveal from "@/components/astro/Reveal.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import { t, type Lang } from "@/lib/i18n";
+import { thematiqueList } from "@/data/thematiques";
+
+interface CtaCardConfig {
+  titleKey: string;
+  descKey: string;
+  ctaKey: string;
+  to: string;
+}
+
+interface Props {
+  lang: Lang;
+  titleKey?: string;
+  labelKey?: string;
+  subtitleKey?: string;
+  className?: string;
+  ctaCard?: CtaCardConfig | null;
+}
+
+const DEFAULT_CTA: CtaCardConfig = {
+  titleKey: "projectThemes.allInitiatives.title",
+  descKey: "projectThemes.allInitiatives.desc",
+  ctaKey: "projectThemes.allInitiatives.cta",
+  to: "/initiatives",
+};
+
+const {
+  lang,
+  titleKey = "projectThemes.title",
+  labelKey,
+  subtitleKey = "projectThemes.subtitle",
+  className = "",
+  ctaCard = DEFAULT_CTA,
+} = Astro.props;
+
+const icons: Record<string, string> = {
+  "Lightbulb": '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
+  "Vote": '<path d="m9 12 2 2 4-4"/><path d="M5 7c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v12H5V7Z"/><path d="M22 19H2"/>',
+  "Users": '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  "Radio": '<path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.2 19.1 19.1"/>',
+  "BookOpen": '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+};
+const layoutGridPath = '<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>';
+const arrowRightPath = '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>';
+
+const langPrefix = (path: string) => `/${lang}${path.startsWith("/") ? path : "/" + path}`;
+---
+<section class={`py-12 lg:py-16 ${className}`} aria-labelledby="project-themes-heading">
+  <div class="section-container">
+    <SectionHeader lang={lang} titleKey={titleKey} labelKey={labelKey} subtitleKey={subtitleKey} />
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {thematiqueList.map((theme, i) => {
+        const content = theme[lang];
+        const iconPath = icons[theme.icon] || icons["Lightbulb"];
+        return (
+          <Reveal delay={i * 80}>
+            <a
+              href={langPrefix(theme.route)}
+              class="group block h-full bg-card rounded-xl border border-border p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              aria-label={`${content.heroTitle} - ${t("projectThemes.explore", lang)}`}
+            >
+              <div class={`w-12 h-12 rounded-lg ${theme.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`} aria-hidden="true">
+                <svg class={theme.color} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={iconPath}></svg>
+              </div>
+              <h3 class="font-heading text-lg font-bold text-card-foreground mb-2 group-hover:text-primary transition-colors">
+                {content.heroTitle}
+              </h3>
+              <p class="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-3">
+                {content.introduction.slice(0, 160)}...
+              </p>
+              <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                {t("projectThemes.explore", lang)}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={arrowRightPath}></svg>
+              </span>
+            </a>
+          </Reveal>
+        );
+      })}
+
+      {ctaCard && (
+        <Reveal delay={thematiqueList.length * 80}>
+          <a
+            href={langPrefix(ctaCard.to)}
+            class="group block h-full rounded-xl border-2 border-dashed border-primary/30 bg-primary/5 p-6 transition-all hover:border-primary hover:bg-primary/10 hover:shadow-lg hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            aria-label={t(ctaCard.ctaKey, lang)}
+          >
+            <div class="w-12 h-12 rounded-lg bg-primary/15 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">
+              <svg class="text-primary" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={layoutGridPath}></svg>
+            </div>
+            <h3 class="font-heading text-lg font-bold text-card-foreground mb-2 group-hover:text-primary transition-colors">
+              {t(ctaCard.titleKey, lang)}
+            </h3>
+            <p class="text-sm text-muted-foreground leading-relaxed mb-4">
+              {t(ctaCard.descKey, lang)}
+            </p>
+            <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+              {t(ctaCard.ctaKey, lang)}
+              <svg class="group-hover:translate-x-1 transition-transform" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={arrowRightPath}></svg>
+            </span>
+          </a>
+        </Reveal>
+      )}
+    </div>
+  </div>
+</section>

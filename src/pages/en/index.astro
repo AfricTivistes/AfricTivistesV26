@@ -8,7 +8,7 @@ import LatestNews from "@/components/LatestNews";
 import StatsSection from "@/components/StatsSection";
 import Publications from "@/components/Publications";
 import ProjectsGrid from "@/components/ProjectsGrid";
-import ProjectThemes from "@/components/ProjectThemes";
+import ProjectThemes from "@/components/ProjectThemes.astro";
 import Testimonials from "@/components/Testimonials";
 import Partners from "@/components/Partners";
 import Newsletter from "@/components/Newsletter";
@@ -70,7 +70,7 @@ const preload = [
   <Hero lang={lang} client:load />
   <StickyArticlesTicker lang={lang} client:visible />
   <AboutPreview lang={lang} client:visible />
-  <ProjectThemes lang={lang} client:visible />
+  <ProjectThemes lang={lang} />
   <ProjectsGrid lang={lang} client:visible />
   <VideoPlaylist lang={lang} client:visible />
   <StatsSection lang={lang} client:visible />

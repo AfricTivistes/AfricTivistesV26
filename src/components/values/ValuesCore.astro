@@ -1,0 +1,112 @@
+---
+import Reveal from "@/components/astro/Reveal.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import { t, type Lang } from "@/lib/i18n";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+
+const coreValues = [
+  {
+    icon: "target",
+    titleKey: "values.civic.title", descKey: "values.civic.desc",
+    details: ["values.civic.detail1", "values.civic.detail2", "values.civic.detail3"],
+    gradient: "from-primary/10 via-primary/5 to-transparent",
+    borderHover: "hover:border-primary/30",
+    iconBg: "bg-primary/10 group-hover:bg-primary/20",
+    iconColor: "text-primary", checkColor: "text-primary",
+  },
+  {
+    icon: "heart",
+    titleKey: "values.solidarity.title", descKey: "values.solidarity.desc",
+    details: ["values.solidarity.detail1", "values.solidarity.detail2", "values.solidarity.detail3"],
+    gradient: "from-secondary/10 via-secondary/5 to-transparent",
+    borderHover: "hover:border-secondary/30",
+    iconBg: "bg-secondary/10 group-hover:bg-secondary/20",
+    iconColor: "text-secondary", checkColor: "text-secondary",
+  },
+  {
+    icon: "users",
+    titleKey: "values.inclusion.title", descKey: "values.inclusion.desc",
+    details: ["values.inclusion.detail1", "values.inclusion.detail2", "values.inclusion.detail3"],
+    gradient: "from-accent/10 via-accent/5 to-transparent",
+    borderHover: "hover:border-accent/30",
+    iconBg: "bg-accent/10 group-hover:bg-accent/20",
+    iconColor: "text-accent", checkColor: "text-accent",
+  },
+  {
+    icon: "globe",
+    titleKey: "values.transparency.title", descKey: "values.transparency.desc",
+    details: ["values.transparency.detail1", "values.transparency.detail2", "values.transparency.detail3"],
+    gradient: "from-primary/10 via-primary/5 to-transparent",
+    borderHover: "hover:border-primary/30",
+    iconBg: "bg-primary/10 group-hover:bg-primary/20",
+    iconColor: "text-primary", checkColor: "text-primary",
+  },
+  {
+    icon: "lightbulb",
+    titleKey: "values.innovation.title", descKey: "values.innovation.desc",
+    details: ["values.innovation.detail1", "values.innovation.detail2", "values.innovation.detail3"],
+    gradient: "from-secondary/10 via-secondary/5 to-transparent",
+    borderHover: "hover:border-secondary/30",
+    iconBg: "bg-secondary/10 group-hover:bg-secondary/20",
+    iconColor: "text-secondary", checkColor: "text-secondary",
+  },
+  {
+    icon: "shield",
+    titleKey: "values.resilience.title", descKey: "values.resilience.desc",
+    details: ["values.resilience.detail1", "values.resilience.detail2", "values.resilience.detail3"],
+    gradient: "from-accent/10 via-accent/5 to-transparent",
+    borderHover: "hover:border-accent/30",
+    iconBg: "bg-accent/10 group-hover:bg-accent/20",
+    iconColor: "text-accent", checkColor: "text-accent",
+  },
+] as const;
+
+const icons: Record<string, string> = {
+  "target": '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+  "heart": '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
+  "users": '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  "globe": '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+  "lightbulb": '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
+  "shield": '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+};
+
+const checkPath = '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>';
+---
+<section class="py-12 lg:py-16 bg-muted/30 relative overflow-hidden">
+  <div class="absolute inset-0 pattern-african opacity-[0.03]"></div>
+  <div class="section-container relative z-10">
+    <SectionHeader lang={lang} labelKey="values.coreLabel" titleKey="values.coreTitle" bottomMargin="mb-16" />
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {coreValues.map((v, i) => (
+        <Reveal delay={i * 80} class={`group bg-card rounded-2xl border border-border ${v.borderHover} hover:shadow-xl transition-all duration-300 overflow-hidden relative`}>
+          <div class={`h-1.5 bg-gradient-to-r ${v.gradient}`}></div>
+          <div class="p-7">
+            <div class="flex items-start gap-4 mb-5">
+              <div class={`w-14 h-14 rounded-xl ${v.iconBg} flex items-center justify-center flex-shrink-0 transition-colors duration-300`}>
+                <svg class={v.iconColor} width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={icons[v.icon]}></svg>
+              </div>
+              <div>
+                <h3 class="font-heading text-xl font-bold text-card-foreground leading-tight">
+                  {t(v.titleKey, lang)}
+                </h3>
+              </div>
+            </div>
+            <p class="text-sm text-muted-foreground leading-relaxed mb-5">
+              {t(v.descKey, lang)}
+            </p>
+            <div class="space-y-2.5">
+              {v.details.map((detailKey) => (
+                <div class="flex items-center gap-2.5">
+                  <svg class={`${v.checkColor} flex-shrink-0`} width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={checkPath}></svg>
+                  <span class="text-sm text-foreground/80 font-medium">{t(detailKey, lang)}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      ))}
+    </div>
+  </div>
+</section>

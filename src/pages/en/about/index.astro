@@ -6,9 +6,9 @@ import TwoColumnTextImage from "@/components/TwoColumnTextImage.astro";
 import AboutApproach from "@/components/about/AboutApproach.astro";
 import AboutGallery from "@/components/about/AboutGallery.astro";
 import AboutValues from "@/components/about/AboutValues.astro";
-import ImpactMap from "@/components/ImpactMap";
+import ImpactMap from "@/components/ImpactMap.astro";
 import CtaBanner from "@/components/CtaBanner.astro";
-import WebPlatforms from "@/components/WebPlatforms";
+import WebPlatforms from "@/components/WebPlatforms.astro";
 const lang = "en";
 const heroImage = "https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg";
 ---
@@ -33,7 +33,7 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2026/02/U
     <AboutApproach lang={lang} />
     <AboutGallery lang={lang} />
     <AboutValues lang={lang} />
-    <ImpactMap lang={lang} client:visible />
+    <ImpactMap lang={lang} />
     <CtaBanner
       lang={lang}
       titleKey="about.ctaTitle"
@@ -41,6 +41,6 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2026/02/U
       btnKey="about.ctaBtn"
       linkTo="/contact"
     />
-    <WebPlatforms lang={lang} client:visible />
+    <WebPlatforms lang={lang} />
   
 </BaseLayout>

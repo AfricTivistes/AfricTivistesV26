@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import GradientHero from "@/components/GradientHero.astro";
-import ProjectThemes from "@/components/ProjectThemes";
+import ProjectThemes from "@/components/ProjectThemes.astro";
 import CtaBanner from "@/components/CtaBanner.astro";
-import InitiativesIntro from "@/components/initiatives/InitiativesIntro";
+import InitiativesIntro from "@/components/initiatives/InitiativesIntro.astro";
 import InitiativesProjectGrid from "@/components/initiatives/InitiativesProjectGrid";
 import { fetchProjets, fetchThematiques } from "@/lib/wordpress";
 
@@ -30,9 +30,9 @@ const preload = [
     titleKey="programmes.title"
     subtitleKey="programmes.subtitle"
   />
-  <InitiativesIntro lang={lang} client:visible />
+  <InitiativesIntro lang={lang} />
   <ProjectThemes
-    lang={lang} client:visible
+    lang={lang}
     titleKey="initiatives.themesTitle"
     labelKey="initiatives.themesLabel"
     subtitleKey="initiatives.themesSubtitle"

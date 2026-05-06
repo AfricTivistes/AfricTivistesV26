@@ -1,0 +1,47 @@
+---
+import Reveal from "@/components/astro/Reveal.astro";
+import { t, type Lang } from "@/lib/i18n";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+
+const STATS = [
+  { value: "5",    labelFr: "Axes d'intervention", labelEn: "Areas of intervention" },
+  { value: "45",   labelFr: "Pays d'intervention", labelEn: "Countries" },
+  { value: "400+", labelFr: "Membres actifs",      labelEn: "Active members" },
+  { value: "10",   labelFr: "Années d'engagement", labelEn: "Years of engagement" },
+];
+---
+<section class="py-16 lg:py-20">
+  <div class="section-container">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <Reveal>
+        <span class="text-sm font-semibold text-primary uppercase tracking-wider">
+          {t("initiatives.planLabel", lang)}
+        </span>
+        <h2 class="text-2xl lg:text-3xl font-bold text-foreground mt-2 mb-6 font-heading">
+          {t("initiatives.planTitle", lang)}
+        </h2>
+        <p class="text-muted-foreground leading-[1.8] mb-4">
+          {t("initiatives.planDesc1", lang)}
+        </p>
+        <p class="text-muted-foreground leading-[1.8]">
+          {t("initiatives.planDesc2", lang)}
+        </p>
+      </Reveal>
+
+      <Reveal delay={100} class="grid grid-cols-2 gap-4">
+        {STATS.map((stat, i) => (
+          <Reveal variant="scale" delay={150 + i * 60} class="bg-card rounded-xl border border-border p-5 text-center">
+            <div class="text-2xl lg:text-3xl font-bold text-primary font-heading mb-1">
+              {stat.value}
+            </div>
+            <p class="text-xs text-muted-foreground font-medium">
+              {lang === "fr" ? stat.labelFr : stat.labelEn}
+            </p>
+          </Reveal>
+        ))}
+      </Reveal>
+    </div>
+  </div>
+</section>
