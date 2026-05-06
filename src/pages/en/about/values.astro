@@ -1,7 +1,7 @@
 ---
 export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import ValuesHero from "@/components/values/ValuesHero";
+import ValuesHero from "@/components/values/ValuesHero.astro";
 import ValuesIntro from "@/components/values/ValuesIntro";
 import ValuesCore from "@/components/values/ValuesCore";
 import ValuesQuote from "@/components/values/ValuesQuote";
@@ -13,7 +13,7 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2025/11/i
 ---
 <BaseLayout lang={lang} preloadImage={heroImage}>
   
-    <ValuesHero lang={lang} client:load />
+    <ValuesHero lang={lang} />
     <ValuesIntro lang={lang} client:visible />
     <ValuesCore lang={lang} client:visible />
     <ValuesQuote lang={lang} client:visible />

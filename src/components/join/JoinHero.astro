@@ -1,0 +1,30 @@
+---
+import PageHero from "@/components/PageHero.astro";
+import { t, type Lang } from "@/lib/i18n";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+---
+<PageHero
+  lang={lang}
+  backgroundImage="https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg"
+  labelKey="nav.about.join"
+  titleKey="join.title"
+  subtitleKey="join.subtitle"
+>
+  <div class="join-cta-fade mt-8">
+    <a
+      href="#formulaire"
+      class="inline-flex items-center gap-2 rounded-lg bg-secondary px-8 py-3.5 text-sm font-bold text-secondary-foreground hover:bg-secondary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
+    >
+      {t("join.submit", lang)}
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+  </div>
+</PageHero>
+
+<style>
+  @keyframes joinCtaFadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .join-cta-fade { opacity: 0; animation: joinCtaFadeUp .5s ease-out .3s forwards; }
+  @media (prefers-reduced-motion: reduce) { .join-cta-fade { opacity: 1; transform: none; animation: none; } }
+</style>

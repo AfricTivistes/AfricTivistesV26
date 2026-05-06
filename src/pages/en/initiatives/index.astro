@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import GradientHero from "@/components/GradientHero";
+import GradientHero from "@/components/GradientHero.astro";
 import ProjectThemes from "@/components/ProjectThemes";
 import CtaBanner from "@/components/CtaBanner";
 import InitiativesIntro from "@/components/initiatives/InitiativesIntro";
@@ -26,7 +26,7 @@ const preload = [
   </script>
 
   <GradientHero
-    lang={lang} client:load
+    lang={lang}
     titleKey="programmes.title"
     subtitleKey="programmes.subtitle"
   />

@@ -1,0 +1,58 @@
+---
+import { t, type Lang } from "@/lib/i18n";
+
+interface Props {
+  lang: Lang;
+  titleKey: string;
+  subtitleKey: string;
+  labelKey?: string;
+  verticalPadding?: string;
+  patternOpacity?: string;
+}
+
+const {
+  lang,
+  titleKey,
+  subtitleKey,
+  labelKey,
+  verticalPadding = "py-20 lg:py-28",
+  patternOpacity,
+} = Astro.props;
+
+const titleClass = labelKey
+  ? "text-4xl lg:text-6xl font-bold text-white mb-6 max-w-3xl leading-tight"
+  : "text-4xl lg:text-5xl font-bold text-primary-foreground mb-4";
+
+const pClass = labelKey
+  ? "text-lg lg:text-xl text-white/85 max-w-2xl leading-relaxed"
+  : "text-lg text-primary-foreground/80 max-w-2xl";
+---
+<section class={`relative ${verticalPadding} overflow-hidden`}>
+  <div class="absolute inset-0 hero-gradient" aria-hidden="true"></div>
+  <div class={`absolute inset-0 pattern-african ${patternOpacity || ""}`} aria-hidden="true"></div>
+  <slot />
+  <div class="relative section-container">
+    {labelKey && (
+      <span class="gh-fade gh-fade-0 inline-block text-sm font-semibold text-secondary uppercase tracking-wider mb-4">
+        {t(labelKey, lang)}
+      </span>
+    )}
+    <h1 class={`gh-fade ${labelKey ? "gh-fade-1" : "gh-fade-0"} ${titleClass}`}>
+      {t(titleKey, lang)}
+    </h1>
+    <p class={`gh-fade ${labelKey ? "gh-fade-2" : "gh-fade-1b"} ${pClass}`}>
+      {t(subtitleKey, lang)}
+    </p>
+  </div>
+</section>
+
+<style>
+  @keyframes ghFadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes ghFadeUpSm { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .gh-fade { opacity: 0; animation-fill-mode: forwards; animation-duration: .5s; animation-timing-function: ease-out; }
+  .gh-fade-0 { animation-name: ghFadeUpSm; }
+  .gh-fade-1 { animation-name: ghFadeUp; animation-delay: .1s; }
+  .gh-fade-1b { animation-name: ghFadeUp; animation-delay: .15s; }
+  .gh-fade-2 { animation-name: ghFadeUp; animation-delay: .2s; }
+  @media (prefers-reduced-motion: reduce) { .gh-fade { animation: none; opacity: 1; transform: none; } }
+</style>

@@ -828,11 +828,14 @@ function navigateToLang(l: Lang) {
   window.location.href = nextPath + search + hash;
 }
 
-function translate(key: string, lang: Lang): string {
+export function translate(key: string, lang: Lang): string {
   const entry = translations[key];
   if (!entry) return key;
   return entry[lang] || entry.fr || key;
 }
+
+/** Non-React alias for use in `.astro` files: `import { t } from "@/lib/i18n"` */
+export const t = translate;
 
 /**
  * Provider is now optional. When present, it overrides the detected language.

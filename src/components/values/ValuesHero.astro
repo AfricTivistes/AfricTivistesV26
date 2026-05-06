@@ -1,0 +1,27 @@
+---
+import PageHero from "@/components/PageHero.astro";
+import type { Lang } from "@/lib/i18n";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+---
+<PageHero
+  lang={lang}
+  backgroundImage="https://update.africtivistes.org/wp-content/uploads/2025/11/image.jpeg"
+  labelKey="nav.about.values"
+  titleKey="values.title"
+  subtitleKey="values.subtitle"
+  gradient="bg-gradient-to-br from-primary/95 via-primary/80 to-[hsl(37,70%,30%)]/80"
+  patternOpacity="opacity-15"
+  verticalPadding="py-12 lg:py-16"
+>
+  <div class="absolute top-20 right-[15%] w-32 h-32 border-2 border-secondary/20 rounded-full hidden lg:block animate-float"></div>
+  <div class="absolute bottom-16 left-[10%] w-20 h-20 border border-white/10 rounded-xl rotate-12 hidden lg:block"></div>
+  <div class="values-bar h-1 bg-secondary rounded-full mt-8"></div>
+</PageHero>
+
+<style>
+  @keyframes valuesBarGrow { from { width: 0; } to { width: 5rem; } }
+  .values-bar { width: 0; animation: valuesBarGrow .6s ease-out .4s forwards; }
+  @media (prefers-reduced-motion: reduce) { .values-bar { width: 5rem; animation: none; } }
+</style>

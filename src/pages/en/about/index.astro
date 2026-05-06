@@ -1,7 +1,7 @@
 ---
 export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import PageHero from "@/components/PageHero";
+import PageHero from "@/components/PageHero.astro";
 import TwoColumnTextImage from "@/components/TwoColumnTextImage";
 import AboutApproach from "@/components/about/AboutApproach";
 import AboutGallery from "@/components/about/AboutGallery";
@@ -15,7 +15,7 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2026/02/U
 <BaseLayout lang={lang} preloadImage={heroImage}>
   
     <PageHero
-      lang={lang} client:load
+      lang={lang}
       backgroundImage="https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
       labelKey="nav.about"
       titleKey="about.title"
