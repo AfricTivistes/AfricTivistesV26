@@ -8,22 +8,23 @@ Construit avec **Astro 5** en mode SSR, ce projet est une refonte complète orie
 
 ## Table des matières
 
-- [Aperçu](#aperçu)
-- [Stack technique](#stack-technique)
-- [Prérequis](#prérequis)
-- [Installation](#installation)
-- [Variables d'environnement](#variables-denvironnement)
-- [Commandes de développement](#commandes-de-développement)
-- [Structure du projet](#structure-du-projet)
-- [Architecture](#architecture)
-  - [SSR & Rendu](#ssr--rendu)
-  - [Internationalisation (i18n)](#internationalisation-i18n)
-  - [Intégration WordPress](#intégration-wordpress)
-  - [Composants & UI](#composants--ui)
-  - [Animations](#animations)
-- [Thématiques](#thématiques)
-- [Déploiement](#déploiement)
-- [Conventions](#conventions)
+- [AfricTivistes V2026](#africtivistes-v2026)
+  - [Table des matières](#table-des-matières)
+  - [Aperçu](#aperçu)
+  - [Stack technique](#stack-technique)
+  - [Prérequis](#prérequis)
+  - [Installation](#installation)
+  - [Commandes de développement](#commandes-de-développement)
+  - [Structure du projet](#structure-du-projet)
+  - [Architecture](#architecture)
+    - [SSR \& Rendu](#ssr--rendu)
+    - [Internationalisation (i18n)](#internationalisation-i18n)
+    - [Intégration WordPress](#intégration-wordpress)
+    - [Composants \& UI](#composants--ui)
+    - [Animations](#animations)
+  - [Thématiques](#thématiques)
+  - [Déploiement](#déploiement)
+  - [Conventions](#conventions)
 
 ---
 
@@ -75,27 +76,7 @@ cd AfricTivistesV26
 
 # Installer les dépendances
 npm install
-
-# Copier le fichier d'environnement et le remplir
-cp .env.example .env
 ```
-
----
-
-## Variables d'environnement
-
-Créer un fichier `.env` à la racine avec les variables suivantes :
-
-```env
-# Identifiants WordPress Application Password
-WORDPRESS_USERNAME="votre_username"
-WORDPRESS_APP_PASSWORD="xxxx xxxx xxxx xxxx xxxx xxxx"
-
-# Google Tag Manager (optionnel)
-PUBLIC_GTM_ID="GTM-XXXXXXX"
-```
-
-> Les identifiants WordPress sont des **Application Passwords** générés depuis le tableau de bord WordPress (`Utilisateurs → Profil → Mots de passe d'application`). Ils permettent l'accès authentifié à l'API REST pour les contenus protégés.
 
 ---
 
@@ -107,9 +88,6 @@ npm run dev
 
 # Vérifier les types TypeScript
 npm run typecheck
-
-# Générer les pages localisées (/fr et /en)
-node scripts/generate-pages.mjs
 
 # Construire pour la production
 npm run build
@@ -125,9 +103,6 @@ npm run preview
 ```
 africtivistes-V2026-astro/
 ├── public/                     # Assets statiques (logo, favicon, og-image)
-├── scripts/
-│   ├── generate-pages.mjs      # Génération automatique des routes bilingues
-│   └── seed-timeline.mjs       # Alimentation des données de la timeline
 ├── src/
 │   ├── assets/                 # Images optimisées (AVIF, WebP)
 │   ├── components/
@@ -188,7 +163,6 @@ Les composants Astro natifs (`.astro`) sont rendus sans JavaScript côté client
 Le site supporte **deux langues** : français (`/fr/`) et anglais (`/en/`).
 
 - Le système i18n est **maison** (pas de librairie externe) : un dictionnaire TypeScript de 200+ clés dans `src/lib/i18n.tsx`, exposé via un contexte React et le hook `useI18n()`.
-- Les routes `/en/` sont **auto-générées** par `scripts/generate-pages.mjs` à partir des pages `/fr/` existantes. Ne pas éditer manuellement les fichiers générés.
 - `BaseLayout.astro` injecte les balises `hreflang` pour le SEO multilingue.
 
 ### Intégration WordPress
@@ -248,14 +222,11 @@ node dist/server/entry.mjs
 
 Pour un déploiement conteneurisé, l'entrée est `dist/server/entry.mjs`. Le port et l'hôte peuvent être configurés via les variables d'environnement standard de Node.
 
-> Penser à configurer les variables d'environnement (`WORDPRESS_USERNAME`, `WORDPRESS_APP_PASSWORD`) dans l'environnement de production.
-
 ---
 
 ## Conventions
 
 - **Imports** : toujours utiliser l'alias `@/` (`import { X } from "@/lib/utils"`) — pas d'imports relatifs traversants.
-- **Pages auto-générées** : les fichiers `/en/` contiennent un en-tête sentinelle. Ne pas les modifier manuellement, relancer `generate-pages.mjs` à la place.
 - **Traductions** : toute nouvelle clé ajoutée en français dans `i18n.tsx` doit avoir son équivalent anglais dans le même commit.
 - **Composants Astro** : privilégier les composants `.astro` (zéro JS client) pour tout ce qui n'est pas interactif.
 - **React islands** : utiliser `client:only="react"` et non `client:load` pour les composants pleine page.
