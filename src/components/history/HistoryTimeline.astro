@@ -1,27 +1,26 @@
 ---
 import Reveal from "@/components/astro/Reveal.astro";
 import SectionHeader from "@/components/SectionHeader.astro";
-import { t, type Lang } from "@/lib/i18n";
+import { type Lang } from "@/lib/i18n";
+import { fetchTimeline } from "@/lib/wordpress";
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 
-const timelineItems = [
-  { year: "2015", titleKey: "history.2015title", descKey: "history.2015desc", side: "left" },
-  { year: "2016", titleKey: "history.2016title", descKey: "history.2016desc", side: "right" },
-  { year: "2017", titleKey: "history.2017title", descKey: "history.2017desc", side: "left" },
-  { year: "2018", titleKey: "history.2018title", descKey: "history.2018desc", side: "right" },
-  { year: "2019", titleKey: "history.2019title", descKey: "history.2019desc", side: "left" },
-  { year: "2020", titleKey: "history.2020title", descKey: "history.2020desc", side: "right" },
-  { year: "2021", titleKey: "history.2021title", descKey: "history.2021desc", side: "left" },
-  { year: "2022", titleKey: "history.2022title", descKey: "history.2022desc", side: "right" },
-  { year: "2023", titleKey: "history.2023title", descKey: "history.2023desc", side: "left" },
-  { year: "2024", titleKey: "history.2024title", descKey: "history.2024desc", side: "right" },
-  { year: "2025", titleKey: "history.2025title", descKey: "history.2025desc", side: "left" },
-];
+const items = await fetchTimeline(lang);
+const timelineItems = items.map((item, i) => {
+  const yearOnly = (item.year.match(/^\d{4}/)?.[0] ?? item.year);
+  return {
+    ...item,
+    side: i % 2 === 0 ? "left" : "right",
+    badgeShort: yearOnly.slice(2), /* ex: "24" pour 2024 ou 2024-03 */
+    yearLabel: item.year, /* affiche tel quel : 2024 ou 2024-03 */
+  };
+});
 
 const sparklesPath = '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>';
 ---
+{timelineItems.length > 0 && (
 <section class="py-12 lg:py-16 bg-muted/30">
   <div class="section-container">
     <SectionHeader lang={lang} labelKey="history.timelineLabel" titleKey="history.timelineTitle" bottomMargin="mb-16" />
@@ -36,16 +35,16 @@ const sparklesPath = '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.
             <div class="lg:hidden flex gap-6">
               <div class="relative z-10 flex-shrink-0">
                 <div class="w-12 h-12 rounded-full bg-card border-4 border-primary flex items-center justify-center shadow-lg">
-                  <span class="text-xs font-bold text-primary">{item.year.slice(2)}</span>
+                  <span class="text-xs font-bold text-primary">{item.badgeShort}</span>
                 </div>
               </div>
               <div class="flex-1 pb-2">
                 <div class="bg-card rounded-xl p-5 border border-border shadow-sm hover:shadow-md hover:border-primary/20 transition-all">
                   <span class="inline-block text-xs font-bold text-secondary bg-secondary/10 px-2.5 py-1 rounded-full mb-3">
-                    {item.year}
+                    {item.yearLabel}
                   </span>
-                  <h3 class="font-heading text-lg font-bold text-card-foreground mb-2">{t(item.titleKey, lang)}</h3>
-                  <p class="text-sm text-muted-foreground leading-relaxed">{t(item.descKey, lang)}</p>
+                  <h3 class="font-heading text-lg font-bold text-card-foreground mb-2">{item.title}</h3>
+                  <p class="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                 </div>
               </div>
             </div>
@@ -56,15 +55,15 @@ const sparklesPath = '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.
                 <>
                   <div class="text-right">
                     <div class="inline-block bg-card rounded-xl p-6 border border-border shadow-sm hover:shadow-lg hover:border-primary/20 transition-all max-w-lg ml-auto">
-                      <span class="inline-block text-xs font-bold text-secondary bg-secondary/10 px-2.5 py-1 rounded-full mb-3">{item.year}</span>
-                      <h3 class="font-heading text-xl font-bold text-card-foreground mb-2">{t(item.titleKey, lang)}</h3>
-                      <p class="text-sm text-muted-foreground leading-relaxed">{t(item.descKey, lang)}</p>
+                      <span class="inline-block text-xs font-bold text-secondary bg-secondary/10 px-2.5 py-1 rounded-full mb-3">{item.yearLabel}</span>
+                      <h3 class="font-heading text-xl font-bold text-card-foreground mb-2">{item.title}</h3>
+                      <p class="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                     </div>
                   </div>
                   <div class="relative">
                     <div class="absolute -left-6 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10">
                       <div class="w-12 h-12 rounded-full bg-card border-4 border-primary flex items-center justify-center shadow-lg">
-                        <span class="text-xs font-bold text-primary">{item.year.slice(2)}</span>
+                        <span class="text-xs font-bold text-primary">{item.badgeShort}</span>
                       </div>
                     </div>
                   </div>
@@ -74,15 +73,15 @@ const sparklesPath = '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.
                   <div class="relative">
                     <div class="absolute -right-6 top-1/2 -translate-y-1/2 translate-x-1/2 z-10">
                       <div class="w-12 h-12 rounded-full bg-card border-4 border-secondary flex items-center justify-center shadow-lg">
-                        <span class="text-xs font-bold text-secondary">{item.year.slice(2)}</span>
+                        <span class="text-xs font-bold text-secondary">{item.badgeShort}</span>
                       </div>
                     </div>
                   </div>
                   <div>
                     <div class="inline-block bg-card rounded-xl p-6 border border-border shadow-sm hover:shadow-lg hover:border-secondary/20 transition-all max-w-lg">
-                      <span class="inline-block text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full mb-3">{item.year}</span>
-                      <h3 class="font-heading text-xl font-bold text-card-foreground mb-2">{t(item.titleKey, lang)}</h3>
-                      <p class="text-sm text-muted-foreground leading-relaxed">{t(item.descKey, lang)}</p>
+                      <span class="inline-block text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full mb-3">{item.yearLabel}</span>
+                      <h3 class="font-heading text-xl font-bold text-card-foreground mb-2">{item.title}</h3>
+                      <p class="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                     </div>
                   </div>
                 </>
@@ -102,3 +101,4 @@ const sparklesPath = '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.
     </div>
   </div>
 </section>
+)}

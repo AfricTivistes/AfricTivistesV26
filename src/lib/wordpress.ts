@@ -990,6 +990,42 @@ export function getTeamMemberImageUrl(member: WPTeamMember): string | null {
   return member._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
 }
 
+/* ---------- Timeline (CPT custom + endpoint /africtivistes/v1/timeline) ---------- */
+
+export interface TimelineItem {
+  id: number;
+  year: string;
+  title: string;
+  description: string;
+}
+
+const TIMELINE_ENDPOINT = "https://update.africtivistes.org/wp-json/africtivistes/v1/timeline";
+
+export async function fetchTimeline(lang: Lang): Promise<TimelineItem[]> {
+  const url = `${TIMELINE_ENDPOINT}?lang=${encodeURIComponent(lang)}`;
+  for (let attempt = 0; attempt <= DEFAULT_RETRY; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), DEFAULT_TIMEOUT_MS);
+    try {
+      const res = await fetch(url, { signal: controller.signal });
+      clearTimeout(timer);
+      if (!res.ok) {
+        if (attempt === DEFAULT_RETRY) return [];
+        continue;
+      }
+      const data = (await res.json()) as TimelineItem[];
+      if (!Array.isArray(data)) return [];
+      return data
+        .filter((it) => it && it.year && it.title)
+        .sort((a, b) => String(a.year).localeCompare(String(b.year)));
+    } catch {
+      clearTimeout(timer);
+      if (attempt === DEFAULT_RETRY) return [];
+    }
+  }
+  return [];
+}
+
 /* ================================================================
    10. MEDIA RESOLVER (avec cache global)
    ================================================================ */
