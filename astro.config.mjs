@@ -11,6 +11,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   output: "server",
   adapter: netlify(),
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "viewport",
+  },
   integrations: [
     react(),
     tailwind({ applyBaseStyles: false }),

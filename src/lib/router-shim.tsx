@@ -222,9 +222,15 @@ export function useLocation(): ShimLocation {
     const onChange = () => setLoc(readLocation());
     window.addEventListener("popstate", onChange);
     window.addEventListener("hashchange", onChange);
+    // Astro view-transitions (ClientRouter) use pushState without firing
+    // popstate, so we also listen to its lifecycle events to stay in sync.
+    document.addEventListener("astro:page-load", onChange);
+    document.addEventListener("astro:after-swap", onChange);
     return () => {
       window.removeEventListener("popstate", onChange);
       window.removeEventListener("hashchange", onChange);
+      document.removeEventListener("astro:page-load", onChange);
+      document.removeEventListener("astro:after-swap", onChange);
     };
   }, []);
   return loc;

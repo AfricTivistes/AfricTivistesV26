@@ -757,7 +757,21 @@ function navigateToLang(l: Lang) {
   } else {
     nextPath = "/" + l + (pathname === "/" ? "/" : pathname);
   }
-  window.location.href = nextPath + search + hash;
+  const nextUrl = nextPath + search + hash;
+
+  // Prefer Astro's ClientRouter for an instant view-transition switch when
+  // available; fall back to a full reload otherwise.
+  import("astro:transitions/client")
+    .then((m) => {
+      if (typeof m.navigate === "function") {
+        m.navigate(nextUrl);
+      } else {
+        window.location.href = nextUrl;
+      }
+    })
+    .catch(() => {
+      window.location.href = nextUrl;
+    });
 }
 
 export function translate(key: string, lang: Lang): string {

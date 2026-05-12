@@ -1,5 +1,5 @@
 import { withI18nMotion } from "@/lib/providers/withI18nMotion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "@/lib/router-shim";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { m as motion, AnimatePresence } from "framer-motion";
@@ -173,6 +173,13 @@ const Navbar = () => {
   const location = useLocation();
   const { lang, setLang, t } = useI18n();
   const navLinks = getNavLinks(lang);
+
+  // Navbar is persisted across Astro view transitions (transition:persist),
+  // so collapse menus whenever the route changes.
+  useEffect(() => {
+    setIsOpen(false);
+    setOpenSubmenu(null);
+  }, [location.pathname, location.search]);
 
   const isActive = (link: NavItem) => {
     const currentPath = location.pathname + location.search;

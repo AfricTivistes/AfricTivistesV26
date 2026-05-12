@@ -1,5 +1,6 @@
 ---
 import "@/index.css";
+import { ClientRouter } from "astro:transitions";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ToastersIsland from "@/components/ToastersIsland";
@@ -131,6 +132,20 @@ const isDefaultOg = ogImageUrl === "/og-default.jpg";
     <link rel="alternate" hreflang="fr" href={new URL(Astro.url.pathname.replace(/^\/(en|fr)\//, "/fr/"), Astro.site ?? Astro.url).href} />
     <link rel="alternate" hreflang="en" href={new URL(Astro.url.pathname.replace(/^\/(en|fr)\//, "/en/"), Astro.site ?? Astro.url).href} />
 
+    {/* Prefetch the alternate-language version of this page so the language
+        switch is instant. The browser keeps it in cache; ClientRouter reuses it. */}
+    <link
+      rel="prefetch"
+      href={Astro.url.pathname.startsWith("/en")
+        ? Astro.url.pathname.replace(/^\/en/, "/fr") + Astro.url.search
+        : Astro.url.pathname.replace(/^\/fr/, "/en") + Astro.url.search}
+    />
+
+    {/* View Transitions: instant client-side navigation between Astro pages.
+        Combined with prefetch (configured in astro.config.mjs) this makes
+        intra-site navigation feel instantaneous. */}
+    <ClientRouter fallback="swap" />
+
     {/* GTM (deferred) — only injected if GTM ID is configured */}
     {GTM_ID && (
       <script is:inline define:vars={{ GTM_ID, deferGtmMs }}>
@@ -152,41 +167,46 @@ const isDefaultOg = ogImageUrl === "/og-default.jpg";
       <a href="#main-content" class="skip-to-content">
         {lang === "fr" ? "Aller au contenu principal" : "Skip to main content"}
       </a>
-      <Navbar lang={lang} client:load />
+      <Navbar lang={lang} client:load transition:persist transition:name="site-navbar" />
       <main id="main-content" class={mainClass}>
         <slot />
       </main>
-      <Footer lang={lang} client:visible />
+      <Footer lang={lang} client:visible transition:persist transition:name="site-footer" />
     </div>
-      <ToastersIsland client:idle />
+      <ToastersIsland client:idle transition:persist />
 
     {/* Global IntersectionObserver: any element with `.a-reveal` fades in once visible.
-        Inline, no module — runs early, no extra request, ~400 bytes. */}
+        Re-runs after every Astro view transition so newly-swapped content animates too. */}
     <script is:inline>
       (function () {
         if (typeof window === "undefined") return;
-        var els = document.querySelectorAll(".a-reveal, .a-reveal-left, .a-reveal-right, .a-reveal-scale");
-        if (!els.length) return;
-        if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          els.forEach(function (el) { el.classList.add("in-view"); });
-          return;
-        }
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) {
-              e.target.classList.add("in-view");
-              io.unobserve(e.target);
+        function arm() {
+          var els = document.querySelectorAll(".a-reveal, .a-reveal-left, .a-reveal-right, .a-reveal-scale");
+          if (!els.length) return;
+          if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            els.forEach(function (el) { el.classList.add("in-view"); });
+            return;
+          }
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("in-view");
+                io.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+          els.forEach(function (el) {
+            if (el.classList.contains("in-view")) return;
+            var rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+              el.classList.add("in-view");
+            } else {
+              io.observe(el);
             }
           });
-        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-        els.forEach(function (el) {
-          var rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight && rect.bottom > 0) {
-            el.classList.add("in-view");
-          } else {
-            io.observe(el);
-          }
-        });
+        }
+        arm();
+        document.addEventListener("astro:page-load", arm);
       })();
     </script>
   </body>
