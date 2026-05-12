@@ -29,3 +29,5 @@ AGENTS.md
 .agents/
 skills-lock.json
 functions-additions.php
+# Local Netlify folder
+.netlify
