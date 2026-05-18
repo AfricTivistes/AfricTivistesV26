@@ -3,7 +3,6 @@ import "@/index.css";
 import { ClientRouter } from "astro:transitions";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ToastersIsland from "@/components/ToastersIsland";
 
 type ImageMime = "image/avif" | "image/webp" | "image/jpeg" | "image/png" | "image/svg+xml";
 
@@ -173,7 +172,6 @@ const isDefaultOg = ogImageUrl === "/og-default.jpg";
       </main>
       <Footer lang={lang} client:visible transition:persist transition:name="site-footer" />
     </div>
-      <ToastersIsland client:idle transition:persist />
 
     {/* Global IntersectionObserver: any element with `.a-reveal` fades in once visible.
         Re-runs after every Astro view transition so newly-swapped content animates too. */}

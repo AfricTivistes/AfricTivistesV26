@@ -25,6 +25,18 @@
 /*.png
   Cache-Control: public, max-age=31536000, immutable
 
+# SSR pages: serve stale from CDN while revalidating in background.
+# Reduces perceived latency from ~3.5s to near-instant on repeat visits.
+/fr/*
+  Cache-Control: public, s-maxage=300, stale-while-revalidate=3600
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/en/*
+  Cache-Control: public, s-maxage=300, stale-while-revalidate=3600
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
 /*
   Cache-Control: public, max-age=0, must-revalidate
   X-Content-Type-Options: nosniff
