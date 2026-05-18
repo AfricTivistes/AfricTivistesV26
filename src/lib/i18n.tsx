@@ -320,6 +320,7 @@ const translations: Record<string, Record<Lang, string>> = {
   },
   "about.valuesTitle": { fr: "Nos valeurs", en: "Our values" },
   "about.valuesSubtitle": { fr: "Ce qui nous guide", en: "What guides us" },
+  "about.yearsBadge": { fr: "Années d'engagement", en: "Years of engagement" },
   "about.val1Title": { fr: "Engagement civique", en: "Civic engagement" },
   "about.val1Desc": { fr: "Mobiliser les citoyens pour une participation active à la vie démocratique.", en: "Mobilizing citizens for active participation in democratic life." },
   "about.val2Title": { fr: "Solidarité panafricaine", en: "Pan-African solidarity" },

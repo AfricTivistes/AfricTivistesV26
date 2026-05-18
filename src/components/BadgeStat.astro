@@ -1,0 +1,28 @@
+---
+import { t, type Lang } from "@/lib/i18n";
+
+interface Props {
+  lang: Lang;
+  value: string;
+  labelKey: string;
+  position?: string;
+  delay?: number;
+}
+
+const {
+  lang,
+  value,
+  labelKey,
+  position = "absolute -bottom-6 -left-6",
+  delay = 300,
+} = Astro.props;
+---
+<div
+  class={`a-reveal-scale bg-card rounded-xl p-4 shadow-xl border border-border ${position}`}
+  style={`--a-delay:${delay}ms`}
+>
+  <div class="text-3xl font-bold font-heading text-primary">{value}</div>
+  <div class="text-xs text-muted-foreground font-medium uppercase tracking-wider">
+    {t(labelKey, lang)}
+  </div>
+</div>
