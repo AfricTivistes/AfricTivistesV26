@@ -759,19 +759,28 @@ function navigateToLang(l: Lang) {
   }
   const nextUrl = nextPath + search + hash;
 
-  // Prefer Astro's ClientRouter for an instant view-transition switch when
-  // available; fall back to a full reload otherwise.
-  import("astro:transitions/client")
-    .then((m) => {
-      if (typeof m.navigate === "function") {
-        m.navigate(nextUrl);
-      } else {
+  // Use Astro's ClientRouter navigate (already loaded if View Transitions
+  // are active). Access the cached module via the import map — no async
+  // chunk load needed since ClientRouter is always in the page.
+  const nav = (window as unknown as { __astro_navigate?: (url: string) => void }).__astro_navigate;
+  if (nav) {
+    nav(nextUrl);
+  } else {
+    // Fallback: try dynamic import (first navigation before cache is warm)
+    import("astro:transitions/client")
+      .then((m) => {
+        if (typeof m.navigate === "function") {
+          // Cache for subsequent calls
+          (window as unknown as { __astro_navigate?: typeof m.navigate }).__astro_navigate = m.navigate;
+          m.navigate(nextUrl);
+        } else {
+          window.location.href = nextUrl;
+        }
+      })
+      .catch(() => {
         window.location.href = nextUrl;
-      }
-    })
-    .catch(() => {
-      window.location.href = nextUrl;
-    });
+      });
+  }
 }
 
 export function translate(key: string, lang: Lang): string {
