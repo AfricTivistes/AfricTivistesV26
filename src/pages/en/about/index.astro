@@ -5,6 +5,7 @@ import PageHero from "@/components/PageHero.astro";
 import TwoColumnTextImage from "@/components/TwoColumnTextImage.astro";
 import AboutApproach from "@/components/about/AboutApproach.astro";
 import AboutGallery from "@/components/about/AboutGallery.astro";
+import ValuesQuote from "@/components/values/ValuesQuote.astro";
 import AboutValues from "@/components/about/AboutValues.astro";
 import CtaBanner from "@/components/CtaBanner.astro";
 import BadgeStat from "@/components/BadgeStat.astro";
@@ -34,6 +35,7 @@ const yearsEngagement = new Date().getFullYear() - 2015 - 1;
       <BadgeStat slot="badge" lang={lang} value={`${yearsEngagement}+`} labelKey="about.yearsBadge" position="absolute -top-6 -right-6" />
     </TwoColumnTextImage>
     <AboutApproach lang={lang} />
+    <ValuesQuote lang={lang} />
     <AboutGallery lang={lang} />
     <AboutValues lang={lang} />
     <CtaBanner

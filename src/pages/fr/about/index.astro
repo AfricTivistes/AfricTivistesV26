@@ -5,43 +5,51 @@ import PageHero from "@/components/PageHero.astro";
 import TwoColumnTextImage from "@/components/TwoColumnTextImage.astro";
 import AboutApproach from "@/components/about/AboutApproach.astro";
 import AboutGallery from "@/components/about/AboutGallery.astro";
+import ValuesQuote from "@/components/values/ValuesQuote.astro";
 import AboutValues from "@/components/about/AboutValues.astro";
 import CtaBanner from "@/components/CtaBanner.astro";
 import BadgeStat from "@/components/BadgeStat.astro";
 import { t } from "@/lib/i18n";
 const lang = "fr";
-const heroImage = "https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg";
+const heroImage =
+  "https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg";
 const yearsEngagement = new Date().getFullYear() - 2015 - 1;
 ---
+
 <BaseLayout lang={lang} preloadImage={heroImage}>
-  
-    <PageHero
+  <PageHero
+    lang={lang}
+    backgroundImage="https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
+    labelKey="nav.about"
+    titleKey="about.title"
+    subtitleKey="about.subtitle"
+  />
+  <TwoColumnTextImage
+    lang={lang}
+    labelKey="about.missionTitle"
+    titleKey="about.missionSubtitle1"
+    highlightKey="about.missionHighlight"
+    descriptions={["about.mission1", "about.mission2"]}
+    imageUrl="https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
+    imageAlt="AfricTivistes en action"
+  >
+    <BadgeStat
+      slot="badge"
       lang={lang}
-      backgroundImage="https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
-      labelKey="nav.about"
-      titleKey="about.title"
-      subtitleKey="about.subtitle"
+      value={`${yearsEngagement}+`}
+      labelKey="about.yearsBadge"
+      position="absolute -top-6 -right-6"
     />
-    <TwoColumnTextImage
-      lang={lang}
-      labelKey="about.missionTitle"
-      titleKey="about.missionSubtitle1"
-      highlightKey="about.missionHighlight"
-      descriptions={["about.mission1", "about.mission2"]}
-      imageUrl="https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
-      imageAlt="AfricTivistes en action"
-    >
-      <BadgeStat slot="badge" lang={lang} value={`${yearsEngagement}+`} labelKey="about.yearsBadge" position="absolute -top-6 -right-6" />
-    </TwoColumnTextImage>
-    <AboutApproach lang={lang} />
-    <AboutGallery lang={lang} />
-    <AboutValues lang={lang} />
-    <CtaBanner
-      lang={lang}
-      titleKey="about.ctaTitle"
-      descKey="about.ctaDesc"
-      btnKey="about.ctaBtn"
-      linkTo="/contact"
-    />
-  
+  </TwoColumnTextImage>
+  <AboutApproach lang={lang} />
+  <AboutGallery lang={lang} />
+  <ValuesQuote lang={lang} />
+  <AboutValues lang={lang} />
+  <CtaBanner
+    lang={lang}
+    titleKey="about.ctaTitle"
+    descKey="about.ctaDesc"
+    btnKey="about.ctaBtn"
+    linkTo="/contact"
+  />
 </BaseLayout>
