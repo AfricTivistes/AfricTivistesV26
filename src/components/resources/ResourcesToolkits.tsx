@@ -4,8 +4,9 @@ import { Link } from "@/lib/router-shim";
 import { m as motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Wrench, Package, ChevronRight as ChevRight } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
+import { PostGrid, PostGridSkeleton } from "@/components/posts";
 import { useI18n } from "@/lib/i18n";
-import { getFeaturedImageUrl, stripHtml, TOOLKIT_CATEGORY_IDS } from "@/lib/wordpress";
+import { getFeaturedImageUrl, TOOLKIT_CATEGORY_IDS } from "@/lib/wordpress";
 import { usePosts } from "@/hooks/use-wordpress";
 
 const POSTS_PER_PAGE = 9;
@@ -33,13 +34,6 @@ const ResourcesToolkits = () => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
-  const formatDate = (dateStr: string) =>
-    new Date(dateStr).toLocaleDateString(lang === "fr" ? "fr-FR" : "en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
 
   const heroImage = posts.length > 0 ? getFeaturedImageUrl(posts[0]) : null;
 
@@ -129,18 +123,7 @@ const ResourcesToolkits = () => {
           <SectionHeader titleKey="resources.toolkits.allTitle" bottomMargin="mb-12" />
 
           {loading ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {Array.from({ length: 3 }).map((_, i) => (
-                <div key={i} className="bg-card rounded-xl border border-border overflow-hidden animate-pulse">
-                  <div className="aspect-[3/4] bg-muted" />
-                  <div className="p-5 space-y-3">
-                    <div className="h-3 bg-muted rounded w-1/4" />
-                    <div className="h-5 bg-muted rounded w-full" />
-                    <div className="h-4 bg-muted rounded w-3/4" />
-                  </div>
-                </div>
-              ))}
-            </div>
+            <PostGridSkeleton count={3} variant="cover" columns={3} />
           ) : posts.length === 0 ? (
             <div className="text-center py-12 lg:py-16">
               <Wrench size={48} className="mx-auto text-muted-foreground/50 mb-4" />
@@ -150,55 +133,13 @@ const ResourcesToolkits = () => {
             </div>
           ) : (
             <>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {posts.map((post, i) => {
-                  const imageUrl = getFeaturedImageUrl(post);
-                  const title = stripHtml(post.title.rendered);
-                  return (
-                    <motion.article
-                      key={post.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.05 }}
-                      className="group bg-card rounded-xl border border-border overflow-hidden transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1"
-                    >
-                      <Link
-                        to={`/blog/${post.slug}`}
-                        state={{ from: "/resources/toolkits", fromLabelKey: "nav.resources.toolkits" }}
-                        className="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                        aria-label={`${t("releases.read")} : ${title}`}
-                      >
-                        {/* Cover image */}
-                        <div className="aspect-[3/4] overflow-hidden bg-muted/50 p-6 flex items-center justify-center">
-                          {imageUrl ? (
-                            <img
-                              src={imageUrl}
-                              alt={title}
-                              className="max-w-full max-h-full object-contain drop-shadow-md transition-transform duration-500 group-hover:scale-105"
-                              loading="lazy"
-                            />
-                          ) : (
-                            <div className="w-full h-full flex items-center justify-center">
-                              <Wrench size={64} className="text-muted-foreground/30" />
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Content */}
-                        <div className="p-5">
-                          <p className="text-xs text-muted-foreground mb-2">
-                            {formatDate(post.date)}
-                          </p>
-                          <h3 className="font-heading text-sm font-bold text-card-foreground leading-tight line-clamp-3 group-hover:text-primary transition-colors">
-                            {title}
-                          </h3>
-                        </div>
-                      </Link>
-                    </motion.article>
-                  );
-                })}
-              </div>
+              <PostGrid
+                posts={posts}
+                variant="cover"
+                columns={3}
+                linkState={{ from: "/resources/toolkits", fromLabelKey: "nav.resources.toolkits" }}
+                placeholderIcon={Wrench}
+              />
 
               {/* Pagination */}
               {totalPages > 1 && (

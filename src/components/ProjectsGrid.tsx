@@ -48,7 +48,7 @@ const ProjetCard = ({ p, carousel }: ProjetCardProps) => {
         onFocus={handlePrefetch}
         className="group block h-full bg-card rounded-2xl border border-border overflow-hidden transition-all hover:border-primary/30 hover:shadow-xl duration-300"
       >
-        <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+        <div className="relative aspect-square overflow-hidden bg-muted">
           {imageUrl ? (
             <img
               src={imageUrl}
@@ -56,8 +56,8 @@ const ProjetCard = ({ p, carousel }: ProjetCardProps) => {
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
               decoding="async"
-              width="600"
-              height="400"
+              width="318"
+              height="318"
             />
           ) : (
             <div className="absolute inset-0 pattern-kente" aria-hidden="true" />
@@ -122,7 +122,7 @@ const ProjectsGrid = () => {
           <div className="flex gap-5 overflow-hidden">
             {Array.from({ length: 4 }).map((_, i) => (
               <div key={i} className="w-80 flex-shrink-0 animate-pulse">
-                <div className="aspect-[16/10] bg-muted rounded-2xl mb-3" />
+                <div className="aspect-square bg-muted rounded-2xl mb-3" />
                 <div className="h-3 bg-muted rounded w-1/3 mb-2" />
                 <div className="h-4 bg-muted rounded w-3/4" />
               </div>

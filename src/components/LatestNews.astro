@@ -47,16 +47,14 @@ const dateLocale = lang === "en" ? "en-US" : "fr-FR";
                 class="group block bg-card rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 h-full"
                 aria-label={`${t("blog.read", lang)}: ${title}`}
               >
-                <div class="aspect-[16/10] overflow-hidden bg-muted">
+                <div class="aspect-[16/10] overflow-hidden bg-muted flex items-center justify-center">
                   {imageUrl ? (
                     <img
                       src={imageUrl}
                       alt=""
-                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      class="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                       decoding="async"
-                      width="640"
-                      height="400"
                     />
                   ) : (
                     <div class="w-full h-full pattern-kente flex items-center justify-center" aria-hidden="true">

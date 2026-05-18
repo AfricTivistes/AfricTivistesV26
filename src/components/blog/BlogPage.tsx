@@ -5,7 +5,7 @@ import { Link } from "@/lib/router-shim";
 import { ChevronLeft, ChevronRight, Newspaper, Scale, Radio, PenLine, Trophy, LayoutGrid } from "lucide-react";
 import { m as motion } from "framer-motion";
 import GradientHero from "@/components/GradientHero";
-import PostCard from "@/components/PostCard";
+import { PostGrid, PostGridSkeleton } from "@/components/posts";
 import { useI18n } from "@/lib/i18n";
 import { usePosts, useCategories } from "@/hooks/use-wordpress";
 import { CATEGORY_IDS, PUBLICATION_CATEGORY_IDS, TOOLKIT_CATEGORY_IDS } from "@/lib/wordpress";
@@ -189,27 +189,8 @@ const BlogPage = () => {
       {/* Articles grid */}
       <section className="section-container pb-20">
         {loading ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-            {Array.from({ length: 9 }).map((_, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05 }}
-                className="bg-card rounded-xl border border-border overflow-hidden animate-pulse"
-              >
-                <div className="aspect-[16/10] bg-muted" />
-                <div className="p-5 space-y-3">
-                  <div className="flex gap-2">
-                    <div className="h-5 bg-muted rounded-full w-20" />
-                    <div className="h-5 bg-muted rounded-full w-16" />
-                  </div>
-                  <div className="h-5 bg-muted rounded w-full" />
-                  <div className="h-5 bg-muted rounded w-4/5" />
-                  <div className="h-4 bg-muted rounded w-2/3" />
-                </div>
-              </motion.div>
-            ))}
+          <div className="mt-6">
+            <PostGridSkeleton count={9} variant="landscape" columns={3} />
           </div>
         ) : posts.length === 0 ? (
           <div className="text-center py-12 lg:py-16" role="status">
@@ -229,23 +210,9 @@ const BlogPage = () => {
             )}
           </div>
         ) : (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"
-          >
-            {posts.map((post, i) => (
-              <motion.div
-                key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05, duration: 0.3 }}
-              >
-                <PostCard post={post} />
-              </motion.div>
-            ))}
-          </motion.div>
+          <div className="mt-6">
+            <PostGrid posts={posts} variant="landscape" columns={3} />
+          </div>
         )}
 
         {/* Pagination */}

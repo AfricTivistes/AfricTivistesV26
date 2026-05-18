@@ -6,9 +6,15 @@ import { useI18n } from "@/lib/i18n";
 
 interface PostCardProps {
   post: WPPost;
+  /** Link state passed to router (e.g. breadcrumb context) */
+  linkState?: Record<string, string>;
 }
 
-const PostCard = ({ post }: PostCardProps) => {
+/**
+ * Standard landscape post card (16/10 image, categories, excerpt, date).
+ * Used in blog grid, search results, etc.
+ */
+const PostCard = ({ post, linkState }: PostCardProps) => {
   const imageUrl = getFeaturedImageUrl(post);
   const categories = getPostCategories(post);
   const excerpt = stripHtml(post.excerpt.rendered).slice(0, 150);
@@ -18,19 +24,18 @@ const PostCard = ({ post }: PostCardProps) => {
     <article>
       <Link
         to={`/blog/${post.slug}`}
+        state={linkState}
         className="group block bg-card rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
         aria-label={`Lire l'article: ${stripHtml(post.title.rendered)}`}
       >
-        <div className="aspect-[16/10] overflow-hidden bg-muted">
+        <div className="aspect-[16/10] overflow-hidden bg-muted flex items-center justify-center">
           {imageUrl ? (
             <img
               src={imageUrl}
               alt=""
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
               decoding="async"
-              width="640"
-              height="400"
             />
           ) : (
             <div className="w-full h-full pattern-kente flex items-center justify-center" aria-hidden="true">

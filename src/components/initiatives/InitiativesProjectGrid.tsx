@@ -79,7 +79,7 @@ const InitiativesProjectGrid = () => {
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             {Array.from({ length: 12 }).map((_, i) => (
               <div key={i} className="animate-pulse">
-                <div className="aspect-[16/10] bg-muted rounded-2xl mb-3" />
+                <div className="aspect-square bg-muted rounded-2xl mb-3" />
                 <div className="h-3 bg-muted rounded w-1/3 mb-2" />
                 <div className="h-4 bg-muted rounded w-3/4" />
               </div>
@@ -113,7 +113,7 @@ const InitiativesProjectGrid = () => {
                     className="group block h-full bg-card rounded-2xl border border-border overflow-hidden transition-all hover:shadow-lg hover:border-primary/30 duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                   >
                     {/* Image */}
-                    <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                    <div className="relative aspect-square overflow-hidden bg-muted">
                       {imageUrl ? (
                         <img
                           src={imageUrl}
@@ -121,8 +121,8 @@ const InitiativesProjectGrid = () => {
                           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           loading="lazy"
                           decoding="async"
-                          width="600"
-                          height="400"
+                          width="318"
+                          height="318"
                         />
                       ) : (
                         <div className="absolute inset-0 pattern-kente" aria-hidden="true" />
