@@ -188,7 +188,7 @@ const translations: Record<string, Record<Lang, string>> = {
   "news.viewAll": { fr: "Voir toutes les actualités", en: "View all news" },
 
   "stats.title": { fr: "ans d'existence d'AfricTivistes en chiffres", en: "years of AfricTivistes in numbers" },
-  "stats.trainees": { fr: "Bénéficiaires en présentiel des formations", en: "In-person training beneficiaries" },
+  "stats.trainees": { fr: "Bénéficiaires des formations", en: "Training beneficiaries" },
   "stats.activists": { fr: "Activistes pro-démocratie et journalistes en danger appuyés", en: "Pro-democracy activists and at-risk journalists supported" },
   "stats.elections": { fr: "Élections présidentielles appuyées", en: "Presidential elections supported" },
   "stats.communities": { fr: "Communautés créées", en: "Communities created" },
@@ -197,7 +197,7 @@ const translations: Record<string, Record<Lang, string>> = {
   "stats.youth": { fr: "Jeunes appuyés", en: "Young people supported" },
   "stats.civicTech": { fr: "Initiatives civic tech appuyées", en: "Civic tech initiatives supported" },
   "stats.awards": { fr: "Distinctions décernées", en: "Awards received" },
-  "stats.grants": { fr: "Subventions aux jeunes", en: "Grants to young people" },
+  "stats.grants": { fr: "Montant total de subvention aux jeunes", en: "Total grants to young people" },
   "stats.technical": { fr: "Appuis techniques", en: "Technical support" },
   "stats.research": { fr: "Recherches et analyses", en: "Research and analyses" },
   "stats.elearning": { fr: "Plateformes e-learning", en: "E-learning platforms" },
