@@ -1,5 +1,4 @@
 import type { ComponentType } from "react";
-import { useEffect } from "react";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { LazyMotion } from "framer-motion";
 import { getQueryClient, hydratePreloadOnce } from "@/lib/query-client";
@@ -10,39 +9,35 @@ const loadFeatures = () => import("framer-motion").then((mod) => mod.domAnimatio
 type WithLang<P> = P & { lang?: Lang };
 
 /**
- * Hydrates the TanStack cache from `window.__PRELOAD__` exactly once,
- * after the first paint. Deferring to `useEffect` is intentional: it keeps
- * the first CSR render structurally identical to the SSR HTML (both see an
- * empty cache → both render loading skeletons), so React can hydrate without
- * mismatch. Subsequent re-render picks up the preloaded data.
- */
-function PreloadHydrator() {
-  useEffect(() => {
-    hydratePreloadOnce();
-  }, []);
-  return null;
-}
-
-/**
  * Tier 3 — i18n + framer-motion + react-query.
  *
  * Use for islands that fetch server data via TanStack Query. Includes
  * LazyMotion since virtually every data island also animates on mount.
  * QueryClient is a module-level singleton — safe to nest.
+ *
+ * Hydrates the TanStack cache from `window.__PRELOAD__` synchronously
+ * before the first render so components immediately see cached data
+ * instead of flashing a loading skeleton.
  */
 export function withI18nQueryMotion<P extends object>(
   Component: ComponentType<P>,
 ): ComponentType<WithLang<P>> {
-  const Wrapped = ({ lang, ...rest }: WithLang<P>) => (
-    <QueryClientProvider client={getQueryClient()}>
-      <PreloadHydrator />
-      <I18nProvider initialLang={lang}>
-        <LazyMotion features={loadFeatures} strict>
-          <Component {...(rest as P)} />
-        </LazyMotion>
-      </I18nProvider>
-    </QueryClientProvider>
-  );
+  const Wrapped = ({ lang, ...rest }: WithLang<P>) => {
+    // Hydrate SSR-preloaded data into the cache synchronously before render.
+    // Since these islands use client:load (no SSR HTML), there is no
+    // hydration mismatch risk — React does a full client render.
+    hydratePreloadOnce();
+
+    return (
+      <QueryClientProvider client={getQueryClient()}>
+        <I18nProvider initialLang={lang}>
+          <LazyMotion features={loadFeatures} strict>
+            <Component {...(rest as P)} />
+          </LazyMotion>
+        </I18nProvider>
+      </QueryClientProvider>
+    );
+  };
   Wrapped.displayName = `withI18nQueryMotion(${Component.displayName || Component.name || "Component"})`;
   return Wrapped;
 }

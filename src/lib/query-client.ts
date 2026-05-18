@@ -22,30 +22,34 @@ export function getQueryClient(): QueryClient {
 }
 
 /**
+ * Tracks the last preload reference we consumed so we can detect new
+ * preloads injected after View Transition navigations.
+ */
+let _lastPreload: unknown = null;
+
+/**
  * Hydrate the QueryClient cache from `window.__PRELOAD__` injected by Astro
  * pages that prefetched data server-side. Each entry is `{ key, data }`
  * matching the queryKey used by the corresponding hook.
  *
- * MUST be called inside a `useEffect` (post-mount), NOT during render or
- * module init. Calling it synchronously before React hydrates causes the
- * first CSR render to see populated cache while SSR rendered an empty one,
- * triggering hydration mismatch errors in every island that branches on
- * `isLoading` / `data`.
+ * Called synchronously before the first render of each page's islands.
+ * Supports View Transitions: detects when a new page injects a fresh
+ * `__PRELOAD__` array (different reference) and re-hydrates accordingly.
  */
 export function hydratePreloadOnce(): void {
   if (typeof window === "undefined") return;
   const w = window as unknown as {
     __PRELOAD__?: Array<{ key: unknown[]; data: unknown }>;
-    __PRELOAD_HYDRATED__?: boolean;
   };
-  if (w.__PRELOAD_HYDRATED__) return;
   const preload = w.__PRELOAD__;
   if (!Array.isArray(preload)) return;
+  // Skip if we already consumed this exact preload array (same page re-render)
+  if (preload === _lastPreload) return;
+  _lastPreload = preload;
   const client = getQueryClient();
   for (const entry of preload) {
     if (entry && Array.isArray(entry.key)) {
       client.setQueryData(entry.key, entry.data);
     }
   }
-  w.__PRELOAD_HYDRATED__ = true;
 }
