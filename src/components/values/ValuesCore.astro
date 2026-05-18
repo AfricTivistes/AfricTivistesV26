@@ -97,7 +97,7 @@ const checkPath = '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>';
               {t(v.descKey, lang)}
             </p>
             <div class="space-y-2.5">
-              {v.details.map((detailKey) => (
+              {v.details.map((detailKey: string) => (
                 <div class="flex items-center gap-2.5">
                   <svg class={`${v.checkColor} flex-shrink-0`} width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={checkPath}></svg>
                   <span class="text-sm text-foreground/80 font-medium">{t(detailKey, lang)}</span>

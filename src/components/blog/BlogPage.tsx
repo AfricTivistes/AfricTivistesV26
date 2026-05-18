@@ -29,7 +29,7 @@ const BlogPage = () => {
   useEffect(() => {
     if (!currentCat) return;
     const catNum = parseInt(currentCat);
-    for (const [key, ids] of Object.entries(CATEGORY_IDS)) {
+    for (const [_key, ids] of Object.entries(CATEGORY_IDS)) {
       const otherLang = lang === "fr" ? "en" : "fr";
       if (ids[otherLang] === catNum && ids[lang] !== catNum) {
         const params = new URLSearchParams(searchParams);

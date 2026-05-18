@@ -12,7 +12,7 @@ function formatPostContent(html: string): string {
     .join("");
 }
 import { useEffect, useRef } from "react";
-import { ArrowLeft, Calendar, Share2, Facebook, Linkedin, Mail } from "lucide-react";
+import { ArrowLeft, Calendar, Facebook, Linkedin, Mail } from "lucide-react";
 import { getFeaturedImageUrl, getPostCategories, formatDate } from "@/lib/wordpress";
 import { useI18n } from "@/lib/i18n";
 import { usePostBySlug, usePostById } from "@/hooks/use-wordpress";

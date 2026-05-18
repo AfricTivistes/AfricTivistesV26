@@ -802,6 +802,28 @@ export function I18nProvider({
   const parent = useContext(I18nContext);
   const [lang, setLangState] = useState<Lang>(() => detectInitialLang(initialLang));
 
+  // Sync language with `<html lang>` attribute changes (e.g., after Astro view transition)
+  useEffect(() => {
+    const syncLang = () => {
+      const detected = detectInitialLang();
+      if (detected !== lang) setLangState(detected);
+    };
+
+    // Check immediately in case lang changed during navigation
+    syncLang();
+
+    // Watch for changes to the html lang attribute
+    const observer = new MutationObserver(syncLang);
+    if (typeof document !== "undefined") {
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["lang"],
+      });
+    }
+
+    return () => observer.disconnect();
+  }, [lang]);
+
   const setLang = useCallback((l: Lang) => {
     if (typeof window !== "undefined") {
       navigateToLang(l);
@@ -827,12 +849,27 @@ export function I18nProvider({
 function useStandaloneI18n(): I18nContextType {
   const [lang, setLangState] = useState<Lang>(() => detectInitialLang());
 
-  // Re-sync on mount in case `<html lang>` was set after first render
+  // Sync language with `<html lang>` attribute whenever it changes
   useEffect(() => {
-    const detected = detectInitialLang();
-    if (detected !== lang) setLangState(detected);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    const syncLang = () => {
+      const detected = detectInitialLang();
+      if (detected !== lang) setLangState(detected);
+    };
+
+    // Check immediately in case lang changed during navigation
+    syncLang();
+
+    // Watch for changes to the html lang attribute
+    const observer = new MutationObserver(syncLang);
+    if (typeof document !== "undefined") {
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["lang"],
+      });
+    }
+
+    return () => observer.disconnect();
+  }, [lang]);
 
   const setLang = useCallback((l: Lang) => {
     if (typeof window !== "undefined") {

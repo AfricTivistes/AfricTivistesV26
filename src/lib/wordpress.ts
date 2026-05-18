@@ -281,20 +281,7 @@ export function getCountryName(code: string, lang: Lang | string = "fr"): string
   return table[code] || code;
 }
 
-/* Slug français du pays pour construire l'URL citizenlab<pays>.org */
-const COUNTRY_SLUG: Record<string, string> = {
-  DZ: "algerie", AO: "angola", BJ: "benin", BW: "botswana", BF: "burkinafaso",
-  BI: "burundi", CV: "capvert", CM: "cameroun", CF: "centrafrique", KM: "comores",
-  CG: "congo", CD: "rdcongo", CI: "cotedivoire", DJ: "djibouti", EG: "egypte",
-  GQ: "guineeequatoriale", ER: "erythree", SZ: "eswatini", ET: "ethiopie", GA: "gabon",
-  GM: "gambie", GH: "ghana", GN: "guinee", GW: "guineebissau", KE: "kenya",
-  LS: "lesotho", LR: "liberia", LY: "libye", MG: "madagascar", MW: "malawi",
-  ML: "mali", MR: "mauritanie", MU: "maurice", MA: "maroc", MZ: "mozambique",
-  NA: "namibie", NE: "niger", NG: "nigeria", RW: "rwanda", ST: "saotome",
-  SN: "senegal", SC: "seychelles", SL: "sierraleone", SO: "somalie", ZA: "afriquedusud",
-  SS: "soudandusud", SD: "soudan", TZ: "tanzanie", TG: "togo", TN: "tunisie",
-  UG: "ouganda", ZM: "zambie", ZW: "zimbabwe", TD: "tchad",
-};
+
 
 /* ================================================================
    6. POSTS
@@ -599,11 +586,7 @@ function acfStr(acf: ProjetAcfRecord, key: string): string | undefined {
   return typeof v === "string" ? v : undefined;
 }
 
-function acfNumOrUrl(acf: ProjetAcfRecord, key: string): string | number | undefined {
-  const v = acf[key];
-  if (typeof v === "string" || typeof v === "number") return v;
-  return undefined;
-}
+
 
 function acfNumArr(acf: ProjetAcfRecord, key: string): number[] {
   const v = acf[key];

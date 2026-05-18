@@ -13,7 +13,6 @@ import {
   fetchCommunautes,
   fetchTeamMembers,
   fetchProjets,
-  fetchProjetBySlug,
   fetchChildProjets,
   fetchProjetsByIds,
   fetchThematiques,

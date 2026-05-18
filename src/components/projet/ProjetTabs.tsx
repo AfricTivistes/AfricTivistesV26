@@ -1,6 +1,4 @@
 import { m as motion } from "framer-motion";
-import type { WPProjet } from "@/lib/wordpress";
-import type { Lang } from "@/lib/i18n";
 
 interface ProjetTabsProps {
   activeTab: "presentation" | "actions";

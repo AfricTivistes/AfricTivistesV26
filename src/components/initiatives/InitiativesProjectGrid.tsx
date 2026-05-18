@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { m as motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "@/lib/router-shim";
 import { useQueryClient } from "@tanstack/react-query";
 import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
