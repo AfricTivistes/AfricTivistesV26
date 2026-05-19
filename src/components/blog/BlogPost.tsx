@@ -12,12 +12,87 @@ function formatPostContent(html: string): string {
     .join("");
 }
 import { useEffect, useRef } from "react";
-import { ArrowLeft, Calendar, Facebook, Linkedin, Mail } from "lucide-react";
+import { ArrowLeft, Calendar, Facebook, Linkedin, Mail, Tag } from "lucide-react";
 import { getFeaturedImageUrl, getPostCategories, formatDate } from "@/lib/wordpress";
 import { useI18n } from "@/lib/i18n";
-import { usePostBySlug, usePostById } from "@/hooks/use-wordpress";
+import { usePostBySlug, usePostById, usePosts } from "@/hooks/use-wordpress";
+import { PostGrid, PostGridSkeleton } from "@/components/posts";
+import NewsletterCard from "@/components/posts/NewsletterCard";
+
+/** Reusable share buttons block */
+const ShareButtons = ({ title, label }: { title: string; label: string }) => (
+  <div className="rounded-xl border border-border bg-card p-5">
+    <h3 className="text-sm font-bold text-foreground mb-3 font-heading">{label}</h3>
+    <div className="flex items-center gap-2">
+      <a
+        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(title)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-border hover:bg-muted hover:border-primary/30 transition-colors"
+        aria-label="Partager sur X"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      </a>
+      <a
+        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-border hover:bg-muted hover:border-primary/30 transition-colors"
+        aria-label="Partager sur LinkedIn"
+      >
+        <Linkedin size={16} />
+      </a>
+      <a
+        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-border hover:bg-muted hover:border-primary/30 transition-colors"
+        aria-label="Partager sur Facebook"
+      >
+        <Facebook size={16} />
+      </a>
+      <a
+        href={`mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(window.location.href)}`}
+        className="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-border hover:bg-muted hover:border-primary/30 transition-colors"
+        aria-label="Partager par email"
+      >
+        <Mail size={16} />
+      </a>
+    </div>
+  </div>
+);
 
 interface BlogPostProps { slug?: string }
+
+/** Related posts section — fetches posts from the same categories */
+const RelatedPosts = ({ categories, excludeId, lang }: { categories: number[]; excludeId: number; lang: string }) => {
+  const { t } = useI18n();
+  // Fetch more than needed so we can exclude current post and still show 3
+  const { data, isLoading } = usePosts({
+    perPage: 4,
+    categories,
+  });
+
+  const related = (data?.posts ?? []).filter((p) => p.id !== excludeId).slice(0, 3);
+
+  if (!isLoading && related.length === 0) return null;
+
+  return (
+    <section className="section-container pt-12 pb-8 border-t border-border mt-16">
+      <h2 className="text-2xl font-bold text-foreground font-heading mb-8">
+        {t("blogPost.related")}
+      </h2>
+      {isLoading ? (
+        <PostGridSkeleton count={3} variant="landscape" columns={3} />
+      ) : (
+        <PostGrid posts={related} variant="landscape" columns={3} />
+      )}
+    </section>
+  );
+};
+
 const BlogPost = ({ slug: slugProp }: BlogPostProps = {}) => {
   const { t, lang } = useI18n();
   const params = useParams<{ slug: string }>();
@@ -112,67 +187,82 @@ const BlogPost = ({ slug: slugProp }: BlogPostProps = {}) => {
               <Calendar size={14} />
               {formatDate(post.date, lang === "en" ? "en-US" : "fr-FR")}
             </span>
-            <div className="flex items-center gap-1 ml-auto">
-              <span className="text-sm font-medium mr-1">{t("blogPost.share")}</span>
-              <a
-                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(post.title.rendered)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-8 h-8 rounded-full hover:bg-muted transition-colors"
-                aria-label="Partager sur X"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </a>
-              <a
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-8 h-8 rounded-full hover:bg-muted transition-colors"
-                aria-label="Partager sur LinkedIn"
-              >
-                <Linkedin size={16} />
-              </a>
-              <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-8 h-8 rounded-full hover:bg-muted transition-colors"
-                aria-label="Partager sur Facebook"
-              >
-                <Facebook size={16} />
-              </a>
-              <a
-                href={`mailto:?subject=${encodeURIComponent(post.title.rendered)}&body=${encodeURIComponent(window.location.href)}`}
-                className="inline-flex items-center justify-center w-8 h-8 rounded-full hover:bg-muted transition-colors"
-                aria-label="Partager par email"
-              >
-                <Mail size={16} />
-              </a>
-            </div>
           </div>
 
-          {imageUrl && (
-            <div className="aspect-[2/1] rounded-xl overflow-hidden mb-10">
-              <img
-                src={imageUrl}
-                alt=""
-                className="w-full h-full object-cover"
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-                width="1200"
-                height="600"
+          {/* Share — mobile only, before image */}
+          <div className="lg:hidden mb-6">
+            <ShareButtons title={post.title.rendered} label={t("blogPost.share")} />
+          </div>
+
+          {/* 2-column layout: image+content left, sidebar right */}
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
+            {/* Left: image + article content */}
+            <div className="flex-1 min-w-0">
+              {imageUrl && (
+                <div className="mb-10">
+                  <img
+                    src={imageUrl}
+                    alt=""
+                    className="rounded-xl"
+                    style={{ objectFit: "cover" }}
+                    sizes="(min-width: 750px) 750px, 100vw"
+                    width="750"
+                    height="750"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
+                </div>
+              )}
+
+              <div
+                className="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-img:rounded-xl prose-img:max-w-full prose-img:h-auto [&_img[width='16']]:inline [&_img[width='16']]:rounded-none [&_img[width='16']]:m-0 [&_img[width='16']]:align-middle [&_img[width='16']]:h-[1.2em] [&_img[width='16']]:w-auto [&_img[width='16']]:max-w-none"
+                dangerouslySetInnerHTML={{ __html: formatPostContent(post.content.rendered) }}
               />
             </div>
-          )}
 
-          <div
-            className="prose prose-lg max-w-3xl mx-auto prose-headings:font-heading prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-img:rounded-xl prose-img:max-w-full prose-img:h-auto [&_img[width='16']]:inline [&_img[width='16']]:rounded-none [&_img[width='16']]:m-0 [&_img[width='16']]:align-middle [&_img[width='16']]:h-[1.2em] [&_img[width='16']]:w-auto [&_img[width='16']]:max-w-none"
-            dangerouslySetInnerHTML={{ __html: formatPostContent(post.content.rendered) }}
-          />
+            {/* Right: sidebar */}
+            <aside className="w-full lg:w-80 flex-shrink-0 lg:sticky lg:top-28 lg:self-start space-y-6">
+              {/* Share — desktop only */}
+              <div className="hidden lg:block">
+                <ShareButtons title={post.title.rendered} label={t("blogPost.share")} />
+              </div>
+
+              {/* Categories */}
+              {postCategories.length > 0 && (
+                <div className="rounded-xl border border-border bg-card p-5">
+                  <h3 className="text-sm font-bold text-foreground mb-3 font-heading flex items-center gap-2">
+                    <Tag size={14} className="text-primary" />
+                    {t("blogPost.categories")}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {postCategories.map((cat) => (
+                      <Link
+                        key={cat.id}
+                        to={`/blog?cat=${cat.id}&page=1`}
+                        className="text-xs font-semibold px-3 py-1.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                      >
+                        {cat.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Newsletter */}
+              <NewsletterCard />
+            </aside>
+          </div>
         </div>
+
+        {/* Related posts */}
+        {post.categories.length > 0 && (
+          <RelatedPosts
+            categories={post.categories}
+            excludeId={post.id}
+            lang={lang}
+          />
+        )}
       </article>
   );
 };

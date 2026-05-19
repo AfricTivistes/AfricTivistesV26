@@ -394,6 +394,8 @@ const translations: Record<string, Record<Lang, string>> = {
   "blogPost.back": { fr: "Retour aux actualités", en: "Back to news" },
   "blogPost.notFound": { fr: "Article non trouvé", en: "Article not found" },
   "blogPost.share": { fr: "Partager", en: "Share" },
+  "blogPost.related": { fr: "Articles similaires", en: "Related articles" },
+  "blogPost.categories": { fr: "Catégories", en: "Categories" },
 
   "programme.back": { fr: "Retour aux initiatives", en: "Back to initiatives" },
   "programme.notFound": { fr: "Programme non trouvé", en: "Programme not found" },

@@ -1,18 +1,11 @@
 import { withI18nMotion } from "@/lib/providers/withI18nMotion";
-import { useState } from "react";
 import { m as motion } from "framer-motion";
-import { Send, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import NewsletterForm from "@/components/NewsletterForm";
 
 const Newsletter = () => {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
   const { t } = useI18n();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
 
   return (
     <section className="py-12 lg:py-16 relative overflow-hidden" aria-labelledby="newsletter-heading">
@@ -33,36 +26,7 @@ const Newsletter = () => {
             {t("newsletter.desc")}
           </p>
 
-          {submitted ? (
-            <div className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-xl p-6" role="status" aria-live="polite">
-              <p className="text-lg font-semibold text-primary-foreground">
-                ✓ {t("newsletter.thanks")}
-              </p>
-              <p className="text-sm text-primary-foreground/70 mt-1">
-                {t("newsletter.soon")}
-              </p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-              <input
-                id="newsletter-email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                placeholder={t("newsletter.placeholder")}
-                className="flex-1 px-5 py-3.5 rounded-lg bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-secondary transition"
-                aria-label={t("newsletter.placeholder")}
-              />
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-7 py-3.5 font-bold text-secondary-foreground hover:bg-secondary/90 transition-colors whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
-              >
-                <Send size={16} aria-hidden="true" />
-                {t("newsletter.subscribe")}
-              </button>
-            </form>
-          )}
+          <NewsletterForm variant="inline" idPrefix="newsletter" />
         </motion.div>
       </div>
     </section>
