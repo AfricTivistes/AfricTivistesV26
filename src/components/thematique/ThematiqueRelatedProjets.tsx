@@ -1,9 +1,9 @@
-import { useState } from "react";
 import { m as motion } from "framer-motion";
 import { Link } from "@/lib/router-shim";
 import { ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { getProjetImageUrl, stripHtml, type WPProjet } from "@/lib/wordpress";
+import ProjetCard from "@/components/ui/ProjetCard";
+import type { WPProjet } from "@/lib/wordpress";
 
 interface ThematiqueRelatedProjetsProps {
   projets: WPProjet[];
@@ -15,9 +15,8 @@ interface ThematiqueRelatedProjetsProps {
   gradientTo: string;
 }
 
-const ThematiqueRelatedProjets = ({ projets, loading, bgSolid, color, borderColor, gradientFrom, gradientTo }: ThematiqueRelatedProjetsProps) => {
+const ThematiqueRelatedProjets = ({ projets, loading, bgSolid, color, gradientFrom, gradientTo }: ThematiqueRelatedProjetsProps) => {
   const { t, lang } = useI18n();
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   if (!loading && projets.length === 0) return null;
 
@@ -43,61 +42,26 @@ const ThematiqueRelatedProjets = ({ projets, loading, bgSolid, color, borderColo
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
             {Array.from({ length: 6 }).map((_, i) => (
               <div key={i} className="animate-pulse" aria-hidden="true">
-                <div className="aspect-[16/10] bg-muted rounded-xl mb-2" />
-                <div className="h-3 bg-muted rounded w-3/4" />
+                <div className="aspect-square bg-muted rounded-2xl mb-3" />
+                <div className="h-3 bg-muted rounded w-1/3 mb-2" />
+                <div className="h-4 bg-muted rounded w-3/4" />
               </div>
             ))}
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-5" role="list">
-            {projets.map((p, i) => {
-              const imageUrl = getProjetImageUrl(p);
-              const title = stripHtml(p.title.rendered);
-              const isHovered = hoveredIdx === i;
-              return (
-                <motion.div
-                  key={p.id}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.06 }}
-                  role="listitem"
-                  onMouseEnter={() => setHoveredIdx(i)}
-                  onMouseLeave={() => setHoveredIdx(null)}
-                >
-                  <Link
-                    to={`/initiatives/${p.slug}`}
-                    className={`group block bg-card rounded-xl border overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1 duration-300 ${
-                      isHovered ? borderColor : "border-border"
-                    }`}
-                  >
-                    <div className="aspect-[16/10] overflow-hidden bg-muted">
-                      {imageUrl ? (
-                        <img
-                          src={imageUrl}
-                          alt=""
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
-                          decoding="async"
-                          width="600"
-                          height="400"
-                        />
-                      ) : (
-                        <div className="w-full h-full pattern-kente" aria-hidden="true" />
-                      )}
-                    </div>
-                    <div className="p-3 lg:p-4">
-                      <h3 className={`text-xs lg:text-sm font-bold leading-tight flex items-center gap-1 transition-colors ${
-                        isHovered ? color : "text-card-foreground"
-                      }`}>
-                        {title}
-                        <ArrowRight size={12} className={`opacity-0 group-hover:opacity-100 transition-opacity shrink-0 ${color}`} aria-hidden="true" />
-                      </h3>
-                    </div>
-                  </Link>
-                </motion.div>
-              );
-            })}
+            {projets.map((p, i) => (
+              <motion.div
+                key={p.id}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06 }}
+                role="listitem"
+              >
+                <ProjetCard projet={p} />
+              </motion.div>
+            ))}
           </div>
         )}
 
