@@ -1,0 +1,30 @@
+---
+export const prerender = true;
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { t } from "@/lib/i18n";
+const lang = "fr";
+---
+<BaseLayout lang={lang}>
+  <div class="section-container">
+    <div class="max-w-2xl mx-auto text-center py-20 animate-fade-in-up">
+      <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+      </div>
+      <h1 class="text-3xl lg:text-4xl font-bold text-foreground mb-4">{t("contact.thanks", lang)}</h1>
+      <p class="text-lg text-muted-foreground mb-8">{t("contact.reply", lang)}</p>
+      <a href="/fr/" class="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90">
+        Retour a l'accueil
+      </a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out;
+  }
+</style>
