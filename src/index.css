@@ -322,3 +322,14 @@
     width: auto !important;
   }
 }
+
+/* Altcha captcha widget — compact single-row, white text for dark backgrounds */
+altcha-widget {
+  --altcha-color-text: #ffffff;
+  --altcha-color-footer-link: #ffffff99;
+  --altcha-color-border: rgba(255, 255, 255, 0.2);
+  --altcha-color-border-focus: rgba(255, 255, 255, 0.5);
+  --altcha-border-width: 1px;
+  --altcha-max-width: 100%;
+  display: block;
+}
