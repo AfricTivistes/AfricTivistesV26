@@ -5,14 +5,16 @@ import PageHero from "@/components/PageHero.astro";
 import TwoColumnTextImage from "@/components/TwoColumnTextImage.astro";
 import HistoryTimeline from "@/components/history/HistoryTimeline.astro";
 import CtaBanner from "@/components/CtaBanner.astro";
+import historyData from "@/data/translations/history.json";
+const img = historyData._images;
 const lang = "en";
-const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg";
+const heroImage = img.heroImage;
 ---
 <BaseLayout lang={lang} preloadImage={heroImage}>
   
     <PageHero
       lang={lang}
-      backgroundImage="https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg"
+      backgroundImage={img.heroImage}
       labelKey="nav.about.history"
       titleKey="history.title"
       subtitleKey="history.subtitle"
@@ -23,7 +25,7 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/I
       titleKey="history.originTitle1"
       highlightKey="history.originHighlight"
       descriptions={["history.originDesc1", "history.originDesc2"]}
-      imageUrl="https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
+      imageUrl={img.originImage}
       imageAlt="Fondation d'AfricTivistes"
     />
     <HistoryTimeline lang={lang} />
@@ -32,7 +34,7 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/I
       labelKey="history.visionLabel"
       titleKey="history.visionTitle"
       descriptions={["history.visionDesc"]}
-      imageUrl="https://update.africtivistes.org/wp-content/uploads/2025/11/image.jpeg"
+      imageUrl={img.visionImage}
       imageAlt="Vision AfricTivistes"
       imagePosition="left"
       sectionBg="bg-muted/50"

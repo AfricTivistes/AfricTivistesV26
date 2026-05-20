@@ -210,5 +210,9 @@
   "join.ctaBtn": {
     "fr": "Nous contacter",
     "en": "Contact us"
+  },
+  "_images": {
+    "heroImage": "https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg",
+    "communityImage": "https://update.africtivistes.org/wp-content/uploads/2024/01/Untitled.png"
   }
 }

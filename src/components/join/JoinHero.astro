@@ -1,13 +1,15 @@
 ---
 import PageHero from "@/components/PageHero.astro";
 import { t, type Lang } from "@/lib/i18n";
+import joinData from "@/data/translations/join.json";
+const img = joinData._images;
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 ---
 <PageHero
   lang={lang}
-  backgroundImage="https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg"
+  backgroundImage={img.heroImage}
   labelKey="nav.about.join"
   titleKey="join.title"
   subtitleKey="join.subtitle"

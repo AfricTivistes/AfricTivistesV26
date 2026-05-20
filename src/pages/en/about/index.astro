@@ -10,15 +10,17 @@ import AboutValues from "@/components/about/AboutValues.astro";
 import CtaBanner from "@/components/CtaBanner.astro";
 import BadgeStat from "@/components/BadgeStat.astro";
 import { t } from "@/lib/i18n";
+import aboutData from "@/data/translations/about.json";
+const img = aboutData._images;
 const lang = "en";
-const heroImage = "https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg";
+const heroImage = img.heroImage;
 const yearsEngagement = new Date().getFullYear() - 2015 - 1;
 ---
 <BaseLayout lang={lang} preloadImage={heroImage}>
   
     <PageHero
       lang={lang}
-      backgroundImage="https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
+      backgroundImage={img.heroImage}
       labelKey="nav.about"
       titleKey="about.title"
       subtitleKey="about.subtitle"
@@ -29,7 +31,7 @@ const yearsEngagement = new Date().getFullYear() - 2015 - 1;
       titleKey="about.missionSubtitle1"
       highlightKey="about.missionHighlight"
       descriptions={["about.mission1", "about.mission2"]}
-      imageUrl="https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
+      imageUrl={img.heroImage}
       imageAlt="AfricTivistes en action"
     >
       <BadgeStat slot="badge" lang={lang} value={`${yearsEngagement}+`} labelKey="about.yearsBadge" position="absolute -top-6 -right-6" />

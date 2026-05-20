@@ -6,8 +6,10 @@ import TwoColumnTextImage from "@/components/TwoColumnTextImage.astro";
 import JoinReasons from "@/components/JoinReasons.astro";
 import JoinSteps from "@/components/JoinSteps.astro";
 import { t } from "@/lib/i18n";
+import joinData from "@/data/translations/join.json";
+const img = joinData._images;
 const lang = "en";
-const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg";
+const heroImage = img.heroImage;
 ---
 <BaseLayout lang={lang} preloadImage={heroImage}>
   <JoinHero lang={lang} />
@@ -17,7 +19,7 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/I
     titleKey="join.communityTitle1"
     highlightKey="join.communityHighlight"
     descriptions={["join.communityDesc1"]}
-    imageUrl="https://update.africtivistes.org/wp-content/uploads/2024/01/Untitled.png"
+    imageUrl={img.communityImage}
     imageAlt="AfricTivistes Community"
   />
   <JoinReasons lang={lang} />

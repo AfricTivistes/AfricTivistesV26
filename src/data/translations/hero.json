@@ -30,5 +30,10 @@
   "ticker.label": {
     "fr": "A la une",
     "en": "Headlines"
+  },
+  "_images": {
+    "background": "/hero-bg.jpg",
+    "backgroundWebp": "/hero-bg.webp",
+    "backgroundAvif": "/hero-bg.avif"
   }
 }

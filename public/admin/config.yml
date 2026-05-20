@@ -6,9 +6,22 @@ media_folder: public/uploads
 public_folder: /uploads
 
 collections:
-  - name: translations
-    label: "Traductions / Translations"
-    description: "Textes du site par section — FR & EN côte à côte"
+  - name: images-global
+    label: "Images globales"
+    description: "Logo, favicon et image de partage"
+    files:
+      - name: global
+        label: "Global (logo, favicon, OG)"
+        file: "src/data/images/global.json"
+        fields:
+          - { label: "Logo du site", name: logo, widget: image }
+          - { label: "Favicon", name: favicon, widget: image }
+          - { label: "Image OG par défaut (partage réseaux sociaux)", name: ogDefault, widget: image }
+          - { label: "Badge NGOsource", name: ngoSourceBadge, widget: image }
+
+  - name: content
+    label: "Contenu du site"
+    description: "Textes (FR & EN) et images par section"
     files:
       - name: "navigation"
         label: "Navigation (28)"
@@ -183,9 +196,17 @@ collections:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
       - name: "hero"
-        label: "Accueil — Hero (8)"
+        label: "Accueil — Hero & Bannière (11)"
         file: "src/data/translations/hero.json"
         fields:
+          - label: "📷 Images de cette section"
+            name: _images
+            widget: object
+            collapsed: false
+            fields:
+              - { label: "Arrière-plan JPG (fallback)", name: "background", widget: image }
+              - { label: "Arrière-plan WebP", name: "backgroundWebp", widget: image }
+              - { label: "Arrière-plan AVIF (recommandé)", name: "backgroundAvif", widget: image }
           - label: "hero.badge"
             name: "hero.badge"
             widget: object
@@ -463,9 +484,18 @@ collections:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
       - name: "about"
-        label: "Page À Propos (57)"
+        label: "Page À Propos (61)"
         file: "src/data/translations/about.json"
         fields:
+          - label: "📷 Images de cette section"
+            name: _images
+            widget: object
+            collapsed: false
+            fields:
+              - { label: "Image bannière (hero)", name: "heroImage", widget: image }
+              - { label: "Galerie — image 1", name: "galleryImage1", widget: image }
+              - { label: "Galerie — image 2", name: "galleryImage2", widget: image }
+              - { label: "Galerie — image 3", name: "galleryImage3", widget: image }
           - label: "about.title"
             name: "about.title"
             widget: object
@@ -809,9 +839,17 @@ collections:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
       - name: "history"
-        label: "Page Histoire (16)"
+        label: "Page Histoire (19)"
         file: "src/data/translations/history.json"
         fields:
+          - label: "📷 Images de cette section"
+            name: _images
+            widget: object
+            collapsed: false
+            fields:
+              - { label: "Image bannière (hero)", name: "heroImage", widget: image }
+              - { label: "Image section Origines", name: "originImage", widget: image }
+              - { label: "Image section Vision", name: "visionImage", widget: image }
           - label: "history.title"
             name: "history.title"
             widget: object
@@ -909,9 +947,21 @@ collections:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
       - name: "values"
-        label: "Page Valeurs (55)"
+        label: "Page Valeurs (62)"
         file: "src/data/translations/values.json"
         fields:
+          - label: "📷 Images de cette section"
+            name: _images
+            widget: object
+            collapsed: false
+            fields:
+              - { label: "Image bannière (hero)", name: "heroImage", widget: image }
+              - { label: "Image introduction", name: "introImage", widget: image }
+              - { label: "Photo Cheikh Fall (citation)", name: "quoteAuthorPhoto", widget: image }
+              - { label: "Galerie — image 1", name: "galleryImage1", widget: image }
+              - { label: "Galerie — image 2", name: "galleryImage2", widget: image }
+              - { label: "Galerie — image 3", name: "galleryImage3", widget: image }
+              - { label: "Galerie — image 4", name: "galleryImage4", widget: image }
           - label: "values.title"
             name: "values.title"
             widget: object
@@ -1243,9 +1293,16 @@ collections:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
       - name: "join"
-        label: "Page Adhésion (53)"
+        label: "Page Adhésion (55)"
         file: "src/data/translations/join.json"
         fields:
+          - label: "📷 Images de cette section"
+            name: _images
+            widget: object
+            collapsed: false
+            fields:
+              - { label: "Image bannière (hero)", name: "heroImage", widget: image }
+              - { label: "Image section Communauté", name: "communityImage", widget: image }
           - label: "join.title"
             name: "join.title"
             widget: object

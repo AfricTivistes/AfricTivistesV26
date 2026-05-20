@@ -7,8 +7,10 @@ import ValuesCore from "@/components/values/ValuesCore.astro";
 import ValuesPrinciples from "@/components/values/ValuesPrinciples.astro";
 import ValuesGallery from "@/components/values/ValuesGallery.astro";
 import CtaBanner from "@/components/CtaBanner.astro";
+import valuesData from "@/data/translations/values.json";
+const img = valuesData._images;
 const lang = "en";
-const heroImage = "https://update.africtivistes.org/wp-content/uploads/2025/11/image.jpeg";
+const heroImage = img.heroImage;
 ---
 <BaseLayout lang={lang} preloadImage={heroImage}>
   <ValuesHero lang={lang} />

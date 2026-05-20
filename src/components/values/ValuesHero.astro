@@ -1,13 +1,15 @@
 ---
 import PageHero from "@/components/PageHero.astro";
 import type { Lang } from "@/lib/i18n";
+import valuesData from "@/data/translations/values.json";
+const img = valuesData._images;
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 ---
 <PageHero
   lang={lang}
-  backgroundImage="https://update.africtivistes.org/wp-content/uploads/2025/11/image.jpeg"
+  backgroundImage={img.heroImage}
   labelKey="nav.about.values"
   titleKey="values.title"
   subtitleKey="values.subtitle"

@@ -62,5 +62,10 @@
   "history.ctaBtn": {
     "fr": "Nous rejoindre",
     "en": "Join us"
+  },
+  "_images": {
+    "heroImage": "https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg",
+    "originImage": "https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg",
+    "visionImage": "https://update.africtivistes.org/wp-content/uploads/2025/11/image.jpeg"
   }
 }

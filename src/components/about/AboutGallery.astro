@@ -1,10 +1,12 @@
 ---
 import Reveal from "@/components/astro/Reveal.astro";
+import aboutData from "@/data/translations/about.json";
+const img = aboutData._images;
 
 const galleryImages = [
-  { src: "/form.webp", alt: "Formation AfricTivistes" },
-  { src: "/Afrique.webp", alt: "Afrique" },
-  { src: "/form2.webp", alt: "Innovation numérique" },
+  { src: img.galleryImage1, alt: "Formation AfricTivistes" },
+  { src: img.galleryImage2, alt: "Afrique" },
+  { src: img.galleryImage3, alt: "Innovation numérique" },
 ];
 ---
 <section class="py-12 lg:py-16">

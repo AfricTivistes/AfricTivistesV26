@@ -218,5 +218,14 @@
   "values.ctaBtn": {
     "fr": "Rejoindre le mouvement",
     "en": "Join the movement"
+  },
+  "_images": {
+    "heroImage": "https://update.africtivistes.org/wp-content/uploads/2025/11/image.jpeg",
+    "introImage": "https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg",
+    "quoteAuthorPhoto": "https://update.africtivistes.org/wp-content/uploads/2021/07/unnamed-1.jpg",
+    "galleryImage1": "https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg",
+    "galleryImage2": "https://citizenlabbenin.org/_astro/formation1.bc0f03e8_daRtv.webp",
+    "galleryImage3": "https://update.africtivistes.org/wp-content/uploads/2025/11/image.jpeg",
+    "galleryImage4": "https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
   }
 }

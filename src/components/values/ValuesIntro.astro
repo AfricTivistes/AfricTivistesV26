@@ -1,6 +1,8 @@
 ---
 import TwoColumnTextImage from "@/components/TwoColumnTextImage.astro";
 import { t, type Lang } from "@/lib/i18n";
+import valuesData from "@/data/translations/values.json";
+const img = valuesData._images;
 
 interface Props {
   lang: Lang;
@@ -13,7 +15,7 @@ const { lang } = Astro.props;
   titleKey="values.introTitle1"
   highlightKey="values.introHighlight"
   descriptions={["values.introDesc1", "values.introDesc2"]}
-  imageUrl="https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
+  imageUrl={img.introImage}
   imageAlt="AfricTivistes - Nos valeurs en action"
 >
   <div
