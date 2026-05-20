@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Cheikh Fall",
+    "role": {
+      "fr": "Président d'AfricTivistes",
+      "en": "President of AfricTivistes"
+    },
+    "country": "Sénégal",
+    "image": "https://randomuser.me/api/portraits/men/32.jpg",
+    "quote": {
+      "fr": "AfricTivistes est plus qu'un réseau, c'est un mouvement citoyen qui donne aux Africains les outils numériques pour construire la démocratie de demain.",
+      "en": "AfricTivistes is more than a network, it's a citizen movement that gives Africans the digital tools to build tomorrow's democracy."
+    }
+  },
+  {
+    "id": 2,
+    "name": "Aisha Dabo",
+    "role": {
+      "fr": "Coordinatrice des programmes",
+      "en": "Programs Coordinator"
+    },
+    "country": "Gambie",
+    "image": "https://randomuser.me/api/portraits/women/44.jpg",
+    "quote": {
+      "fr": "Grâce à AfricTivistes, j'ai pu développer mes compétences en civic tech et contribuer à des projets d'impact dans toute l'Afrique de l'Ouest.",
+      "en": "Thanks to AfricTivistes, I was able to develop my civic tech skills and contribute to impactful projects across West Africa."
+    }
+  },
+  {
+    "id": 3,
+    "name": "Mohamed Diabaté",
+    "role": {
+      "fr": "Blogueur et cyber-activiste",
+      "en": "Blogger and cyber-activist"
+    },
+    "country": "Mali",
+    "image": "https://randomuser.me/api/portraits/men/75.jpg",
+    "quote": {
+      "fr": "Le MOOC d'AfricTivistes m'a ouvert les portes du journalisme citoyen. Aujourd'hui, je forme d'autres jeunes dans ma communauté.",
+      "en": "The AfricTivistes MOOC opened the doors to citizen journalism for me. Today, I train other young people in my community."
+    }
+  },
+  {
+    "id": 4,
+    "name": "Fatoumata Ndiaye",
+    "role": {
+      "fr": "Chercheuse en gouvernance numérique",
+      "en": "Digital governance researcher"
+    },
+    "country": "Sénégal",
+    "image": "https://randomuser.me/api/portraits/women/68.jpg",
+    "quote": {
+      "fr": "AfricTivistes joue un rôle essentiel dans la promotion de la transparence électorale en Afrique. Leurs outils d'observation sont devenus des références.",
+      "en": "AfricTivistes plays an essential role in promoting electoral transparency in Africa. Their observation tools have become benchmarks."
+    }
+  },
+  {
+    "id": 5,
+    "name": "Jean-Paul Hirwa",
+    "role": {
+      "fr": "Développeur et activiste numérique",
+      "en": "Developer and digital activist"
+    },
+    "country": "Rwanda",
+    "image": "https://randomuser.me/api/portraits/men/52.jpg",
+    "quote": {
+      "fr": "Les hackathons organisés par AfricTivistes permettent de créer des solutions technologiques adaptées aux réalités africaines. C'est l'innovation endogène en action.",
+      "en": "The hackathons organized by AfricTivistes make it possible to create technological solutions adapted to African realities. This is endogenous innovation in action."
+    }
+  },
+  {
+    "id": 6,
+    "name": "Amina Traoré",
+    "role": {
+      "fr": "Journaliste et formatrice",
+      "en": "Journalist and trainer"
+    },
+    "country": "Côte d'Ivoire",
+    "image": "https://randomuser.me/api/portraits/women/25.jpg",
+    "quote": {
+      "fr": "Les formations en cybersécurité d'AfricTivistes ont transformé ma pratique journalistique. Je me sens désormais mieux armée pour protéger mes sources.",
+      "en": "AfricTivistes' cybersecurity training has transformed my journalism practice. I now feel better equipped to protect my sources."
+    }
+  }
+]

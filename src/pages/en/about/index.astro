@@ -11,10 +11,11 @@ import CtaBanner from "@/components/CtaBanner.astro";
 import BadgeStat from "@/components/BadgeStat.astro";
 import { t, extractImages } from "@/lib/i18n";
 import aboutData from "@/data/translations/about.json";
+import siteConfig from "@/data/site-config.json";
 const lang = "en";
 const imgs = extractImages(aboutData);
 const heroImage = imgs._img_heroImage;
-const yearsEngagement = new Date().getFullYear() - 2015 - 1;
+const yearsEngagement = new Date().getFullYear() - siteConfig.foundingYear - 1;
 ---
 <BaseLayout lang={lang} preloadImage={heroImage}>
   

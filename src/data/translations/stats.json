@@ -14,55 +14,81 @@
     "_label": "Chiffres",
     "stats.trainees": {
       "fr": "Bénéficiaires des formations",
-      "en": "Training beneficiaries"
+      "en": "Training beneficiaries",
+      "value": 12000,
+      "suffix": "+"
     },
     "stats.activists": {
       "fr": "Activistes pro-démocratie et journalistes en danger appuyés",
-      "en": "Pro-democracy activists and at-risk journalists supported"
+      "en": "Pro-democracy activists and at-risk journalists supported",
+      "value": 11,
+      "suffix": ""
     },
     "stats.elections": {
       "fr": "Élections présidentielles appuyées",
-      "en": "Presidential elections supported"
+      "en": "Presidential elections supported",
+      "value": 15,
+      "suffix": ""
     },
     "stats.communities": {
       "fr": "Communautés créées",
-      "en": "Communities created"
+      "en": "Communities created",
+      "value": 32,
+      "suffix": ""
     },
     "stats.mooc": {
       "fr": "Bénéficiaires en ligne des formations",
-      "en": "Online training beneficiaries"
+      "en": "Online training beneficiaries",
+      "value": 0,
+      "suffix": ""
     },
     "stats.summitParticipants": {
       "fr": "Participants à nos activités",
-      "en": "Participants in our activities"
+      "en": "Participants in our activities",
+      "value": 2000,
+      "suffix": "+"
     },
     "stats.youth": {
       "fr": "Jeunes appuyés",
-      "en": "Young people supported"
+      "en": "Young people supported",
+      "value": 5000,
+      "suffix": "+"
     },
     "stats.civicTech": {
       "fr": "Initiatives civic tech appuyées",
-      "en": "Civic tech initiatives supported"
+      "en": "Civic tech initiatives supported",
+      "value": 30,
+      "suffix": "+"
     },
     "stats.awards": {
       "fr": "Distinctions décernées",
-      "en": "Awards received"
+      "en": "Awards received",
+      "value": 7,
+      "suffix": ""
     },
     "stats.grants": {
       "fr": "Montant total de subvention aux jeunes",
-      "en": "Total grants to young people"
+      "en": "Total grants to young people",
+      "value": 420000,
+      "suffix": " €"
     },
     "stats.technical": {
       "fr": "Appuis techniques",
-      "en": "Technical support"
+      "en": "Technical support",
+      "value": 7,
+      "suffix": ""
     },
     "stats.research": {
       "fr": "Recherches et analyses",
-      "en": "Research and analyses"
+      "en": "Research and analyses",
+      "value": 25,
+      "suffix": "+"
     },
     "stats.elearning": {
       "fr": "Plateformes e-learning",
-      "en": "E-learning platforms"
+      "en": "E-learning platforms",
+      "value": 3,
+      "suffix": ""
     }
   }
 }

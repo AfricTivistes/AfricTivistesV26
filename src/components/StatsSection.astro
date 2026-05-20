@@ -1,24 +1,31 @@
 ---
 import Reveal from "@/components/astro/Reveal.astro";
 import { t, type Lang } from "@/lib/i18n";
+import statsData from "@/data/translations/stats.json";
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 
+// Read value/suffix from stats.json (stored alongside fr/en in _grp_chiffres)
+const chiffres = statsData._grp_chiffres as Record<string, { fr: string; en: string; value?: number; suffix?: string }>;
+
 const stats = [
-  { icon: "graduation-cap", value: 12000,  suffix: "+",  labelKey: "stats.trainees" },
-  { icon: "shield-alert",   value: 11,     suffix: "",   labelKey: "stats.activists" },
-  { icon: "vote",           value: 15,     suffix: "",   labelKey: "stats.elections" },
-  { icon: "network",        value: 32,     suffix: "",   labelKey: "stats.communities" },
-  { icon: "users",          value: 2000,   suffix: "+",  labelKey: "stats.summitParticipants" },
-  { icon: "globe",          value: 5000,   suffix: "+",  labelKey: "stats.youth" },
-  { icon: "cpu",            value: 30,     suffix: "+",  labelKey: "stats.civicTech" },
-  { icon: "award",          value: 7,      suffix: "",   labelKey: "stats.awards" },
-  { icon: "coins",          value: 420000, suffix: " €", labelKey: "stats.grants" },
-  { icon: "wrench",         value: 7,      suffix: "",   labelKey: "stats.technical" },
-  { icon: "bar-chart-2",    value: 25,     suffix: "+",  labelKey: "stats.research" },
-  { icon: "laptop",         value: 3,      suffix: "",   labelKey: "stats.elearning" },
-];
+  { icon: "graduation-cap", labelKey: "stats.trainees" },
+  { icon: "shield-alert",   labelKey: "stats.activists" },
+  { icon: "vote",           labelKey: "stats.elections" },
+  { icon: "network",        labelKey: "stats.communities" },
+  { icon: "users",          labelKey: "stats.summitParticipants" },
+  { icon: "globe",          labelKey: "stats.youth" },
+  { icon: "cpu",            labelKey: "stats.civicTech" },
+  { icon: "award",          labelKey: "stats.awards" },
+  { icon: "coins",          labelKey: "stats.grants" },
+  { icon: "wrench",         labelKey: "stats.technical" },
+  { icon: "bar-chart-2",    labelKey: "stats.research" },
+  { icon: "laptop",         labelKey: "stats.elearning" },
+].map((s) => {
+  const entry = chiffres[s.labelKey];
+  return { ...s, value: entry?.value ?? 0, suffix: entry?.suffix ?? "" };
+});
 
 const icons: Record<string, string> = {
   "users": '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',

@@ -6,8 +6,66 @@
   <meta name="robots" content="noindex" />
   <title>AfricTivistes — Content Manager</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+  <style>
+    #loading {
+      display: flex; align-items: center; justify-content: center;
+      height: 100vh; font-family: sans-serif; color: #555;
+    }
+  </style>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <div id="loading">Chargement du CMS...</div>
+
+  <script>
+    window.CMS_MANUAL_INIT = true;
+
+    (function () {
+      var booted = false;
+
+      function getConfigPath(user) {
+        var roles = (user && user.app_metadata && user.app_metadata.roles) || [];
+        return roles.indexOf('admin') !== -1
+          ? '/admin/config-full.yml'
+          : '/admin/config.yml';
+      }
+
+      function bootCMS(configPath) {
+        if (booted) return;
+        booted = true;
+
+        fetch(configPath)
+          .then(function (r) { return r.text(); })
+          .then(function (yml) {
+            var cfg = jsyaml.load(yml);
+
+            var el = document.getElementById('loading');
+            if (el) el.remove();
+
+            var script = document.createElement('script');
+            script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
+            script.onload = function () {
+              initCMS({ config: cfg });
+            };
+            document.body.appendChild(script);
+          })
+          .catch(function (err) {
+            console.error('CMS config load error:', err);
+            document.getElementById('loading').textContent =
+              'Erreur de chargement. Veuillez rafraîchir la page.';
+          });
+      }
+
+      // Listen for Netlify Identity events
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', function (user) {
+          if (user) bootCMS(getConfigPath(user));
+        });
+        window.netlifyIdentity.on('login', function (user) {
+          bootCMS(getConfigPath(user));
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

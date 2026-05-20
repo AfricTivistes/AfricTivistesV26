@@ -23,6 +23,203 @@ collections:
     label: "Contenu du site"
     description: "Textes (FR & EN) et images par section — regroupés par sous-section"
     files:
+      - name: "navigation"
+        label: "Navigation (28)"
+        file: "src/data/translations/navigation.json"
+        fields:
+          - label: "Accueil & Général (3)"
+            name: "_grp_accueil_general"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "home"
+                name: "nav.home"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "contact"
+                name: "nav.contact"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "engage"
+                name: "nav.engage"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "À Propos (6)"
+            name: "_grp_a_propos"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "about"
+                name: "nav.about"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "all"
+                name: "nav.about.all"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "index"
+                name: "nav.about.index"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "history"
+                name: "nav.about.history"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "values"
+                name: "nav.about.values"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "join"
+                name: "nav.about.join"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Projets / Initiatives (7)"
+            name: "_grp_projets_initiatives"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "projects"
+                name: "nav.projects"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "all"
+                name: "nav.projects.all"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "innovation"
+                name: "nav.projects.innovation"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "democracy"
+                name: "nav.projects.democracy"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "engagement"
+                name: "nav.projects.engagement"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "media"
+                name: "nav.projects.media"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "training"
+                name: "nav.projects.training"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Ressources (5)"
+            name: "_grp_ressources"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "resources"
+                name: "nav.resources"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "publications"
+                name: "nav.resources.publications"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "toolkits"
+                name: "nav.resources.toolkits"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "media"
+                name: "nav.resources.media"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "presskit"
+                name: "nav.resources.presskit"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Actualités (7)"
+            name: "_grp_actualites"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "news"
+                name: "nav.news"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "all"
+                name: "nav.news.all"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "communiques"
+                name: "nav.news.communiques"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "plaidoyers"
+                name: "nav.news.plaidoyers"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "actualites"
+                name: "nav.news.actualites"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "contributions"
+                name: "nav.news.contributions"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "champions"
+                name: "nav.news.champions"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
       - name: "hero"
         label: "Accueil — Hero (11)"
         file: "src/data/translations/hero.json"
@@ -1675,6 +1872,97 @@ collections:
                 fields:
                   - { label: "Français", name: "fr", widget: string }
                   - { label: "English", name: "en", widget: string }
+      - name: "contact"
+        label: "Page Contact (12)"
+        file: "src/data/translations/contact.json"
+        fields:
+          - label: "Titre (2)"
+            name: "_grp_titre"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "title"
+                name: "contact.title"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "subtitle"
+                name: "contact.subtitle"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Formulaire (8)"
+            name: "_grp_formulaire"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "name"
+                name: "contact.name"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "namePlaceholder"
+                name: "contact.namePlaceholder"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "email"
+                name: "contact.email"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "subject"
+                name: "contact.subject"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "subjectPlaceholder"
+                name: "contact.subjectPlaceholder"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "message"
+                name: "contact.message"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "messagePlaceholder"
+                name: "contact.messagePlaceholder"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "send"
+                name: "contact.send"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Confirmation (2)"
+            name: "_grp_confirmation"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "thanks"
+                name: "contact.thanks"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "reply"
+                name: "contact.reply"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
       - name: "initiatives"
         label: "Page Initiatives (25)"
         file: "src/data/translations/initiatives.json"
@@ -1875,6 +2163,999 @@ collections:
                   - { label: "English", name: "en", widget: string }
               - label: "allProjectsSubtitle"
                 name: "initiatives.allProjectsSubtitle"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+      - name: "projet"
+        label: "Projet / Programme (77)"
+        file: "src/data/translations/projet.json"
+        fields:
+          - label: "Navigation & erreurs (3)"
+            name: "_grp_navigation_erreurs"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "back"
+                name: "projet.back"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "notFound"
+                name: "projet.notFound"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "notFoundDesc"
+                name: "projet.notFoundDesc"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Informations projet (7)"
+            name: "_grp_informations_projet"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "thematique"
+                name: "projet.thematique"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "label"
+                name: "projet.label"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "presentation"
+                name: "projet.presentation"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "description"
+                name: "projet.description"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "context"
+                name: "projet.context"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "approach"
+                name: "projet.approach"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "actions"
+                name: "projet.actions"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Chiffres & dates (14)"
+            name: "_grp_chiffres_dates"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "objectives"
+                name: "projet.objectives"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "participants"
+                name: "projet.participants"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "countries"
+                name: "projet.countries"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "partners"
+                name: "projet.partners"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "activities"
+                name: "projet.activities"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "resources"
+                name: "projet.resources"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "partnersWith"
+                name: "projet.partnersWith"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "progress"
+                name: "projet.progress"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "startDate"
+                name: "projet.startDate"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "endDate"
+                name: "projet.endDate"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "active"
+                name: "projet.status.active"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "completed"
+                name: "projet.status.completed"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "upcoming"
+                name: "projet.status.upcoming"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "keyFigures"
+                name: "projet.keyFigures"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Partenaires & équipe (5)"
+            name: "_grp_partenaires_equipe"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "website"
+                name: "projet.website"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "projectBy"
+                name: "projet.projectBy"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "supportedBy"
+                name: "projet.supportedBy"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "manager"
+                name: "projet.manager"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "team"
+                name: "projet.team"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Plateformes (2)"
+            name: "_grp_plateformes"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "platforms"
+                name: "projet.platforms"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "platformsDesc"
+                name: "projet.platformsDesc"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Évolution & phases (5)"
+            name: "_grp_evolution_phases"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "phases"
+                name: "projet.phases"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "phasesDesc"
+                name: "projet.phasesDesc"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "projetsMeres"
+                name: "projet.projetsMeres"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "projetsMeresDesc"
+                name: "projet.projetsMeresDesc"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "parentProjet"
+                name: "projet.parentProjet"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Galerie & liens (3)"
+            name: "_grp_galerie_liens"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "seeDetails"
+                name: "projet.seeDetails"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "relatedNews"
+                name: "projet.relatedNews"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "gallery"
+                name: "projet.gallery"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Projets similaires (2)"
+            name: "_grp_projets_similaires"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "similarTitle"
+                name: "projet.similarTitle"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "similarDesc"
+                name: "projet.similarDesc"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Programme — Navigation (3)"
+            name: "_grp_programme_navigation"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "back"
+                name: "programme.back"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "notFound"
+                name: "programme.notFound"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "notFoundDesc"
+                name: "programme.notFoundDesc"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Programme — Informations (4)"
+            name: "_grp_programme_informations"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "type"
+                name: "programme.type"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "label"
+                name: "programme.label"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "presentation"
+                name: "programme.presentation"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "actions"
+                name: "programme.actions"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Programme — Chiffres (15)"
+            name: "_grp_programme_chiffres"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "objectives"
+                name: "programme.objectives"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "budget"
+                name: "programme.budget"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "duration"
+                name: "programme.duration"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "months"
+                name: "programme.months"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "participants"
+                name: "programme.participants"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "countries"
+                name: "programme.countries"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "progress"
+                name: "programme.progress"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "beneficiaries"
+                name: "programme.beneficiaries"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "startDate"
+                name: "programme.startDate"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "endDate"
+                name: "programme.endDate"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "active"
+                name: "programme.status.active"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "completed"
+                name: "programme.status.completed"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "upcoming"
+                name: "programme.status.upcoming"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "keyFigures"
+                name: "programme.keyFigures"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "trained"
+                name: "programme.trained"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Programme — Partenaires (9)"
+            name: "_grp_programme_partenaires"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "projectBy"
+                name: "programme.projectBy"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "supportedBy"
+                name: "programme.supportedBy"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "partnersWith"
+                name: "programme.partnersWith"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "manager"
+                name: "programme.manager"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "seeDetails"
+                name: "programme.seeDetails"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "website"
+                name: "programme.website"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "relatedNews"
+                name: "programme.relatedNews"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "platforms"
+                name: "programme.platforms"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "platformsDesc"
+                name: "programme.platformsDesc"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Programme — Similaires (3)"
+            name: "_grp_programme_similaires"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "similarTitle"
+                name: "programme.similarTitle"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "similarDesc"
+                name: "programme.similarDesc"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "viewAll"
+                name: "programme.viewAll"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Pays (1)"
+            name: "_grp_pays"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "panafricain"
+                name: "country.panafricain"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Autres (1)"
+            name: "_grp_autres"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "viewAll"
+                name: "projet.viewAll"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+      - name: "blog"
+        label: "Actualités (23)"
+        file: "src/data/translations/blog.json"
+        fields:
+          - label: "Liste articles (6)"
+            name: "_grp_liste_articles"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "title"
+                name: "blog.title"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "subtitle"
+                name: "blog.subtitle"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: text }
+                  - { label: "English", name: "en", widget: text }
+              - label: "all"
+                name: "blog.all"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "noArticles"
+                name: "blog.noArticles"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "read"
+                name: "blog.read"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "articlesCount"
+                name: "blog.articlesCount"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Catégories (5)"
+            name: "_grp_categories"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "communiques"
+                name: "blog.communiques"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "plaidoyers"
+                name: "blog.plaidoyers"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "actualites"
+                name: "blog.actualites"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "contributions"
+                name: "blog.contributions"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "champions"
+                name: "blog.champions"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Article détail (5)"
+            name: "_grp_article_detail"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "back"
+                name: "blogPost.back"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "notFound"
+                name: "blogPost.notFound"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "share"
+                name: "blogPost.share"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "related"
+                name: "blogPost.related"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "categories"
+                name: "blogPost.categories"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Accueil actualités (2)"
+            name: "_grp_accueil_actualites"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "title"
+                name: "news.title"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "viewAll"
+                name: "news.viewAll"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Communiqués (2)"
+            name: "_grp_communiques"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "title"
+                name: "releases.title"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "read"
+                name: "releases.read"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Champions (2)"
+            name: "_grp_champions"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "title"
+                name: "champions.title"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "readPortrait"
+                name: "champions.readPortrait"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Autres (1)"
+            name: "_grp_autres"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "articleCount"
+                name: "blog.articleCount"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+      - name: "resources"
+        label: "Ressources (25)"
+        file: "src/data/translations/resources.json"
+        fields:
+          - label: "Publications (6)"
+            name: "_grp_publications"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "title"
+                name: "publications.title"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "viewAll"
+                name: "publications.viewAll"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "heroDesc"
+                name: "resources.publications.heroDesc"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: text }
+                  - { label: "English", name: "en", widget: text }
+              - label: "allTitle"
+                name: "resources.publications.allTitle"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "empty"
+                name: "resources.publications.empty"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "count"
+                name: "resources.publications.count"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Boîtes à outils (4)"
+            name: "_grp_boites_a_outils"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "heroDesc"
+                name: "resources.toolkits.heroDesc"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: text }
+                  - { label: "English", name: "en", widget: text }
+              - label: "allTitle"
+                name: "resources.toolkits.allTitle"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "empty"
+                name: "resources.toolkits.empty"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "count"
+                name: "resources.toolkits.count"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Vidéothèque (15)"
+            name: "_grp_videotheque"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "heroDesc"
+                name: "media.heroDesc"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: text }
+                  - { label: "English", name: "en", widget: text }
+              - label: "featured"
+                name: "media.featured"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "allVideos"
+                name: "media.allVideos"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "all"
+                name: "media.all"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "watchOnYt"
+                name: "media.watchOnYt"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "play"
+                name: "media.play"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "noVideos"
+                name: "media.noVideos"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "title"
+                name: "videos.title"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "subtitle"
+                name: "videos.subtitle"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "play"
+                name: "videos.play"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "viewAll"
+                name: "videos.viewAll"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "watchOnYt"
+                name: "videos.watchOnYt"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "noVideos"
+                name: "videos.noVideos"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "allPlaylists"
+                name: "videos.allPlaylists"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "filterLabel"
+                name: "videos.filterLabel"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+      - name: "newsletter"
+        label: "Newsletter (8)"
+        file: "src/data/translations/newsletter.json"
+        fields:
+          - label: "Newsletter (8)"
+            name: "_grp_newsletter"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "title"
+                name: "newsletter.title"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "desc"
+                name: "newsletter.desc"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: text }
+                  - { label: "English", name: "en", widget: text }
+              - label: "namePlaceholder"
+                name: "newsletter.namePlaceholder"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "placeholder"
+                name: "newsletter.placeholder"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "subscribe"
+                name: "newsletter.subscribe"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "thanks"
+                name: "newsletter.thanks"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "soon"
+                name: "newsletter.soon"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "rgpd"
+                name: "newsletter.rgpd"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: text }
+                  - { label: "English", name: "en", widget: text }
+      - name: "testimonials"
+        label: "Témoignages & Partenaires (5)"
+        file: "src/data/translations/testimonials.json"
+        fields:
+          - label: "Témoignages (3)"
+            name: "_grp_temoignages"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "label"
+                name: "testimonials.label"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "title"
+                name: "testimonials.title"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "subtitle"
+                name: "testimonials.subtitle"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: text }
+                  - { label: "English", name: "en", widget: text }
+          - label: "Partenaires (1)"
+            name: "_grp_partenaires"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "title"
+                name: "partners.title"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Plateformes (1)"
+            name: "_grp_plateformes"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "title"
+                name: "platforms.title"
                 widget: object
                 fields:
                   - { label: "Français", name: "fr", widget: string }
@@ -2376,6 +3657,62 @@ collections:
                 name: programmes
                 widget: list
                 field: { label: "Programme", name: programme, widget: string }
+      - name: "misc"
+        label: "Divers (3)"
+        file: "src/data/translations/misc.json"
+        fields:
+          - label: "Pages diverses (3)"
+            name: "_grp_pages_diverses"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "comingSoon"
+                name: "page.comingSoon"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "comingSoonDesc"
+                name: "page.comingSoonDesc"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: text }
+                  - { label: "English", name: "en", widget: text }
+              - label: "backHome"
+                name: "page.backHome"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+
+  - name: "testimonials-data"
+    label: "Données témoignages"
+    description: "Les 6 témoignages affichés sur la page d'accueil"
+    files:
+      - name: "testimonials-list"
+        label: "Liste des témoignages"
+        file: "src/data/testimonials.json"
+        fields:
+          - label: "Témoignages"
+            name: "items"
+            widget: list
+            fields:
+              - { label: "ID", name: id, widget: number, value_type: int }
+              - { label: "Nom", name: name, widget: string }
+              - label: "Rôle"
+                name: role
+                widget: object
+                fields:
+                  - { label: "Français", name: fr, widget: string }
+                  - { label: "English", name: en, widget: string }
+              - { label: "Pays", name: country, widget: string }
+              - { label: "Photo", name: image, widget: image }
+              - label: "Citation"
+                name: quote
+                widget: object
+                fields:
+                  - { label: "Français", name: fr, widget: text }
+                   - { label: "English", name: en, widget: text }
 
   - name: site-config
     label: "Configuration du site"
