@@ -40,29 +40,39 @@ function useAltchaCaptcha(
   containerRef: React.RefObject<HTMLDivElement | null>,
   floating: boolean = true,
 ) {
-  const injected = useRef(false);
-
   useEffect(() => {
-    if (injected.current || !containerRef.current) return;
-    injected.current = true;
+    const container = containerRef.current;
+    if (!container) return;
+
+    let widget: HTMLElement | null = null;
 
     (async () => {
       await loadScript(ALTCHA_WIDGET_SRC, { type: "module" });
 
-      if (containerRef.current && !containerRef.current.querySelector("altcha-widget")) {
-        const widget = document.createElement("altcha-widget");
-        widget.setAttribute("hidelogo", "");
-        widget.setAttribute("hidefooter", "");
-        if (floating) {
-          widget.setAttribute("floating", "");
-        }
-        widget.setAttribute("challengeurl", ALTCHA_CHALLENGE_URL);
-        containerRef.current.appendChild(widget);
+      // Guard: container may have been unmounted during async load
+      if (!containerRef.current) return;
+      // Avoid duplicates if already present (e.g. HMR, fast remount)
+      if (containerRef.current.querySelector("altcha-widget")) return;
+
+      widget = document.createElement("altcha-widget");
+      widget.setAttribute("hidelogo", "");
+      widget.setAttribute("hidefooter", "");
+      if (floating) {
+        widget.setAttribute("floating", "");
       }
+      widget.setAttribute("challengeurl", ALTCHA_CHALLENGE_URL);
+      containerRef.current.appendChild(widget);
 
       await loadScript(ALTCHA_INDEX_SRC, { defer: true });
       await loadScript(WEBFORM_INDEX_SRC);
     })();
+
+    return () => {
+      // Clean up widget on unmount so re-mount can inject a fresh one
+      if (widget && widget.parentNode) {
+        widget.parentNode.removeChild(widget);
+      }
+    };
   }, [containerRef, floating]);
 }
 
