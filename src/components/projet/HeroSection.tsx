@@ -1,8 +1,9 @@
 import { Link } from "@/lib/router-shim";
 import { m as motion } from "framer-motion";
-import { ChevronRight, Globe, MapPin } from "lucide-react";
+import { Globe, MapPin } from "lucide-react";
 import { getCountryName } from "@/lib/wordpress";
 import { useI18n } from "@/lib/i18n";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 import type { Lang } from "@/lib/i18n";
 
 interface HeroSectionProps {
@@ -41,18 +42,14 @@ const HeroSection = ({ title, imageUrl, thematiqueName, thematiqueSlug, pays, la
 
     <div className="relative section-container pb-20 lg:pb-24 pt-16">
       <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-        {/* Breadcrumb */}
-        <nav className="flex items-center gap-1.5 text-xs text-white/50 mb-8">
-          <Link to="/" className="hover:text-white/80 transition-colors">
-            {lang === "fr" ? "Accueil" : "Home"}
-          </Link>
-          <ChevronRight size={12} />
-          <Link to="/initiatives" className="hover:text-white/80 transition-colors">
-            {lang === "fr" ? "Initiatives" : "Initiatives"}
-          </Link>
-          <ChevronRight size={12} />
-          <span className="text-white/70 truncate max-w-[200px]">{title}</span>
-        </nav>
+        <Breadcrumb
+          items={[
+            { to: "/", label: lang === "fr" ? "Accueil" : "Home" },
+            { to: "/initiatives", label: lang === "fr" ? "Initiatives" : "Initiatives" },
+          ]}
+          current={title}
+          animated={false}
+        />
 
         {/* Badge thematique */}
         {thematiqueName && (

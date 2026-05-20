@@ -2,85 +2,13 @@ import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
 import { useState, useRef } from "react";
 import { m as motion, useAnimation } from "framer-motion";
 import { Link } from "@/lib/router-shim";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { useQueryClient } from "@tanstack/react-query";
+import { ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { getProjetImageUrl, stripHtml, getProjetThematique, fetchProjetBySlugWithLang } from "@/lib/wordpress";
 import { useProjets, useThematiques } from "@/hooks/use-wordpress";
-import { thematiqueList } from "@/data/thematiques";
-import type { WPProjet } from "@/lib/wordpress";
-
-const getThematiqueStyle = (wpSlug: string) =>
-  thematiqueList.find((t) => wpSlug.includes(t.slug));
+import ProjetCard from "@/components/ui/ProjetCard";
+import ThematiqueFilterBar from "@/components/ui/ThematiqueFilterBar";
 
 const CARD_WIDTH = 320;
-
-interface ProjetCardProps {
-  p: WPProjet;
-  carousel?: boolean;
-}
-
-const ProjetCard = ({ p, carousel }: ProjetCardProps) => {
-  const imageUrl = getProjetImageUrl(p);
-  const title = stripHtml(p.title.rendered);
-  const thematique = getProjetThematique(p);
-  const style = thematique ? getThematiqueStyle(thematique.slug) : null;
-  const { lang } = useI18n();
-  const queryClient = useQueryClient();
-
-  const handlePrefetch = () => {
-    queryClient.prefetchQuery({
-      queryKey: ["projet", p.slug, lang],
-      queryFn: () => fetchProjetBySlugWithLang(p.slug, lang),
-      staleTime: 5 * 60 * 1000,
-    });
-  };
-
-  return (
-    <motion.article
-      whileHover={{ y: -6 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className={carousel ? `w-[${CARD_WIDTH}px] flex-shrink-0` : ""}
-    >
-      <Link
-        to={`/initiatives/${p.slug}`}
-        onMouseEnter={handlePrefetch}
-        onFocus={handlePrefetch}
-        className="group block h-full bg-card rounded-2xl border border-border overflow-hidden transition-all hover:border-primary/30 hover:shadow-xl duration-300"
-      >
-        <div className="relative aspect-square overflow-hidden bg-muted">
-          {imageUrl ? (
-            <img
-              src={imageUrl}
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              loading="lazy"
-              decoding="async"
-              width="318"
-              height="318"
-            />
-          ) : (
-            <div className="absolute inset-0 pattern-kente" aria-hidden="true" />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all -translate-y-1 group-hover:translate-y-0">
-            <ArrowUpRight size={14} className="text-foreground" />
-          </div>
-        </div>
-        <div className="p-5">
-          {thematique && (
-            <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full mb-2.5 ${style?.bg ?? "bg-muted"} ${style?.color ?? "text-muted-foreground"}`}>
-              {thematique.name}
-            </span>
-          )}
-          <h3 className="font-bold text-card-foreground leading-snug group-hover:text-primary transition-colors line-clamp-2">
-            {title}
-          </h3>
-        </div>
-      </Link>
-    </motion.article>
-  );
-};
 
 const ProjectsGrid = () => {
   const [activeType, setActiveType] = useState<number | null>(null);
@@ -165,46 +93,18 @@ const ProjectsGrid = () => {
         </motion.div>
 
         {/* Filters */}
-        {thematiques.filter((th) => th.count > 0).length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-wrap gap-2 mb-10"
-            role="group"
-            aria-label="Filtrer par thématique"
-          >
-            <button
-              onClick={() => setActiveType(null)}
-              aria-pressed={activeType === null}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${
-                activeType === null
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
-              }`}
-            >
-              {t("programmes.all")}
-            </button>
-            {thematiques.filter((th) => th.count > 0).map((th) => {
-              const style = getThematiqueStyle(th.slug);
-              const isActive = activeType === th.id;
-              return (
-                <button
-                  key={th.id}
-                  onClick={() => setActiveType(th.id)}
-                  aria-pressed={isActive}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${
-                    isActive
-                      ? `${style?.bgSolid ?? "bg-primary"} text-white border-transparent`
-                      : "border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
-                  }`}
-                >
-                  {th.name}
-                </button>
-              );
-            })}
-          </motion.div>
-        )}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <ThematiqueFilterBar
+            thematiques={thematiques}
+            activeType={activeType}
+            onSelect={setActiveType}
+            className="mb-10"
+          />
+        </motion.div>
 
         {/* Carousel (aucun filtre) */}
         {activeType === null ? (
@@ -221,7 +121,7 @@ const ProjectsGrid = () => {
             >
               {[...projets, ...projets].map((p, i) => (
                 <div key={`${p.id}-${i}`} style={{ width: CARD_WIDTH, flexShrink: 0 }}>
-                  <ProjetCard p={p} carousel />
+                  <ProjetCard projet={p} carousel />
                 </div>
               ))}
             </motion.div>
@@ -240,7 +140,7 @@ const ProjectsGrid = () => {
                   transition={{ delay: i * 0.07 }}
                   role="listitem"
                 >
-                  <ProjetCard p={p} />
+                  <ProjetCard projet={p} />
                 </motion.div>
               ))}
             </div>

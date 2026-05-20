@@ -1,9 +1,9 @@
 import { Link } from "@/lib/router-shim";
 import { m as motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useQueryClient } from "@tanstack/react-query";
-import { getProjetImageUrl, getProjetThematique, stripHtml, fetchProjetBySlugWithLang } from "@/lib/wordpress";
+import { getProjetImageUrl, getProjetThematique, stripHtml } from "@/lib/wordpress";
 import { useI18n } from "@/lib/i18n";
+import { usePrefetchProjet } from "@/hooks/use-wordpress";
 import type { WPProjet } from "@/lib/wordpress";
 
 interface SimilarProjetsSectionProps {
@@ -14,17 +14,8 @@ interface SimilarProjetsSectionProps {
 }
 
 const SimilarProjetsSection = ({ projets, similarTitle, similarDesc, viewAllLabel }: SimilarProjetsSectionProps) => {
-  const { lang } = useI18n();
-  const queryClient = useQueryClient();
+  const prefetch = usePrefetchProjet();
   if (projets.length === 0) return null;
-
-  const prefetchProjet = (slug: string) => {
-    queryClient.prefetchQuery({
-      queryKey: ["projet", slug, lang],
-      queryFn: () => fetchProjetBySlugWithLang(slug, lang),
-      staleTime: 5 * 60 * 1000,
-    });
-  };
 
   return (
     <section className="py-16 lg:py-20 bg-muted/30 border-t border-border">
@@ -59,8 +50,8 @@ const SimilarProjetsSection = ({ projets, similarTitle, similarDesc, viewAllLabe
               >
                 <Link
                   to={`/initiatives/${p.slug}`}
-                  onMouseEnter={() => prefetchProjet(p.slug)}
-                  onFocus={() => prefetchProjet(p.slug)}
+                  onMouseEnter={() => prefetch(p.slug)}
+                  onFocus={() => prefetch(p.slug)}
                   className="group block bg-card rounded-2xl border border-border overflow-hidden transition-all hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 duration-300"
                 >
                   <div className="aspect-[16/10] overflow-hidden bg-muted relative">

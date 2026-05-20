@@ -1,9 +1,10 @@
 import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
 import { useState } from "react";
 import { m as motion, AnimatePresence } from "framer-motion";
-import { Play, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Play, ExternalLink, X } from "lucide-react";
 import GradientHero from "@/components/GradientHero";
 import SectionHeader from "@/components/SectionHeader";
+import Pagination from "@/components/ui/Pagination";
 import { useI18n } from "@/lib/i18n";
 import {
   getYouTubeEmbedUrl,
@@ -226,44 +227,12 @@ const ResourcesMedia = () => {
                   ))}
                 </div>
 
-                {totalPages > 1 && (
-                  <nav className="flex items-center justify-center gap-2 mt-14" aria-label={lang === "fr" ? "Pagination des vidéos" : "Video pagination"}>
-                    <button
-                      onClick={() => goToPage(currentPage - 1)}
-                      disabled={currentPage <= 1}
-                      className="p-2 rounded-lg border border-border disabled:opacity-30 transition-colors hover:bg-muted disabled:hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-primary"
-                      aria-label={lang === "fr" ? "Page précédente" : "Previous page"}
-                    >
-                      <ChevronLeft size={20} aria-hidden="true" />
-                    </button>
-                    {Array.from({ length: totalPages }).map((_, i) => {
-                      const page = i + 1;
-                      return (
-                        <button
-                          key={page}
-                          onClick={() => goToPage(page)}
-                          className={`w-10 h-10 rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
-                            currentPage === page
-                              ? "bg-primary text-primary-foreground"
-                              : "border border-border hover:bg-muted"
-                          }`}
-                          aria-label={`Page ${page}`}
-                          aria-current={currentPage === page ? "page" : undefined}
-                        >
-                          {page}
-                        </button>
-                      );
-                    })}
-                    <button
-                      onClick={() => goToPage(currentPage + 1)}
-                      disabled={currentPage >= totalPages}
-                      className="p-2 rounded-lg border border-border disabled:opacity-30 transition-colors hover:bg-muted disabled:hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-primary"
-                      aria-label={lang === "fr" ? "Page suivante" : "Next page"}
-                    >
-                      <ChevronRight size={20} aria-hidden="true" />
-                    </button>
-                  </nav>
-                )}
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={goToPage}
+                  ariaLabel={lang === "fr" ? "Pagination des vidéos" : "Video pagination"}
+                />
               </>
             )}
           </div>

@@ -2,10 +2,11 @@ import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
 import { useEffect } from "react";
 import { useSearchParams } from "@/lib/router-shim";
 import { Link } from "@/lib/router-shim";
-import { ChevronLeft, ChevronRight, Newspaper, Scale, Radio, PenLine, Trophy, LayoutGrid } from "lucide-react";
+import { Newspaper, Scale, Radio, PenLine, Trophy, LayoutGrid } from "lucide-react";
 import { m as motion } from "framer-motion";
 import GradientHero from "@/components/GradientHero";
 import { PostGrid, PostGridSkeleton } from "@/components/posts";
+import Pagination from "@/components/ui/Pagination";
 import { useI18n } from "@/lib/i18n";
 import { usePosts, useCategories } from "@/hooks/use-wordpress";
 import { CATEGORY_IDS, PUBLICATION_CATEGORY_IDS, TOOLKIT_CATEGORY_IDS } from "@/lib/wordpress";
@@ -74,6 +75,9 @@ const BlogPage = () => {
     const wpMatch = allCategories.find((c) => String(c.id) === currentCat);
     return wpMatch?.name || t("blog.all");
   };
+
+  const buildPageHref = (page: number) =>
+    currentCat ? `/blog?cat=${currentCat}&page=${page}` : `/blog?page=${page}`;
 
   return (
     <>
@@ -217,64 +221,12 @@ const BlogPage = () => {
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <nav className="flex items-center justify-center gap-2 mt-16" aria-label="Pagination des articles">
-            <Link
-              to={currentCat ? `/blog?cat=${currentCat}&page=${currentPage - 1}` : `/blog?page=${currentPage - 1}`}
-              className={cn(
-                "flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-border text-sm font-medium transition-colors hover:bg-muted focus:outline-none focus:ring-2 focus:ring-primary",
-                currentPage <= 1 && "pointer-events-none opacity-30"
-              )}
-              data-testid="button-prev-page"
-              aria-label="Page précédente"
-              aria-disabled={currentPage <= 1}
-              tabIndex={currentPage <= 1 ? -1 : undefined}
-            >
-              <ChevronLeft size={16} aria-hidden="true" />
-            </Link>
-            {(() => {
-              const maxVisible = Math.min(totalPages, 5);
-              const half = Math.floor(maxVisible / 2);
-              let start = Math.max(1, currentPage - half);
-              const end = Math.min(totalPages, start + maxVisible - 1);
-              if (end - start + 1 < maxVisible) {
-                start = Math.max(1, end - maxVisible + 1);
-              }
-              return Array.from({ length: maxVisible }).map((_, i) => {
-                const page = start + i;
-                const href = currentCat ? `/blog?cat=${currentCat}&page=${page}` : `/blog?page=${page}`;
-                return (
-                  <Link
-                    key={page}
-                    to={href}
-                    className={cn(
-                      "w-10 h-10 rounded-xl text-sm font-medium transition-all focus:outline-none focus:ring-2 focus:ring-primary inline-flex items-center justify-center",
-                      currentPage === page
-                        ? "bg-primary text-primary-foreground shadow-md shadow-primary/25"
-                        : "border border-border hover:bg-muted"
-                    )}
-                    data-testid={`button-page-${page}`}
-                    aria-label={`Page ${page}`}
-                    aria-current={currentPage === page ? "page" : undefined}
-                  >
-                    {page}
-                  </Link>
-                );
-              });
-            })()}
-            <Link
-              to={currentCat ? `/blog?cat=${currentCat}&page=${currentPage + 1}` : `/blog?page=${currentPage + 1}`}
-              className={cn(
-                "flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-border text-sm font-medium transition-colors hover:bg-muted focus:outline-none focus:ring-2 focus:ring-primary",
-                currentPage >= totalPages && "pointer-events-none opacity-30"
-              )}
-              data-testid="button-next-page"
-              aria-label="Page suivante"
-              aria-disabled={currentPage >= totalPages}
-              tabIndex={currentPage >= totalPages ? -1 : undefined}
-            >
-              <ChevronRight size={16} aria-hidden="true" />
-            </Link>
-          </nav>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            buildHref={buildPageHref}
+            ariaLabel={lang === "fr" ? "Pagination des articles" : "Articles pagination"}
+          />
         )}
       </section>
     </>

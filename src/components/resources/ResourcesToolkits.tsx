@@ -1,10 +1,11 @@
 import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
 import { useState, useEffect } from "react";
-import { Link } from "@/lib/router-shim";
 import { m as motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Wrench, Package, ChevronRight as ChevRight } from "lucide-react";
+import { Wrench, Package } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import { PostGrid, PostGridSkeleton } from "@/components/posts";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import Pagination from "@/components/ui/Pagination";
 import { useI18n } from "@/lib/i18n";
 import { getFeaturedImageUrl, TOOLKIT_CATEGORY_IDS } from "@/lib/wordpress";
 import { usePosts } from "@/hooks/use-wordpress";
@@ -41,7 +42,6 @@ const ResourcesToolkits = () => {
     <>
       {/* Custom Hero */}
       <section className="relative py-12 lg:py-16 overflow-hidden">
-        {/* Background image from first post */}
         {heroImage && (
           <img
             src={heroImage}
@@ -59,19 +59,13 @@ const ResourcesToolkits = () => {
         <div className="absolute top-1/3 right-10 w-14 h-14 border border-white/5 rounded-lg -rotate-12 hidden lg:block" aria-hidden="true" />
 
         <div className="relative section-container">
-          {/* Breadcrumb */}
-          <motion.nav
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex items-center gap-1.5 text-xs text-white/50 mb-8"
-            aria-label="Fil d'Ariane"
-          >
-            <Link to="/" className="hover:text-white/80 transition-colors">{t("nav.home")}</Link>
-            <ChevRight size={12} />
-            <Link to="/resources" className="hover:text-white/80 transition-colors">{t("nav.resources")}</Link>
-            <ChevRight size={12} />
-            <span className="text-white/70">{t("nav.resources.toolkits")}</span>
-          </motion.nav>
+          <Breadcrumb
+            items={[
+              { to: "/", label: t("nav.home") },
+              { to: "/resources", label: t("nav.resources") },
+            ]}
+            current={t("nav.resources.toolkits")}
+          />
 
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
             <div className="max-w-2xl">
@@ -141,45 +135,12 @@ const ResourcesToolkits = () => {
                 placeholderIcon={Wrench}
               />
 
-              {/* Pagination */}
-              {totalPages > 1 && (
-                <nav className="flex items-center justify-center gap-2 mt-14" aria-label={lang === "fr" ? "Pagination des boîtes à outils" : "Toolkits pagination"}>
-                  <button
-                    onClick={() => goToPage(currentPage - 1)}
-                    disabled={currentPage <= 1}
-                    className="p-2 rounded-lg border border-border disabled:opacity-30 transition-colors hover:bg-muted disabled:hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-primary"
-                    aria-label={lang === "fr" ? "Page précédente" : "Previous page"}
-                  >
-                    <ChevronLeft size={20} aria-hidden="true" />
-                  </button>
-                  {Array.from({ length: totalPages }).map((_, i) => {
-                    const page = i + 1;
-                    return (
-                      <button
-                        key={page}
-                        onClick={() => goToPage(page)}
-                        className={`w-10 h-10 rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
-                          currentPage === page
-                            ? "bg-primary text-primary-foreground"
-                            : "border border-border hover:bg-muted"
-                        }`}
-                        aria-label={`Page ${page}`}
-                        aria-current={currentPage === page ? "page" : undefined}
-                      >
-                        {page}
-                      </button>
-                    );
-                  })}
-                  <button
-                    onClick={() => goToPage(currentPage + 1)}
-                    disabled={currentPage >= totalPages}
-                    className="p-2 rounded-lg border border-border disabled:opacity-30 transition-colors hover:bg-muted disabled:hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-primary"
-                    aria-label={lang === "fr" ? "Page suivante" : "Next page"}
-                  >
-                    <ChevronRight size={20} aria-hidden="true" />
-                  </button>
-                </nav>
-              )}
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={goToPage}
+                ariaLabel={lang === "fr" ? "Pagination des boîtes à outils" : "Toolkits pagination"}
+              />
             </>
           )}
         </div>

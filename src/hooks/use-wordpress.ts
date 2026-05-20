@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   fetchPosts,
   fetchStickyPosts,
@@ -222,4 +222,19 @@ export function useProjetMeres(ids: number[]) {
     queryFn: () => fetchProjetMeres(ids),
     enabled: ids.length > 0,
   });
+}
+
+/**
+ * Returns a function to prefetch a single projet by slug.
+ */
+export function usePrefetchProjet() {
+  const { lang } = useI18n();
+  const queryClient = useQueryClient();
+  return (slug: string) => {
+    queryClient.prefetchQuery({
+      queryKey: ["projet", slug, lang],
+      queryFn: () => fetchProjetBySlugWithLang(slug, lang),
+      staleTime: 5 * 60 * 1000,
+    });
+  };
 }

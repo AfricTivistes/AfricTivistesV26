@@ -1,7 +1,7 @@
 import { m as motion } from "framer-motion";
-import { Link } from "@/lib/router-shim";
-import { ChevronRight, type LucideIcon } from "lucide-react";
+import { type LucideIcon } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 import type { ThematiqueLangData } from "@/data/thematiques";
 
 interface ThematiqueHeroProps {
@@ -26,23 +26,13 @@ const ThematiqueHero = ({ content, bg, gradientFrom, gradientTo, IconComponent }
       <div className="absolute bottom-16 left-20 w-20 h-20 border border-white/15 rounded-xl rotate-45 hidden lg:block" aria-hidden="true" />
 
       <div className="relative section-container">
-        {/* Breadcrumb */}
-        <motion.nav
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="flex items-center gap-1.5 text-xs text-white/50 mb-8"
-          aria-label="Fil d'Ariane"
-        >
-          <Link to="/" className="hover:text-white/80 transition-colors">
-            {t("nav.home")}
-          </Link>
-          <ChevronRight size={12} />
-          <Link to="/initiatives" className="hover:text-white/80 transition-colors">
-            {t("programmes.title")}
-          </Link>
-          <ChevronRight size={12} />
-          <span className="text-white/70">{content.heroTitle}</span>
-        </motion.nav>
+        <Breadcrumb
+          items={[
+            { to: "/", label: t("nav.home") },
+            { to: "/initiatives", label: t("programmes.title") },
+          ]}
+          current={content.heroTitle}
+        />
 
         <div className="flex items-start gap-5 mb-6">
           <motion.div
