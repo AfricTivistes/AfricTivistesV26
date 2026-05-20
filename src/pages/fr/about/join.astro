@@ -5,7 +5,7 @@ import JoinHero from "@/components/join/JoinHero.astro";
 import TwoColumnTextImage from "@/components/TwoColumnTextImage.astro";
 import JoinReasons from "@/components/JoinReasons.astro";
 import JoinSteps from "@/components/JoinSteps.astro";
-import JoinForm from "@/components/JoinForm";
+import { t } from "@/lib/i18n";
 const lang = "fr";
 const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg";
 ---
@@ -22,5 +22,181 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/I
   />
   <JoinReasons lang={lang} />
   <JoinSteps lang={lang} />
-  <JoinForm lang={lang} client:visible />
+
+  <!-- Join Form Section -->
+  <section id="formulaire" class="py-20 bg-muted/30 scroll-mt-24">
+    <div class="section-container">
+      <div class="text-center mb-14 animate-fade-in-up">
+        <span class="text-sm font-semibold text-primary uppercase tracking-wider">{t("join.formLabel", lang)}</span>
+        <h2 class="text-3xl lg:text-4xl font-bold text-foreground mt-2">{t("join.formTitle", lang)}</h2>
+        <p class="text-muted-foreground mt-4 max-w-xl mx-auto">{t("join.formDesc", lang)}</p>
+        <div class="w-20 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.1s;">
+        <!-- Success message -->
+        <div id="join-success" class="hidden bg-accent/10 border border-accent/20 rounded-2xl p-10 text-center">
+          <div class="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+          </div>
+          <p class="text-xl font-bold text-foreground mb-2">{t("join.thanks", lang)}</p>
+          <p class="text-muted-foreground leading-relaxed">{t("join.thanksDesc", lang)}</p>
+        </div>
+
+        <!-- Error message -->
+        <div id="join-error" class="hidden text-sm text-destructive text-center mb-4"></div>
+
+        <form id="join-form" name="join" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="bg-card rounded-2xl border border-border p-8 lg:p-10 shadow-sm space-y-6">
+          <input type="hidden" name="form-name" value="join" />
+          <input type="hidden" name="member-type" id="join-member-type" value="person" />
+          <p class="hidden"><label>Ne remplissez pas : <input name="bot-field" /></label></p>
+
+          <!-- Type de membre -->
+          <div>
+            <label class="block text-sm font-medium text-foreground mb-3">{t("join.typeLabel", lang)}</label>
+            <div class="grid grid-cols-3 gap-3">
+              <button type="button" data-type="person" class="member-type-btn active flex flex-col items-center gap-2 rounded-xl border-2 p-4 text-sm font-medium transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 border-primary bg-primary/5 text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>{t("join.typePerson", lang)}</span>
+              </button>
+              <button type="button" data-type="org" class="member-type-btn flex flex-col items-center gap-2 rounded-xl border-2 p-4 text-sm font-medium transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 border-border bg-background text-muted-foreground hover:border-primary/30">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+                <span>{t("join.typeOrg", lang)}</span>
+              </button>
+              <button type="button" data-type="movement" class="member-type-btn flex flex-col items-center gap-2 rounded-xl border-2 p-4 text-sm font-medium transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 border-border bg-background text-muted-foreground hover:border-primary/30">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span>{t("join.typeMovement", lang)}</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Person fields -->
+          <div id="join-person-fields" class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="join-firstname" class="block text-sm font-medium text-foreground mb-1.5">{t("join.firstName", lang)}</label>
+              <input id="join-firstname" name="firstname" type="text" required class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition" placeholder={t("join.firstNamePlaceholder", lang)} />
+            </div>
+            <div>
+              <label for="join-lastname" class="block text-sm font-medium text-foreground mb-1.5">{t("join.lastName", lang)}</label>
+              <input id="join-lastname" name="lastname" type="text" required class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition" placeholder={t("join.lastNamePlaceholder", lang)} />
+            </div>
+          </div>
+
+          <!-- Org/Movement fields -->
+          <div id="join-org-fields" class="hidden">
+            <label for="join-orgname" class="block text-sm font-medium text-foreground mb-1.5">{t("join.orgName", lang)}</label>
+            <input id="join-orgname" name="orgname" type="text" class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition" placeholder={t("join.orgNamePlaceholder", lang)} />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="join-email" class="block text-sm font-medium text-foreground mb-1.5">{t("join.email", lang)}</label>
+            <input id="join-email" name="email" type="email" required class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition" placeholder={t("join.emailPlaceholder", lang)} />
+          </div>
+
+          <!-- Pays -->
+          <div>
+            <label for="join-country" class="block text-sm font-medium text-foreground mb-1.5">{t("join.country", lang)}</label>
+            <input id="join-country" name="country" type="text" required class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition" placeholder={t("join.countryPlaceholder", lang)} />
+          </div>
+
+          <!-- Motivation -->
+          <div>
+            <label for="join-motivation" class="block text-sm font-medium text-foreground mb-1.5">{t("join.motivation", lang)}</label>
+            <textarea id="join-motivation" name="motivation" required rows="4" class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition resize-none" placeholder={t("join.motivationPlaceholder", lang)}></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" id="join-submit" class="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            {t("join.submit", lang)}
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out both;
+  }
+</style>
+
+<script>
+  // Member type toggle
+  const btns = document.querySelectorAll<HTMLButtonElement>(".member-type-btn");
+  const hiddenType = document.getElementById("join-member-type") as HTMLInputElement;
+  const personFields = document.getElementById("join-person-fields")!;
+  const orgFields = document.getElementById("join-org-fields")!;
+  const firstname = document.getElementById("join-firstname") as HTMLInputElement;
+  const lastname = document.getElementById("join-lastname") as HTMLInputElement;
+  const orgname = document.getElementById("join-orgname") as HTMLInputElement;
+
+  btns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const type = btn.dataset.type!;
+      hiddenType.value = type;
+
+      btns.forEach((b) => {
+        b.classList.remove("border-primary", "bg-primary/5", "text-primary");
+        b.classList.add("border-border", "bg-background", "text-muted-foreground", "hover:border-primary/30");
+      });
+      btn.classList.add("border-primary", "bg-primary/5", "text-primary");
+      btn.classList.remove("border-border", "bg-background", "text-muted-foreground", "hover:border-primary/30");
+
+      if (type === "person") {
+        personFields.classList.remove("hidden");
+        orgFields.classList.add("hidden");
+        firstname.required = true;
+        lastname.required = true;
+        orgname.required = false;
+        orgname.value = "";
+      } else {
+        personFields.classList.add("hidden");
+        orgFields.classList.remove("hidden");
+        firstname.required = false;
+        lastname.required = false;
+        firstname.value = "";
+        lastname.value = "";
+        orgname.required = true;
+      }
+    });
+  });
+
+  // Form submission
+  const form = document.getElementById("join-form") as HTMLFormElement;
+  const success = document.getElementById("join-success")!;
+  const error = document.getElementById("join-error")!;
+  const submitBtn = document.getElementById("join-submit") as HTMLButtonElement;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    error.classList.add("hidden");
+    const formData = new FormData(form);
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+      if (res.ok) {
+        form.classList.add("hidden");
+        success.classList.remove("hidden");
+      } else {
+        error.textContent = "Une erreur est survenue. Veuillez réessayer.";
+        error.classList.remove("hidden");
+        submitBtn.disabled = false;
+      }
+    } catch {
+      error.textContent = "Une erreur est survenue. Veuillez réessayer.";
+      error.classList.remove("hidden");
+      submitBtn.disabled = false;
+    }
+  });
+</script>
