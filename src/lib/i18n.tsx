@@ -238,10 +238,15 @@ const translations: Record<string, Record<Lang, string>> = {
     fr: "Abonnez-vous à notre newsletter pour recevoir nos dernières actualités, publications et opportunités d'engagement.",
     en: "Subscribe to our newsletter to receive our latest news, publications and engagement opportunities.",
   },
+  "newsletter.namePlaceholder": { fr: "Votre nom", en: "Your name" },
   "newsletter.placeholder": { fr: "Votre adresse email", en: "Your email address" },
   "newsletter.subscribe": { fr: "S'abonner", en: "Subscribe" },
   "newsletter.thanks": { fr: "Merci pour votre inscription !", en: "Thank you for subscribing!" },
   "newsletter.soon": { fr: "Vous recevrez bientôt nos prochaines nouvelles.", en: "You will soon receive our latest news." },
+  "newsletter.rgpd": {
+    fr: "Votre adresse de messagerie est uniquement utilisée pour vous envoyer notre lettre d'information ainsi que des informations concernant nos activités. Vous pouvez à tout moment utiliser le lien de désabonnement intégré dans chacun de nos mails.",
+    en: "Your email address is only used to send you our newsletter and information about our activities. You can unsubscribe at any time using the link included in each of our emails.",
+  },
 
   "footer.desc": {
     fr: "Ligue des Blogueurs et Cyber-activistes pour la Démocratie en Afrique.",

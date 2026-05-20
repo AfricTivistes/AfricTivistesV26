@@ -14,10 +14,12 @@ const NewsletterCard = () => {
       <div className="relative p-6 hero-gradient">
         <div className="absolute inset-0 pattern-african opacity-10" aria-hidden="true" />
         <div className="relative z-10">
-          <Mail className="mb-3 text-secondary" size={28} aria-hidden="true" />
-          <h3 id="sidebar-newsletter-heading" className="text-lg font-bold text-primary-foreground mb-2 font-heading">
-            {t("newsletter.title")}
-          </h3>
+          <div className="flex items-center gap-2 mb-2">
+            <Mail className="text-secondary" size={28} aria-hidden="true" />
+            <h3 id="sidebar-newsletter-heading" className="text-lg font-bold text-primary-foreground font-heading">
+              {t("newsletter.title")}
+            </h3>
+          </div>
           <p className="text-sm text-primary-foreground/70 mb-4 leading-relaxed">
             {t("newsletter.desc")}
           </p>

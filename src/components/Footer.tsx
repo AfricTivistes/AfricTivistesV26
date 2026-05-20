@@ -1,19 +1,12 @@
 import { withI18n } from "@/lib/providers/withI18n";
-import { useState } from "react";
 import { Link } from "@/lib/router-shim";
-import { Phone, Mail, MapPin, Send, Twitter, Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
+import { Phone, Mail, MapPin, Twitter, Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
 import logo from "@/assets/logo.svg?url";
 import { useI18n } from "@/lib/i18n";
+import NewsletterForm from "@/components/NewsletterForm";
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
   const { t } = useI18n();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
 
   return (
     <footer className="bg-foreground text-background" role="contentinfo">
@@ -59,31 +52,7 @@ const Footer = () => {
           <div>
             <h4 className="font-heading text-sm font-bold mb-5 text-white/90 uppercase tracking-wider">{t("footer.newsletter")}</h4>
             <p className="text-sm text-white/60 mb-4">{t("footer.receiveNewsletter")}</p>
-            {submitted ? (
-              <p className="text-sm text-secondary font-medium" data-testid="text-newsletter-success" role="status" aria-live="polite">{t("newsletter.thanks")}</p>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex gap-2">
-                <input
-                  id="footer-newsletter-email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  placeholder="Email"
-                  className="flex-1 min-w-0 px-3 py-2 rounded-md bg-white/10 border border-white/15 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary"
-                  data-testid="input-newsletter-email"
-                  aria-label={t("newsletter.placeholder")}
-                />
-                <button
-                  type="submit"
-                  className="px-3 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
-                  data-testid="button-newsletter-submit"
-                  aria-label="S'abonner à la newsletter"
-                >
-                  <Send size={14} aria-hidden="true" />
-                </button>
-              </form>
-            )}
+              <NewsletterForm variant="footer" idPrefix="footer-newsletter" />
           </div>
 
           <div>
