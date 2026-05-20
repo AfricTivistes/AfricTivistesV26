@@ -7,9 +7,8 @@ import JoinReasons from "@/components/JoinReasons.astro";
 import JoinSteps from "@/components/JoinSteps.astro";
 import { t } from "@/lib/i18n";
 import joinData from "@/data/translations/join.json";
-const img = joinData._images;
 const lang = "fr";
-const heroImage = img.heroImage;
+const heroImage = joinData._img_heroImage;
 ---
 <BaseLayout lang={lang} preloadImage={heroImage}>
   <JoinHero lang={lang} />
@@ -19,7 +18,7 @@ const heroImage = img.heroImage;
     titleKey="join.communityTitle1"
     highlightKey="join.communityHighlight"
     descriptions={["join.communityDesc1"]}
-    imageUrl={img.communityImage}
+    imageUrl={joinData._img_communityImage}
     imageAlt="Communauté AfricTivistes"
   />
   <JoinReasons lang={lang} />

@@ -38,7 +38,7 @@ const sections = [
 const translations: Record<string, Record<Lang, string>> = {};
 for (const section of sections) {
   for (const [key, val] of Object.entries(section)) {
-    if (key === "_images" || !val || typeof val !== "object" || !("fr" in val)) continue;
+    if (key.startsWith("_img_") || !val || typeof val !== "object" || !("fr" in val)) continue;
     translations[key] = { fr: val.fr, en: val.en };
   }
 }

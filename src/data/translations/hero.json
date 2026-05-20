@@ -31,9 +31,7 @@
     "fr": "A la une",
     "en": "Headlines"
   },
-  "_images": {
-    "background": "/hero-bg.jpg",
-    "backgroundWebp": "/hero-bg.webp",
-    "backgroundAvif": "/hero-bg.avif"
-  }
+  "_img_background": "/hero-bg.jpg",
+  "_img_backgroundWebp": "/hero-bg.webp",
+  "_img_backgroundAvif": "/hero-bg.avif"
 }

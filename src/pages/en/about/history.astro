@@ -6,15 +6,14 @@ import TwoColumnTextImage from "@/components/TwoColumnTextImage.astro";
 import HistoryTimeline from "@/components/history/HistoryTimeline.astro";
 import CtaBanner from "@/components/CtaBanner.astro";
 import historyData from "@/data/translations/history.json";
-const img = historyData._images;
 const lang = "en";
-const heroImage = img.heroImage;
+const heroImage = historyData._img_heroImage;
 ---
 <BaseLayout lang={lang} preloadImage={heroImage}>
   
     <PageHero
       lang={lang}
-      backgroundImage={img.heroImage}
+      backgroundImage={historyData._img_heroImage}
       labelKey="nav.about.history"
       titleKey="history.title"
       subtitleKey="history.subtitle"
@@ -25,7 +24,7 @@ const heroImage = img.heroImage;
       titleKey="history.originTitle1"
       highlightKey="history.originHighlight"
       descriptions={["history.originDesc1", "history.originDesc2"]}
-      imageUrl={img.originImage}
+      imageUrl={historyData._img_originImage}
       imageAlt="Fondation d'AfricTivistes"
     />
     <HistoryTimeline lang={lang} />
@@ -34,7 +33,7 @@ const heroImage = img.heroImage;
       labelKey="history.visionLabel"
       titleKey="history.visionTitle"
       descriptions={["history.visionDesc"]}
-      imageUrl={img.visionImage}
+      imageUrl={historyData._img_visionImage}
       imageAlt="Vision AfricTivistes"
       imagePosition="left"
       sectionBg="bg-muted/50"

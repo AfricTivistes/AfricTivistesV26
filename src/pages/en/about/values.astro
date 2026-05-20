@@ -8,9 +8,8 @@ import ValuesPrinciples from "@/components/values/ValuesPrinciples.astro";
 import ValuesGallery from "@/components/values/ValuesGallery.astro";
 import CtaBanner from "@/components/CtaBanner.astro";
 import valuesData from "@/data/translations/values.json";
-const img = valuesData._images;
 const lang = "en";
-const heroImage = img.heroImage;
+const heroImage = valuesData._img_heroImage;
 ---
 <BaseLayout lang={lang} preloadImage={heroImage}>
   <ValuesHero lang={lang} />

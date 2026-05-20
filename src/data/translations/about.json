@@ -227,10 +227,8 @@
     "fr": "Expansion à 45 pays et 400+ membres actifs",
     "en": "Expansion to 45 countries and 400+ active members"
   },
-  "_images": {
-    "heroImage": "https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg",
-    "galleryImage1": "/form.webp",
-    "galleryImage2": "/Afrique.webp",
-    "galleryImage3": "/form2.webp"
-  }
+  "_img_heroImage": "https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg",
+  "_img_galleryImage1": "/form.webp",
+  "_img_galleryImage2": "/Afrique.webp",
+  "_img_galleryImage3": "/form2.webp"
 }

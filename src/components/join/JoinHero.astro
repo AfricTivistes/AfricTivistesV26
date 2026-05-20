@@ -2,14 +2,13 @@
 import PageHero from "@/components/PageHero.astro";
 import { t, type Lang } from "@/lib/i18n";
 import joinData from "@/data/translations/join.json";
-const img = joinData._images;
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 ---
 <PageHero
   lang={lang}
-  backgroundImage={img.heroImage}
+  backgroundImage={joinData._img_heroImage}
   labelKey="nav.about.join"
   titleKey="join.title"
   subtitleKey="join.subtitle"

@@ -14,10 +14,10 @@ collections:
         label: "Global (logo, favicon, OG)"
         file: "src/data/images/global.json"
         fields:
-          - { label: "Logo du site", name: logo, widget: image }
-          - { label: "Favicon", name: favicon, widget: image }
-          - { label: "Image OG par défaut (partage réseaux sociaux)", name: ogDefault, widget: image }
-          - { label: "Badge NGOsource", name: ngoSourceBadge, widget: image }
+          - { label: "Global — Logo du site", name: logo, widget: image }
+          - { label: "Global — Favicon", name: favicon, widget: image }
+          - { label: "Global — Image OG par défaut (partage réseaux sociaux)", name: ogDefault, widget: image }
+          - { label: "Global — Badge NGOsource", name: ngoSourceBadge, widget: image }
 
   - name: content
     label: "Contenu du site"
@@ -27,169 +27,169 @@ collections:
         label: "Navigation (28)"
         file: "src/data/translations/navigation.json"
         fields:
-          - label: "nav.home"
+          - label: "Navigation — Accueil"
             name: "nav.home"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.about"
+          - label: "Navigation — À Propos"
             name: "nav.about"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.about.all"
+          - label: "Navigation — À Propos (tous)"
             name: "nav.about.all"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.about.index"
+          - label: "Navigation — À Propos (index)"
             name: "nav.about.index"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.about.history"
+          - label: "Navigation — Histoire"
             name: "nav.about.history"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.about.values"
+          - label: "Navigation — Valeurs"
             name: "nav.about.values"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.about.join"
+          - label: "Navigation — Adhésion"
             name: "nav.about.join"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.projects"
+          - label: "Navigation — Projets"
             name: "nav.projects"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.projects.all"
+          - label: "Navigation — Projets (tous)"
             name: "nav.projects.all"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.projects.innovation"
+          - label: "Navigation — Innovation"
             name: "nav.projects.innovation"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.projects.democracy"
+          - label: "Navigation — Démocratie"
             name: "nav.projects.democracy"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.projects.engagement"
+          - label: "Navigation — Engagement"
             name: "nav.projects.engagement"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.projects.media"
+          - label: "Navigation — Médias"
             name: "nav.projects.media"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.projects.training"
+          - label: "Navigation — Formation"
             name: "nav.projects.training"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.resources"
+          - label: "Navigation — Ressources"
             name: "nav.resources"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.resources.publications"
+          - label: "Navigation — Publications"
             name: "nav.resources.publications"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.resources.toolkits"
+          - label: "Navigation — Boîtes à outils"
             name: "nav.resources.toolkits"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.resources.media"
+          - label: "Navigation — Vidéothèque"
             name: "nav.resources.media"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.resources.presskit"
+          - label: "Navigation — Presse"
             name: "nav.resources.presskit"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.news"
+          - label: "Navigation — Actualités"
             name: "nav.news"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.news.all"
+          - label: "Navigation — Actualités (tous)"
             name: "nav.news.all"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.news.communiques"
+          - label: "Navigation — Communiqués"
             name: "nav.news.communiques"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.news.plaidoyers"
+          - label: "Navigation — Plaidoyers"
             name: "nav.news.plaidoyers"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.news.actualites"
+          - label: "Navigation — Actualités"
             name: "nav.news.actualites"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.news.contributions"
+          - label: "Navigation — Contributions"
             name: "nav.news.contributions"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.news.champions"
+          - label: "Navigation — Champions"
             name: "nav.news.champions"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.contact"
+          - label: "Navigation — Contact"
             name: "nav.contact"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "nav.engage"
+          - label: "Navigation — S'engager"
             name: "nav.engage"
             widget: object
             fields:
@@ -199,57 +199,50 @@ collections:
         label: "Accueil — Hero & Bannière (11)"
         file: "src/data/translations/hero.json"
         fields:
-          - label: "📷 Images de cette section"
-            name: _images
-            widget: object
-            collapsed: false
-            fields:
-              - { label: "Arrière-plan JPG (fallback)", name: "background", widget: image }
-              - { label: "Arrière-plan WebP", name: "backgroundWebp", widget: image }
-              - { label: "Arrière-plan AVIF (recommandé)", name: "backgroundAvif", widget: image }
-          - label: "hero.badge"
+          - { label: "🖼 Accueil — Arrière-plan JPG (fallback)", name: "_img_background", widget: image }
+          - label: "Accueil — Badge — badge"
             name: "hero.badge"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "hero.title1"
+          - label: "Accueil — Titre Hero — title1"
             name: "hero.title1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "hero.highlight"
+          - label: "Accueil — Titre Hero — highlight"
             name: "hero.highlight"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "hero.title2"
+          - label: "Accueil — Titre Hero — title2"
             name: "hero.title2"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "hero.desc"
+          - label: "Accueil — Description Hero — desc"
             name: "hero.desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "hero.cta1"
+          - label: "Accueil — Boutons Hero — cta1"
             name: "hero.cta1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "hero.cta2"
+          - label: "Accueil — Boutons Hero — cta2"
             name: "hero.cta2"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "ticker.label"
+          - label: "Accueil — Bandeau défilant — label"
             name: "ticker.label"
             widget: object
             fields:
@@ -259,97 +252,97 @@ collections:
         label: "Accueil — Aperçu À propos (16)"
         file: "src/data/translations/about-preview.json"
         fields:
-          - label: "aboutPreview.label"
+          - label: "Accueil — Aperçu À propos — label"
             name: "aboutPreview.label"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "aboutPreview.title1"
+          - label: "Accueil — Aperçu titre — title1"
             name: "aboutPreview.title1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "aboutPreview.highlight"
+          - label: "Accueil — Aperçu titre — highlight"
             name: "aboutPreview.highlight"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "aboutPreview.desc1"
+          - label: "Accueil — Aperçu description — desc1"
             name: "aboutPreview.desc1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "aboutPreview.desc2"
+          - label: "Accueil — Aperçu description — desc2"
             name: "aboutPreview.desc2"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "aboutPreview.cta"
+          - label: "Accueil — Aperçu bouton — cta"
             name: "aboutPreview.cta"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "aboutPreview.pillar1Title"
+          - label: "Accueil — Aperçu piliers — pillar1Title"
             name: "aboutPreview.pillar1Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "aboutPreview.pillar1Desc"
+          - label: "Accueil — Aperçu piliers — pillar1Desc"
             name: "aboutPreview.pillar1Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "aboutPreview.pillar2Title"
+          - label: "Accueil — Aperçu piliers — pillar2Title"
             name: "aboutPreview.pillar2Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "aboutPreview.pillar2Desc"
+          - label: "Accueil — Aperçu piliers — pillar2Desc"
             name: "aboutPreview.pillar2Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "aboutPreview.pillar3Title"
+          - label: "Accueil — Aperçu piliers — pillar3Title"
             name: "aboutPreview.pillar3Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "aboutPreview.pillar3Desc"
+          - label: "Accueil — Aperçu piliers — pillar3Desc"
             name: "aboutPreview.pillar3Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "aboutPreview.pillar4Title"
+          - label: "Accueil — Aperçu piliers — pillar4Title"
             name: "aboutPreview.pillar4Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "aboutPreview.pillar4Desc"
+          - label: "Accueil — Aperçu piliers — pillar4Desc"
             name: "aboutPreview.pillar4Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "aboutPreview.pillarsLabel"
+          - label: "Accueil — Aperçu piliers — pillarsLabel"
             name: "aboutPreview.pillarsLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "aboutPreview.ctaLabel"
+          - label: "Accueil — Aperçu bouton — ctaLabel"
             name: "aboutPreview.ctaLabel"
             widget: object
             fields:
@@ -359,31 +352,31 @@ collections:
         label: "Accueil — Programmes (5)"
         file: "src/data/translations/programmes-home.json"
         fields:
-          - label: "programmes.title"
+          - label: "Accueil — Programmes — programmes.title"
             name: "programmes.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programmes.all"
+          - label: "Accueil — Programmes — programmes.all"
             name: "programmes.all"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programmes.viewAll"
+          - label: "Accueil — Programmes — programmes.viewAll"
             name: "programmes.viewAll"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programmes.none"
+          - label: "Accueil — Programmes — programmes.none"
             name: "programmes.none"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programmes.subtitle"
+          - label: "Accueil — Programmes — programmes.subtitle"
             name: "programmes.subtitle"
             widget: object
             fields:
@@ -393,91 +386,91 @@ collections:
         label: "Statistiques / Chiffres clés (15)"
         file: "src/data/translations/stats.json"
         fields:
-          - label: "stats.title"
+          - label: "Statistiques — Titre — title"
             name: "stats.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "stats.trainees"
+          - label: "Statistiques — Chiffre — trainees"
             name: "stats.trainees"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "stats.activists"
+          - label: "Statistiques — Chiffre — activists"
             name: "stats.activists"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "stats.elections"
+          - label: "Statistiques — Chiffre — elections"
             name: "stats.elections"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "stats.communities"
+          - label: "Statistiques — Chiffre — communities"
             name: "stats.communities"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "stats.mooc"
+          - label: "Statistiques — Chiffre — mooc"
             name: "stats.mooc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "stats.summitParticipants"
+          - label: "Statistiques — Chiffre — summitParticipants"
             name: "stats.summitParticipants"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "stats.youth"
+          - label: "Statistiques — Chiffre — youth"
             name: "stats.youth"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "stats.civicTech"
+          - label: "Statistiques — Chiffre — civicTech"
             name: "stats.civicTech"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "stats.awards"
+          - label: "Statistiques — Chiffre — awards"
             name: "stats.awards"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "stats.grants"
+          - label: "Statistiques — Chiffre — grants"
             name: "stats.grants"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "stats.technical"
+          - label: "Statistiques — Chiffre — technical"
             name: "stats.technical"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "stats.research"
+          - label: "Statistiques — Chiffre — research"
             name: "stats.research"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "stats.elearning"
+          - label: "Statistiques — Chiffre — elearning"
             name: "stats.elearning"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "stats.label"
+          - label: "Statistiques — Label — label"
             name: "stats.label"
             widget: object
             fields:
@@ -487,352 +480,345 @@ collections:
         label: "Page À Propos (61)"
         file: "src/data/translations/about.json"
         fields:
-          - label: "📷 Images de cette section"
-            name: _images
-            widget: object
-            collapsed: false
-            fields:
-              - { label: "Image bannière (hero)", name: "heroImage", widget: image }
-              - { label: "Galerie — image 1", name: "galleryImage1", widget: image }
-              - { label: "Galerie — image 2", name: "galleryImage2", widget: image }
-              - { label: "Galerie — image 3", name: "galleryImage3", widget: image }
-          - label: "about.title"
+          - label: "À Propos — Titre — title"
             name: "about.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.subtitle"
+          - label: "À Propos — Sous-titre — subtitle"
             name: "about.subtitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "about.missionTitle"
+          - { label: "🖼 Bannière de la page (hero)", name: "_img_heroImage", widget: image }
+          - label: "À Propos — Mission — missionTitle"
             name: "about.missionTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.missionSubtitle1"
+          - label: "À Propos — Mission — missionSubtitle1"
             name: "about.missionSubtitle1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.missionHighlight"
+          - label: "À Propos — Mission — missionHighlight"
             name: "about.missionHighlight"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.mission1"
+          - label: "À Propos — Mission — mission1"
             name: "about.mission1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "about.mission2"
+          - label: "À Propos — Mission — mission2"
             name: "about.mission2"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "about.approachTitle"
+          - label: "À Propos — Approche — approachTitle"
             name: "about.approachTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.approachSubtitle"
+          - label: "À Propos — Approche — approachSubtitle"
             name: "about.approachSubtitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.approach1Title"
+          - label: "À Propos — Approche — approach1Title"
             name: "about.approach1Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.approach1Desc"
+          - label: "À Propos — Approche — approach1Desc"
             name: "about.approach1Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "about.approach2Title"
+          - label: "À Propos — Approche — approach2Title"
             name: "about.approach2Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.approach2Desc"
+          - label: "À Propos — Approche — approach2Desc"
             name: "about.approach2Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.approach3Title"
+          - label: "À Propos — Approche — approach3Title"
             name: "about.approach3Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.approach3Desc"
+          - label: "À Propos — Approche — approach3Desc"
             name: "about.approach3Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.approach4Title"
+          - label: "À Propos — Approche — approach4Title"
             name: "about.approach4Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.approach4Desc"
+          - label: "À Propos — Approche — approach4Desc"
             name: "about.approach4Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.valuesTitle"
+          - label: "À Propos — Valeurs — valuesTitle"
             name: "about.valuesTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.valuesSubtitle"
+          - label: "À Propos — Valeurs — valuesSubtitle"
             name: "about.valuesSubtitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.yearsBadge"
+          - label: "À Propos — Chiffres clés — yearsBadge"
             name: "about.yearsBadge"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.val1Title"
+          - label: "À Propos — Valeurs — val1Title"
             name: "about.val1Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.val1Desc"
+          - label: "À Propos — Valeurs — val1Desc"
             name: "about.val1Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.val2Title"
+          - label: "À Propos — Valeurs — val2Title"
             name: "about.val2Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.val2Desc"
+          - label: "À Propos — Valeurs — val2Desc"
             name: "about.val2Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.val3Title"
+          - label: "À Propos — Valeurs — val3Title"
             name: "about.val3Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.val3Desc"
+          - label: "À Propos — Valeurs — val3Desc"
             name: "about.val3Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.val4Title"
+          - label: "À Propos — Valeurs — val4Title"
             name: "about.val4Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.val4Desc"
+          - label: "À Propos — Valeurs — val4Desc"
             name: "about.val4Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.ctaTitle"
+          - label: "À Propos — Appel à l'action — ctaTitle"
             name: "about.ctaTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.ctaDesc"
+          - label: "À Propos — Appel à l'action — ctaDesc"
             name: "about.ctaDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "about.ctaBtn"
+          - label: "À Propos — Appel à l'action — ctaBtn"
             name: "about.ctaBtn"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.impactLabel"
+          - label: "À Propos — Impact — impactLabel"
             name: "about.impactLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.impactTitle"
+          - label: "À Propos — Impact — impactTitle"
             name: "about.impactTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.yearsExistence"
+          - label: "À Propos — Chiffres clés — yearsExistence"
             name: "about.yearsExistence"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.stat.benefPresential"
+          - label: "À Propos — Statistiques — benefPresential"
             name: "about.stat.benefPresential"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.stat.activists"
+          - label: "À Propos — Statistiques — activists"
             name: "about.stat.activists"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.stat.elections"
+          - label: "À Propos — Statistiques — elections"
             name: "about.stat.elections"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.stat.communities"
+          - label: "À Propos — Statistiques — communities"
             name: "about.stat.communities"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.stat.benefOnline"
+          - label: "À Propos — Statistiques — benefOnline"
             name: "about.stat.benefOnline"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.stat.participants"
+          - label: "À Propos — Statistiques — participants"
             name: "about.stat.participants"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.stat.youth"
+          - label: "À Propos — Statistiques — youth"
             name: "about.stat.youth"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.stat.civicTech"
+          - label: "À Propos — Statistiques — civicTech"
             name: "about.stat.civicTech"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.stat.awards"
+          - label: "À Propos — Statistiques — awards"
             name: "about.stat.awards"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.stat.grants"
+          - label: "À Propos — Statistiques — grants"
             name: "about.stat.grants"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.stat.technical"
+          - label: "À Propos — Statistiques — technical"
             name: "about.stat.technical"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.stat.research"
+          - label: "À Propos — Statistiques — research"
             name: "about.stat.research"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.stat.elearning"
+          - label: "À Propos — Statistiques — elearning"
             name: "about.stat.elearning"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.countries"
+          - { label: "🖼 Galerie — image 1", name: "_img_galleryImage1", widget: image }
+          - label: "À Propos — Chiffres clés — countries"
             name: "about.countries"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.activeMembers"
+          - label: "À Propos — Chiffres clés — activeMembers"
             name: "about.activeMembers"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.yearsLabel"
+          - label: "À Propos — Chiffres clés — yearsLabel"
             name: "about.yearsLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.yearsSuffix"
+          - label: "À Propos — Chiffres clés — yearsSuffix"
             name: "about.yearsSuffix"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.communities"
+          - label: "À Propos — Chiffres clés — communities"
             name: "about.communities"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.milestone2015"
+          - label: "À Propos — Jalons historiques — milestone2015"
             name: "about.milestone2015"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.milestone2017"
+          - label: "À Propos — Jalons historiques — milestone2017"
             name: "about.milestone2017"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.milestone2019"
+          - label: "À Propos — Jalons historiques — milestone2019"
             name: "about.milestone2019"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.milestone2021"
+          - label: "À Propos — Jalons historiques — milestone2021"
             name: "about.milestone2021"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "about.milestone2023"
+          - label: "À Propos — Jalons historiques — milestone2023"
             name: "about.milestone2023"
             widget: object
             fields:
@@ -842,105 +828,100 @@ collections:
         label: "Page Histoire (19)"
         file: "src/data/translations/history.json"
         fields:
-          - label: "📷 Images de cette section"
-            name: _images
-            widget: object
-            collapsed: false
-            fields:
-              - { label: "Image bannière (hero)", name: "heroImage", widget: image }
-              - { label: "Image section Origines", name: "originImage", widget: image }
-              - { label: "Image section Vision", name: "visionImage", widget: image }
-          - label: "history.title"
+          - label: "Histoire — Titre — title"
             name: "history.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "history.subtitle"
+          - label: "Histoire — Sous-titre — subtitle"
             name: "history.subtitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "history.originLabel"
+          - { label: "🖼 Bannière de la page (hero)", name: "_img_heroImage", widget: image }
+          - label: "Histoire — Origines — originLabel"
             name: "history.originLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "history.originTitle1"
+          - label: "Histoire — Origines — originTitle1"
             name: "history.originTitle1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "history.originHighlight"
+          - label: "Histoire — Origines — originHighlight"
             name: "history.originHighlight"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "history.originDesc1"
+          - label: "Histoire — Origines — originDesc1"
             name: "history.originDesc1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "history.originDesc2"
+          - label: "Histoire — Origines — originDesc2"
             name: "history.originDesc2"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "history.timelineLabel"
+          - { label: "🖼 Histoire — Image origines", name: "_img_originImage", widget: image }
+          - label: "Histoire — Chronologie — timelineLabel"
             name: "history.timelineLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "history.timelineTitle"
+          - label: "Histoire — Chronologie — timelineTitle"
             name: "history.timelineTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "history.stat3Label"
+          - label: "Histoire — Statistiques — stat3Label"
             name: "history.stat3Label"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "history.visionLabel"
+          - label: "Histoire — Vision — visionLabel"
             name: "history.visionLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "history.visionTitle"
+          - label: "Histoire — Vision — visionTitle"
             name: "history.visionTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "history.visionDesc"
+          - label: "Histoire — Vision — visionDesc"
             name: "history.visionDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "history.ctaTitle"
+          - { label: "🖼 Histoire — Image vision", name: "_img_visionImage", widget: image }
+          - label: "Histoire — Appel à l'action — ctaTitle"
             name: "history.ctaTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "history.ctaDesc"
+          - label: "Histoire — Appel à l'action — ctaDesc"
             name: "history.ctaDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "history.ctaBtn"
+          - label: "Histoire — Appel à l'action — ctaBtn"
             name: "history.ctaBtn"
             widget: object
             fields:
@@ -950,672 +931,659 @@ collections:
         label: "Page Valeurs (62)"
         file: "src/data/translations/values.json"
         fields:
-          - label: "📷 Images de cette section"
-            name: _images
-            widget: object
-            collapsed: false
-            fields:
-              - { label: "Image bannière (hero)", name: "heroImage", widget: image }
-              - { label: "Image introduction", name: "introImage", widget: image }
-              - { label: "Photo Cheikh Fall (citation)", name: "quoteAuthorPhoto", widget: image }
-              - { label: "Galerie — image 1", name: "galleryImage1", widget: image }
-              - { label: "Galerie — image 2", name: "galleryImage2", widget: image }
-              - { label: "Galerie — image 3", name: "galleryImage3", widget: image }
-              - { label: "Galerie — image 4", name: "galleryImage4", widget: image }
-          - label: "values.title"
+          - label: "Valeurs — Titre — title"
             name: "values.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.subtitle"
+          - label: "Valeurs — Sous-titre — subtitle"
             name: "values.subtitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "values.introLabel"
+          - { label: "🖼 Bannière de la page (hero)", name: "_img_heroImage", widget: image }
+          - label: "Valeurs — Introduction — introLabel"
             name: "values.introLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.introTitle1"
+          - label: "Valeurs — Introduction — introTitle1"
             name: "values.introTitle1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.introHighlight"
+          - label: "Valeurs — Introduction — introHighlight"
             name: "values.introHighlight"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.introDesc1"
+          - label: "Valeurs — Introduction — introDesc1"
             name: "values.introDesc1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "values.introDesc2"
+          - label: "Valeurs — Introduction — introDesc2"
             name: "values.introDesc2"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "values.coreLabel"
+          - { label: "🖼 Valeurs — Image introduction", name: "_img_introImage", widget: image }
+          - label: "Valeurs — Valeurs fondamentales — coreLabel"
             name: "values.coreLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.coreTitle"
+          - label: "Valeurs — Valeurs fondamentales — coreTitle"
             name: "values.coreTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.civic.title"
+          - label: "Valeurs — Engagement civique — title"
             name: "values.civic.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.civic.desc"
+          - label: "Valeurs — Engagement civique — desc"
             name: "values.civic.desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "values.civic.detail1"
+          - label: "Valeurs — Engagement civique — detail1"
             name: "values.civic.detail1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.civic.detail2"
+          - label: "Valeurs — Engagement civique — detail2"
             name: "values.civic.detail2"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.civic.detail3"
+          - label: "Valeurs — Engagement civique — detail3"
             name: "values.civic.detail3"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.solidarity.title"
+          - label: "Valeurs — Solidarité panafricaine — title"
             name: "values.solidarity.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.solidarity.desc"
+          - label: "Valeurs — Solidarité panafricaine — desc"
             name: "values.solidarity.desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "values.solidarity.detail1"
+          - label: "Valeurs — Solidarité panafricaine — detail1"
             name: "values.solidarity.detail1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.solidarity.detail2"
+          - label: "Valeurs — Solidarité panafricaine — detail2"
             name: "values.solidarity.detail2"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.solidarity.detail3"
+          - label: "Valeurs — Solidarité panafricaine — detail3"
             name: "values.solidarity.detail3"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.inclusion.title"
+          - label: "Valeurs — Inclusion numérique — title"
             name: "values.inclusion.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.inclusion.desc"
+          - label: "Valeurs — Inclusion numérique — desc"
             name: "values.inclusion.desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "values.inclusion.detail1"
+          - label: "Valeurs — Inclusion numérique — detail1"
             name: "values.inclusion.detail1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.inclusion.detail2"
+          - label: "Valeurs — Inclusion numérique — detail2"
             name: "values.inclusion.detail2"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.inclusion.detail3"
+          - label: "Valeurs — Inclusion numérique — detail3"
             name: "values.inclusion.detail3"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.transparency.title"
+          - label: "Valeurs — Transparence — title"
             name: "values.transparency.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.transparency.desc"
+          - label: "Valeurs — Transparence — desc"
             name: "values.transparency.desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "values.transparency.detail1"
+          - label: "Valeurs — Transparence — detail1"
             name: "values.transparency.detail1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.transparency.detail2"
+          - label: "Valeurs — Transparence — detail2"
             name: "values.transparency.detail2"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.transparency.detail3"
+          - label: "Valeurs — Transparence — detail3"
             name: "values.transparency.detail3"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.innovation.title"
+          - label: "Valeurs — Innovation — title"
             name: "values.innovation.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.innovation.desc"
+          - label: "Valeurs — Innovation — desc"
             name: "values.innovation.desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "values.innovation.detail1"
+          - label: "Valeurs — Innovation — detail1"
             name: "values.innovation.detail1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.innovation.detail2"
+          - label: "Valeurs — Innovation — detail2"
             name: "values.innovation.detail2"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.innovation.detail3"
+          - label: "Valeurs — Innovation — detail3"
             name: "values.innovation.detail3"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.resilience.title"
+          - label: "Valeurs — Résilience — title"
             name: "values.resilience.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.resilience.desc"
+          - label: "Valeurs — Résilience — desc"
             name: "values.resilience.desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "values.resilience.detail1"
+          - label: "Valeurs — Résilience — detail1"
             name: "values.resilience.detail1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.resilience.detail2"
+          - label: "Valeurs — Résilience — detail2"
             name: "values.resilience.detail2"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.resilience.detail3"
+          - label: "Valeurs — Résilience — detail3"
             name: "values.resilience.detail3"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.principlesLabel"
+          - label: "Valeurs — Engagements — principlesLabel"
             name: "values.principlesLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.principlesTitle"
+          - label: "Valeurs — Engagements — principlesTitle"
             name: "values.principlesTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.principle1Title"
+          - label: "Valeurs — Engagements — principle1Title"
             name: "values.principle1Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.principle1Desc"
+          - label: "Valeurs — Engagements — principle1Desc"
             name: "values.principle1Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "values.principle2Title"
+          - label: "Valeurs — Engagements — principle2Title"
             name: "values.principle2Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.principle2Desc"
+          - label: "Valeurs — Engagements — principle2Desc"
             name: "values.principle2Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "values.principle3Title"
+          - label: "Valeurs — Engagements — principle3Title"
             name: "values.principle3Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.principle3Desc"
+          - label: "Valeurs — Engagements — principle3Desc"
             name: "values.principle3Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "values.principle4Title"
+          - label: "Valeurs — Engagements — principle4Title"
             name: "values.principle4Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.principle4Desc"
+          - label: "Valeurs — Engagements — principle4Desc"
             name: "values.principle4Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "values.quoteText"
+          - label: "Valeurs — Citation — quoteText"
             name: "values.quoteText"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "values.quoteAuthor"
+          - label: "Valeurs — Citation — quoteAuthor"
             name: "values.quoteAuthor"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.quoteRole"
+          - label: "Valeurs — Citation — quoteRole"
             name: "values.quoteRole"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.ctaTitle"
+          - { label: "🖼 Valeurs — Photo Cheikh Fall (citation)", name: "_img_quoteAuthorPhoto", widget: image }
+          - label: "Valeurs — Appel à l'action — ctaTitle"
             name: "values.ctaTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "values.ctaDesc"
+          - label: "Valeurs — Appel à l'action — ctaDesc"
             name: "values.ctaDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "values.ctaBtn"
+          - label: "Valeurs — Appel à l'action — ctaBtn"
             name: "values.ctaBtn"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
+          - { label: "🖼 Galerie — image 1", name: "_img_galleryImage1", widget: image }
       - name: "join"
         label: "Page Adhésion (55)"
         file: "src/data/translations/join.json"
         fields:
-          - label: "📷 Images de cette section"
-            name: _images
-            widget: object
-            collapsed: false
-            fields:
-              - { label: "Image bannière (hero)", name: "heroImage", widget: image }
-              - { label: "Image section Communauté", name: "communityImage", widget: image }
-          - label: "join.title"
+          - label: "Adhésion — Titre — title"
             name: "join.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.subtitle"
+          - label: "Adhésion — Sous-titre — subtitle"
             name: "join.subtitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "join.communityLabel"
+          - { label: "🖼 Bannière de la page (hero)", name: "_img_heroImage", widget: image }
+          - label: "Adhésion — Communauté — communityLabel"
             name: "join.communityLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.communityTitle1"
+          - label: "Adhésion — Communauté — communityTitle1"
             name: "join.communityTitle1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.communityHighlight"
+          - label: "Adhésion — Communauté — communityHighlight"
             name: "join.communityHighlight"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.communityDesc1"
+          - label: "Adhésion — Communauté — communityDesc1"
             name: "join.communityDesc1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "join.whyLabel"
+          - { label: "🖼 Adhésion — Image communauté", name: "_img_communityImage", widget: image }
+          - label: "Adhésion — Avantages — whyLabel"
             name: "join.whyLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.whyTitle"
+          - label: "Adhésion — Avantages — whyTitle"
             name: "join.whyTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.reason1Title"
+          - label: "Adhésion — Avantages — reason1Title"
             name: "join.reason1Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.reason1Desc"
+          - label: "Adhésion — Avantages — reason1Desc"
             name: "join.reason1Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "join.reason2Title"
+          - label: "Adhésion — Avantages — reason2Title"
             name: "join.reason2Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.reason2Desc"
+          - label: "Adhésion — Avantages — reason2Desc"
             name: "join.reason2Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "join.reason3Title"
+          - label: "Adhésion — Avantages — reason3Title"
             name: "join.reason3Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.reason3Desc"
+          - label: "Adhésion — Avantages — reason3Desc"
             name: "join.reason3Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "join.reason4Title"
+          - label: "Adhésion — Avantages — reason4Title"
             name: "join.reason4Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.reason4Desc"
+          - label: "Adhésion — Avantages — reason4Desc"
             name: "join.reason4Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "join.reason5Title"
+          - label: "Adhésion — Avantages — reason5Title"
             name: "join.reason5Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.reason5Desc"
+          - label: "Adhésion — Avantages — reason5Desc"
             name: "join.reason5Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "join.howLabel"
+          - label: "Adhésion — Processus — howLabel"
             name: "join.howLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.howTitle"
+          - label: "Adhésion — Processus — howTitle"
             name: "join.howTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.step1Title"
+          - label: "Adhésion — Étapes — step1Title"
             name: "join.step1Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.step1Desc"
+          - label: "Adhésion — Étapes — step1Desc"
             name: "join.step1Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "join.step2Title"
+          - label: "Adhésion — Étapes — step2Title"
             name: "join.step2Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.step2Desc"
+          - label: "Adhésion — Étapes — step2Desc"
             name: "join.step2Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "join.step3Title"
+          - label: "Adhésion — Étapes — step3Title"
             name: "join.step3Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.step3Desc"
+          - label: "Adhésion — Étapes — step3Desc"
             name: "join.step3Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.step4Title"
+          - label: "Adhésion — Étapes — step4Title"
             name: "join.step4Title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.step4Desc"
+          - label: "Adhésion — Étapes — step4Desc"
             name: "join.step4Desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "join.formLabel"
+          - label: "Adhésion — Formulaire — formLabel"
             name: "join.formLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.formTitle"
+          - label: "Adhésion — Formulaire — formTitle"
             name: "join.formTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.formDesc"
+          - label: "Adhésion — Formulaire — formDesc"
             name: "join.formDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "join.typeLabel"
+          - label: "Adhésion — Type de membre — typeLabel"
             name: "join.typeLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.typePerson"
+          - label: "Adhésion — Type de membre — typePerson"
             name: "join.typePerson"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.typeOrg"
+          - label: "Adhésion — Type de membre — typeOrg"
             name: "join.typeOrg"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.typeMovement"
+          - label: "Adhésion — Type de membre — typeMovement"
             name: "join.typeMovement"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.firstName"
+          - label: "Adhésion — Formulaire — firstName"
             name: "join.firstName"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.firstNamePlaceholder"
+          - label: "Adhésion — Formulaire — firstNamePlaceholder"
             name: "join.firstNamePlaceholder"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.lastName"
+          - label: "Adhésion — Formulaire — lastName"
             name: "join.lastName"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.lastNamePlaceholder"
+          - label: "Adhésion — Formulaire — lastNamePlaceholder"
             name: "join.lastNamePlaceholder"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.orgName"
+          - label: "Adhésion — Formulaire — orgName"
             name: "join.orgName"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.orgNamePlaceholder"
+          - label: "Adhésion — Formulaire — orgNamePlaceholder"
             name: "join.orgNamePlaceholder"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.email"
+          - label: "Adhésion — Formulaire — email"
             name: "join.email"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.emailPlaceholder"
+          - label: "Adhésion — Formulaire — emailPlaceholder"
             name: "join.emailPlaceholder"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.country"
+          - label: "Adhésion — Formulaire — country"
             name: "join.country"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.countryPlaceholder"
+          - label: "Adhésion — Formulaire — countryPlaceholder"
             name: "join.countryPlaceholder"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.motivation"
+          - label: "Adhésion — Formulaire — motivation"
             name: "join.motivation"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.motivationPlaceholder"
+          - label: "Adhésion — Formulaire — motivationPlaceholder"
             name: "join.motivationPlaceholder"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.submit"
+          - label: "Adhésion — Formulaire — submit"
             name: "join.submit"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.thanks"
+          - label: "Adhésion — Confirmation — thanks"
             name: "join.thanks"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.thanksDesc"
+          - label: "Adhésion — Confirmation — thanksDesc"
             name: "join.thanksDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "join.ctaTitle"
+          - label: "Adhésion — Appel à l'action — ctaTitle"
             name: "join.ctaTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "join.ctaDesc"
+          - label: "Adhésion — Appel à l'action — ctaDesc"
             name: "join.ctaDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "join.ctaBtn"
+          - label: "Adhésion — Appel à l'action — ctaBtn"
             name: "join.ctaBtn"
             widget: object
             fields:
@@ -1625,989 +1593,989 @@ collections:
         label: "Page Contact (12)"
         file: "src/data/translations/contact.json"
         fields:
-          - label: "contact.title"
+          - label: "Contact — Titre — title"
             name: "contact.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "contact.subtitle"
+          - label: "Contact — Sous-titre — subtitle"
             name: "contact.subtitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "contact.name"
+          - label: "Contact — Formulaire — name"
             name: "contact.name"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "contact.namePlaceholder"
+          - label: "Contact — Formulaire — namePlaceholder"
             name: "contact.namePlaceholder"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "contact.email"
+          - label: "Contact — Formulaire — email"
             name: "contact.email"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "contact.subject"
+          - label: "Contact — Formulaire — subject"
             name: "contact.subject"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "contact.subjectPlaceholder"
+          - label: "Contact — Formulaire — subjectPlaceholder"
             name: "contact.subjectPlaceholder"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "contact.message"
+          - label: "Contact — Formulaire — message"
             name: "contact.message"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "contact.messagePlaceholder"
+          - label: "Contact — Formulaire — messagePlaceholder"
             name: "contact.messagePlaceholder"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "contact.send"
+          - label: "Contact — Formulaire — send"
             name: "contact.send"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "contact.thanks"
+          - label: "Contact — Confirmation — thanks"
             name: "contact.thanks"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "contact.reply"
+          - label: "Contact — Confirmation — reply"
             name: "contact.reply"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
       - name: "initiatives"
-        label: "Initiatives / Axes d'intervention (25)"
+        label: "Page Initiatives (25)"
         file: "src/data/translations/initiatives.json"
         fields:
-          - label: "projectThemes.title"
+          - label: "Initiatives — Thématiques titre — title"
             name: "projectThemes.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projectThemes.subtitle"
+          - label: "Initiatives — Thématiques sous-titre — subtitle"
             name: "projectThemes.subtitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "projectThemes.innovation.desc"
+          - label: "Initiatives — Innovation — desc"
             name: "projectThemes.innovation.desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "projectThemes.democracy.desc"
+          - label: "Initiatives — Démocratie — desc"
             name: "projectThemes.democracy.desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "projectThemes.engagement.desc"
+          - label: "Initiatives — Engagement — desc"
             name: "projectThemes.engagement.desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "projectThemes.media.desc"
+          - label: "Initiatives — Médias — desc"
             name: "projectThemes.media.desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "projectThemes.training.desc"
+          - label: "Initiatives — Formation — desc"
             name: "projectThemes.training.desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "projectThemes.explore"
+          - label: "Initiatives — Bouton — explore"
             name: "projectThemes.explore"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projectThemes.allInitiatives.title"
+          - label: "Initiatives — Toutes — title"
             name: "projectThemes.allInitiatives.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projectThemes.allInitiatives.desc"
+          - label: "Initiatives — Toutes — desc"
             name: "projectThemes.allInitiatives.desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "projectThemes.allInitiatives.cta"
+          - label: "Initiatives — Toutes — cta"
             name: "projectThemes.allInitiatives.cta"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projectThemes.joinNetwork.title"
+          - label: "Initiatives — Rejoindre — title"
             name: "projectThemes.joinNetwork.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projectThemes.joinNetwork.desc"
+          - label: "Initiatives — Rejoindre — desc"
             name: "projectThemes.joinNetwork.desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "projectThemes.joinNetwork.cta"
+          - label: "Initiatives — Rejoindre — cta"
             name: "projectThemes.joinNetwork.cta"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "initiatives.heroLabel"
+          - label: "Initiatives — Hero — heroLabel"
             name: "initiatives.heroLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "initiatives.planLabel"
+          - label: "Initiatives — Présentation — planLabel"
             name: "initiatives.planLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "initiatives.planTitle"
+          - label: "Initiatives — Présentation — planTitle"
             name: "initiatives.planTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "initiatives.planDesc1"
+          - label: "Initiatives — Présentation — planDesc1"
             name: "initiatives.planDesc1"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "initiatives.planDesc2"
+          - label: "Initiatives — Présentation — planDesc2"
             name: "initiatives.planDesc2"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "initiatives.themesLabel"
+          - label: "Initiatives — Axes — themesLabel"
             name: "initiatives.themesLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "initiatives.themesTitle"
+          - label: "Initiatives — Axes — themesTitle"
             name: "initiatives.themesTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "initiatives.themesSubtitle"
+          - label: "Initiatives — Axes — themesSubtitle"
             name: "initiatives.themesSubtitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "initiatives.allProjectsLabel"
+          - label: "Initiatives — Tous les projets — allProjectsLabel"
             name: "initiatives.allProjectsLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "initiatives.allProjectsTitle"
+          - label: "Initiatives — Tous les projets — allProjectsTitle"
             name: "initiatives.allProjectsTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "initiatives.allProjectsSubtitle"
+          - label: "Initiatives — Tous les projets — allProjectsSubtitle"
             name: "initiatives.allProjectsSubtitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
       - name: "projet"
-        label: "Détail Projet / Programme (77)"
+        label: "Page Détail Projet (77)"
         file: "src/data/translations/projet.json"
         fields:
-          - label: "projet.back"
+          - label: "Projet — Détail — back"
             name: "projet.back"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.notFound"
+          - label: "Projet — Détail — notFound"
             name: "projet.notFound"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.notFoundDesc"
+          - label: "Projet — Détail — notFoundDesc"
             name: "projet.notFoundDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.thematique"
+          - label: "Projet — Détail — thematique"
             name: "projet.thematique"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.label"
+          - label: "Projet — Détail — label"
             name: "projet.label"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.presentation"
+          - label: "Projet — Détail — presentation"
             name: "projet.presentation"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.similarTitle"
+          - label: "Projet — Détail — similarTitle"
             name: "projet.similarTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.similarDesc"
+          - label: "Projet — Détail — similarDesc"
             name: "projet.similarDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.viewAll"
+          - label: "Projet — Détail — viewAll"
             name: "projet.viewAll"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.objectives"
+          - label: "Projet — Détail — objectives"
             name: "projet.objectives"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.participants"
+          - label: "Projet — Détail — participants"
             name: "projet.participants"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.countries"
+          - label: "Projet — Détail — countries"
             name: "projet.countries"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "country.panafricain"
+          - label: "Projet — Pays — panafricain"
             name: "country.panafricain"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.partners"
+          - label: "Projet — Détail — partners"
             name: "projet.partners"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.activities"
+          - label: "Projet — Détail — activities"
             name: "projet.activities"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.resources"
+          - label: "Projet — Détail — resources"
             name: "projet.resources"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.website"
+          - label: "Projet — Détail — website"
             name: "projet.website"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.projectBy"
+          - label: "Projet — Détail — projectBy"
             name: "projet.projectBy"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.supportedBy"
+          - label: "Projet — Détail — supportedBy"
             name: "projet.supportedBy"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.partnersWith"
+          - label: "Projet — Détail — partnersWith"
             name: "projet.partnersWith"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.progress"
+          - label: "Projet — Détail — progress"
             name: "projet.progress"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.description"
+          - label: "Projet — Détail — description"
             name: "projet.description"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.context"
+          - label: "Projet — Détail — context"
             name: "projet.context"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.approach"
+          - label: "Projet — Détail — approach"
             name: "projet.approach"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.actions"
+          - label: "Projet — Détail — actions"
             name: "projet.actions"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.manager"
+          - label: "Projet — Détail — manager"
             name: "projet.manager"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.seeDetails"
+          - label: "Projet — Détail — seeDetails"
             name: "projet.seeDetails"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.startDate"
+          - label: "Projet — Détail — startDate"
             name: "projet.startDate"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.endDate"
+          - label: "Projet — Détail — endDate"
             name: "projet.endDate"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.status.active"
+          - label: "Projet — Détail — active"
             name: "projet.status.active"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.status.completed"
+          - label: "Projet — Détail — completed"
             name: "projet.status.completed"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.status.upcoming"
+          - label: "Projet — Détail — upcoming"
             name: "projet.status.upcoming"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.keyFigures"
+          - label: "Projet — Détail — keyFigures"
             name: "projet.keyFigures"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.relatedNews"
+          - label: "Projet — Détail — relatedNews"
             name: "projet.relatedNews"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.platforms"
+          - label: "Projet — Détail — platforms"
             name: "projet.platforms"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.platformsDesc"
+          - label: "Projet — Détail — platformsDesc"
             name: "projet.platformsDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.phases"
+          - label: "Projet — Détail — phases"
             name: "projet.phases"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.phasesDesc"
+          - label: "Projet — Détail — phasesDesc"
             name: "projet.phasesDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.projetsMeres"
+          - label: "Projet — Détail — projetsMeres"
             name: "projet.projetsMeres"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.projetsMeresDesc"
+          - label: "Projet — Détail — projetsMeresDesc"
             name: "projet.projetsMeresDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.parentProjet"
+          - label: "Projet — Détail — parentProjet"
             name: "projet.parentProjet"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.gallery"
+          - label: "Projet — Détail — gallery"
             name: "projet.gallery"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "projet.team"
+          - label: "Projet — Détail — team"
             name: "projet.team"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.back"
+          - label: "Programme — Détail — back"
             name: "programme.back"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.notFound"
+          - label: "Programme — Détail — notFound"
             name: "programme.notFound"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.notFoundDesc"
+          - label: "Programme — Détail — notFoundDesc"
             name: "programme.notFoundDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.type"
+          - label: "Programme — Détail — type"
             name: "programme.type"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.label"
+          - label: "Programme — Détail — label"
             name: "programme.label"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.similarTitle"
+          - label: "Programme — Détail — similarTitle"
             name: "programme.similarTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.similarDesc"
+          - label: "Programme — Détail — similarDesc"
             name: "programme.similarDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.viewAll"
+          - label: "Programme — Détail — viewAll"
             name: "programme.viewAll"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.objectives"
+          - label: "Programme — Détail — objectives"
             name: "programme.objectives"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.budget"
+          - label: "Programme — Détail — budget"
             name: "programme.budget"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.duration"
+          - label: "Programme — Détail — duration"
             name: "programme.duration"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.months"
+          - label: "Programme — Détail — months"
             name: "programme.months"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.participants"
+          - label: "Programme — Détail — participants"
             name: "programme.participants"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.countries"
+          - label: "Programme — Détail — countries"
             name: "programme.countries"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.projectBy"
+          - label: "Programme — Détail — projectBy"
             name: "programme.projectBy"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.supportedBy"
+          - label: "Programme — Détail — supportedBy"
             name: "programme.supportedBy"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.partnersWith"
+          - label: "Programme — Détail — partnersWith"
             name: "programme.partnersWith"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.progress"
+          - label: "Programme — Détail — progress"
             name: "programme.progress"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.presentation"
+          - label: "Programme — Détail — presentation"
             name: "programme.presentation"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.actions"
+          - label: "Programme — Détail — actions"
             name: "programme.actions"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.beneficiaries"
+          - label: "Programme — Détail — beneficiaries"
             name: "programme.beneficiaries"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.manager"
+          - label: "Programme — Détail — manager"
             name: "programme.manager"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.seeDetails"
+          - label: "Programme — Détail — seeDetails"
             name: "programme.seeDetails"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.startDate"
+          - label: "Programme — Détail — startDate"
             name: "programme.startDate"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.endDate"
+          - label: "Programme — Détail — endDate"
             name: "programme.endDate"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.status.active"
+          - label: "Programme — Détail — active"
             name: "programme.status.active"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.status.completed"
+          - label: "Programme — Détail — completed"
             name: "programme.status.completed"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.status.upcoming"
+          - label: "Programme — Détail — upcoming"
             name: "programme.status.upcoming"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.keyFigures"
+          - label: "Programme — Détail — keyFigures"
             name: "programme.keyFigures"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.trained"
+          - label: "Programme — Détail — trained"
             name: "programme.trained"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.website"
+          - label: "Programme — Détail — website"
             name: "programme.website"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.relatedNews"
+          - label: "Programme — Détail — relatedNews"
             name: "programme.relatedNews"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.platforms"
+          - label: "Programme — Détail — platforms"
             name: "programme.platforms"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "programme.platformsDesc"
+          - label: "Programme — Détail — platformsDesc"
             name: "programme.platformsDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
       - name: "blog"
-        label: "Blog / Actualités (23)"
+        label: "Page Actualités (23)"
         file: "src/data/translations/blog.json"
         fields:
-          - label: "releases.title"
+          - label: "Actualités — Communiqués — title"
             name: "releases.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "releases.read"
+          - label: "Actualités — Communiqués — read"
             name: "releases.read"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "news.title"
+          - label: "Actualités — Accueil — title"
             name: "news.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "news.viewAll"
+          - label: "Actualités — Accueil — viewAll"
             name: "news.viewAll"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "champions.title"
+          - label: "Actualités — Champions — title"
             name: "champions.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "champions.readPortrait"
+          - label: "Actualités — Champions — readPortrait"
             name: "champions.readPortrait"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "blog.title"
+          - label: "Actualités — Liste — title"
             name: "blog.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "blog.subtitle"
+          - label: "Actualités — Liste — subtitle"
             name: "blog.subtitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "blog.all"
+          - label: "Actualités — Liste — all"
             name: "blog.all"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "blog.noArticles"
+          - label: "Actualités — Liste — noArticles"
             name: "blog.noArticles"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "blog.read"
+          - label: "Actualités — Liste — read"
             name: "blog.read"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "blog.articlesCount"
+          - label: "Actualités — Liste — articlesCount"
             name: "blog.articlesCount"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "blog.articleCount"
+          - label: "Actualités — Liste — articleCount"
             name: "blog.articleCount"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "blog.communiques"
+          - label: "Actualités — Liste — communiques"
             name: "blog.communiques"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "blog.plaidoyers"
+          - label: "Actualités — Liste — plaidoyers"
             name: "blog.plaidoyers"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "blog.actualites"
+          - label: "Actualités — Liste — actualites"
             name: "blog.actualites"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "blog.contributions"
+          - label: "Actualités — Liste — contributions"
             name: "blog.contributions"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "blog.champions"
+          - label: "Actualités — Liste — champions"
             name: "blog.champions"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "blogPost.back"
+          - label: "Actualités — Article — back"
             name: "blogPost.back"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "blogPost.notFound"
+          - label: "Actualités — Article — notFound"
             name: "blogPost.notFound"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "blogPost.share"
+          - label: "Actualités — Article — share"
             name: "blogPost.share"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "blogPost.related"
+          - label: "Actualités — Article — related"
             name: "blogPost.related"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "blogPost.categories"
+          - label: "Actualités — Article — categories"
             name: "blogPost.categories"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
       - name: "resources"
-        label: "Ressources / Médias (25)"
+        label: "Page Ressources (25)"
         file: "src/data/translations/resources.json"
         fields:
-          - label: "media.heroDesc"
+          - label: "Ressources — Vidéothèque — heroDesc"
             name: "media.heroDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "media.featured"
+          - label: "Ressources — Vidéothèque — featured"
             name: "media.featured"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "media.allVideos"
+          - label: "Ressources — Vidéothèque — allVideos"
             name: "media.allVideos"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "media.all"
+          - label: "Ressources — Vidéothèque — all"
             name: "media.all"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "media.watchOnYt"
+          - label: "Ressources — Vidéothèque — watchOnYt"
             name: "media.watchOnYt"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "media.play"
+          - label: "Ressources — Vidéothèque — play"
             name: "media.play"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "media.noVideos"
+          - label: "Ressources — Vidéothèque — noVideos"
             name: "media.noVideos"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "videos.title"
+          - label: "Ressources — Vidéos — title"
             name: "videos.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "videos.subtitle"
+          - label: "Ressources — Vidéos — subtitle"
             name: "videos.subtitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "videos.play"
+          - label: "Ressources — Vidéos — play"
             name: "videos.play"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "videos.viewAll"
+          - label: "Ressources — Vidéos — viewAll"
             name: "videos.viewAll"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "videos.watchOnYt"
+          - label: "Ressources — Vidéos — watchOnYt"
             name: "videos.watchOnYt"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "videos.noVideos"
+          - label: "Ressources — Vidéos — noVideos"
             name: "videos.noVideos"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "videos.allPlaylists"
+          - label: "Ressources — Vidéos — allPlaylists"
             name: "videos.allPlaylists"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "videos.filterLabel"
+          - label: "Ressources — Vidéos — filterLabel"
             name: "videos.filterLabel"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "publications.title"
+          - label: "Ressources — Publications accueil — title"
             name: "publications.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "publications.viewAll"
+          - label: "Ressources — Publications accueil — viewAll"
             name: "publications.viewAll"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "resources.publications.heroDesc"
+          - label: "Ressources — Publications — heroDesc"
             name: "resources.publications.heroDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "resources.publications.allTitle"
+          - label: "Ressources — Publications — allTitle"
             name: "resources.publications.allTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "resources.publications.empty"
+          - label: "Ressources — Publications — empty"
             name: "resources.publications.empty"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "resources.publications.count"
+          - label: "Ressources — Publications — count"
             name: "resources.publications.count"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "resources.toolkits.heroDesc"
+          - label: "Ressources — Boîtes à outils — heroDesc"
             name: "resources.toolkits.heroDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "resources.toolkits.allTitle"
+          - label: "Ressources — Boîtes à outils — allTitle"
             name: "resources.toolkits.allTitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "resources.toolkits.empty"
+          - label: "Ressources — Boîtes à outils — empty"
             name: "resources.toolkits.empty"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "resources.toolkits.count"
+          - label: "Ressources — Boîtes à outils — count"
             name: "resources.toolkits.count"
             widget: object
             fields:
@@ -2617,49 +2585,49 @@ collections:
         label: "Newsletter (8)"
         file: "src/data/translations/newsletter.json"
         fields:
-          - label: "newsletter.title"
+          - label: "Newsletter — title"
             name: "newsletter.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "newsletter.desc"
+          - label: "Newsletter — desc"
             name: "newsletter.desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "newsletter.namePlaceholder"
+          - label: "Newsletter — namePlaceholder"
             name: "newsletter.namePlaceholder"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "newsletter.placeholder"
+          - label: "Newsletter — placeholder"
             name: "newsletter.placeholder"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "newsletter.subscribe"
+          - label: "Newsletter — subscribe"
             name: "newsletter.subscribe"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "newsletter.thanks"
+          - label: "Newsletter — thanks"
             name: "newsletter.thanks"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "newsletter.soon"
+          - label: "Newsletter — soon"
             name: "newsletter.soon"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "newsletter.rgpd"
+          - label: "Newsletter — rgpd"
             name: "newsletter.rgpd"
             widget: object
             fields:
@@ -2669,31 +2637,31 @@ collections:
         label: "Témoignages & Partenaires (5)"
         file: "src/data/translations/testimonials.json"
         fields:
-          - label: "platforms.title"
+          - label: "Plateformes — title"
             name: "platforms.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "testimonials.label"
+          - label: "Témoignages — label"
             name: "testimonials.label"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "testimonials.title"
+          - label: "Témoignages — title"
             name: "testimonials.title"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "testimonials.subtitle"
+          - label: "Témoignages — subtitle"
             name: "testimonials.subtitle"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "partners.title"
+          - label: "Partenaires — title"
             name: "partners.title"
             widget: object
             fields:
@@ -2703,49 +2671,49 @@ collections:
         label: "Pied de page (8)"
         file: "src/data/translations/footer.json"
         fields:
-          - label: "footer.desc"
+          - label: "Pied de page — desc"
             name: "footer.desc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "footer.newsletter"
+          - label: "Pied de page — newsletter"
             name: "footer.newsletter"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "footer.receiveNewsletter"
+          - label: "Pied de page — receiveNewsletter"
             name: "footer.receiveNewsletter"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "footer.navigation"
+          - label: "Pied de page — navigation"
             name: "footer.navigation"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "footer.contact"
+          - label: "Pied de page — contact"
             name: "footer.contact"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "footer.equivalency"
+          - label: "Pied de page — equivalency"
             name: "footer.equivalency"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "footer.rights"
+          - label: "Pied de page — rights"
             name: "footer.rights"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "footer.tagline"
+          - label: "Pied de page — tagline"
             name: "footer.tagline"
             widget: object
             fields:
@@ -2755,19 +2723,19 @@ collections:
         label: "Divers (3)"
         file: "src/data/translations/misc.json"
         fields:
-          - label: "page.comingSoon"
+          - label: "Pages — Divers — comingSoon"
             name: "page.comingSoon"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: string }
               - { label: "English", name: "en", widget: string }
-          - label: "page.comingSoonDesc"
+          - label: "Pages — Divers — comingSoonDesc"
             name: "page.comingSoonDesc"
             widget: object
             fields:
               - { label: "Français", name: "fr", widget: text }
               - { label: "English", name: "en", widget: text }
-          - label: "page.backHome"
+          - label: "Pages — Divers — backHome"
             name: "page.backHome"
             widget: object
             fields:

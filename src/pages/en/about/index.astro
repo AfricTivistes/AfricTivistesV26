@@ -11,16 +11,15 @@ import CtaBanner from "@/components/CtaBanner.astro";
 import BadgeStat from "@/components/BadgeStat.astro";
 import { t } from "@/lib/i18n";
 import aboutData from "@/data/translations/about.json";
-const img = aboutData._images;
 const lang = "en";
-const heroImage = img.heroImage;
+const heroImage = aboutData._img_heroImage;
 const yearsEngagement = new Date().getFullYear() - 2015 - 1;
 ---
 <BaseLayout lang={lang} preloadImage={heroImage}>
   
     <PageHero
       lang={lang}
-      backgroundImage={img.heroImage}
+      backgroundImage={aboutData._img_heroImage}
       labelKey="nav.about"
       titleKey="about.title"
       subtitleKey="about.subtitle"
@@ -31,7 +30,7 @@ const yearsEngagement = new Date().getFullYear() - 2015 - 1;
       titleKey="about.missionSubtitle1"
       highlightKey="about.missionHighlight"
       descriptions={["about.mission1", "about.mission2"]}
-      imageUrl={img.heroImage}
+      imageUrl={aboutData._img_heroImage}
       imageAlt="AfricTivistes en action"
     >
       <BadgeStat slot="badge" lang={lang} value={`${yearsEngagement}+`} labelKey="about.yearsBadge" position="absolute -top-6 -right-6" />
