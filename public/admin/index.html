@@ -27,7 +27,7 @@
         var roles = (user && user.app_metadata && user.app_metadata.roles) || [];
         return roles.indexOf('admin') !== -1
           ? '/admin/config-full.yml'
-          : '/admin/config.yml';
+          : '/admin/config-restricted.yml';
       }
 
       function bootCMS(configPath) {
