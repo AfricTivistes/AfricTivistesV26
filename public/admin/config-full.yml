@@ -3711,7 +3711,7 @@ collections:
                 name: quote
                 widget: object
                 fields:
-                  - { label: "Français", name: fr, widget: text }
+                   - { label: "Français", name: fr, widget: text }
                    - { label: "English", name: en, widget: text }
 
   - name: site-config
