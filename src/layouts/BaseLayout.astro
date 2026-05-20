@@ -167,6 +167,9 @@ const ogImageAbsolute = ogImageUrl.startsWith("http") ? ogImageUrl : `${siteOrig
         `}
       </script>
     )}
+
+    {/* Netlify Identity widget — required for Decap CMS login */}
+    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
     <!-- Netlify Forms – hidden forms for build-time detection -->
@@ -234,6 +237,17 @@ const ogImageAbsolute = ogImageUrl.startsWith("http") ? ogImageUrl : `${siteOrig
         arm();
         document.addEventListener("astro:page-load", arm);
       })();
+    </script>
+
+    {/* Netlify Identity: redirect to /admin/ after login */}
+    <script is:inline>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function(user) {
+          if (!user) window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        });
+      }
     </script>
   </body>
 </html>

@@ -1,0 +1,87 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  - name: translations
+    label: Translations / Traductions
+    description: "Site-wide i18n strings (FR & EN)"
+    files:
+      - name: fr
+        label: "Fran\u00E7ais (FR)"
+        file: src/data/translations/fr.json
+        fields:
+          # ── Navigation ──
+          - { label: "nav.home", name: "nav.home", widget: string }
+          - { label: "nav.about", name: "nav.about", widget: string }
+          - { label: "nav.about.all", name: "nav.about.all", widget: string }
+          - { label: "nav.about.index", name: "nav.about.index", widget: string }
+          - { label: "nav.about.history", name: "nav.about.history", widget: string }
+          - { label: "nav.about.values", name: "nav.about.values", widget: string }
+          - { label: "nav.about.join", name: "nav.about.join", widget: string }
+          - { label: "nav.projects", name: "nav.projects", widget: string }
+          - { label: "nav.contact", name: "nav.contact", widget: string }
+          - { label: "nav.engage", name: "nav.engage", widget: string }
+          # ── Hero ──
+          - { label: "hero.badge", name: "hero.badge", widget: string }
+          - { label: "hero.title1", name: "hero.title1", widget: string }
+          - { label: "hero.highlight", name: "hero.highlight", widget: string }
+          - { label: "hero.title2", name: "hero.title2", widget: string }
+          - { label: "hero.desc", name: "hero.desc", widget: text }
+          - { label: "hero.cta1", name: "hero.cta1", widget: string }
+          - { label: "hero.cta2", name: "hero.cta2", widget: string }
+          # ── Contact ──
+          - { label: "contact.title", name: "contact.title", widget: string }
+          - { label: "contact.subtitle", name: "contact.subtitle", widget: string }
+          - { label: "contact.name", name: "contact.name", widget: string }
+          - { label: "contact.email", name: "contact.email", widget: string }
+          - { label: "contact.subject", name: "contact.subject", widget: string }
+          - { label: "contact.message", name: "contact.message", widget: string }
+          - { label: "contact.send", name: "contact.send", widget: string }
+          - { label: "contact.thanks", name: "contact.thanks", widget: string }
+          - { label: "contact.reply", name: "contact.reply", widget: string }
+          # ── Footer ──
+          - { label: "footer.desc", name: "footer.desc", widget: text }
+          - { label: "footer.rights", name: "footer.rights", widget: string }
+          - { label: "footer.tagline", name: "footer.tagline", widget: string }
+
+      - name: en
+        label: "English (EN)"
+        file: src/data/translations/en.json
+        fields:
+          # ── Navigation ──
+          - { label: "nav.home", name: "nav.home", widget: string }
+          - { label: "nav.about", name: "nav.about", widget: string }
+          - { label: "nav.about.all", name: "nav.about.all", widget: string }
+          - { label: "nav.about.index", name: "nav.about.index", widget: string }
+          - { label: "nav.about.history", name: "nav.about.history", widget: string }
+          - { label: "nav.about.values", name: "nav.about.values", widget: string }
+          - { label: "nav.about.join", name: "nav.about.join", widget: string }
+          - { label: "nav.projects", name: "nav.projects", widget: string }
+          - { label: "nav.contact", name: "nav.contact", widget: string }
+          - { label: "nav.engage", name: "nav.engage", widget: string }
+          # ── Hero ──
+          - { label: "hero.badge", name: "hero.badge", widget: string }
+          - { label: "hero.title1", name: "hero.title1", widget: string }
+          - { label: "hero.highlight", name: "hero.highlight", widget: string }
+          - { label: "hero.title2", name: "hero.title2", widget: string }
+          - { label: "hero.desc", name: "hero.desc", widget: text }
+          - { label: "hero.cta1", name: "hero.cta1", widget: string }
+          - { label: "hero.cta2", name: "hero.cta2", widget: string }
+          # ── Contact ──
+          - { label: "contact.title", name: "contact.title", widget: string }
+          - { label: "contact.subtitle", name: "contact.subtitle", widget: string }
+          - { label: "contact.name", name: "contact.name", widget: string }
+          - { label: "contact.email", name: "contact.email", widget: string }
+          - { label: "contact.subject", name: "contact.subject", widget: string }
+          - { label: "contact.message", name: "contact.message", widget: string }
+          - { label: "contact.send", name: "contact.send", widget: string }
+          - { label: "contact.thanks", name: "contact.thanks", widget: string }
+          - { label: "contact.reply", name: "contact.reply", widget: string }
+          # ── Footer ──
+          - { label: "footer.desc", name: "footer.desc", widget: text }
+          - { label: "footer.rights", name: "footer.rights", widget: string }
+          - { label: "footer.tagline", name: "footer.tagline", widget: string }
