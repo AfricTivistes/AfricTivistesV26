@@ -1,6 +1,24 @@
 import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from "react";
-import frTranslations from "@/data/translations/fr.json";
-import enTranslations from "@/data/translations/en.json";
+
+// Translation files — one per section, each key holds { fr, en }
+import navigation from "@/data/translations/navigation.json";
+import hero from "@/data/translations/hero.json";
+import aboutPreview from "@/data/translations/about-preview.json";
+import programmesHome from "@/data/translations/programmes-home.json";
+import stats from "@/data/translations/stats.json";
+import about from "@/data/translations/about.json";
+import history from "@/data/translations/history.json";
+import values from "@/data/translations/values.json";
+import join from "@/data/translations/join.json";
+import contact from "@/data/translations/contact.json";
+import initiatives from "@/data/translations/initiatives.json";
+import projet from "@/data/translations/projet.json";
+import blog from "@/data/translations/blog.json";
+import resources from "@/data/translations/resources.json";
+import newsletter from "@/data/translations/newsletter.json";
+import testimonials from "@/data/translations/testimonials.json";
+import footer from "@/data/translations/footer.json";
+import misc from "@/data/translations/misc.json";
 
 export type Lang = "fr" | "en";
 
@@ -10,17 +28,19 @@ interface I18nContextType {
   t: (key: string) => string;
 }
 
-// Build the translations record from the JSON files
-const translations: Record<string, Record<Lang, string>> = {};
-for (const key of Object.keys(frTranslations) as Array<keyof typeof frTranslations>) {
-  translations[key] = {
-    fr: frTranslations[key],
-    en: (enTranslations as Record<string, string>)[key] ?? frTranslations[key],
-  };
-}
+// Merge all section files into a single flat lookup
+const sections = [
+  navigation, hero, aboutPreview, programmesHome, stats, about, history,
+  values, join, contact, initiatives, projet, blog, resources, newsletter,
+  testimonials, footer, misc,
+] as Array<Record<string, { fr: string; en: string }>>;
 
-// --- inline translations removed; sourced from src/data/translations/*.json ---
-// kept for grep: "nav.home": { fr: "Accueil", en: "Home" },
+const translations: Record<string, Record<Lang, string>> = {};
+for (const section of sections) {
+  for (const [key, val] of Object.entries(section)) {
+    translations[key] = { fr: val.fr, en: val.en };
+  }
+}
 
 const I18nContext = createContext<I18nContextType | null>(null);
 

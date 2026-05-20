@@ -1,0 +1,34 @@
+{
+  "footer.desc": {
+    "fr": "Ligue des Blogueurs et Cyber-activistes pour la Démocratie en Afrique.",
+    "en": "League of Bloggers and Cyber-activists for Democracy in Africa."
+  },
+  "footer.newsletter": {
+    "fr": "Newsletter",
+    "en": "Newsletter"
+  },
+  "footer.receiveNewsletter": {
+    "fr": "Recevez notre newsletter",
+    "en": "Receive our newsletter"
+  },
+  "footer.navigation": {
+    "fr": "Navigation",
+    "en": "Navigation"
+  },
+  "footer.contact": {
+    "fr": "Contact",
+    "en": "Contact"
+  },
+  "footer.equivalency": {
+    "fr": "Equivalency Determination",
+    "en": "Equivalency Determination"
+  },
+  "footer.rights": {
+    "fr": "Tous droits réservés.",
+    "en": "All rights reserved."
+  },
+  "footer.tagline": {
+    "fr": "Ligue panafricaine pour la citoyenneté numérique",
+    "en": "Pan-African league for digital citizenship"
+  }
+}

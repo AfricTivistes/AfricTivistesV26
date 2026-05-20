@@ -1,0 +1,114 @@
+{
+  "nav.home": {
+    "fr": "Accueil",
+    "en": "Home"
+  },
+  "nav.about": {
+    "fr": "Qui sommes-nous",
+    "en": "Who we are"
+  },
+  "nav.about.all": {
+    "fr": "À Propos",
+    "en": "About"
+  },
+  "nav.about.index": {
+    "fr": "À Propos",
+    "en": "About"
+  },
+  "nav.about.history": {
+    "fr": "Histoire",
+    "en": "History"
+  },
+  "nav.about.values": {
+    "fr": "Valeurs",
+    "en": "Values"
+  },
+  "nav.about.join": {
+    "fr": "Devenir AfricTivistes",
+    "en": "Become an AfricTivist"
+  },
+  "nav.projects": {
+    "fr": "Axes d'interventions",
+    "en": "Areas of Intervention"
+  },
+  "nav.projects.all": {
+    "fr": "Tous les axes",
+    "en": "All areas"
+  },
+  "nav.projects.innovation": {
+    "fr": "Innovation Technologique et Participation Citoyenne",
+    "en": "Technological Innovation and Citizen Participation"
+  },
+  "nav.projects.democracy": {
+    "fr": "Élections, Démocratie et Gouvernance",
+    "en": "Elections, Democracy and Governance"
+  },
+  "nav.projects.engagement": {
+    "fr": "Engagement Citoyen et Renforcement du Réseau Panafricain",
+    "en": "Citizen Engagement and Pan-African Network Strengthening"
+  },
+  "nav.projects.media": {
+    "fr": "Médias et Résilience Informationnelle",
+    "en": "Media and Informational Resilience"
+  },
+  "nav.projects.training": {
+    "fr": "Formation, Recherche et Documentation",
+    "en": "Training, Research and Documentation"
+  },
+  "nav.resources": {
+    "fr": "Ressources",
+    "en": "Resources"
+  },
+  "nav.resources.publications": {
+    "fr": "Publications",
+    "en": "Publications"
+  },
+  "nav.resources.toolkits": {
+    "fr": "Boîtes à outils",
+    "en": "Toolkits"
+  },
+  "nav.resources.media": {
+    "fr": "Vidéothèque",
+    "en": "Video Library"
+  },
+  "nav.resources.presskit": {
+    "fr": "Espace presse",
+    "en": "Press Room"
+  },
+  "nav.news": {
+    "fr": "Actualités",
+    "en": "News"
+  },
+  "nav.news.all": {
+    "fr": "Tous les articles",
+    "en": "All articles"
+  },
+  "nav.news.communiques": {
+    "fr": "Communiqués",
+    "en": "Press releases"
+  },
+  "nav.news.plaidoyers": {
+    "fr": "Plaidoyers",
+    "en": "Advocacy"
+  },
+  "nav.news.actualites": {
+    "fr": "Actualités",
+    "en": "News"
+  },
+  "nav.news.contributions": {
+    "fr": "Contributions",
+    "en": "Contributions"
+  },
+  "nav.news.champions": {
+    "fr": "Champions",
+    "en": "Champions"
+  },
+  "nav.contact": {
+    "fr": "Contact",
+    "en": "Contact"
+  },
+  "nav.engage": {
+    "fr": "S'engager",
+    "en": "Get involved"
+  }
+}

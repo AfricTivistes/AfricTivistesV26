@@ -1,0 +1,310 @@
+{
+  "projet.back": {
+    "fr": "Retour aux initiatives",
+    "en": "Back to initiatives"
+  },
+  "projet.notFound": {
+    "fr": "Projet non trouvé",
+    "en": "Project not found"
+  },
+  "projet.notFoundDesc": {
+    "fr": "Le projet que vous recherchez n'existe pas ou a été déplacé.",
+    "en": "The project you are looking for does not exist or has been moved."
+  },
+  "projet.thematique": {
+    "fr": "Thématique",
+    "en": "Theme"
+  },
+  "projet.label": {
+    "fr": "Étiquette",
+    "en": "Label"
+  },
+  "projet.presentation": {
+    "fr": "Présentation",
+    "en": "Overview"
+  },
+  "projet.similarTitle": {
+    "fr": "Projets connexes",
+    "en": "Related projects"
+  },
+  "projet.similarDesc": {
+    "fr": "Découvrez d'autres projets liés à cette thématique.",
+    "en": "Discover other projects related to this theme."
+  },
+  "projet.viewAll": {
+    "fr": "Voir tous les projets",
+    "en": "View all projects"
+  },
+  "projet.objectives": {
+    "fr": "Objectif(s)",
+    "en": "Objective(s)"
+  },
+  "projet.participants": {
+    "fr": "Personnes formées",
+    "en": "People trained"
+  },
+  "projet.countries": {
+    "fr": "Pays",
+    "en": "Countries"
+  },
+  "country.panafricain": {
+    "fr": "Panafricain",
+    "en": "Pan-African"
+  },
+  "projet.partners": {
+    "fr": "Partenaires impliqués",
+    "en": "Partners involved"
+  },
+  "projet.activities": {
+    "fr": "Activités réalisées",
+    "en": "Activities completed"
+  },
+  "projet.resources": {
+    "fr": "Ressources produites",
+    "en": "Resources produced"
+  },
+  "projet.website": {
+    "fr": "Site web",
+    "en": "Website"
+  },
+  "projet.projectBy": {
+    "fr": "Un projet",
+    "en": "A project by"
+  },
+  "projet.supportedBy": {
+    "fr": "Soutenu par",
+    "en": "Supported by"
+  },
+  "projet.partnersWith": {
+    "fr": "En partenariat avec",
+    "en": "In partnership with"
+  },
+  "projet.progress": {
+    "fr": "Avancement du projet",
+    "en": "Project progress"
+  },
+  "projet.description": {
+    "fr": "Description",
+    "en": "Description"
+  },
+  "projet.context": {
+    "fr": "Contexte",
+    "en": "Context"
+  },
+  "projet.approach": {
+    "fr": "Approche",
+    "en": "Approach"
+  },
+  "projet.actions": {
+    "fr": "Actions",
+    "en": "Actions"
+  },
+  "projet.manager": {
+    "fr": "Responsable du projet",
+    "en": "Project manager"
+  },
+  "projet.seeDetails": {
+    "fr": "Voir le détail",
+    "en": "See details"
+  },
+  "projet.startDate": {
+    "fr": "Date de début",
+    "en": "Start date"
+  },
+  "projet.endDate": {
+    "fr": "Date de fin",
+    "en": "End date"
+  },
+  "projet.status.active": {
+    "fr": "En cours",
+    "en": "Active"
+  },
+  "projet.status.completed": {
+    "fr": "Terminé",
+    "en": "Completed"
+  },
+  "projet.status.upcoming": {
+    "fr": "À venir",
+    "en": "Upcoming"
+  },
+  "projet.keyFigures": {
+    "fr": "Chiffres clés",
+    "en": "Key figures"
+  },
+  "projet.relatedNews": {
+    "fr": "Actualités liées",
+    "en": "Related news"
+  },
+  "projet.platforms": {
+    "fr": "Plateformes du projet",
+    "en": "Project platforms"
+  },
+  "projet.platformsDesc": {
+    "fr": "Les outils et plateformes numériques déployés dans le cadre de ce projet.",
+    "en": "The digital tools and platforms deployed as part of this project."
+  },
+  "projet.phases": {
+    "fr": "Évolution du projet",
+    "en": "Project evolution"
+  },
+  "projet.phasesDesc": {
+    "fr": "Le déploiement progressif du projet à travers les pays et partenaires.",
+    "en": "The progressive deployment of the project across countries and partners."
+  },
+  "projet.projetsMeres": {
+    "fr": "Projets mères",
+    "en": "Parent projects"
+  },
+  "projet.projetsMeresDesc": {
+    "fr": "Les projets principaux auxquels ce projet est rattaché.",
+    "en": "The main projects this project is linked to."
+  },
+  "projet.parentProjet": {
+    "fr": "Projet parent",
+    "en": "Parent project"
+  },
+  "projet.gallery": {
+    "fr": "Galerie",
+    "en": "Gallery"
+  },
+  "projet.team": {
+    "fr": "Équipe du projet",
+    "en": "Project team"
+  },
+  "programme.back": {
+    "fr": "Retour aux initiatives",
+    "en": "Back to initiatives"
+  },
+  "programme.notFound": {
+    "fr": "Programme non trouvé",
+    "en": "Programme not found"
+  },
+  "programme.notFoundDesc": {
+    "fr": "Le programme que vous recherchez n'existe pas ou a été déplacé.",
+    "en": "The programme you are looking for does not exist or has been moved."
+  },
+  "programme.type": {
+    "fr": "Type de programme",
+    "en": "Programme type"
+  },
+  "programme.label": {
+    "fr": "Étiquette",
+    "en": "Label"
+  },
+  "programme.similarTitle": {
+    "fr": "Programmes similaires",
+    "en": "Similar programmes"
+  },
+  "programme.similarDesc": {
+    "fr": "Découvrez d'autres programmes de la même thématique.",
+    "en": "Discover other programmes in the same category."
+  },
+  "programme.viewAll": {
+    "fr": "Voir tous les programmes",
+    "en": "View all programmes"
+  },
+  "programme.objectives": {
+    "fr": "Objectif(s)",
+    "en": "Objective(s)"
+  },
+  "programme.budget": {
+    "fr": "Budget",
+    "en": "Budget"
+  },
+  "programme.duration": {
+    "fr": "Durée",
+    "en": "Duration"
+  },
+  "programme.months": {
+    "fr": "mois",
+    "en": "months"
+  },
+  "programme.participants": {
+    "fr": "Participants",
+    "en": "Participants"
+  },
+  "programme.countries": {
+    "fr": "Pays",
+    "en": "Countries"
+  },
+  "programme.projectBy": {
+    "fr": "Un projet",
+    "en": "A project by"
+  },
+  "programme.supportedBy": {
+    "fr": "Soutenu par",
+    "en": "Supported by"
+  },
+  "programme.partnersWith": {
+    "fr": "En partenariat avec",
+    "en": "In partnership with"
+  },
+  "programme.progress": {
+    "fr": "Avancement du projet",
+    "en": "Project progress"
+  },
+  "programme.presentation": {
+    "fr": "Présentation",
+    "en": "Presentation"
+  },
+  "programme.actions": {
+    "fr": "Actions",
+    "en": "Actions"
+  },
+  "programme.beneficiaries": {
+    "fr": "Bénéficiaires du projet",
+    "en": "Project beneficiaries"
+  },
+  "programme.manager": {
+    "fr": "Responsable du projet",
+    "en": "Project manager"
+  },
+  "programme.seeDetails": {
+    "fr": "Voir le détail",
+    "en": "See details"
+  },
+  "programme.startDate": {
+    "fr": "Date de début",
+    "en": "Start date"
+  },
+  "programme.endDate": {
+    "fr": "Date de fin",
+    "en": "End date"
+  },
+  "programme.status.active": {
+    "fr": "En cours",
+    "en": "Active"
+  },
+  "programme.status.completed": {
+    "fr": "Terminé",
+    "en": "Completed"
+  },
+  "programme.status.upcoming": {
+    "fr": "À venir",
+    "en": "Upcoming"
+  },
+  "programme.keyFigures": {
+    "fr": "Chiffres clés",
+    "en": "Key figures"
+  },
+  "programme.trained": {
+    "fr": "Personnes formées",
+    "en": "People trained"
+  },
+  "programme.website": {
+    "fr": "Site web",
+    "en": "Website"
+  },
+  "programme.relatedNews": {
+    "fr": "Actualités liées",
+    "en": "Related news"
+  },
+  "programme.platforms": {
+    "fr": "Plateformes du projet",
+    "en": "Project platforms"
+  },
+  "programme.platformsDesc": {
+    "fr": "Les outils et plateformes numériques déployés dans le cadre de ce programme.",
+    "en": "The digital tools and platforms deployed as part of this programme."
+  }
+}

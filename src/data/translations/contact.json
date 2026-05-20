@@ -1,0 +1,50 @@
+{
+  "contact.title": {
+    "fr": "Contact",
+    "en": "Contact"
+  },
+  "contact.subtitle": {
+    "fr": "Une question, une proposition de partenariat ? Contactez-nous.",
+    "en": "A question, a partnership proposal? Contact us."
+  },
+  "contact.name": {
+    "fr": "Nom",
+    "en": "Name"
+  },
+  "contact.namePlaceholder": {
+    "fr": "Votre nom",
+    "en": "Your name"
+  },
+  "contact.email": {
+    "fr": "Email",
+    "en": "Email"
+  },
+  "contact.subject": {
+    "fr": "Sujet",
+    "en": "Subject"
+  },
+  "contact.subjectPlaceholder": {
+    "fr": "Sujet de votre message",
+    "en": "Subject of your message"
+  },
+  "contact.message": {
+    "fr": "Message",
+    "en": "Message"
+  },
+  "contact.messagePlaceholder": {
+    "fr": "Votre message...",
+    "en": "Your message..."
+  },
+  "contact.send": {
+    "fr": "Envoyer",
+    "en": "Send"
+  },
+  "contact.thanks": {
+    "fr": "Merci pour votre message !",
+    "en": "Thank you for your message!"
+  },
+  "contact.reply": {
+    "fr": "Nous vous répondrons dans les meilleurs délais.",
+    "en": "We will get back to you as soon as possible."
+  }
+}

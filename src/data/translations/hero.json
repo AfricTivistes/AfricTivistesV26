@@ -1,0 +1,34 @@
+{
+  "hero.badge": {
+    "fr": "Démocratie numérique en Afrique",
+    "en": "Digital democracy in Africa"
+  },
+  "hero.title1": {
+    "fr": "Construire une ",
+    "en": "Building "
+  },
+  "hero.highlight": {
+    "fr": "citoyenneté active",
+    "en": "active citizenship"
+  },
+  "hero.title2": {
+    "fr": " à l'ère du numérique",
+    "en": " in the digital age"
+  },
+  "hero.desc": {
+    "fr": "AfricTivistes mobilise les citoyens, les blogueurs et les activistes du web pour renforcer la démocratie, la gouvernance et le développement en Afrique.",
+    "en": "AfricTivistes mobilizes citizens, bloggers and web activists to strengthen democracy, governance and development in Africa."
+  },
+  "hero.cta1": {
+    "fr": "Découvrir nos initiatives",
+    "en": "Discover our initiatives"
+  },
+  "hero.cta2": {
+    "fr": "Voir les actualités",
+    "en": "View news"
+  },
+  "ticker.label": {
+    "fr": "A la une",
+    "en": "Headlines"
+  }
+}

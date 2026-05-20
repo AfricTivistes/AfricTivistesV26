@@ -1,0 +1,214 @@
+{
+  "join.title": {
+    "fr": "Devenir AfricTivistes",
+    "en": "Become an AfricTivist"
+  },
+  "join.subtitle": {
+    "fr": "Rejoignez une communauté dynamique de citoyens engagés qui oeuvrent pour un changement positif en Afrique.",
+    "en": "Join a dynamic community of engaged citizens working for positive change in Africa."
+  },
+  "join.communityLabel": {
+    "fr": "Notre communauté",
+    "en": "Our community"
+  },
+  "join.communityTitle1": {
+    "fr": "Rejoignez la Communauté ",
+    "en": "Join the "
+  },
+  "join.communityHighlight": {
+    "fr": "AfricTivistes",
+    "en": "AfricTivistes Community"
+  },
+  "join.communityDesc1": {
+    "fr": "AfricTivistes est bien plus qu'une organisation, c'est une communauté dynamique de citoyens engagés qui oeuvrent pour un changement positif en Afrique. Si vous partagez notre passion pour la démocratie, la participation citoyenne, la bonne gouvernance, l'innovation technologique et la défense des droits humains, alors vous êtes au bon endroit.",
+    "en": "AfricTivistes is much more than an organization, it is a dynamic community of engaged citizens working for positive change in Africa. If you share our passion for democracy, citizen participation, good governance, technological innovation and the defense of human rights, then you are in the right place."
+  },
+  "join.whyLabel": {
+    "fr": "Vos avantages",
+    "en": "Your benefits"
+  },
+  "join.whyTitle": {
+    "fr": "Pourquoi nous rejoindre ?",
+    "en": "Why join us?"
+  },
+  "join.reason1Title": {
+    "fr": "Faire une Différence",
+    "en": "Make a Difference"
+  },
+  "join.reason1Desc": {
+    "fr": "En tant que membre d'AfricTivistes, vous serez au coeur de l'action pour un continent africain meilleur. Votre voix et votre engagement comptent.",
+    "en": "As a member of AfricTivistes, you will be at the heart of the action for a better African continent. Your voice and your commitment matter."
+  },
+  "join.reason2Title": {
+    "fr": "Apprentissage et Croissance",
+    "en": "Learning and Growth"
+  },
+  "join.reason2Desc": {
+    "fr": "Accédez à notre plateforme de formation en ligne, explorez nos ressources éducatives et développez vos compétences en matière de citoyenneté active.",
+    "en": "Access our online training platform, explore our educational resources and develop your skills in active citizenship."
+  },
+  "join.reason3Title": {
+    "fr": "Réseau Panafricain",
+    "en": "Pan-African Network"
+  },
+  "join.reason3Desc": {
+    "fr": "Connectez-vous avec d'autres citoyens engagés, des activistes, des journalistes et des professionnels du changement social dans toute l'Afrique.",
+    "en": "Connect with other engaged citizens, activists, journalists and social change professionals across Africa."
+  },
+  "join.reason4Title": {
+    "fr": "Participation aux Projets",
+    "en": "Project Participation"
+  },
+  "join.reason4Desc": {
+    "fr": "Contribuez à nos projets et initiatives, de la lutte contre les fake news à la promotion de la cybersécurité et au-delà.",
+    "en": "Contribute to our projects and initiatives, from fighting fake news to promoting cybersecurity and beyond."
+  },
+  "join.reason5Title": {
+    "fr": "Impact Concret",
+    "en": "Concrete Impact"
+  },
+  "join.reason5Desc": {
+    "fr": "Voyez vos actions se traduire par un impact concret sur la démocratie, les droits de l'homme et le développement en Afrique.",
+    "en": "See your actions translate into concrete impact on democracy, human rights and development in Africa."
+  },
+  "join.howLabel": {
+    "fr": "Processus",
+    "en": "Process"
+  },
+  "join.howTitle": {
+    "fr": "Comment Adhérer",
+    "en": "How to Join"
+  },
+  "join.step1Title": {
+    "fr": "Remplissez le Formulaire",
+    "en": "Fill Out the Form"
+  },
+  "join.step1Desc": {
+    "fr": "Remplissez notre formulaire d'adhésion ci-dessous avec vos informations et motivations.",
+    "en": "Fill out our membership form below with your information and motivations."
+  },
+  "join.step2Title": {
+    "fr": "Examen de candidature",
+    "en": "Application Review"
+  },
+  "join.step2Desc": {
+    "fr": "Votre candidature sera soigneusement examinée par notre équipe, incluant votre profil et vos activités.",
+    "en": "Your application will be carefully reviewed by our team, including your profile and activities."
+  },
+  "join.step3Title": {
+    "fr": "Confirmation",
+    "en": "Confirmation"
+  },
+  "join.step3Desc": {
+    "fr": "Une fois votre adhésion approuvée, vous en serez informé(e) par courriel.",
+    "en": "Once your membership is approved, you will be notified by email."
+  },
+  "join.step4Title": {
+    "fr": "Engagez-vous",
+    "en": "Get Involved"
+  },
+  "join.step4Desc": {
+    "fr": "Engagez-vous activement dans nos projets, partagez vos idées et contribuez à la transformation de l'Afrique.",
+    "en": "Get actively involved in our projects, share your ideas and contribute to the transformation of Africa."
+  },
+  "join.formLabel": {
+    "fr": "Formulaire d'adhésion",
+    "en": "Membership form"
+  },
+  "join.formTitle": {
+    "fr": "Rejoignez-nous aujourd'hui",
+    "en": "Join us today"
+  },
+  "join.formDesc": {
+    "fr": "Remplissez ce formulaire pour soumettre votre candidature. Nous reviendrons vers vous dans les plus brefs délais.",
+    "en": "Fill out this form to submit your application. We will get back to you as soon as possible."
+  },
+  "join.typeLabel": {
+    "fr": "Vous êtes",
+    "en": "You are"
+  },
+  "join.typePerson": {
+    "fr": "Une personne",
+    "en": "An individual"
+  },
+  "join.typeOrg": {
+    "fr": "Une organisation",
+    "en": "An organization"
+  },
+  "join.typeMovement": {
+    "fr": "Un mouvement",
+    "en": "A movement"
+  },
+  "join.firstName": {
+    "fr": "Prénom",
+    "en": "First name"
+  },
+  "join.firstNamePlaceholder": {
+    "fr": "Votre prénom",
+    "en": "Your first name"
+  },
+  "join.lastName": {
+    "fr": "Nom",
+    "en": "Last name"
+  },
+  "join.lastNamePlaceholder": {
+    "fr": "Votre nom",
+    "en": "Your last name"
+  },
+  "join.orgName": {
+    "fr": "Nom de l'organisation",
+    "en": "Organization name"
+  },
+  "join.orgNamePlaceholder": {
+    "fr": "Nom de votre organisation ou mouvement",
+    "en": "Name of your organization or movement"
+  },
+  "join.email": {
+    "fr": "Email",
+    "en": "Email"
+  },
+  "join.emailPlaceholder": {
+    "fr": "votre@email.com",
+    "en": "your@email.com"
+  },
+  "join.country": {
+    "fr": "Pays",
+    "en": "Country"
+  },
+  "join.countryPlaceholder": {
+    "fr": "Votre pays de résidence",
+    "en": "Your country of residence"
+  },
+  "join.motivation": {
+    "fr": "Motivation",
+    "en": "Motivation"
+  },
+  "join.motivationPlaceholder": {
+    "fr": "Pourquoi souhaitez-vous rejoindre AfricTivistes ?",
+    "en": "Why do you want to join AfricTivistes?"
+  },
+  "join.submit": {
+    "fr": "Envoyer ma candidature",
+    "en": "Submit my application"
+  },
+  "join.thanks": {
+    "fr": "Merci pour votre candidature !",
+    "en": "Thank you for your application!"
+  },
+  "join.thanksDesc": {
+    "fr": "Votre demande d'adhésion a bien été reçue. Notre équipe l'examinera et vous recevrez une réponse par courriel dans les prochains jours.",
+    "en": "Your membership request has been received. Our team will review it and you will receive a response by email in the coming days."
+  },
+  "join.ctaTitle": {
+    "fr": "Ensemble, construisons l'avenir",
+    "en": "Together, let's build the future"
+  },
+  "join.ctaDesc": {
+    "fr": "Rejoignez-nous aujourd'hui et devenez un AfricTivistes, un acteur du changement en Afrique. Ensemble, nous pouvons bâtir un avenir meilleur pour notre continent.",
+    "en": "Join us today and become an AfricTivist, an agent of change in Africa. Together, we can build a better future for our continent."
+  },
+  "join.ctaBtn": {
+    "fr": "Nous contacter",
+    "en": "Contact us"
+  }
+}

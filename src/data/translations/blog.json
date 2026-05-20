@@ -1,0 +1,94 @@
+{
+  "releases.title": {
+    "fr": "Nos communiqués",
+    "en": "Press releases"
+  },
+  "releases.read": {
+    "fr": "Lire",
+    "en": "Read"
+  },
+  "news.title": {
+    "fr": "Nos dernières actualités",
+    "en": "Latest news"
+  },
+  "news.viewAll": {
+    "fr": "Voir toutes les actualités",
+    "en": "View all news"
+  },
+  "champions.title": {
+    "fr": "Nos Champions pour l'engagement civique",
+    "en": "Our Champions for civic engagement"
+  },
+  "champions.readPortrait": {
+    "fr": "Lire le portrait",
+    "en": "Read the portrait"
+  },
+  "blog.title": {
+    "fr": "Actualités",
+    "en": "News"
+  },
+  "blog.subtitle": {
+    "fr": "Communiqués, plaidoyers, contributions et portraits de nos champions pour la démocratie numérique en Afrique.",
+    "en": "Press releases, advocacy, contributions and portraits of our champions for digital democracy in Africa."
+  },
+  "blog.all": {
+    "fr": "Tous les articles",
+    "en": "All articles"
+  },
+  "blog.noArticles": {
+    "fr": "Aucun article trouvé.",
+    "en": "No articles found."
+  },
+  "blog.read": {
+    "fr": "Lire",
+    "en": "Read"
+  },
+  "blog.articlesCount": {
+    "fr": "articles",
+    "en": "articles"
+  },
+  "blog.articleCount": {
+    "fr": "article",
+    "en": "article"
+  },
+  "blog.communiques": {
+    "fr": "Communiqués",
+    "en": "Press releases"
+  },
+  "blog.plaidoyers": {
+    "fr": "Plaidoyers",
+    "en": "Advocacy"
+  },
+  "blog.actualites": {
+    "fr": "Actualités",
+    "en": "News"
+  },
+  "blog.contributions": {
+    "fr": "Contributions",
+    "en": "Contributions"
+  },
+  "blog.champions": {
+    "fr": "Champions",
+    "en": "Champions"
+  },
+  "blogPost.back": {
+    "fr": "Retour aux actualités",
+    "en": "Back to news"
+  },
+  "blogPost.notFound": {
+    "fr": "Article non trouvé",
+    "en": "Article not found"
+  },
+  "blogPost.share": {
+    "fr": "Partager",
+    "en": "Share"
+  },
+  "blogPost.related": {
+    "fr": "Articles similaires",
+    "en": "Related articles"
+  },
+  "blogPost.categories": {
+    "fr": "Catégories",
+    "en": "Categories"
+  }
+}

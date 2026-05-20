@@ -1,0 +1,102 @@
+{
+  "projectThemes.title": {
+    "fr": "Nos axes d'interventions",
+    "en": "Our areas of intervention"
+  },
+  "projectThemes.subtitle": {
+    "fr": "Découvrez nos axes d'intervention pour une Afrique numérique, démocratique et inclusive.",
+    "en": "Discover our areas of intervention for a digital, democratic and inclusive Africa."
+  },
+  "projectThemes.innovation.desc": {
+    "fr": "Renforcer la participation citoyenne par l'innovation technologique, l'intelligence artificielle et l'endogénéité. Hackathons, solutions locales, CitizenLab et blockchain pour la gouvernance.",
+    "en": "Strengthening citizen participation through technological innovation, artificial intelligence and endogeneity. Hackathons, local solutions, CitizenLab and blockchain for governance."
+  },
+  "projectThemes.democracy.desc": {
+    "fr": "Renforcer l'intégration du numérique dans les processus électoraux démocratiques en Afrique. Outils d'observation électorale, plateformes régionales et transparence électorale.",
+    "en": "Strengthening digital integration in democratic electoral processes in Africa. Electoral observation tools, regional platforms and electoral transparency."
+  },
+  "projectThemes.engagement.desc": {
+    "fr": "Développer la dynamique de réseau et des communautés de bonnes pratiques panafricaines. Réseau AfricTivistes, programme ACET et Plateforme d'Intelligence Collective (PICA).",
+    "en": "Developing network dynamics and pan-African communities of good practices. AfricTivistes network, ACET programme and Collective Intelligence Platform (PICA)."
+  },
+  "projectThemes.media.desc": {
+    "fr": "Consolider la résilience des médias et des acteurs de l'information. Cybersécurité pour journalistes, lutte contre la désinformation et soutien aux médias indépendants.",
+    "en": "Consolidating the resilience of media and information actors. Cybersecurity for journalists, fight against disinformation and support for independent media."
+  },
+  "projectThemes.training.desc": {
+    "fr": "Développer les programmes d'accès à la connaissance et la promotion de la recherche/action sur la démocratie et la participation citoyenne.",
+    "en": "Developing knowledge access programmes and promoting research/action on democracy and citizen participation."
+  },
+  "projectThemes.explore": {
+    "fr": "Explorer",
+    "en": "Explore"
+  },
+  "projectThemes.allInitiatives.title": {
+    "fr": "Toutes nos initiatives",
+    "en": "All our initiatives"
+  },
+  "projectThemes.allInitiatives.desc": {
+    "fr": "Découvrez l'ensemble de nos projets et programmes en cours à travers le continent africain.",
+    "en": "Discover all our ongoing projects and programmes across the African continent."
+  },
+  "projectThemes.allInitiatives.cta": {
+    "fr": "Voir toutes les initiatives",
+    "en": "See all initiatives"
+  },
+  "projectThemes.joinNetwork.title": {
+    "fr": "Rejoindre AfricTivistes",
+    "en": "Join AfricTivistes"
+  },
+  "projectThemes.joinNetwork.desc": {
+    "fr": "Intégrez un réseau panafricain d'activistes du numérique engagés pour la démocratie et la citoyenneté.",
+    "en": "Join a pan-African network of digital activists committed to democracy and citizenship."
+  },
+  "projectThemes.joinNetwork.cta": {
+    "fr": "Devenir AfricTivistes",
+    "en": "Become an AfricTivist"
+  },
+  "initiatives.heroLabel": {
+    "fr": "Nos initiatives",
+    "en": "Our initiatives"
+  },
+  "initiatives.planLabel": {
+    "fr": "Notre engagement",
+    "en": "Our commitment"
+  },
+  "initiatives.planTitle": {
+    "fr": "Impact et innovation technologique pour la démocratie en Afrique",
+    "en": "Impact and technological innovation for democracy in Africa"
+  },
+  "initiatives.planDesc1": {
+    "fr": "Réseau panafricain à l'intersection de la technologie et de la démocratie depuis sa création en 2015, AfricTivistes mobilise les acteurs de changement et partenaires qui partagent notre vision d'une Afrique où la civic tech sert de levier à la démocratie participative.",
+    "en": "A pan-African network at the intersection of technology and democracy since its creation in 2015, AfricTivistes mobilizes change agents and partners who share our vision of an Africa where civic tech serves as a lever for participatory democracy."
+  },
+  "initiatives.planDesc2": {
+    "fr": "À travers ses axes d'intervention, le réseau panafricain accentue ses efforts pour promouvoir la démocratie, les droits humains et la gouvernance en Afrique par le biais de l'innovation technologique et de l'engagement citoyen.",
+    "en": "Through its areas of intervention, the pan-African network intensifies its efforts to promote democracy, human rights and governance in Africa through technological innovation and citizen engagement."
+  },
+  "initiatives.themesLabel": {
+    "fr": "Nos axes d'interventions",
+    "en": "Our areas of intervention"
+  },
+  "initiatives.themesTitle": {
+    "fr": "Nos 5 axes d'intervention",
+    "en": "Our 5 areas of intervention"
+  },
+  "initiatives.themesSubtitle": {
+    "fr": "Les cinq piliers qui guident nos actions pour une Afrique numérique, démocratique et inclusive.",
+    "en": "The five pillars guiding our actions for a digital, democratic and inclusive Africa."
+  },
+  "initiatives.allProjectsLabel": {
+    "fr": "Nos projets",
+    "en": "Our projects"
+  },
+  "initiatives.allProjectsTitle": {
+    "fr": "Tous les projets et initiatives",
+    "en": "All projects and initiatives"
+  },
+  "initiatives.allProjectsSubtitle": {
+    "fr": "Découvrez l'ensemble de nos projets classés par thématique.",
+    "en": "Discover all our projects organized by theme."
+  }
+}

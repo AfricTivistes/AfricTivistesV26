@@ -1,0 +1,66 @@
+{
+  "history.title": {
+    "fr": "Notre Histoire",
+    "en": "Our History"
+  },
+  "history.subtitle": {
+    "fr": "Depuis 2015, AfricTivistes construit une citoyenneté numérique active en Afrique. Retour sur les moments clés de notre parcours.",
+    "en": "Since 2015, AfricTivistes has been building active digital citizenship in Africa. A look back at the key moments of our journey."
+  },
+  "history.originLabel": {
+    "fr": "Les origines",
+    "en": "Origins"
+  },
+  "history.originTitle1": {
+    "fr": "D'une idée audacieuse à un ",
+    "en": "From a bold idea to a "
+  },
+  "history.originHighlight": {
+    "fr": "mouvement panafricain",
+    "en": "pan-African movement"
+  },
+  "history.originDesc1": {
+    "fr": "AfricTivistes est née en 2015 à Dakar, au Sénégal, de la volonté de blogueurs et cyber-activistes africains de s'organiser pour promouvoir la démocratie et la bonne gouvernance à travers le numérique. Ce qui a commencé comme un réseau informel est devenu une organisation panafricaine structurée, présente dans 45 pays du continent.",
+    "en": "AfricTivistes was born in 2015 in Dakar, Senegal, from the desire of African bloggers and cyber-activists to organize themselves to promote democracy and good governance through digital tools. What started as an informal network has become a structured pan-African organization, present in 45 countries across the continent."
+  },
+  "history.originDesc2": {
+    "fr": "Portée par la conviction que le numérique est un puissant levier de transformation sociale, l'organisation a rapidement rassemblé des acteurs du changement engagés pour une Afrique plus transparente, inclusive et démocratique.",
+    "en": "Driven by the conviction that digital technology is a powerful lever for social transformation, the organization quickly brought together change agents committed to a more transparent, inclusive and democratic Africa."
+  },
+  "history.timelineLabel": {
+    "fr": "Chronologie",
+    "en": "Timeline"
+  },
+  "history.timelineTitle": {
+    "fr": "Les grandes étapes de notre parcours",
+    "en": "Key milestones in our journey"
+  },
+  "history.stat3Label": {
+    "fr": "Années d'engagement",
+    "en": "Years of engagement"
+  },
+  "history.visionLabel": {
+    "fr": "Notre vision",
+    "en": "Our vision"
+  },
+  "history.visionTitle": {
+    "fr": "Construire l'avenir numérique de l'Afrique",
+    "en": "Building Africa's digital future"
+  },
+  "history.visionDesc": {
+    "fr": "Forte de 10 années d'expérience et d'un réseau de plus de 400 membres dans 45 pays, AfricTivistes poursuit sa mission avec une vision renouvelée : faire du numérique un outil d'émancipation citoyenne, de transparence démocratique et de développement durable pour le continent africain.",
+    "en": "With 10 years of experience and a network of over 400 members in 45 countries, AfricTivistes continues its mission with a renewed vision: making digital technology a tool for citizen empowerment, democratic transparency and sustainable development for the African continent."
+  },
+  "history.ctaTitle": {
+    "fr": "Faites partie de l'histoire",
+    "en": "Be part of the story"
+  },
+  "history.ctaDesc": {
+    "fr": "Rejoignez l'organisation AfricTivistes et contribuez à écrire le prochain chapitre de la citoyenneté numérique en Afrique.",
+    "en": "Join the AfricTivistes organization and help write the next chapter of digital citizenship in Africa."
+  },
+  "history.ctaBtn": {
+    "fr": "Nous rejoindre",
+    "en": "Join us"
+  }
+}

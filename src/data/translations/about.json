@@ -1,0 +1,230 @@
+{
+  "about.title": {
+    "fr": "À propos d'AfricTivistes",
+    "en": "About AfricTivistes"
+  },
+  "about.subtitle": {
+    "fr": "La Ligue des Blogueurs et Cyber-activistes pour la Démocratie en Afrique, fondée en 2015 à Dakar, rassemble des acteurs du changement à travers le continent.",
+    "en": "The League of Bloggers and Cyber-activists for Democracy in Africa, founded in 2015 in Dakar, brings together change agents across the continent."
+  },
+  "about.missionTitle": {
+    "fr": "Notre mission",
+    "en": "Our mission"
+  },
+  "about.missionSubtitle1": {
+    "fr": "Le numérique au service de la ",
+    "en": "Digital technology in service of "
+  },
+  "about.missionHighlight": {
+    "fr": "démocratie africaine",
+    "en": "African democracy"
+  },
+  "about.mission1": {
+    "fr": "AfricTivistes est une organisation panafricaine de la société civile qui utilise le numérique et les nouvelles technologies pour renforcer la démocratie, promouvoir la bonne gouvernance et favoriser le développement durable en Afrique.",
+    "en": "AfricTivistes is a pan-African civil society organization that uses digital tools and new technologies to strengthen democracy, promote good governance and foster sustainable development in Africa."
+  },
+  "about.mission2": {
+    "fr": "Nous croyons fermement que la technologie peut être un puissant levier de transformation sociale lorsqu'elle est mise au service des citoyens et de l'intérêt général.",
+    "en": "We firmly believe that technology can be a powerful lever for social transformation when it serves citizens and the public interest."
+  },
+  "about.approachTitle": {
+    "fr": "Notre approche",
+    "en": "Our approach"
+  },
+  "about.approachSubtitle": {
+    "fr": "Comment nous agissons",
+    "en": "How we take action"
+  },
+  "about.approach1Title": {
+    "fr": "Former",
+    "en": "Train"
+  },
+  "about.approach1Desc": {
+    "fr": "Renforcer les capacités des acteurs du changement à travers des formations en ligne et en présentiel.",
+    "en": "Build the capacities of change agents through online and in-person training."
+  },
+  "about.approach2Title": {
+    "fr": "Connecter",
+    "en": "Connect"
+  },
+  "about.approach2Desc": {
+    "fr": "Créer des réseaux panafricains de blogueurs, activistes et citoyens engagés.",
+    "en": "Create pan-African networks of bloggers, activists and engaged citizens."
+  },
+  "about.approach3Title": {
+    "fr": "Outiller",
+    "en": "Equip"
+  },
+  "about.approach3Desc": {
+    "fr": "Développer des plateformes et outils technologiques au service de la démocratie.",
+    "en": "Develop platforms and technological tools in service of democracy."
+  },
+  "about.approach4Title": {
+    "fr": "Mobiliser",
+    "en": "Mobilize"
+  },
+  "about.approach4Desc": {
+    "fr": "Engager les communautés dans la surveillance citoyenne et la redevabilité.",
+    "en": "Engage communities in citizen monitoring and accountability."
+  },
+  "about.valuesTitle": {
+    "fr": "Nos valeurs",
+    "en": "Our values"
+  },
+  "about.valuesSubtitle": {
+    "fr": "Ce qui nous guide",
+    "en": "What guides us"
+  },
+  "about.yearsBadge": {
+    "fr": "Années d'engagement",
+    "en": "Years of engagement"
+  },
+  "about.val1Title": {
+    "fr": "Engagement civique",
+    "en": "Civic engagement"
+  },
+  "about.val1Desc": {
+    "fr": "Mobiliser les citoyens pour une participation active à la vie démocratique.",
+    "en": "Mobilizing citizens for active participation in democratic life."
+  },
+  "about.val2Title": {
+    "fr": "Solidarité panafricaine",
+    "en": "Pan-African solidarity"
+  },
+  "about.val2Desc": {
+    "fr": "Unir les forces du continent pour défendre les droits numériques.",
+    "en": "Uniting the continent's forces to defend digital rights."
+  },
+  "about.val3Title": {
+    "fr": "Inclusion numérique",
+    "en": "Digital inclusion"
+  },
+  "about.val3Desc": {
+    "fr": "Garantir l'accès et la participation de tous aux outils numériques.",
+    "en": "Ensuring access and participation for all in digital tools."
+  },
+  "about.val4Title": {
+    "fr": "Transparence",
+    "en": "Transparency"
+  },
+  "about.val4Desc": {
+    "fr": "Promouvoir la gouvernance ouverte et la redevabilité des institutions.",
+    "en": "Promoting open governance and institutional accountability."
+  },
+  "about.ctaTitle": {
+    "fr": "Rejoignez l'organisation",
+    "en": "Join the organization"
+  },
+  "about.ctaDesc": {
+    "fr": "Ensemble, construisons une Afrique numérique, démocratique et inclusive. Rejoignez notre réseau de plus de 400 membres actifs dans 45 pays.",
+    "en": "Together, let's build a digital, democratic and inclusive Africa. Join our network of over 400 active members in 45 countries."
+  },
+  "about.ctaBtn": {
+    "fr": "Nous contacter",
+    "en": "Contact us"
+  },
+  "about.impactLabel": {
+    "fr": "Notre impact",
+    "en": "Our impact"
+  },
+  "about.impactTitle": {
+    "fr": "AfricTivistes en chiffres",
+    "en": "AfricTivistes in numbers"
+  },
+  "about.yearsExistence": {
+    "fr": "ans d'existence",
+    "en": "years of existence"
+  },
+  "about.stat.benefPresential": {
+    "fr": "Bénéficiaires en présentiel des formations",
+    "en": "In-person training beneficiaries"
+  },
+  "about.stat.activists": {
+    "fr": "Activistes pro-démocratie et journalistes en danger appuyés",
+    "en": "Pro-democracy activists and journalists at risk supported"
+  },
+  "about.stat.elections": {
+    "fr": "Élections présidentielles appuyées",
+    "en": "Presidential elections supported"
+  },
+  "about.stat.communities": {
+    "fr": "Communautés créées",
+    "en": "Communities created"
+  },
+  "about.stat.benefOnline": {
+    "fr": "Bénéficiaires en ligne des formations",
+    "en": "Online training beneficiaries"
+  },
+  "about.stat.participants": {
+    "fr": "Participants à nos activités",
+    "en": "Participants in our activities"
+  },
+  "about.stat.youth": {
+    "fr": "Jeunes appuyés",
+    "en": "Young people supported"
+  },
+  "about.stat.civicTech": {
+    "fr": "Initiatives civic tech appuyées",
+    "en": "Civic tech initiatives supported"
+  },
+  "about.stat.awards": {
+    "fr": "Distinctions décernées",
+    "en": "Awards received"
+  },
+  "about.stat.grants": {
+    "fr": "Subventions aux jeunes",
+    "en": "Grants to young people"
+  },
+  "about.stat.technical": {
+    "fr": "Appuis techniques",
+    "en": "Technical support"
+  },
+  "about.stat.research": {
+    "fr": "Recherches et analyses",
+    "en": "Research and analyses"
+  },
+  "about.stat.elearning": {
+    "fr": "Plateformes e-learning",
+    "en": "E-learning platforms"
+  },
+  "about.countries": {
+    "fr": "Pays couverts",
+    "en": "Countries covered"
+  },
+  "about.activeMembers": {
+    "fr": "Membres actifs",
+    "en": "Active members"
+  },
+  "about.yearsLabel": {
+    "fr": "Années d'engagement",
+    "en": "Years of engagement"
+  },
+  "about.yearsSuffix": {
+    "fr": "ans",
+    "en": "yrs"
+  },
+  "about.communities": {
+    "fr": "Communautés propulsées",
+    "en": "Communities empowered"
+  },
+  "about.milestone2015": {
+    "fr": "Création d'AfricTivistes à Dakar, Sénégal",
+    "en": "Creation of AfricTivistes in Dakar, Senegal"
+  },
+  "about.milestone2017": {
+    "fr": "Lancement du premier Sommet AfricTivistes",
+    "en": "Launch of the first AfricTivistes Summit"
+  },
+  "about.milestone2019": {
+    "fr": "Déploiement des programmes Civic Tech dans 15 pays",
+    "en": "Deployment of Civic Tech programmes in 15 countries"
+  },
+  "about.milestone2021": {
+    "fr": "Lancement de la plateforme MOOC avec 2000+ apprenants",
+    "en": "Launch of the MOOC platform with 2000+ learners"
+  },
+  "about.milestone2023": {
+    "fr": "Expansion à 45 pays et 400+ membres actifs",
+    "en": "Expansion to 45 countries and 400+ active members"
+  }
+}

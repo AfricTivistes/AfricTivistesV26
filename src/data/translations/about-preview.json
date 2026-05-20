@@ -1,0 +1,66 @@
+{
+  "aboutPreview.label": {
+    "fr": "Qui sommes-nous",
+    "en": "Who we are"
+  },
+  "aboutPreview.title1": {
+    "fr": "La Ligue panafricaine pour la ",
+    "en": "The pan-African League for "
+  },
+  "aboutPreview.highlight": {
+    "fr": "citoyenneté numérique",
+    "en": "digital citizenship"
+  },
+  "aboutPreview.desc1": {
+    "fr": "Fondée en 2015 à Dakar, AfricTivistes est une organisation panafricaine de la société civile qui rassemble des blogueurs, des cyber-activistes et des acteurs du changement à travers 45 pays africains.",
+    "en": "Founded in 2015 in Dakar, AfricTivistes is a pan-African civil society organization that brings together bloggers, cyber-activists and change agents across 45 African countries."
+  },
+  "aboutPreview.desc2": {
+    "fr": "Notre mission : utiliser le numérique et les nouvelles technologies pour renforcer la démocratie, promouvoir la bonne gouvernance et favoriser le développement durable sur le continent.",
+    "en": "Our mission: to use digital tools and new technologies to strengthen democracy, promote good governance and foster sustainable development across the continent."
+  },
+  "aboutPreview.cta": {
+    "fr": "En savoir plus",
+    "en": "Learn more"
+  },
+  "aboutPreview.pillar1Title": {
+    "fr": "Former",
+    "en": "Train"
+  },
+  "aboutPreview.pillar1Desc": {
+    "fr": "Renforcer les capacités des acteurs du changement à travers des formations en ligne et en présentiel.",
+    "en": "Building the capacities of change agents through online and in-person training."
+  },
+  "aboutPreview.pillar2Title": {
+    "fr": "Connecter",
+    "en": "Connect"
+  },
+  "aboutPreview.pillar2Desc": {
+    "fr": "Créer des réseaux panafricains de blogueurs, activistes et citoyens engagés.",
+    "en": "Creating pan-African networks of bloggers, activists and engaged citizens."
+  },
+  "aboutPreview.pillar3Title": {
+    "fr": "Outiller",
+    "en": "Equip"
+  },
+  "aboutPreview.pillar3Desc": {
+    "fr": "Développer des plateformes et outils technologiques au service de la démocratie.",
+    "en": "Developing platforms and technological tools in service of democracy."
+  },
+  "aboutPreview.pillar4Title": {
+    "fr": "Mobiliser",
+    "en": "Mobilize"
+  },
+  "aboutPreview.pillar4Desc": {
+    "fr": "Engager les communautés dans la surveillance citoyenne et la redevabilité.",
+    "en": "Engaging communities in citizen monitoring and accountability."
+  },
+  "aboutPreview.pillarsLabel": {
+    "fr": "Notre approche",
+    "en": "Our approach"
+  },
+  "aboutPreview.ctaLabel": {
+    "fr": "En savoir plus sur AfricTivistes",
+    "en": "Learn more about AfricTivistes"
+  }
+}
