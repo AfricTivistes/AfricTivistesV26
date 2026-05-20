@@ -25,6 +25,7 @@ const ogImage = post ? getOgImageUrl(post) ?? undefined : undefined;
   title={ogTitle}
   description={ogDescription}
   ogImage={ogImage}
+  ogType="article"
 >
   <script is:inline define:vars={{ slug, preload }}>
     window.__ASTRO_PARAMS__ = { slug };

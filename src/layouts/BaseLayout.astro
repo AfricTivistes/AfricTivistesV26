@@ -19,6 +19,8 @@ interface Props {
   canonical?: string;
   /** OG image URL (defaults to preloadImage if it's a JPG/WebP/PNG, else fallback). */
   ogImage?: string;
+  /** Override og:type (defaults to "website", use "article" for blog posts). */
+  ogType?: "website" | "article";
   /** Defer GTM (ms) — only used if a GTM_ID is configured. */
   deferGtmMs?: number;
 }
@@ -32,6 +34,7 @@ const {
   preloadImageType,
   canonical,
   ogImage,
+  ogType = "website",
   deferGtmMs = 2000,
 } = Astro.props;
 
@@ -60,6 +63,10 @@ function pickOgImage(): string {
 }
 const ogImageUrl = pickOgImage();
 const isDefaultOg = ogImageUrl === "/og-default.jpg";
+
+// Ensure OG image is always an absolute URL (required by social platforms)
+const siteOrigin = (Astro.site ?? Astro.url).origin;
+const ogImageAbsolute = ogImageUrl.startsWith("http") ? ogImageUrl : `${siteOrigin}${ogImageUrl}`;
 ---
 
 <!doctype html>
@@ -113,19 +120,19 @@ const isDefaultOg = ogImageUrl === "/og-default.jpg";
     {/* Open Graph */}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image" content={ogImageAbsolute} />
     {isDefaultOg && <meta property="og:image:width" content="1200" />}
     {isDefaultOg && <meta property="og:image:height" content="630" />}
-    <meta property="og:image:alt" content="AfricTivistes" />
+    <meta property="og:image:alt" content={title} />
     <meta property="og:locale" content={lang === "fr" ? "fr_FR" : "en_US"} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@AfricTivistes" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image" content={ogImageAbsolute} />
 
     {/* hreflang alternates */}
     <link rel="alternate" hreflang="fr" href={new URL(Astro.url.pathname.replace(/^\/(en|fr)\//, "/fr/"), Astro.site ?? Astro.url).href} />
