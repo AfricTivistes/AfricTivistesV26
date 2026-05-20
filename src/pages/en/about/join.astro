@@ -34,18 +34,6 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/I
       </div>
 
       <div class="max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.1s;">
-        <!-- Success message -->
-        <div id="join-success" class="hidden bg-accent/10 border border-accent/20 rounded-2xl p-10 text-center">
-          <div class="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-5">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-          </div>
-          <p class="text-xl font-bold text-foreground mb-2">{t("join.thanks", lang)}</p>
-          <p class="text-muted-foreground leading-relaxed">{t("join.thanksDesc", lang)}</p>
-        </div>
-
-        <!-- Error message -->
-        <div id="join-error" class="hidden text-sm text-destructive text-center mb-4"></div>
-
         <form id="join-form" name="join" method="POST" action="/forms.html" data-netlify="true" netlify-honeypot="bot-field" class="bg-card rounded-2xl border border-border p-8 lg:p-10 shadow-sm space-y-6">
           <input type="hidden" name="form-name" value="join" />
           <input type="hidden" name="member-type" id="join-member-type" value="person" />
@@ -107,7 +95,7 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/I
           </div>
 
           <!-- Submit -->
-          <button type="submit" id="join-submit" class="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50">
+          <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
             {t("join.submit", lang)}
           </button>
@@ -166,37 +154,5 @@ const heroImage = "https://update.africtivistes.org/wp-content/uploads/2023/11/I
         orgname.required = true;
       }
     });
-  });
-
-  // Form submission
-  const form = document.getElementById("join-form") as HTMLFormElement;
-  const success = document.getElementById("join-success")!;
-  const error = document.getElementById("join-error")!;
-  const submitBtn = document.getElementById("join-submit") as HTMLButtonElement;
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    error.classList.add("hidden");
-    const formData = new FormData(form);
-    try {
-      const res = await fetch(form.action || window.location.pathname, {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString(),
-      });
-      if (res.ok) {
-        form.classList.add("hidden");
-        success.classList.remove("hidden");
-      } else {
-        error.textContent = "An error occurred. Please try again.";
-        error.classList.remove("hidden");
-        submitBtn.disabled = false;
-      }
-    } catch {
-      error.textContent = "An error occurred. Please try again.";
-      error.classList.remove("hidden");
-      submitBtn.disabled = false;
-    }
   });
 </script>
