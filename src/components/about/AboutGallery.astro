@@ -1,11 +1,13 @@
 ---
 import Reveal from "@/components/astro/Reveal.astro";
+import { extractImages } from "@/lib/i18n";
 import aboutData from "@/data/translations/about.json";
 
+const imgs = extractImages(aboutData);
 const galleryImages = [
-  { src: aboutData._img_galleryImage1, alt: "Formation AfricTivistes" },
-  { src: aboutData._img_galleryImage2, alt: "Afrique" },
-  { src: aboutData._img_galleryImage3, alt: "Innovation numérique" },
+  { src: imgs._img_galleryImage1, alt: "Formation AfricTivistes" },
+  { src: imgs._img_galleryImage2, alt: "Afrique" },
+  { src: imgs._img_galleryImage3, alt: "Innovation numérique" },
 ];
 ---
 <section class="py-12 lg:py-16">

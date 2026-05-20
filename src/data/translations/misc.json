@@ -1,14 +1,17 @@
 {
-  "page.comingSoon": {
-    "fr": "Bientôt disponible",
-    "en": "Coming soon"
-  },
-  "page.comingSoonDesc": {
-    "fr": "Cette page est en cours de construction. Revenez bientôt pour découvrir son contenu.",
-    "en": "This page is under construction. Come back soon to discover its content."
-  },
-  "page.backHome": {
-    "fr": "Retour à l'accueil",
-    "en": "Back to home"
+  "_grp_pages_diverses": {
+    "_label": "Pages diverses",
+    "page.comingSoon": {
+      "fr": "Bientôt disponible",
+      "en": "Coming soon"
+    },
+    "page.comingSoonDesc": {
+      "fr": "Cette page est en cours de construction. Revenez bientôt pour découvrir son contenu.",
+      "en": "This page is under construction. Come back soon to discover its content."
+    },
+    "page.backHome": {
+      "fr": "Retour à l'accueil",
+      "en": "Back to home"
+    }
   }
 }

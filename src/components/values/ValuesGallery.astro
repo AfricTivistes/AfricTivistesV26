@@ -1,12 +1,14 @@
 ---
 import Reveal from "@/components/astro/Reveal.astro";
+import { extractImages } from "@/lib/i18n";
 import valuesData from "@/data/translations/values.json";
 
+const imgs = extractImages(valuesData);
 const galleryItems = [
-  { src: valuesData._img_galleryImage1, span: "md:col-span-2 md:row-span-2" },
-  { src: valuesData._img_galleryImage2, span: "" },
-  { src: valuesData._img_galleryImage3, span: "" },
-  { src: valuesData._img_galleryImage4, span: "md:col-span-2" },
+  { src: imgs._img_galleryImage1, span: "md:col-span-2 md:row-span-2" },
+  { src: imgs._img_galleryImage2, span: "" },
+  { src: imgs._img_galleryImage3, span: "" },
+  { src: imgs._img_galleryImage4, span: "md:col-span-2" },
 ];
 ---
 <section class="py-12 lg:py-16">

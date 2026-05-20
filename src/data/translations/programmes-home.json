@@ -1,22 +1,25 @@
 {
-  "programmes.title": {
-    "fr": "Nos projets",
-    "en": "Our projects"
-  },
-  "programmes.all": {
-    "fr": "Tous",
-    "en": "All"
-  },
-  "programmes.viewAll": {
-    "fr": "Voir tous les projets",
-    "en": "View all projects"
-  },
-  "programmes.none": {
-    "fr": "Aucun projet dans cette catégorie.",
-    "en": "No projects in this category."
-  },
-  "programmes.subtitle": {
-    "fr": "Axes d'interventions et initiatives pour une Afrique numérique, démocratique et inclusive.",
-    "en": "Areas of intervention and initiatives for a digital, democratic and inclusive Africa."
+  "_grp_programmes_accueil": {
+    "_label": "Programmes accueil",
+    "programmes.title": {
+      "fr": "Nos projets",
+      "en": "Our projects"
+    },
+    "programmes.all": {
+      "fr": "Tous",
+      "en": "All"
+    },
+    "programmes.viewAll": {
+      "fr": "Voir tous les projets",
+      "en": "View all projects"
+    },
+    "programmes.none": {
+      "fr": "Aucun projet dans cette catégorie.",
+      "en": "No projects in this category."
+    },
+    "programmes.subtitle": {
+      "fr": "Axes d'interventions et initiatives pour une Afrique numérique, démocratique et inclusive.",
+      "en": "Areas of intervention and initiatives for a digital, democratic and inclusive Africa."
+    }
   }
 }

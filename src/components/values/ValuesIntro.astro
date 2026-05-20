@@ -1,12 +1,13 @@
 ---
 import TwoColumnTextImage from "@/components/TwoColumnTextImage.astro";
-import { t, type Lang } from "@/lib/i18n";
+import { t, extractImages, type Lang } from "@/lib/i18n";
 import valuesData from "@/data/translations/values.json";
 
 interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
+const imgs = extractImages(valuesData);
 ---
 <TwoColumnTextImage
   lang={lang}
@@ -14,7 +15,7 @@ const { lang } = Astro.props;
   titleKey="values.introTitle1"
   highlightKey="values.introHighlight"
   descriptions={["values.introDesc1", "values.introDesc2"]}
-  imageUrl={valuesData._img_introImage}
+  imageUrl={imgs._img_introImage}
   imageAlt="AfricTivistes - Nos valeurs en action"
 >
   <div

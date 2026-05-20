@@ -1,34 +1,37 @@
 {
-  "footer.desc": {
-    "fr": "Les Civic Tech au service des démocraties africaines.",
-    "en": "Civic tech organisations supporting African democracies."
-  },
-  "footer.newsletter": {
-    "fr": "Newsletter",
-    "en": "Newsletter"
-  },
-  "footer.receiveNewsletter": {
-    "fr": "Restons connectés",
-    "en": "Let's stay in touch"
-  },
-  "footer.navigation": {
-    "fr": "Navigation",
-    "en": "Navigation"
-  },
-  "footer.contact": {
-    "fr": "Contact",
-    "en": "Contact"
-  },
-  "footer.equivalency": {
-    "fr": "Equivalency Determination",
-    "en": "Equivalency Determination"
-  },
-  "footer.rights": {
-    "fr": "Tous droits réservés.",
-    "en": "All rights reserved."
-  },
-  "footer.tagline": {
-    "fr": "Ligue panafricaine pour la citoyenneté numérique",
-    "en": "Pan-African league for digital citizenship"
+  "_grp_pied_de_page": {
+    "_label": "Pied de page",
+    "footer.desc": {
+      "fr": "Les Civic Tech au service des démocraties africaines.",
+      "en": "Civic tech organisations supporting African democracies."
+    },
+    "footer.newsletter": {
+      "fr": "Newsletter",
+      "en": "Newsletter"
+    },
+    "footer.receiveNewsletter": {
+      "fr": "Restons connectés",
+      "en": "Let's stay in touch"
+    },
+    "footer.navigation": {
+      "fr": "Navigation",
+      "en": "Navigation"
+    },
+    "footer.contact": {
+      "fr": "Contact",
+      "en": "Contact"
+    },
+    "footer.equivalency": {
+      "fr": "Equivalency Determination",
+      "en": "Equivalency Determination"
+    },
+    "footer.rights": {
+      "fr": "Tous droits réservés.",
+      "en": "All rights reserved."
+    },
+    "footer.tagline": {
+      "fr": "Ligue panafricaine pour la citoyenneté numérique",
+      "en": "Pan-African league for digital citizenship"
+    }
   }
 }

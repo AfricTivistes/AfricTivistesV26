@@ -1,102 +1,111 @@
 {
-  "media.heroDesc": {
-    "fr": "Découvrez nos dernières vidéos, reportages et contenus multimédias sur la démocratie numérique en Afrique.",
-    "en": "Discover our latest videos, reports and multimedia content on digital democracy in Africa."
+  "_grp_publications": {
+    "_label": "Publications",
+    "publications.title": {
+      "fr": "Nos dernières publications",
+      "en": "Our latest publications"
+    },
+    "publications.viewAll": {
+      "fr": "Voir toutes les publications",
+      "en": "View all publications"
+    },
+    "resources.publications.heroDesc": {
+      "fr": "Rapports, études et documents produits par AfricTivistes pour documenter et renforcer l'engagement civique en Afrique.",
+      "en": "Reports, studies and documents produced by AfricTivistes to document and strengthen civic engagement in Africa."
+    },
+    "resources.publications.allTitle": {
+      "fr": "Toutes les publications",
+      "en": "All publications"
+    },
+    "resources.publications.empty": {
+      "fr": "Aucune publication disponible pour le moment.",
+      "en": "No publications available at the moment."
+    },
+    "resources.publications.count": {
+      "fr": "publications disponibles",
+      "en": "publications available"
+    }
   },
-  "media.featured": {
-    "fr": "À la une",
-    "en": "Featured"
+  "_grp_boites_a_outils": {
+    "_label": "Boîtes à outils",
+    "resources.toolkits.heroDesc": {
+      "fr": "Guides pratiques et boîtes à outils pour accompagner les acteurs du changement dans leurs actions civiques.",
+      "en": "Practical guides and toolkits to support changemakers in their civic actions."
+    },
+    "resources.toolkits.allTitle": {
+      "fr": "Toutes les boîtes à outils",
+      "en": "All toolkits"
+    },
+    "resources.toolkits.empty": {
+      "fr": "Aucune boîte à outils disponible pour le moment.",
+      "en": "No toolkits available at the moment."
+    },
+    "resources.toolkits.count": {
+      "fr": "boîtes à outils disponibles",
+      "en": "toolkits available"
+    }
   },
-  "media.allVideos": {
-    "fr": "Toutes les vidéos",
-    "en": "All videos"
-  },
-  "media.all": {
-    "fr": "Tout",
-    "en": "All"
-  },
-  "media.watchOnYt": {
-    "fr": "Voir sur YouTube",
-    "en": "Watch on YouTube"
-  },
-  "media.play": {
-    "fr": "Lire la vidéo",
-    "en": "Play video"
-  },
-  "media.noVideos": {
-    "fr": "Aucune vidéo disponible pour le moment.",
-    "en": "No videos available at the moment."
-  },
-  "videos.title": {
-    "fr": "Nos vidéos",
-    "en": "Our videos"
-  },
-  "videos.subtitle": {
-    "fr": "Retrouvez nos dernières productions vidéo : analyses, reportages et événements.",
-    "en": "Watch our latest video productions: analyses, reports and events."
-  },
-  "videos.play": {
-    "fr": "Lire la vidéo",
-    "en": "Play video"
-  },
-  "videos.viewAll": {
-    "fr": "Voir toute la playlist",
-    "en": "View full playlist"
-  },
-  "videos.watchOnYt": {
-    "fr": "Voir sur YouTube",
-    "en": "Watch on YouTube"
-  },
-  "videos.noVideos": {
-    "fr": "Aucune vidéo disponible pour le moment.",
-    "en": "No videos available at the moment."
-  },
-  "videos.allPlaylists": {
-    "fr": "Toutes",
-    "en": "All"
-  },
-  "videos.filterLabel": {
-    "fr": "Filtrer par playlist",
-    "en": "Filter by playlist"
-  },
-  "publications.title": {
-    "fr": "Nos dernières publications",
-    "en": "Our latest publications"
-  },
-  "publications.viewAll": {
-    "fr": "Voir toutes les publications",
-    "en": "View all publications"
-  },
-  "resources.publications.heroDesc": {
-    "fr": "Rapports, études et documents produits par AfricTivistes pour documenter et renforcer l'engagement civique en Afrique.",
-    "en": "Reports, studies and documents produced by AfricTivistes to document and strengthen civic engagement in Africa."
-  },
-  "resources.publications.allTitle": {
-    "fr": "Toutes les publications",
-    "en": "All publications"
-  },
-  "resources.publications.empty": {
-    "fr": "Aucune publication disponible pour le moment.",
-    "en": "No publications available at the moment."
-  },
-  "resources.publications.count": {
-    "fr": "publications disponibles",
-    "en": "publications available"
-  },
-  "resources.toolkits.heroDesc": {
-    "fr": "Guides pratiques et boîtes à outils pour accompagner les acteurs du changement dans leurs actions civiques.",
-    "en": "Practical guides and toolkits to support changemakers in their civic actions."
-  },
-  "resources.toolkits.allTitle": {
-    "fr": "Toutes les boîtes à outils",
-    "en": "All toolkits"
-  },
-  "resources.toolkits.empty": {
-    "fr": "Aucune boîte à outils disponible pour le moment.",
-    "en": "No toolkits available at the moment."
-  },
-  "resources.toolkits.count": {
-    "fr": "boîtes à outils disponibles",
-    "en": "toolkits available"
+  "_grp_videotheque": {
+    "_label": "Vidéothèque",
+    "media.heroDesc": {
+      "fr": "Découvrez nos dernières vidéos, reportages et contenus multimédias sur la démocratie numérique en Afrique.",
+      "en": "Discover our latest videos, reports and multimedia content on digital democracy in Africa."
+    },
+    "media.featured": {
+      "fr": "À la une",
+      "en": "Featured"
+    },
+    "media.allVideos": {
+      "fr": "Toutes les vidéos",
+      "en": "All videos"
+    },
+    "media.all": {
+      "fr": "Tout",
+      "en": "All"
+    },
+    "media.watchOnYt": {
+      "fr": "Voir sur YouTube",
+      "en": "Watch on YouTube"
+    },
+    "media.play": {
+      "fr": "Lire la vidéo",
+      "en": "Play video"
+    },
+    "media.noVideos": {
+      "fr": "Aucune vidéo disponible pour le moment.",
+      "en": "No videos available at the moment."
+    },
+    "videos.title": {
+      "fr": "Nos vidéos",
+      "en": "Our videos"
+    },
+    "videos.subtitle": {
+      "fr": "Retrouvez nos dernières productions vidéo : analyses, reportages et événements.",
+      "en": "Watch our latest video productions: analyses, reports and events."
+    },
+    "videos.play": {
+      "fr": "Lire la vidéo",
+      "en": "Play video"
+    },
+    "videos.viewAll": {
+      "fr": "Voir toute la playlist",
+      "en": "View full playlist"
+    },
+    "videos.watchOnYt": {
+      "fr": "Voir sur YouTube",
+      "en": "Watch on YouTube"
+    },
+    "videos.noVideos": {
+      "fr": "Aucune vidéo disponible pour le moment.",
+      "en": "No videos available at the moment."
+    },
+    "videos.allPlaylists": {
+      "fr": "Toutes",
+      "en": "All"
+    },
+    "videos.filterLabel": {
+      "fr": "Filtrer par playlist",
+      "en": "Filter by playlist"
+    }
   }
 }

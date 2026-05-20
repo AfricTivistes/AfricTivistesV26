@@ -1,22 +1,31 @@
 {
-  "platforms.title": {
-    "fr": "Nos plateformes web",
-    "en": "Our web platforms"
+  "_grp_temoignages": {
+    "_label": "Témoignages",
+    "testimonials.label": {
+      "fr": "Témoignages",
+      "en": "Testimonials"
+    },
+    "testimonials.title": {
+      "fr": "Ce qu'ils disent de nous",
+      "en": "What they say about us"
+    },
+    "testimonials.subtitle": {
+      "fr": "Membres, partenaires et bénéficiaires partagent leur expérience avec AfricTivistes.",
+      "en": "Members, partners and beneficiaries share their experience with AfricTivistes."
+    }
   },
-  "testimonials.label": {
-    "fr": "Témoignages",
-    "en": "Testimonials"
+  "_grp_partenaires": {
+    "_label": "Partenaires",
+    "partners.title": {
+      "fr": "Nos partenaires",
+      "en": "Our partners"
+    }
   },
-  "testimonials.title": {
-    "fr": "Ce qu'ils disent de nous",
-    "en": "What they say about us"
-  },
-  "testimonials.subtitle": {
-    "fr": "Membres, partenaires et bénéficiaires partagent leur expérience avec AfricTivistes.",
-    "en": "Members, partners and beneficiaries share their experience with AfricTivistes."
-  },
-  "partners.title": {
-    "fr": "Nos partenaires",
-    "en": "Our partners"
+  "_grp_plateformes": {
+    "_label": "Plateformes",
+    "platforms.title": {
+      "fr": "Nos plateformes web",
+      "en": "Our web platforms"
+    }
   }
 }

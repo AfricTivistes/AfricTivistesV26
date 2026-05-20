@@ -7,9 +7,11 @@ import ValuesCore from "@/components/values/ValuesCore.astro";
 import ValuesPrinciples from "@/components/values/ValuesPrinciples.astro";
 import ValuesGallery from "@/components/values/ValuesGallery.astro";
 import CtaBanner from "@/components/CtaBanner.astro";
+import { extractImages } from "@/lib/i18n";
 import valuesData from "@/data/translations/values.json";
 const lang = "fr";
-const heroImage = valuesData._img_heroImage;
+const imgs = extractImages(valuesData);
+const heroImage = imgs._img_heroImage;
 ---
 <BaseLayout lang={lang} preloadImage={heroImage}>
   <ValuesHero lang={lang} />

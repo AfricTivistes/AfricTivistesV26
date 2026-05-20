@@ -1,14 +1,15 @@
 ---
 import PageHero from "@/components/PageHero.astro";
-import type { Lang } from "@/lib/i18n";
+import { extractImages, type Lang } from "@/lib/i18n";
 import valuesData from "@/data/translations/values.json";
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
+const imgs = extractImages(valuesData);
 ---
 <PageHero
   lang={lang}
-  backgroundImage={valuesData._img_heroImage}
+  backgroundImage={imgs._img_heroImage}
   labelKey="nav.about.values"
   titleKey="values.title"
   subtitleKey="values.subtitle"

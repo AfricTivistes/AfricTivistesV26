@@ -29,18 +29,42 @@ interface I18nContextType {
 }
 
 // Merge all section files into a single flat lookup
+// JSON structure: { _grp_xxx: { _label, "key": {fr,en}, "_img_xxx": "url" }, ... }
 const sections = [
   navigation, hero, aboutPreview, programmesHome, stats, about, history,
   values, join, contact, initiatives, projet, blog, resources, newsletter,
   testimonials, footer, misc,
-] as Array<Record<string, { fr: string; en: string }>>;
+] as Array<Record<string, unknown>>;
 
 const translations: Record<string, Record<Lang, string>> = {};
 for (const section of sections) {
-  for (const [key, val] of Object.entries(section)) {
-    if (key.startsWith("_img_") || !val || typeof val !== "object" || !("fr" in val)) continue;
-    translations[key] = { fr: val.fr, en: val.en };
+  for (const [groupKey, groupVal] of Object.entries(section)) {
+    if (!groupKey.startsWith("_grp_") || typeof groupVal !== "object" || !groupVal) continue;
+    for (const [key, val] of Object.entries(groupVal as Record<string, unknown>)) {
+      if (key === "_label" || key.startsWith("_img_")) continue;
+      if (val && typeof val === "object" && "fr" in (val as Record<string, string>)) {
+        const t = val as { fr: string; en: string };
+        translations[key] = { fr: t.fr, en: t.en };
+      }
+    }
   }
+}
+
+/**
+ * Extract all _img_* values from a nested section JSON (with _grp_ groups).
+ * Returns a flat object like { _img_heroImage: "/uploads/...", ... }
+ */
+export function extractImages(sectionData: Record<string, unknown>): Record<string, string> {
+  const imgs: Record<string, string> = {};
+  for (const grpVal of Object.values(sectionData)) {
+    if (typeof grpVal !== "object" || !grpVal) continue;
+    for (const [key, val] of Object.entries(grpVal as Record<string, unknown>)) {
+      if (key.startsWith("_img_") && typeof val === "string") {
+        imgs[key] = val;
+      }
+    }
+  }
+  return imgs;
 }
 
 const I18nContext = createContext<I18nContextType | null>(null);

@@ -1,37 +1,49 @@
 {
-  "hero.badge": {
-    "fr": "Démocratie numérique en Afrique",
-    "en": "Digital democracy in Africa"
+  "_grp_images_arriere_plan": {
+    "_label": "Images arrière-plan",
+    "_img_background": "/hero-bg.jpg",
+    "_img_backgroundWebp": "/hero-bg.webp",
+    "_img_backgroundAvif": "/hero-bg.avif"
   },
-  "hero.title1": {
-    "fr": "Construire une ",
-    "en": "Building "
+  "_grp_titre_description": {
+    "_label": "Titre & description",
+    "hero.badge": {
+      "fr": "Démocratie numérique en Afrique",
+      "en": "Digital democracy in Africa"
+    },
+    "hero.title1": {
+      "fr": "Construire une ",
+      "en": "Building "
+    },
+    "hero.highlight": {
+      "fr": "citoyenneté active",
+      "en": "active citizenship"
+    },
+    "hero.title2": {
+      "fr": " à l'ère du numérique",
+      "en": " in the digital age"
+    },
+    "hero.desc": {
+      "fr": "AfricTivistes mobilise les citoyens, les blogueurs et les activistes du web pour renforcer la démocratie, la gouvernance et le développement en Afrique.",
+      "en": "AfricTivistes mobilizes citizens, bloggers and web activists to strengthen democracy, governance and development in Africa."
+    }
   },
-  "hero.highlight": {
-    "fr": "citoyenneté active",
-    "en": "active citizenship"
+  "_grp_boutons": {
+    "_label": "Boutons",
+    "hero.cta1": {
+      "fr": "Découvrir nos initiatives",
+      "en": "Discover our initiatives"
+    },
+    "hero.cta2": {
+      "fr": "Voir les actualités",
+      "en": "View news"
+    }
   },
-  "hero.title2": {
-    "fr": " à l'ère du numérique",
-    "en": " in the digital age"
-  },
-  "hero.desc": {
-    "fr": "AfricTivistes mobilise les citoyens, les blogueurs et les activistes du web pour renforcer la démocratie, la gouvernance et le développement en Afrique.",
-    "en": "AfricTivistes mobilizes citizens, bloggers and web activists to strengthen democracy, governance and development in Africa."
-  },
-  "hero.cta1": {
-    "fr": "Découvrir nos initiatives",
-    "en": "Discover our initiatives"
-  },
-  "hero.cta2": {
-    "fr": "Voir les actualités",
-    "en": "View news"
-  },
-  "ticker.label": {
-    "fr": "A la une",
-    "en": "Headlines"
-  },
-  "_img_background": "/hero-bg.jpg",
-  "_img_backgroundWebp": "/hero-bg.webp",
-  "_img_backgroundAvif": "/hero-bg.avif"
+  "_grp_bandeau_defilant": {
+    "_label": "Bandeau défilant",
+    "ticker.label": {
+      "fr": "A la une",
+      "en": "Headlines"
+    }
+  }
 }

@@ -5,15 +5,17 @@ import PageHero from "@/components/PageHero.astro";
 import TwoColumnTextImage from "@/components/TwoColumnTextImage.astro";
 import HistoryTimeline from "@/components/history/HistoryTimeline.astro";
 import CtaBanner from "@/components/CtaBanner.astro";
+import { extractImages } from "@/lib/i18n";
 import historyData from "@/data/translations/history.json";
 const lang = "fr";
-const heroImage = historyData._img_heroImage;
+const imgs = extractImages(historyData);
+const heroImage = imgs._img_heroImage;
 ---
 <BaseLayout lang={lang} preloadImage={heroImage}>
   
     <PageHero
       lang={lang}
-      backgroundImage={historyData._img_heroImage}
+      backgroundImage={imgs._img_heroImage}
       labelKey="nav.about.history"
       titleKey="history.title"
       subtitleKey="history.subtitle"
@@ -24,7 +26,7 @@ const heroImage = historyData._img_heroImage;
       titleKey="history.originTitle1"
       highlightKey="history.originHighlight"
       descriptions={["history.originDesc1", "history.originDesc2"]}
-      imageUrl={historyData._img_originImage}
+      imageUrl={imgs._img_originImage}
       imageAlt="Fondation d'AfricTivistes"
     />
     <HistoryTimeline lang={lang} />
@@ -33,7 +35,7 @@ const heroImage = historyData._img_heroImage;
       labelKey="history.visionLabel"
       titleKey="history.visionTitle"
       descriptions={["history.visionDesc"]}
-      imageUrl={historyData._img_visionImage}
+      imageUrl={imgs._img_visionImage}
       imageAlt="Vision AfricTivistes"
       imagePosition="left"
       sectionBg="bg-muted/50"
