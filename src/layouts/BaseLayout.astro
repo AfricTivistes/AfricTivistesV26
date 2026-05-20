@@ -169,6 +169,27 @@ const ogImageAbsolute = ogImageUrl.startsWith("http") ? ogImageUrl : `${siteOrig
     )}
   </head>
   <body>
+    <!-- Netlify Forms – hidden forms for build-time detection -->
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+    </form>
+    <form name="join" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="join" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="member-type" />
+      <input type="text" name="firstname" />
+      <input type="text" name="lastname" />
+      <input type="text" name="orgname" />
+      <input type="email" name="email" />
+      <input type="text" name="country" />
+      <textarea name="motivation"></textarea>
+    </form>
+
     <div class="min-h-screen bg-background">
       <a href="#main-content" class="skip-to-content">
         {lang === "fr" ? "Aller au contenu principal" : "Skip to main content"}
