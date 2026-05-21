@@ -9,7 +9,7 @@
       "fr": "Rejoignez une communauté dynamique de citoyens engagés qui oeuvrent pour un changement positif en Afrique.",
       "en": "Join a dynamic community of engaged citizens working for positive change in Africa."
     },
-    "_img_heroImage": "https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg"
+    "_img_heroImage": "https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/558121385_1214113167408039_4230011709329516097_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHsO3db1huJ2xn6bGOR4DDMrAhXy86qnQasCFfLzqqdBj3v4G2kdBMmyuIxH9gtZQ2wRf572qEaJ4-VL9pjfHK1&_nc_ohc=29dmMAM5AI8Q7kNvwFiSVya&_nc_oc=AdrdKtz0jtkLfczzloMm9n4xreaRZ3h6PQrsJV5R4E1y2rqI2CFlf8W6NbWmsriJWLjB0sWLBEIO_nUvPZ10DcSO&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=N_CnouQ437wIGKhbPQuH3Q&_nc_ss=7b2a8&oh=00_Af7ujpdf_uedOtg-67GNRpvENrzZVgqXanaxWraxfnlxnQ&oe=6A1536B3"
   },
   "_grp_communaute": {
     "_label": "Communauté",
@@ -32,7 +32,26 @@
     "_img_communityImage": "https://update.africtivistes.org/wp-content/uploads/2024/01/Untitled.png"
   },
   "_grp_avantages": {
-    "_label": "Avantages",
+    "join.reason5Title": {
+      "fr": "Impact Concret",
+      "en": "Concrete Impact"
+    },
+    "join.reason4Title": {
+      "fr": "Participation aux Projets",
+      "en": "Project Participation"
+    },
+    "join.reason3Title": {
+      "fr": "Réseau Panafricain",
+      "en": "Pan-African Network"
+    },
+    "join.reason2Title": {
+      "fr": "Apprentissage et Croissance",
+      "en": "Learning and Growth"
+    },
+    "join.reason1Title": {
+      "fr": "Faire une Différence",
+      "en": "Make a Difference"
+    },
     "join.whyLabel": {
       "fr": "Vos avantages",
       "en": "Your benefits"
@@ -41,41 +60,22 @@
       "fr": "Pourquoi nous rejoindre ?",
       "en": "Why join us?"
     },
-    "join.reason1Title": {
-      "fr": "Faire une Différence",
-      "en": "Make a Difference"
-    },
+    "_label": "Avantages",
     "join.reason1Desc": {
       "fr": "En tant que membre d'AfricTivistes, vous serez au coeur de l'action pour un continent africain meilleur. Votre voix et votre engagement comptent.",
       "en": "As a member of AfricTivistes, you will be at the heart of the action for a better African continent. Your voice and your commitment matter."
-    },
-    "join.reason2Title": {
-      "fr": "Apprentissage et Croissance",
-      "en": "Learning and Growth"
     },
     "join.reason2Desc": {
       "fr": "Accédez à notre plateforme de formation en ligne, explorez nos ressources éducatives et développez vos compétences en matière de citoyenneté active.",
       "en": "Access our online training platform, explore our educational resources and develop your skills in active citizenship."
     },
-    "join.reason3Title": {
-      "fr": "Réseau Panafricain",
-      "en": "Pan-African Network"
-    },
     "join.reason3Desc": {
       "fr": "Connectez-vous avec d'autres citoyens engagés, des activistes, des journalistes et des professionnels du changement social dans toute l'Afrique.",
       "en": "Connect with other engaged citizens, activists, journalists and social change professionals across Africa."
     },
-    "join.reason4Title": {
-      "fr": "Participation aux Projets",
-      "en": "Project Participation"
-    },
     "join.reason4Desc": {
       "fr": "Contribuez à nos projets et initiatives, de la lutte contre les fake news à la promotion de la cybersécurité et au-delà.",
       "en": "Contribute to our projects and initiatives, from fighting fake news to promoting cybersecurity and beyond."
-    },
-    "join.reason5Title": {
-      "fr": "Impact Concret",
-      "en": "Concrete Impact"
     },
     "join.reason5Desc": {
       "fr": "Voyez vos actions se traduire par un impact concret sur la démocratie, les droits de l'homme et le développement en Afrique.",
@@ -83,7 +83,6 @@
     }
   },
   "_grp_processus_d_adhesion": {
-    "_label": "Processus d'adhésion",
     "join.howLabel": {
       "fr": "Processus",
       "en": "Process"
@@ -92,25 +91,13 @@
       "fr": "Comment Adhérer",
       "en": "How to Join"
     },
-    "join.step1Title": {
-      "fr": "Remplissez le Formulaire",
-      "en": "Fill Out the Form"
-    },
     "join.step1Desc": {
       "fr": "Remplissez notre formulaire d'adhésion ci-dessous avec vos informations et motivations.",
       "en": "Fill out our membership form below with your information and motivations."
     },
-    "join.step2Title": {
-      "fr": "Examen de candidature",
-      "en": "Application Review"
-    },
     "join.step2Desc": {
       "fr": "Votre candidature sera soigneusement examinée par notre équipe, incluant votre profil et vos activités.",
       "en": "Your application will be carefully reviewed by our team, including your profile and activities."
-    },
-    "join.step3Title": {
-      "fr": "Confirmation",
-      "en": "Confirmation"
     },
     "join.step3Desc": {
       "fr": "Une fois votre adhésion approuvée, vous en serez informé(e) par courriel.",
@@ -123,89 +110,102 @@
     "join.step4Desc": {
       "fr": "Engagez-vous activement dans nos projets, partagez vos idées et contribuez à la transformation de l'Afrique.",
       "en": "Get actively involved in our projects, share your ideas and contribute to the transformation of Africa."
+    },
+    "_label": "Processus d'adhésion",
+    "join.step3Title": {
+      "fr": "Confirmation",
+      "en": "Confirmation"
+    },
+    "join.step2Title": {
+      "fr": "Examen de candidature",
+      "en": "Application Review"
+    },
+    "join.step1Title": {
+      "fr": "Remplissez le Formulaire",
+      "en": "Fill Out the Form"
     }
   },
   "_grp_formulaire": {
-    "_label": "Formulaire",
-    "join.formLabel": {
-      "fr": "Formulaire d'adhésion",
-      "en": "Membership form"
-    },
-    "join.formTitle": {
-      "fr": "Rejoignez-nous aujourd'hui",
-      "en": "Join us today"
-    },
-    "join.formDesc": {
-      "fr": "Remplissez ce formulaire pour soumettre votre candidature. Nous reviendrons vers vous dans les plus brefs délais.",
-      "en": "Fill out this form to submit your application. We will get back to you as soon as possible."
-    },
-    "join.typeLabel": {
-      "fr": "Vous êtes",
-      "en": "You are"
-    },
-    "join.typePerson": {
-      "fr": "Une personne",
-      "en": "An individual"
-    },
-    "join.typeOrg": {
-      "fr": "Une organisation",
-      "en": "An organization"
-    },
-    "join.typeMovement": {
-      "fr": "Un mouvement",
-      "en": "A movement"
-    },
-    "join.firstName": {
-      "fr": "Prénom",
-      "en": "First name"
-    },
-    "join.firstNamePlaceholder": {
-      "fr": "Votre prénom",
-      "en": "Your first name"
+    "join.countryPlaceholder": {
+      "fr": "Votre pays de résidence",
+      "en": "Your country of residence"
     },
     "join.lastName": {
       "fr": "Nom",
       "en": "Last name"
     },
-    "join.lastNamePlaceholder": {
-      "fr": "Votre nom",
-      "en": "Your last name"
-    },
-    "join.orgName": {
-      "fr": "Nom de l'organisation",
-      "en": "Organization name"
+    "join.typeOrg": {
+      "fr": "Une organisation",
+      "en": "An organization"
     },
     "join.orgNamePlaceholder": {
       "fr": "Nom de votre organisation ou mouvement",
       "en": "Name of your organization or movement"
     },
-    "join.email": {
-      "fr": "Email",
-      "en": "Email"
+    "join.orgName": {
+      "fr": "Nom de l'organisation",
+      "en": "Organization name"
     },
-    "join.emailPlaceholder": {
-      "fr": "votre@email.com",
-      "en": "your@email.com"
+    "join.formLabel": {
+      "fr": "Formulaire d'adhésion",
+      "en": "Membership form"
+    },
+    "join.typeMovement": {
+      "fr": "Un mouvement",
+      "en": "A movement"
+    },
+    "join.lastNamePlaceholder": {
+      "fr": "Votre nom",
+      "en": "Your last name"
+    },
+    "join.formTitle": {
+      "fr": "Rejoignez-nous aujourd'hui",
+      "en": "Join us today"
     },
     "join.country": {
       "fr": "Pays",
       "en": "Country"
     },
-    "join.countryPlaceholder": {
-      "fr": "Votre pays de résidence",
-      "en": "Your country of residence"
+    "join.typePerson": {
+      "fr": "Une personne",
+      "en": "An individual"
     },
-    "join.motivation": {
-      "fr": "Motivation",
-      "en": "Motivation"
+    "_label": "Formulaire",
+    "join.typeLabel": {
+      "fr": "Vous êtes",
+      "en": "You are"
+    },
+    "join.firstName": {
+      "fr": "Prénom",
+      "en": "First name"
+    },
+    "join.email": {
+      "fr": "Email",
+      "en": "Email"
+    },
+    "join.formDesc": {
+      "fr": "Remplissez ce formulaire pour soumettre votre candidature. Nous reviendrons vers vous dans les plus brefs délais.",
+      "en": "Fill out this form to submit your application. We will get back to you as soon as possible."
     },
     "join.motivationPlaceholder": {
       "fr": "Pourquoi souhaitez-vous rejoindre AfricTivistes ?",
       "en": "Why do you want to join AfricTivistes?"
     },
+    "join.motivation": {
+      "fr": "Motivation",
+      "en": "Motivation"
+    },
+    "join.emailPlaceholder": {
+      "fr": "votre@email.com",
+      "en": "your@email.com"
+    },
     "join.submit": {
       "fr": "Envoyer ma candidature",
       "en": "Submit my application"
+    },
+    "join.firstNamePlaceholder": {
+      "fr": "Votre prénom",
+      "en": "Your first name"
     }
   },
   "_grp_confirmation": {
