@@ -1,50 +1,19 @@
 {
-  "_grp_titre_banniere": {
-    "_label": "Titre & bannière",
-    "values.title": {
-      "fr": "Nos Valeurs",
-      "en": "Our Values"
+  "_grp_citation": {
+    "_label": "Citation",
+    "values.quoteText": {
+      "fr": "Le numérique est le plus puissant levier de transformation sociale que l'Afrique ait jamais connu. Notre responsabilité est de le mettre au service de chaque citoyen.",
+      "en": "Digital technology is the most powerful lever of social transformation Africa has ever known. Our responsibility is to put it at the service of every citizen."
     },
-    "values.subtitle": {
-      "fr": "Les principes fondamentaux qui guident chacune de nos actions et façonnent notre vision d'une Afrique numérique, démocratique et inclusive.",
-      "en": "The core principles that guide each of our actions and shape our vision of a digital, democratic and inclusive Africa."
+    "values.quoteAuthor": {
+      "fr": "Cheikh Fall",
+      "en": "Cheikh Fall"
     },
-    "_img_heroImage": "https://update.africtivistes.org/wp-content/uploads/2025/11/image.jpeg"
-  },
-  "_grp_introduction": {
-    "_label": "Introduction",
-    "values.introLabel": {
-      "fr": "Ce qui nous anime",
-      "en": "What drives us"
+    "values.quoteRole": {
+      "fr": "Fondateur d'AfricTivistes",
+      "en": "Founder of AfricTivistes"
     },
-    "values.introTitle1": {
-      "fr": "Des convictions fortes pour une ",
-      "en": "Strong convictions for a "
-    },
-    "values.introHighlight": {
-      "fr": "Afrique transformée",
-      "en": "transformed Africa"
-    },
-    "values.introDesc1": {
-      "fr": "Chez AfricTivistes, nos valeurs ne sont pas de simples mots. Elles sont le socle de chacune de nos initiatives, le fil conducteur de nos programmes et la boussole de nos engagements. Elles reflètent notre identité panafricaine et notre détermination à utiliser le numérique comme outil d'émancipation citoyenne.",
-      "en": "At AfricTivistes, our values are not mere words. They are the foundation of each of our initiatives, the guiding thread of our programs and the compass of our commitments. They reflect our pan-African identity and our determination to use digital technology as a tool for citizen empowerment."
-    },
-    "values.introDesc2": {
-      "fr": "Chaque valeur porte en elle une promesse : celle de contribuer à bâtir des sociétés africaines où chaque citoyen a les moyens de participer activement à la vie démocratique.",
-      "en": "Each value carries a promise: that of contributing to building African societies where every citizen has the means to actively participate in democratic life."
-    },
-    "_img_introImage": "https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
-  },
-  "_grp_valeurs_fondamentales_en_tete": {
-    "_label": "Valeurs fondamentales (en-tête)",
-    "values.coreLabel": {
-      "fr": "Valeurs fondamentales",
-      "en": "Core values"
-    },
-    "values.coreTitle": {
-      "fr": "Les piliers de notre engagement",
-      "en": "The pillars of our commitment"
-    }
+    "_img_quoteAuthorPhoto": "https://update.africtivistes.org/wp-content/uploads/2021/07/unnamed-1.jpg"
   },
   "_grp_engagement_civique": {
     "_label": "Engagement civique",
@@ -69,27 +38,15 @@
       "en": "Training in democratic participation"
     }
   },
-  "_grp_solidarite_panafricaine": {
-    "_label": "Solidarité panafricaine",
-    "values.solidarity.title": {
-      "fr": "Solidarité panafricaine",
-      "en": "Pan-African solidarity"
+  "_grp_valeurs_fondamentales_en_tete": {
+    "_label": "Valeurs fondamentales (en-tête)",
+    "values.coreLabel": {
+      "fr": "Valeurs fondamentales",
+      "en": "Core values"
     },
-    "values.solidarity.desc": {
-      "fr": "Unir les forces du continent pour défendre les droits numériques et renforcer la coopération entre les acteurs du changement. Notre réseau transcende les frontières pour créer un mouvement collectif puissant.",
-      "en": "Uniting the continent's forces to defend digital rights and strengthen cooperation among change agents. Our network transcends borders to create a powerful collective movement."
-    },
-    "values.solidarity.detail1": {
-      "fr": "Réseau dans 45 pays africains",
-      "en": "Network across 45 African countries"
-    },
-    "values.solidarity.detail2": {
-      "fr": "Échanges inter-communautaires",
-      "en": "Inter-community exchanges"
-    },
-    "values.solidarity.detail3": {
-      "fr": "Entraide entre activistes",
-      "en": "Mutual aid among activists"
+    "values.coreTitle": {
+      "fr": "Les piliers de notre engagement",
+      "en": "The pillars of our commitment"
     }
   },
   "_grp_inclusion_numerique": {
@@ -115,50 +72,85 @@
       "en": "Gender equity in digital"
     }
   },
-  "_grp_transparence": {
-    "_label": "Transparence",
-    "values.transparency.title": {
-      "fr": "Transparence",
-      "en": "Transparency"
+  "_grp_solidarite_panafricaine": {
+    "_label": "Solidarité panafricaine",
+    "values.solidarity.title": {
+      "fr": "Solidarité panafricaine",
+      "en": "Pan-African solidarity"
     },
-    "values.transparency.desc": {
-      "fr": "Promouvoir la gouvernance ouverte et la redevabilité des institutions. Nous exigeons des pouvoirs publics ce que nous nous imposons à nous-mêmes : la transparence totale dans la gestion et la prise de décision.",
-      "en": "Promoting open governance and institutional accountability. We demand from public authorities what we impose on ourselves: total transparency in management and decision-making."
+    "values.solidarity.desc": {
+      "fr": "Unir les forces du continent pour défendre les droits numériques et renforcer la coopération entre les acteurs du changement. Notre réseau transcende les frontières pour créer un mouvement collectif puissant.",
+      "en": "Uniting the continent's forces to defend digital rights and strengthen cooperation among change agents. Our network transcends borders to create a powerful collective movement."
     },
-    "values.transparency.detail1": {
-      "fr": "Données ouvertes et accessibles",
-      "en": "Open and accessible data"
+    "values.solidarity.detail1": {
+      "fr": "Réseau dans 45 pays africains",
+      "en": "Network across 45 African countries"
     },
-    "values.transparency.detail2": {
-      "fr": "Gouvernance participative",
-      "en": "Participatory governance"
+    "values.solidarity.detail2": {
+      "fr": "Échanges inter-communautaires",
+      "en": "Inter-community exchanges"
     },
-    "values.transparency.detail3": {
-      "fr": "Redevabilité institutionnelle",
-      "en": "Institutional accountability"
+    "values.solidarity.detail3": {
+      "fr": "Entraide entre activistes",
+      "en": "Mutual aid among activists"
     }
   },
-  "_grp_innovation_responsable": {
-    "_label": "Innovation responsable",
-    "values.innovation.title": {
-      "fr": "Innovation responsable",
-      "en": "Responsible innovation"
+  "_grp_introduction": {
+    "_label": "Introduction",
+    "values.introLabel": {
+      "fr": "Ce qui nous anime",
+      "en": "What drives us"
     },
-    "values.innovation.desc": {
-      "fr": "Développer des solutions technologiques endogènes qui répondent aux réalités africaines. L'innovation n'a de sens que lorsqu'elle est au service des communautés et du bien commun.",
-      "en": "Developing endogenous technological solutions that address African realities. Innovation only makes sense when it serves communities and the common good."
+    "values.introTitle1": {
+      "fr": "Des convictions fortes pour une ",
+      "en": "Strong convictions for a "
     },
-    "values.innovation.detail1": {
-      "fr": "Solutions civic tech adaptées",
-      "en": "Adapted civic tech solutions"
+    "values.introHighlight": {
+      "fr": "Afrique transformée",
+      "en": "transformed Africa"
     },
-    "values.innovation.detail2": {
-      "fr": "Intelligence artificielle éthique",
-      "en": "Ethical artificial intelligence"
+    "values.introDesc1": {
+      "fr": "Chez AfricTivistes, nos valeurs ne sont pas de simples mots. Elles sont le socle de chacune de nos initiatives, le fil conducteur de nos programmes et la boussole de nos engagements. Elles reflètent notre identité panafricaine et notre détermination à utiliser le numérique comme outil d'émancipation citoyenne.",
+      "en": "At AfricTivistes, our values are not mere words. They are the foundation of each of our initiatives, the guiding thread of our programs and the compass of our commitments. They reflect our pan-African identity and our determination to use digital technology as a tool for citizen empowerment."
     },
-    "values.innovation.detail3": {
-      "fr": "Technologies au service du bien commun",
-      "en": "Technologies serving the common good"
+    "values.introDesc2": {
+      "fr": "Chaque valeur porte en elle une promesse : celle de contribuer à bâtir des sociétés africaines où chaque citoyen a les moyens de participer activement à la vie démocratique.",
+      "en": "Each value carries a promise: that of contributing to building African societies where every citizen has the means to actively participate in democratic life."
+    },
+    "_img_introImage": "https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/585544028_1255837613235594_650585980812554743_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHLQApC4QZPDk-2L8VCw4On3XgjMsrG18_deCMyysbXz6-a5tQHU46Qx-yNddD1O4JakfVoY9lXTfzKQQOtBaID&_nc_ohc=3NDzdoDddbcQ7kNvwEtAq8E&_nc_oc=AdoSLkvhcd5kED5_wtE7xWIsAYAC3Bn6sSeiJN6bsD6eVr4w0VIDJ4hOP41s9mPXP7fpIvDWRQ_Es64YDUhp8KVr&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=RlqzTTwc8CW5wteeIpRaoQ&_nc_ss=7b2a8&oh=00_Af6mZOB1EAgWIgLhrWsHw8RaZBxKn7K1Q6S9ezE0SZZh2A&oe=6A153D51"
+  },
+  "_grp_titre_banniere": {
+    "_label": "Titre & bannière",
+    "values.title": {
+      "fr": "Nos Valeurs",
+      "en": "Our Values"
+    },
+    "values.subtitle": {
+      "fr": "Les principes fondamentaux qui guident chacune de nos actions et façonnent notre vision d'une Afrique numérique, démocratique et inclusive.",
+      "en": "The core principles that guide each of our actions and shape our vision of a digital, democratic and inclusive Africa."
+    },
+    "_img_heroImage": "https://update.africtivistes.org/wp-content/uploads/2025/11/image.jpeg"
+  },
+  "_grp_galerie_images": {
+    "_label": "Galerie images",
+    "_img_galleryImage1": "https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg",
+    "_img_galleryImage2": "https://citizenlabbenin.org/_astro/formation1.bc0f03e8_daRtv.webp",
+    "_img_galleryImage3": "https://update.africtivistes.org/wp-content/uploads/2025/11/image.jpeg",
+    "_img_galleryImage4": "https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
+  },
+  "_grp_appel_a_l_action": {
+    "_label": "Appel à l'action",
+    "values.ctaTitle": {
+      "fr": "Partagez nos valeurs ?",
+      "en": "Share our values?"
+    },
+    "values.ctaDesc": {
+      "fr": "Rejoignez une communauté de plus de 400 acteurs du changement qui agissent chaque jour pour une Afrique numérique, démocratique et inclusive.",
+      "en": "Join a community of over 400 change agents working every day for a digital, democratic and inclusive Africa."
+    },
+    "values.ctaBtn": {
+      "fr": "Rejoindre le mouvement",
+      "en": "Join the movement"
     }
   },
   "_grp_resilience_informationnelle": {
@@ -185,84 +177,92 @@
     }
   },
   "_grp_engagements": {
-    "_label": "Engagements",
     "values.principlesLabel": {
       "fr": "Nos engagements",
       "en": "Our commitments"
-    },
-    "values.principlesTitle": {
-      "fr": "Comment nos valeurs se traduisent en actions",
-      "en": "How our values translate into action"
-    },
-    "values.principle1Title": {
-      "fr": "Indépendance",
-      "en": "Independence"
     },
     "values.principle1Desc": {
       "fr": "AfricTivistes est une organisation indépendante de tout parti politique, gouvernement ou intérêt privé. Cette indépendance garantit la crédibilité et l'impartialité de nos actions.",
       "en": "AfricTivistes is an organization independent of any political party, government or private interest. This independence guarantees the credibility and impartiality of our actions."
     },
-    "values.principle2Title": {
-      "fr": "Impact mesurable",
-      "en": "Measurable impact"
-    },
     "values.principle2Desc": {
       "fr": "Chaque programme est conçu avec des indicateurs clairs et des objectifs mesurables. Nous rendons compte de nos résultats avec rigueur et honnêteté.",
       "en": "Each program is designed with clear indicators and measurable objectives. We report on our results with rigor and honesty."
-    },
-    "values.principle3Title": {
-      "fr": "Approche locale",
-      "en": "Local approach"
-    },
-    "values.principle3Desc": {
-      "fr": "Nos solutions sont co-construites avec les communautés locales. Nous respectons les contextes culturels et politiques de chaque pays d'intervention.",
-      "en": "Our solutions are co-created with local communities. We respect the cultural and political contexts of each country of intervention."
     },
     "values.principle4Title": {
       "fr": "Collaboration ouverte",
       "en": "Open collaboration"
     },
+    "values.principle3Desc": {
+      "fr": "Nos solutions sont co-construites avec les communautés locales. Nous respectons les contextes culturels et politiques de chaque pays d'intervention.",
+      "en": "Our solutions are co-created with local communities. We respect the cultural and political contexts of each country of intervention."
+    },
+    "values.principlesTitle": {
+      "fr": "Comment nos valeurs se traduisent en actions",
+      "en": "How our values translate into action"
+    },
+    "values.principle3Title": {
+      "fr": "Approche locale",
+      "en": "Local approach"
+    },
+    "_label": "Engagements",
     "values.principle4Desc": {
       "fr": "Nous travaillons en partenariat avec les organisations de la société civile, les institutions académiques, les médias et les acteurs technologiques du continent.",
       "en": "We work in partnership with civil society organizations, academic institutions, media and technology stakeholders across the continent."
+    },
+    "values.principle2Title": {
+      "fr": "Impact mesurable",
+      "en": "Measurable impact"
+    },
+    "values.principle1Title": {
+      "fr": "Indépendance",
+      "en": "Independence"
     }
   },
-  "_grp_citation": {
-    "_label": "Citation",
-    "values.quoteText": {
-      "fr": "Le numérique est le plus puissant levier de transformation sociale que l'Afrique ait jamais connu. Notre responsabilité est de le mettre au service de chaque citoyen.",
-      "en": "Digital technology is the most powerful lever of social transformation Africa has ever known. Our responsibility is to put it at the service of every citizen."
+  "_grp_innovation_responsable": {
+    "_label": "Innovation responsable",
+    "values.innovation.title": {
+      "fr": "Innovation responsable",
+      "en": "Responsible innovation"
     },
-    "values.quoteAuthor": {
-      "fr": "Cheikh Fall",
-      "en": "Cheikh Fall"
+    "values.innovation.desc": {
+      "fr": "Développer des solutions technologiques endogènes qui répondent aux réalités africaines. L'innovation n'a de sens que lorsqu'elle est au service des communautés et du bien commun.",
+      "en": "Developing endogenous technological solutions that address African realities. Innovation only makes sense when it serves communities and the common good."
     },
-    "values.quoteRole": {
-      "fr": "Fondateur d'AfricTivistes",
-      "en": "Founder of AfricTivistes"
+    "values.innovation.detail1": {
+      "fr": "Solutions civic tech adaptées",
+      "en": "Adapted civic tech solutions"
     },
-    "_img_quoteAuthorPhoto": "https://update.africtivistes.org/wp-content/uploads/2021/07/unnamed-1.jpg"
-  },
-  "_grp_appel_a_l_action": {
-    "_label": "Appel à l'action",
-    "values.ctaTitle": {
-      "fr": "Partagez nos valeurs ?",
-      "en": "Share our values?"
+    "values.innovation.detail2": {
+      "fr": "Intelligence artificielle éthique",
+      "en": "Ethical artificial intelligence"
     },
-    "values.ctaDesc": {
-      "fr": "Rejoignez une communauté de plus de 400 acteurs du changement qui agissent chaque jour pour une Afrique numérique, démocratique et inclusive.",
-      "en": "Join a community of over 400 change agents working every day for a digital, democratic and inclusive Africa."
-    },
-    "values.ctaBtn": {
-      "fr": "Rejoindre le mouvement",
-      "en": "Join the movement"
+    "values.innovation.detail3": {
+      "fr": "Technologies au service du bien commun",
+      "en": "Technologies serving the common good"
     }
   },
-  "_grp_galerie_images": {
-    "_label": "Galerie images",
-    "_img_galleryImage1": "https://update.africtivistes.org/wp-content/uploads/2023/11/IMG_1642-2-1-scaled.jpg",
-    "_img_galleryImage2": "https://citizenlabbenin.org/_astro/formation1.bc0f03e8_daRtv.webp",
-    "_img_galleryImage3": "https://update.africtivistes.org/wp-content/uploads/2025/11/image.jpeg",
-    "_img_galleryImage4": "https://update.africtivistes.org/wp-content/uploads/2026/02/Ucad-Senegal.jpg"
+  "_grp_transparence": {
+    "_label": "Transparence",
+    "values.transparency.title": {
+      "fr": "Transparence",
+      "en": "Transparency"
+    },
+    "values.transparency.desc": {
+      "fr": "Promouvoir la gouvernance ouverte et la redevabilité des institutions. Nous exigeons des pouvoirs publics ce que nous nous imposons à nous-mêmes : la transparence totale dans la gestion et la prise de décision.",
+      "en": "Promoting open governance and institutional accountability. We demand from public authorities what we impose on ourselves: total transparency in management and decision-making."
+    },
+    "values.transparency.detail1": {
+      "fr": "Données ouvertes et accessibles",
+      "en": "Open and accessible data"
+    },
+    "values.transparency.detail2": {
+      "fr": "Gouvernance participative",
+      "en": "Participatory governance"
+    },
+    "values.transparency.detail3": {
+      "fr": "Redevabilité institutionnelle",
+      "en": "Institutional accountability"
+    }
   }
 }
