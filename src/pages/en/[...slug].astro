@@ -1,0 +1,19 @@
+---
+/**
+ * Catch-all redirect for legacy URLs like /en/post-slug
+ * Checks if the slug matches a WordPress post and redirects to /en/blog/post-slug
+ * Otherwise returns 404.
+ */
+import { fetchPostBySlug } from "@/lib/wordpress";
+
+const { slug } = Astro.params;
+
+if (slug) {
+  const post = await fetchPostBySlug(slug);
+  if (post) {
+    return Astro.redirect(`/en/blog/${slug}`, 301);
+  }
+}
+
+return new Response(null, { status: 404 });
+---
