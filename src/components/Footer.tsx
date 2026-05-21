@@ -112,7 +112,7 @@ const Footer = () => {
                 data-testid="link-ngosource"
               >
                 <img
-                  src="https://africtivistes.com/images/NGOsource-ED.png"
+                  src="/NGOsource-ED.webp"
                   alt="NGOsource Equivalency Determination"
                   className="h-10 w-28 object-contain opacity-80 transition-opacity hover:opacity-100"
                   loading="lazy"
