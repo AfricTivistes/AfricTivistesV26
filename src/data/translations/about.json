@@ -143,11 +143,11 @@
   "_grp_titre_banniere": {
     "_label": "Titre & bannière",
     "about.title": {
-      "fr": "À propos de AfricTivistes",
-      "en": "About AfricTivistes"
+      "fr": "À propos de nous",
+      "en": "About us"
     },
     "about.subtitle": {
-      "fr": "Un réseau panafricain au service de la démocratie et des droits humains en Afrique, fondée en 2015 à Dakar, rassemble des acteurs du changement à travers le continent.",
+      "fr": "Un réseau panafricain au service de la démocratie et des droits humains en Afrique, fondé en 2015 à Dakar, rassemble des acteurs du changement à travers le continent.",
       "en": "A pan-African network dedicated to promoting democracy and human rights in Africa, founded in 2015 in Dakar, brings together change-makers from across the continent."
     },
     "_img_heroImage": "https://mousbayoro.mondoblog.org/files/2017/07/FB_IMG_1500946173072.jpg"
