@@ -6,12 +6,12 @@
       "en": "Who we are"
     },
     "aboutPreview.title1": {
-      "fr": "Les acteurs de changement pour une ",
-      "en": "Change-makers for a "
+      "fr": "Un réseau panafricain au service de ",
+      "en": "A pan-African network dedicated to "
     },
     "aboutPreview.highlight": {
-      "fr": "citoyenneté augmentée en Afrique ",
-      "en": "Enhanced Citizenship in Africa"
+      "fr": "la démocratie et des droits humains",
+      "en": "Democracy and Human Rights"
     },
     "aboutPreview.desc1": {
       "fr": "Fondée en 2015 à Dakar, AfricTivistes est une organisation panafricaine de la société civile qui rassemble des blogueurs, des cyber-activistes et des acteurs du changement à travers 45 pays africains.",
@@ -38,7 +38,18 @@
     }
   },
   "_grp_piliers": {
-    "_label": "Piliers",
+    "aboutPreview.pillar4Title": {
+      "fr": "Mobiliser",
+      "en": "Mobilize"
+    },
+    "aboutPreview.pillar3Title": {
+      "fr": "Outiller",
+      "en": "Equip"
+    },
+    "aboutPreview.pillar2Title": {
+      "fr": "Connecter",
+      "en": "Connect"
+    },
     "aboutPreview.pillar1Title": {
       "fr": "Former",
       "en": "Train"
@@ -47,29 +58,18 @@
       "fr": "Renforcer les capacités des acteurs du changement à travers des formations en ligne et en présentiel.",
       "en": "Building the capacities of change agents through online and in-person training."
     },
-    "aboutPreview.pillar2Title": {
-      "fr": "Connecter",
-      "en": "Connect"
-    },
     "aboutPreview.pillar2Desc": {
       "fr": "Créer des réseaux panafricains de blogueurs, activistes et citoyens engagés.",
       "en": "Creating pan-African networks of bloggers, activists and engaged citizens."
-    },
-    "aboutPreview.pillar3Title": {
-      "fr": "Outiller",
-      "en": "Equip"
     },
     "aboutPreview.pillar3Desc": {
       "fr": "Développer des plateformes et outils technologiques au service de la démocratie.",
       "en": "Developing platforms and technological tools in service of democracy."
     },
-    "aboutPreview.pillar4Title": {
-      "fr": "Mobiliser",
-      "en": "Mobilize"
-    },
     "aboutPreview.pillar4Desc": {
       "fr": "Engager les communautés dans la surveillance citoyenne et la redevabilité.",
       "en": "Engaging communities in citizen monitoring and accountability."
-    }
+    },
+    "_label": "Piliers"
   }
 }
