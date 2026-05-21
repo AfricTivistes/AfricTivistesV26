@@ -1,1 +1,23 @@
 / /fr/ 302
+
+# Ancien site → nouveau site (FR)
+/fr/africtivistes/adherer/       /fr/about/join       301
+/fr/africtivistes/histoire/      /fr/about/history    301
+/fr/africtivistes/valeurs/       /fr/about/values     301
+/fr/nos-publications/            /fr/resources/publications 301
+/fr/actualites                   /fr/blog             301
+/fr/actualites/*                 /fr/blog             301
+/fr/programmes                   /fr/initiatives      301
+/fr/programmes/*                 /fr/initiatives      301
+/fr/boite-a-outil-africtivistes/ /fr/resources/toolkits 301
+
+# Ancien site → nouveau site (EN)
+/en/africtivistes/adherer/       /en/about/join       301
+/en/africtivistes/histoire/      /en/about/history    301
+/en/africtivistes/valeurs/       /en/about/values     301
+/en/nos-publications/            /en/resources/publications 301
+/en/actualites                   /en/blog             301
+/en/actualites/*                 /en/blog             301
+/en/programmes                   /en/initiatives      301
+/en/programmes/*                 /en/initiatives      301
+/en/boite-a-outil-africtivistes/ /en/resources/toolkits 301
