@@ -78,7 +78,12 @@
       // Listen for Netlify Identity events
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on('init', function (user) {
-          initWithUser(user);
+          if (user) {
+            initWithUser(user);
+          } else {
+            // No user logged in — show login modal
+            window.netlifyIdentity.open('login');
+          }
         });
         window.netlifyIdentity.on('login', function (user) {
           initWithUser(user);
