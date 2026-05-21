@@ -14,7 +14,7 @@ interface Testimonial {
   quote: Record<Lang, string>;
 }
 
-const testimonials: Testimonial[] = testimonialsData as Testimonial[];
+const testimonials: Testimonial[] = (testimonialsData as { items: Testimonial[] }).items;
 
 /* Group testimonials in pairs of 2 */
 const ITEMS_PER_SLIDE = 2;

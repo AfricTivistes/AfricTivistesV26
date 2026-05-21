@@ -3107,55 +3107,6 @@ collections:
                 fields:
                   - { label: "Français", name: "fr", widget: text }
                   - { label: "English", name: "en", widget: text }
-      - name: "testimonials"
-        label: "Témoignages & Partenaires (5)"
-        file: "src/data/translations/testimonials.json"
-        fields:
-          - label: "Témoignages (3)"
-            name: "_grp_temoignages"
-            widget: object
-            collapsed: true
-            fields:
-              - label: "label"
-                name: "testimonials.label"
-                widget: object
-                fields:
-                  - { label: "Français", name: "fr", widget: string }
-                  - { label: "English", name: "en", widget: string }
-              - label: "title"
-                name: "testimonials.title"
-                widget: object
-                fields:
-                  - { label: "Français", name: "fr", widget: string }
-                  - { label: "English", name: "en", widget: string }
-              - label: "subtitle"
-                name: "testimonials.subtitle"
-                widget: object
-                fields:
-                  - { label: "Français", name: "fr", widget: text }
-                  - { label: "English", name: "en", widget: text }
-          - label: "Partenaires (1)"
-            name: "_grp_partenaires"
-            widget: object
-            collapsed: true
-            fields:
-              - label: "title"
-                name: "partners.title"
-                widget: object
-                fields:
-                  - { label: "Français", name: "fr", widget: string }
-                  - { label: "English", name: "en", widget: string }
-          - label: "Plateformes (1)"
-            name: "_grp_plateformes"
-            widget: object
-            collapsed: true
-            fields:
-              - label: "title"
-                name: "platforms.title"
-                widget: object
-                fields:
-                  - { label: "Français", name: "fr", widget: string }
-                  - { label: "English", name: "en", widget: string }
       - name: "footer"
         label: "Pied de page (8)"
         file: "src/data/translations/footer.json"
@@ -3680,20 +3631,14 @@ collections:
                 fields:
                   - { label: "Français", name: "fr", widget: string }
                   - { label: "English", name: "en", widget: string }
-
-  - name: "testimonials-data"
-    label: "Données témoignages"
-    description: "Les 6 témoignages affichés sur la page d'accueil"
-    files:
-      - name: "testimonials-list"
-        label: "Liste des témoignages"
+      - name: "testimonials-data"
+        label: "Témoignages — Données (6)"
         file: "src/data/testimonials.json"
         fields:
           - label: "Témoignages"
             name: "items"
             widget: list
             fields:
-              - { label: "ID", name: id, widget: number, value_type: int }
               - { label: "Nom", name: name, widget: string }
               - label: "Rôle"
                 name: role

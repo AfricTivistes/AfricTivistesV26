@@ -2372,6 +2372,29 @@ collections:
                 name: programmes
                 widget: list
                 field: { label: "Programme", name: programme, widget: string }
+      - name: "testimonials-data"
+        label: "Témoignages — Données (6)"
+        file: "src/data/testimonials.json"
+        fields:
+          - label: "Témoignages"
+            name: "items"
+            widget: list
+            fields:
+              - { label: "Nom", name: name, widget: string }
+              - label: "Rôle"
+                name: role
+                widget: object
+                fields:
+                  - { label: "Français", name: fr, widget: string }
+                  - { label: "English", name: en, widget: string }
+              - { label: "Pays", name: country, widget: string }
+              - { label: "Photo", name: image, widget: image }
+              - label: "Citation"
+                name: quote
+                widget: object
+                fields:
+                  - { label: "Français", name: fr, widget: text }
+                  - { label: "English", name: en, widget: text }
   
   - name: images-global
     label: "Images globales"
