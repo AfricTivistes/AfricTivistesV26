@@ -2,13 +2,13 @@
 import TwoColumnTextImage from "@/components/TwoColumnTextImage.astro";
 import { t, extractImages, type Lang } from "@/lib/i18n";
 import valuesData from "@/data/translations/values.json";
-import siteConfig from "@/data/site-config.json";
 
 interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
 const imgs = extractImages(valuesData);
+const yearsExperience = new Date().getFullYear() - 2015 - 1;
 ---
 <TwoColumnTextImage
   lang={lang}
@@ -24,7 +24,7 @@ const imgs = extractImages(valuesData);
     class="a-reveal-scale absolute -bottom-6 -left-6 bg-card rounded-xl p-4 shadow-xl border border-border"
     style="--a-delay:300ms"
   >
-    <div class="text-3xl font-bold font-heading text-primary">{siteConfig.valuesBadge}</div>
+    <div class="text-3xl font-bold font-heading text-primary">{yearsExperience}+</div>
     <div class="text-xs text-muted-foreground font-medium uppercase tracking-wider">
       {t("history.stat3Label", lang)}
     </div>

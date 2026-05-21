@@ -23,7 +23,12 @@
     "initiatives.planDesc2": {
       "fr": "À travers ses axes d'intervention, le réseau panafricain accentue ses efforts pour promouvoir la démocratie, les droits humains et la gouvernance en Afrique par le biais de l'innovation technologique et de l'engagement citoyen.",
       "en": "Through its areas of intervention, the pan-African network intensifies its efforts to promote democracy, human rights and governance in Africa through technological innovation and citizen engagement."
-    }
+    },
+    "initiatives.stats": [
+      { "value": "5", "labelFr": "Axes d'intervention", "labelEn": "Areas of intervention" },
+      { "value": "45", "labelFr": "Pays d'intervention", "labelEn": "Countries" },
+      { "value": "400+", "labelFr": "Membres actifs", "labelEn": "Active members" }
+    ]
   },
   "_grp_axes_d_intervention": {
     "_label": "Axes d'intervention",

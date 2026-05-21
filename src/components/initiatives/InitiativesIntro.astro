@@ -1,14 +1,15 @@
 ---
 import Reveal from "@/components/astro/Reveal.astro";
 import { t, type Lang } from "@/lib/i18n";
-import siteConfig from "@/data/site-config.json";
+import initiativesData from "@/data/translations/initiatives.json";
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 
-const yearsEngagement = new Date().getFullYear() - siteConfig.foundingYear - 1;
+const yearsEngagement = new Date().getFullYear() - 2015 - 1;
+const initiativeStats = (initiativesData._grp_presentation as any)["initiatives.stats"] || [];
 const STATS = [
-  ...siteConfig.initiativeStats,
+  ...initiativeStats,
   { value: `${yearsEngagement}`, labelFr: "Années d'engagement", labelEn: "Years of engagement" },
 ];
 ---

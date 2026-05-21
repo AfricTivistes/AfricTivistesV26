@@ -45,7 +45,7 @@
             var script = document.createElement('script');
             script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
             script.onload = function () {
-              initCMS({ config: cfg });
+              CMS.init({ config: cfg });
             };
             document.body.appendChild(script);
           })

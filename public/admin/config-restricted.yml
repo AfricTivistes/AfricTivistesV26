@@ -409,6 +409,7 @@ collections:
             widget: object
             collapsed: true
             fields:
+              - { label: "Image mission", name: "_img_missionImage", widget: image }
               - label: "missionTitle"
                 name: "about.missionTitle"
                 widget: object
@@ -1719,6 +1720,13 @@ collections:
                 fields:
                   - { label: "Français", name: "fr", widget: text }
                   - { label: "English", name: "en", widget: text }
+              - label: "Statistiques initiatives"
+                name: "initiatives.stats"
+                widget: list
+                fields:
+                  - { label: "Valeur affichée", name: value, widget: string }
+                  - { label: "Label FR", name: labelFr, widget: string }
+                  - { label: "Label EN", name: labelEn, widget: string }
           - label: "Axes d'intervention (5)"
             name: "_grp_axes_d_intervention"
             widget: object
@@ -2376,21 +2384,3 @@ collections:
                 name: programmes
                 widget: list
                 field: { label: "Programme", name: programme, widget: string }
-
-  - name: site-config
-    label: "Configuration du site"
-    description: "Année de fondation, chiffres initiatives, badge valeurs"
-    files:
-      - name: site-config
-        label: "Configuration globale"
-        file: "src/data/site-config.json"
-        fields:
-          - { label: "Année de fondation", name: foundingYear, widget: number, value_type: int, hint: "Utilisé pour calculer les années d'engagement" }
-          - label: "Statistiques initiatives (accueil)"
-            name: initiativeStats
-            widget: list
-            fields:
-              - { label: "Valeur affichée", name: value, widget: string }
-              - { label: "Label FR", name: labelFr, widget: string }
-              - { label: "Label EN", name: labelEn, widget: string }
-          - { label: "Badge valeurs (ex: 10+)", name: valuesBadge, widget: string }
