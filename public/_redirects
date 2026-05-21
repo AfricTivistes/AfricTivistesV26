@@ -1,5 +1,11 @@
 / /fr/ 302
 
+# Admin locale aliases
+/fr/admin    /admin/    301
+/fr/admin/   /admin/    301
+/en/admin    /admin/    301
+/en/admin/   /admin/    301
+
 # Ancien site → nouveau site (FR)
 /fr/africtivistes/adherer/       /fr/about/join       301
 /fr/africtivistes/histoire/      /fr/about/history    301
