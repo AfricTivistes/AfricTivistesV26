@@ -25,9 +25,12 @@
 
       function getConfigPath(user) {
         var roles = (user && user.app_metadata && user.app_metadata.roles) || [];
-        return roles.indexOf('admin') !== -1
+        var isAdmin = roles.indexOf('admin') !== -1;
+        var path = isAdmin
           ? '/admin/config-full.yml'
           : '/admin/config-restricted.yml';
+        console.log('[CMS] roles:', roles, '| isAdmin:', isAdmin, '| config:', path);
+        return path;
       }
 
       function bootCMS(configPath) {
@@ -56,13 +59,29 @@
           });
       }
 
+      function initWithUser(user) {
+        if (!user) return;
+        // Refresh the JWT to get up-to-date roles from app_metadata
+        if (typeof user.jwt === 'function') {
+          user.jwt(true).then(function () {
+            // After refresh, re-read user from the widget for fresh metadata
+            var fresh = window.netlifyIdentity.currentUser();
+            bootCMS(getConfigPath(fresh || user));
+          }).catch(function () {
+            bootCMS(getConfigPath(user));
+          });
+        } else {
+          bootCMS(getConfigPath(user));
+        }
+      }
+
       // Listen for Netlify Identity events
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on('init', function (user) {
-          if (user) bootCMS(getConfigPath(user));
+          initWithUser(user);
         });
         window.netlifyIdentity.on('login', function (user) {
-          bootCMS(getConfigPath(user));
+          initWithUser(user);
         });
       }
     })();
