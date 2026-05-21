@@ -6,18 +6,6 @@ media_folder: public/uploads
 public_folder: /uploads
 
 collections:
-  - name: images-global
-    label: "Images globales"
-    description: "Logo, favicon et image de partage"
-    files:
-      - name: global
-        label: "Global (logo, favicon, OG)"
-        file: "src/data/images/global.json"
-        fields:
-          - { label: "Logo du site", name: logo, widget: image }
-          - { label: "Favicon", name: favicon, widget: image }
-          - { label: "Image OG par défaut", name: ogDefault, widget: image }
-          - { label: "Badge NGOsource", name: ngoSourceBadge, widget: image }
 
   - name: content
     label: "Contenu du site"
@@ -3721,3 +3709,15 @@ collections:
                 fields:
                    - { label: "Français", name: fr, widget: text }
                    - { label: "English", name: en, widget: text }
+  - name: images-global
+      label: "Images globales"
+      description: "Logo, favicon et image de partage"
+      files:
+        - name: global
+          label: "Global (logo, favicon, OG)"
+          file: "src/data/images/global.json"
+          fields:
+            - { label: "Logo du site", name: logo, widget: image }
+            - { label: "Favicon", name: favicon, widget: image }
+            - { label: "Image OG par défaut", name: ogDefault, widget: image }
+            - { label: "Badge NGOsource", name: ngoSourceBadge, widget: image }
