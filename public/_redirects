@@ -7,6 +7,8 @@
 /en/admin/   /admin/    301
 
 # Ancien site → nouveau site (FR)
+/fr/africtivistes                /fr/about            301
+/fr/africtivistes/               /fr/about            301
 /fr/africtivistes/adherer/       /fr/about/join       301
 /fr/africtivistes/histoire/      /fr/about/history    301
 /fr/africtivistes/valeurs/       /fr/about/values     301
