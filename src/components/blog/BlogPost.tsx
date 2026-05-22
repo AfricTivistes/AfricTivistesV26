@@ -13,7 +13,7 @@ function formatPostContent(html: string): string {
 }
 import { useEffect, useRef } from "react";
 import { ArrowLeft, Calendar, Facebook, Linkedin, Mail, Tag } from "lucide-react";
-import { getFeaturedImageUrl, getPostCategories, formatDate } from "@/lib/wordpress";
+import { getFeaturedImageUrl, getPostCategories, formatDate, CATEGORY_IDS } from "@/lib/wordpress";
 import { useI18n } from "@/lib/i18n";
 import { usePostBySlug, usePostById, usePosts } from "@/hooks/use-wordpress";
 import { PostGrid, PostGridSkeleton } from "@/components/posts";
@@ -236,15 +236,22 @@ const BlogPost = ({ slug: slugProp }: BlogPostProps = {}) => {
                     {t("blogPost.categories")}
                   </h3>
                   <div className="flex flex-wrap gap-2">
-                    {postCategories.map((cat) => (
-                      <Link
-                        key={cat.id}
-                        to={`/blog?cat=${cat.id}&page=1`}
-                        className="text-xs font-semibold px-3 py-1.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
-                      >
-                        {cat.name}
-                      </Link>
-                    ))}
+                    {postCategories.map((cat) => {
+                      const pubIds = [CATEGORY_IDS.publications.fr, CATEGORY_IDS.publications.en];
+                      const toolkitIds = [CATEGORY_IDS.toolkits.fr, CATEGORY_IDS.toolkits.en];
+                      let href = `/blog?cat=${cat.slug}&page=1`;
+                      if (pubIds.includes(cat.id)) href = `/${lang}/resources/publications`;
+                      else if (toolkitIds.includes(cat.id)) href = `/${lang}/resources/toolkits`;
+                      return (
+                        <Link
+                          key={cat.id}
+                          to={href}
+                          className="text-xs font-semibold px-3 py-1.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                        >
+                          {cat.name}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               )}

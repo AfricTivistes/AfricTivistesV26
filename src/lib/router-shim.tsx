@@ -270,6 +270,7 @@ export function useSearchParams(
   // Start with SSR-safe state — no browser reads during render — then sync to
   // the real URL in useEffect so the first CSR render matches the SSR HTML.
   const [params, setParams] = useState<URLSearchParams>(() => {
+    if (isBrowser) return new URLSearchParams(window.location.search);
     if (defaultInit instanceof URLSearchParams) return new URLSearchParams(defaultInit);
     if (typeof defaultInit === "string") return new URLSearchParams(defaultInit);
     if (defaultInit && typeof defaultInit === "object") return new URLSearchParams(defaultInit as Record<string, string>);

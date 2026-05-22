@@ -1,5 +1,5 @@
 import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
-import { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSearchParams } from "@/lib/router-shim";
 import { Link } from "@/lib/router-shim";
 import { Newspaper, Scale, Radio, PenLine, Trophy, LayoutGrid } from "lucide-react";
@@ -26,21 +26,42 @@ const BlogPage = () => {
   const currentPage = parseInt(searchParams.get("page") || "1");
   const currentCat = searchParams.get("cat") || "";
 
-  /* Quand la langue change, traduire le ?cat= vers l'equivalent dans la nouvelle langue */
+  /* Toutes les categories de la langue */
+  const { data: allCategories = [], isLoading: categoriesLoading } = useCategories();
+
+  /* Quand la langue change : si le filtre actif est une catégorie dynamique
+     (pas une clé CATEGORY_IDS), on reset car le slug n'a pas d'équivalent dans l'autre langue */
+  const prevLangRef = useRef(lang);
   useEffect(() => {
+    if (prevLangRef.current === lang) return;
+    prevLangRef.current = lang;
     if (!currentCat) return;
-    const catNum = parseInt(currentCat);
-    for (const [_key, ids] of Object.entries(CATEGORY_IDS)) {
-      const otherLang = lang === "fr" ? "en" : "fr";
-      if (ids[otherLang] === catNum && ids[lang] !== catNum) {
-        const params = new URLSearchParams(searchParams);
-        params.set("cat", String(ids[lang]));
-        params.set("page", "1");
-        setSearchParams(params, { replace: true });
-        return;
-      }
-    }
+    // Les clés CATEGORY_IDS sont stables entre les langues
+    if (CATEGORY_IDS[currentCat]) return;
+    // Catégorie dynamique : reset car pas de mapping slug FR<->EN
+    const params = new URLSearchParams(searchParams);
+    params.delete("cat");
+    params.set("page", "1");
+    setSearchParams(params, { replace: true });
   }, [lang]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  /* Résoudre le slug vers un ID numérique pour l'API WP */
+  const resolvedCatId = (() => {
+    if (!currentCat) return null;
+    // Chercher d'abord dans les main filters par clé
+    if (CATEGORY_IDS[currentCat]) return CATEGORY_IDS[currentCat][lang];
+    // Sinon chercher par slug dans les catégories WP
+    const match = allCategories.find((c) => c.slug === currentCat);
+    return match?.id ?? null;
+  })();
+
+  /* Le slug est un WP slug qui nécessite allCategories pour résoudre */
+  const isWpSlug = !!(currentCat && !CATEGORY_IDS[currentCat]);
+  /* Ne pas lancer la requête posts tant que le slug WP n'est pas résolu */
+  const catResolved = !currentCat || !isWpSlug || resolvedCatId != null || !categoriesLoading;
+
+  /* Quand la langue change, le slug reste le même (pas besoin de traduire) —
+     mais si le slug est une clé CATEGORY_IDS, l'ID change automatiquement via resolvedCatId */
 
   /* IDs des categories principales pour la langue active */
   const mainCatIds = MAIN_FILTERS.map((f) => CATEGORY_IDS[f.key][lang]);
@@ -52,15 +73,15 @@ const BlogPage = () => {
     page: currentPage,
     perPage: 9,
     categoriesExclude: excludedCatIds,
-    ...(currentCat ? { categories: [parseInt(currentCat)] } : {}),
+    ...(resolvedCatId ? { categories: [resolvedCatId] } : {}),
+    enabled: catResolved,
   };
-  const { data: postsData, isLoading: loading } = usePosts(postsOpts);
+  const { data: postsData, isLoading: postsLoading } = usePosts(postsOpts);
+  const loading = postsLoading || !catResolved;
   const posts = postsData?.posts ?? [];
   const totalPages = postsData?.totalPages ?? 1;
   const totalArticles = postsData?.total ?? 0;
 
-  /* Toutes les categories de la langue, sans les exclues ni les principales */
-  const { data: allCategories = [] } = useCategories();
   const otherCategories = allCategories
     .filter((c) => !mainCatIds.includes(c.id) && !excludedCatIds.includes(c.id))
     .sort((a, b) => b.count - a.count);
@@ -68,11 +89,14 @@ const BlogPage = () => {
   /* Retrouve le label du filtre actif */
   const activeFilterLabel = () => {
     if (!currentCat) return t("blog.all");
-    const mainMatch = MAIN_FILTERS.find(
-      (f) => String(CATEGORY_IDS[f.key][lang]) === currentCat
-    );
+    const mainMatch = MAIN_FILTERS.find((f) => f.key === currentCat);
     if (mainMatch) return t(mainMatch.labelKey);
-    const wpMatch = allCategories.find((c) => String(c.id) === currentCat);
+    // WP slug qui correspond à un filtre principal (même resolvedCatId)
+    if (resolvedCatId != null) {
+      const mainByIdMatch = MAIN_FILTERS.find((f) => CATEGORY_IDS[f.key][lang] === resolvedCatId);
+      if (mainByIdMatch) return t(mainByIdMatch.labelKey);
+    }
+    const wpMatch = allCategories.find((c) => c.slug === currentCat);
     return wpMatch?.name || t("blog.all");
   };
 
@@ -115,20 +139,21 @@ const BlogPage = () => {
 
               {MAIN_FILTERS.map((filter) => {
                 const Icon = filter.icon;
-                const catId = String(CATEGORY_IDS[filter.key][lang]);
-                const isSelected = currentCat === catId;
+                const catSlug = filter.key;
+                const filterCatId = CATEGORY_IDS[filter.key][lang];
+                const isSelected = currentCat === catSlug || (resolvedCatId != null && resolvedCatId === filterCatId);
 
                 return (
                   <Link
                     key={filter.key}
-                    to={`/blog?cat=${catId}&page=1`}
+                    to={`/blog?cat=${catSlug}&page=1`}
                     className={cn(
                       "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shrink-0",
                       isSelected
                         ? "bg-primary text-primary-foreground shadow-md shadow-primary/25"
                         : "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
                     )}
-                    data-testid={`filter-cat-${catId}`}
+                    data-testid={`filter-cat-${catSlug}`}
                     aria-current={isSelected ? "page" : undefined}
                   >
                     <Icon size={16} aria-hidden="true" />
@@ -142,20 +167,20 @@ const BlogPage = () => {
             {otherCategories.length > 0 && (
               <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide pb-1 -mb-1" role="group" aria-label="Autres catégories">
                 {otherCategories.map((cat) => {
-                  const catId = String(cat.id);
-                  const isSelected = currentCat === catId;
+                  const catSlug = cat.slug;
+                  const isSelected = currentCat === catSlug;
 
                   return (
                     <Link
                       key={cat.id}
-                      to={`/blog?cat=${catId}&page=1`}
+                      to={`/blog?cat=${catSlug}&page=1`}
                       className={cn(
                         "px-3 py-1.5 rounded-lg text-xs font-medium transition-all whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shrink-0",
                         isSelected
                           ? "bg-primary text-primary-foreground shadow-sm"
                           : "bg-muted/40 text-muted-foreground hover:bg-muted hover:text-foreground"
                       )}
-                      data-testid={`filter-cat-${catId}`}
+                      data-testid={`filter-cat-${catSlug}`}
                       aria-current={isSelected ? "page" : undefined}
                     >
                       {cat.name}

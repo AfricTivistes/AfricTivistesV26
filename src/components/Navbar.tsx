@@ -5,7 +5,6 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { m as motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.svg?url";
 import { useI18n, type Lang } from "@/lib/i18n";
-import { CATEGORY_IDS } from "@/lib/wordpress";
 import { cn } from "@/lib/utils";
 
 interface NavChild {
@@ -58,11 +57,11 @@ const getNavLinks = (lang: Lang): NavItem[] => [
     labelKey: "nav.news",
     allLabelKey: "nav.news.all",
     children: [
-      { href: `/blog?cat=${CATEGORY_IDS.communiques[lang]}`, labelKey: "nav.news.communiques" },
-      { href: `/blog?cat=${CATEGORY_IDS.plaidoyers[lang]}`, labelKey: "nav.news.plaidoyers" },
-      { href: `/blog?cat=${CATEGORY_IDS.actualites[lang]}`, labelKey: "nav.news.actualites" },
-      { href: `/blog?cat=${CATEGORY_IDS.contributions[lang]}`, labelKey: "nav.news.contributions" },
-      { href: `/blog?cat=${CATEGORY_IDS.champions[lang]}`, labelKey: "nav.news.champions" },
+      { href: `/blog?cat=communiques`, labelKey: "nav.news.communiques" },
+      { href: `/blog?cat=plaidoyers`, labelKey: "nav.news.plaidoyers" },
+      { href: `/blog?cat=actualites`, labelKey: "nav.news.actualites" },
+      { href: `/blog?cat=contributions`, labelKey: "nav.news.contributions" },
+      { href: `/blog?cat=champions`, labelKey: "nav.news.champions" },
     ],
   },
 ];
