@@ -32,6 +32,14 @@
     "newsletter.rgpd": {
       "fr": "Votre adresse de messagerie est uniquement utilisée pour vous envoyer notre lettre d'information ainsi que des informations concernant nos activités. Vous pouvez à tout moment utiliser le lien de désabonnement intégré dans chacun de nos mails.",
       "en": "Your email address is only used to send you our newsletter and information about our activities. You can unsubscribe at any time using the link included in each of our emails."
+    },
+    "newsletter.success": {
+      "fr": "Inscription réussie ! Merci pour votre abonnement.",
+      "en": "Successfully subscribed! Thank you."
+    },
+    "newsletter.error": {
+      "fr": "Une erreur est survenue. Veuillez réessayer.",
+      "en": "An error occurred. Please try again."
     }
   }
 }

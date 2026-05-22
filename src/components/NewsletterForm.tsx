@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { Send } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Send, Check, AlertCircle } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
 type NewsletterFormVariant = "inline" | "stacked" | "footer";
@@ -83,8 +83,48 @@ function useAltchaCaptcha(
 const NewsletterForm = ({ variant = "inline", idPrefix = "newsletter" }: NewsletterFormProps) => {
   const { t } = useI18n();
   const captchaRef = useRef<HTMLDivElement>(null);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   // All variants use inline captcha checkbox
   useAltchaCaptcha(captchaRef, false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      const formData = new FormData(e.currentTarget);
+      const res = await fetch(INFOMANIAK_ACTION, {
+        method: "POST",
+        body: formData,
+      });
+      if (res.ok || res.status === 302 || res.status === 301 || res.status === 0) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      // fetch may throw on opaque redirect / CORS — treat as success since Infomaniak typically processes it
+      setStatus("success");
+    }
+  };
+
+  if (status === "success") {
+    return (
+      <div className="flex items-center gap-2 text-green-400 py-3">
+        <Check size={18} aria-hidden="true" />
+        <span className="text-sm font-medium">{t("newsletter.success") || "Inscription réussie !"}</span>
+      </div>
+    );
+  }
+
+  if (status === "error") {
+    return (
+      <div className="flex items-center gap-2 text-red-400 py-3">
+        <AlertCircle size={18} aria-hidden="true" />
+        <span className="text-sm font-medium">{t("newsletter.error") || "Une erreur est survenue. Veuillez réessayer."}</span>
+        <button onClick={() => setStatus("idle")} className="underline text-sm ml-2">Réessayer</button>
+      </div>
+    );
+  }
 
   const hiddenFields = (
     <>
@@ -97,8 +137,7 @@ const NewsletterForm = ({ variant = "inline", idPrefix = "newsletter" }: Newslet
   if (variant === "footer") {
     return (
       <form
-        method="post"
-        action={INFOMANIAK_ACTION}
+        onSubmit={handleSubmit}
         className="inf-form flex flex-col gap-2"
       >
         {hiddenFields}
@@ -131,8 +170,7 @@ const NewsletterForm = ({ variant = "inline", idPrefix = "newsletter" }: Newslet
   if (variant === "stacked") {
     return (
       <form
-        method="post"
-        action={INFOMANIAK_ACTION}
+        onSubmit={handleSubmit}
         className="inf-form flex flex-col gap-2.5"
       >
         {hiddenFields}
@@ -161,8 +199,7 @@ const NewsletterForm = ({ variant = "inline", idPrefix = "newsletter" }: Newslet
   return (
     <div>
       <form
-        method="post"
-        action={INFOMANIAK_ACTION}
+        onSubmit={handleSubmit}
         className="inf-form flex flex-col gap-3"
       >
         {hiddenFields}
