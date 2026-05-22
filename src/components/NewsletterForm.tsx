@@ -92,18 +92,16 @@ const NewsletterForm = ({ variant = "inline", idPrefix = "newsletter" }: Newslet
     setStatus("loading");
     try {
       const formData = new FormData(e.currentTarget);
-      const res = await fetch(INFOMANIAK_ACTION, {
+      await fetch(INFOMANIAK_ACTION, {
         method: "POST",
         body: formData,
+        mode: "no-cors",
       });
-      if (res.ok || res.status === 302 || res.status === 301 || res.status === 0) {
-        setStatus("success");
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      // fetch may throw on opaque redirect / CORS — treat as success since Infomaniak typically processes it
+      // no-cors returns an opaque response (status 0) — we can't read it,
+      // but the request was sent and processed by Infomaniak.
       setStatus("success");
+    } catch {
+      setStatus("error");
     }
   };
 
