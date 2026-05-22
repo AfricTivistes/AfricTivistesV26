@@ -110,6 +110,21 @@ async function wpFetchWithHeaders<T>(
    4. UTILS
    ================================================================ */
 
+/** Decode HTML entities without stripping tags (&#8217; → ', &amp; → &, etc.). */
+export function decodeHtmlEntities(str: string): string {
+  if (!str) return "";
+  return str
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+    .replace(/&apos;/g, "'")
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(parseInt(dec, 10)));
+}
+
 /** Strip HTML tags via regex (compatible SSR/test). */
 export function stripHtml(html: string): string {
   if (!html) return "";

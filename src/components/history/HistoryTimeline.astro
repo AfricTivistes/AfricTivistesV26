@@ -2,7 +2,7 @@
 import Reveal from "@/components/astro/Reveal.astro";
 import SectionHeader from "@/components/SectionHeader.astro";
 import { type Lang } from "@/lib/i18n";
-import { fetchTimeline } from "@/lib/wordpress";
+import { fetchTimeline, decodeHtmlEntities } from "@/lib/wordpress";
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
@@ -12,9 +12,11 @@ const timelineItems = items.map((item, i) => {
   const yearOnly = (item.year.match(/^\d{4}/)?.[0] ?? item.year);
   return {
     ...item,
+    title: decodeHtmlEntities(item.title),
+    description: decodeHtmlEntities(item.description),
     side: i % 2 === 0 ? "left" : "right",
-    badgeShort: yearOnly.slice(2), /* ex: "24" pour 2024 ou 2024-03 */
-    yearLabel: item.year, /* affiche tel quel : 2024 ou 2024-03 */
+    badgeShort: yearOnly.slice(2),
+    yearLabel: item.year,
   };
 });
 
