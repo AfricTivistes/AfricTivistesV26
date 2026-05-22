@@ -58,7 +58,6 @@ const canonicalUrl = canonical ?? Astro.url.href;
 // Pick a sensible OG image: explicit > preload (if raster) > generic logo
 function pickOgImage(): string {
   if (ogImage) return ogImage;
-  if (preloadImage && preloadType && preloadType !== "image/svg+xml") return preloadImage;
   return "/og-default.jpg"; // ensure this exists in /public; falls back gracefully if missing
 }
 const ogImageUrl = pickOgImage();
