@@ -20,6 +20,9 @@
 /fr/boite-a-outil-africtivistes/ /fr/resources/toolkits 301
 
 # Ancien site → nouveau site (EN)
+/en/africtivistes-en/            /en/              301
+/en/home                         /en/              301
+/en/home/                        /en/              301
 /en/africtivistes/adherer/       /en/about/join       301
 /en/africtivistes/histoire/      /en/about/history    301
 /en/africtivistes/valeurs/       /en/about/values     301
