@@ -9,6 +9,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://africtivistes.com",
   output: "server",
   adapter: netlify(),
   prefetch: {
