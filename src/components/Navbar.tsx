@@ -193,14 +193,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border" role="navigation" aria-label="Navigation principale">
-      <div className="section-container">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          <Link to="/" className="flex items-center gap-2" aria-label="Retour à l'accueil AfricTivistes">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border overflow-visible" role="navigation" aria-label="Navigation principale">
+      <div className="section-container overflow-visible">
+        <div className="flex items-center justify-between h-20 lg:h-24 overflow-visible">
+          <Link to="/" className="flex items-center gap-2 overflow-visible" aria-label="Retour à l'accueil AfricTivistes">
             <img
               src={logo}
               alt="AfricTivistes"
-              className="h-10 lg:h-12 w-auto"
+              className="h-14 lg:h-16 w-auto"
               width="134"
               height="60"
               decoding="async"
