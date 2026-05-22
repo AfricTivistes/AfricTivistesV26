@@ -22,8 +22,8 @@
       "en": "Subscribe"
     },
     "newsletter.thanks": {
-      "fr": "Merci pour votre inscription !",
-      "en": "Thank you for subscribing!"
+      "fr": "Inscription enregistrée ! Consultez votre boîte mail pour confirmer votre abonnement.",
+      "en": "Registration received! Please check your email to confirm your subscription."
     },
     "newsletter.soon": {
       "fr": "Vous recevrez bientôt nos prochaines nouvelles.",
