@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { Send, Check, AlertCircle } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { Send } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
 type NewsletterFormVariant = "inline" | "stacked" | "footer";
@@ -15,9 +15,9 @@ const INFOMANIAK_ACTION = import.meta.env.PUBLIC_INFOMANIAK_NEWSLETTER_ACTION;
 const INFOMANIAK_KEY = import.meta.env.PUBLIC_INFOMANIAK_NEWSLETTER_KEY;
 const INFOMANIAK_WEBFORM_ID = import.meta.env.PUBLIC_INFOMANIAK_NEWSLETTER_WEBFORM_ID;
 
-const ALTCHA_WIDGET_SRC = "https://newsletter.infomaniak.com/v3/static/mcaptcha/altcha.min.js?v=1779278400";
-const ALTCHA_INDEX_SRC = "https://newsletter.infomaniak.com/v3/static/mcaptcha/altcha-index.js?v=1779278400";
-const WEBFORM_INDEX_SRC = "https://newsletter.infomaniak.com/v3/static/webform_index.js?v=1779278400";
+const ALTCHA_WIDGET_SRC = "https://newsletter.infomaniak.com/v3/static/mcaptcha/altcha.min.js?v=1779462000";
+const ALTCHA_INDEX_SRC = "https://newsletter.infomaniak.com/v3/static/mcaptcha/altcha-index.js?v=1779462000";
+const WEBFORM_INDEX_SRC = "https://newsletter.infomaniak.com/v3/static/webform_index.js?v=1779462000";
 const ALTCHA_CHALLENGE_URL = "https://newsletter.infomaniak.com/v3/altcha-challenge";
 
 function loadScript(src: string, opts?: { type?: string; defer?: boolean }): Promise<void> {
@@ -68,7 +68,6 @@ function useAltchaCaptcha(
     })();
 
     return () => {
-      // Clean up widget on unmount so re-mount can inject a fresh one
       if (widget && widget.parentNode) {
         widget.parentNode.removeChild(widget);
       }
@@ -79,50 +78,14 @@ function useAltchaCaptcha(
 /**
  * Reusable newsletter subscription form.
  * Posts directly to Infomaniak newsletter service (v3 with altcha captcha).
+ * The Infomaniak webform_index.js script handles AJAX submission and
+ * toggles .inf-success / .inf-content visibility on success.
  */
 const NewsletterForm = ({ variant = "inline", idPrefix = "newsletter" }: NewsletterFormProps) => {
   const { t } = useI18n();
   const captchaRef = useRef<HTMLDivElement>(null);
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   // All variants use inline captcha checkbox
   useAltchaCaptcha(captchaRef, false);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus("loading");
-    try {
-      const formData = new FormData(e.currentTarget);
-      await fetch(INFOMANIAK_ACTION, {
-        method: "POST",
-        body: formData,
-        mode: "no-cors",
-      });
-      // no-cors returns an opaque response (status 0) — we can't read it,
-      // but the request was sent and processed by Infomaniak.
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
-  };
-
-  if (status === "success") {
-    return (
-      <div className="flex items-center gap-2 text-green-400 py-3">
-        <Check size={18} aria-hidden="true" />
-        <span className="text-sm font-medium">{t("newsletter.success") || "Inscription réussie !"}</span>
-      </div>
-    );
-  }
-
-  if (status === "error") {
-    return (
-      <div className="flex items-center gap-2 text-red-400 py-3">
-        <AlertCircle size={18} aria-hidden="true" />
-        <span className="text-sm font-medium">{t("newsletter.error") || "Une erreur est survenue. Veuillez réessayer."}</span>
-        <button onClick={() => setStatus("idle")} className="underline text-sm ml-2">Réessayer</button>
-      </div>
-    );
-  }
 
   const hiddenFields = (
     <>
@@ -132,35 +95,51 @@ const NewsletterForm = ({ variant = "inline", idPrefix = "newsletter" }: Newslet
     </>
   );
 
+  /* ---- Success message (hidden by default, shown by webform_index.js) ---- */
+  const successMessage = (
+    <div className="inf-success" style={{ display: "none" }}>
+      <div className="flex items-center gap-2 py-3">
+        <span className="text-sm font-medium">
+          {t("newsletter.thanks")}
+        </span>
+      </div>
+    </div>
+  );
+
   if (variant === "footer") {
     return (
       <form
-        onSubmit={handleSubmit}
+        method="post"
+        action={INFOMANIAK_ACTION}
         className="inf-form flex flex-col gap-2"
       >
         {hiddenFields}
-        <div className="flex gap-2">
-          <input
-            id={`${idPrefix}-email`}
-            type="email"
-            name="inf[1]"
-            required
-            placeholder="Email"
-            data-inf-meta="1"
-            className="flex-1 min-w-0 px-3 py-2 rounded-md bg-white/10 border border-white/15 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary"
-            data-testid="input-newsletter-email"
-            aria-label={t("newsletter.placeholder")}
-          />
-          <button
-            type="submit"
-            className="px-3 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
-            data-testid="button-newsletter-submit"
-            aria-label="S'abonner à la newsletter"
-          >
-            <Send size={14} aria-hidden="true" />
-          </button>
+        {successMessage}
+        <div className="inf-content">
+          <div className="flex gap-2">
+            <input
+              id={`${idPrefix}-email`}
+              type="email"
+              name="inf[1]"
+              required
+              placeholder="Email"
+              data-inf-meta="1"
+              data-inf-error=""
+              className="flex-1 min-w-0 px-3 py-2 rounded-md bg-white/10 border border-white/15 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary"
+              data-testid="input-newsletter-email"
+              aria-label={t("newsletter.placeholder")}
+            />
+            <button
+              type="submit"
+              className="px-3 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+              data-testid="button-newsletter-submit"
+              aria-label="S'abonner à la newsletter"
+            >
+              <Send size={14} aria-hidden="true" />
+            </button>
+          </div>
+          <div ref={captchaRef} className="rounded-lg overflow-hidden mt-2" />
         </div>
-        <div ref={captchaRef} className="rounded-lg overflow-hidden" />
       </form>
     );
   }
@@ -168,28 +147,33 @@ const NewsletterForm = ({ variant = "inline", idPrefix = "newsletter" }: Newslet
   if (variant === "stacked") {
     return (
       <form
-        onSubmit={handleSubmit}
+        method="post"
+        action={INFOMANIAK_ACTION}
         className="inf-form flex flex-col gap-2.5"
       >
         {hiddenFields}
-        <input
-          id={`${idPrefix}-email`}
-          type="email"
-          name="inf[1]"
-          required
-          data-inf-meta="1"
-          placeholder={t("newsletter.placeholder")}
-          className="w-full px-4 py-2.5 rounded-lg bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 text-sm text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-secondary transition"
-          aria-label={t("newsletter.placeholder")}
-        />
-        <div ref={captchaRef} className="rounded-lg overflow-hidden" />
-        <button
-          type="submit"
-          className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-5 py-2.5 text-sm font-bold text-secondary-foreground hover:bg-secondary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
-        >
-          <Send size={14} aria-hidden="true" />
-          {t("newsletter.subscribe")}
-        </button>
+        {successMessage}
+        <div className="inf-content flex flex-col gap-2.5">
+          <input
+            id={`${idPrefix}-email`}
+            type="email"
+            name="inf[1]"
+            required
+            data-inf-meta="1"
+            data-inf-error=""
+            placeholder={t("newsletter.placeholder")}
+            className="w-full px-4 py-2.5 rounded-lg bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 text-sm text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-secondary transition"
+            aria-label={t("newsletter.placeholder")}
+          />
+          <div ref={captchaRef} className="rounded-lg overflow-hidden" />
+          <button
+            type="submit"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-5 py-2.5 text-sm font-bold text-secondary-foreground hover:bg-secondary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
+          >
+            <Send size={14} aria-hidden="true" />
+            {t("newsletter.subscribe")}
+          </button>
+        </div>
       </form>
     );
   }
@@ -197,30 +181,35 @@ const NewsletterForm = ({ variant = "inline", idPrefix = "newsletter" }: Newslet
   return (
     <div>
       <form
-        onSubmit={handleSubmit}
+        method="post"
+        action={INFOMANIAK_ACTION}
         className="inf-form flex flex-col gap-3"
       >
         {hiddenFields}
-        <div className="flex flex-col sm:flex-row gap-3">
-          <input
-            id={`${idPrefix}-email`}
-            type="email"
-            name="inf[1]"
-            required
-            data-inf-meta="1"
-            placeholder={t("newsletter.placeholder")}
-            className="flex-1 px-5 py-3.5 rounded-lg bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-secondary transition"
-            aria-label={t("newsletter.placeholder")}
-          />
-          <button
-            type="submit"
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-7 py-3.5 font-bold text-secondary-foreground hover:bg-secondary/90 transition-colors whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
-          >
-            <Send size={16} aria-hidden="true" />
-            {t("newsletter.subscribe")}
-          </button>
+        {successMessage}
+        <div className="inf-content flex flex-col gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <input
+              id={`${idPrefix}-email`}
+              type="email"
+              name="inf[1]"
+              required
+              data-inf-meta="1"
+              data-inf-error=""
+              placeholder={t("newsletter.placeholder")}
+              className="flex-1 px-5 py-3.5 rounded-lg bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-secondary transition"
+              aria-label={t("newsletter.placeholder")}
+            />
+            <button
+              type="submit"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-7 py-3.5 font-bold text-secondary-foreground hover:bg-secondary/90 transition-colors whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
+            >
+              <Send size={16} aria-hidden="true" />
+              {t("newsletter.subscribe")}
+            </button>
+          </div>
+          <div ref={captchaRef} className="rounded-lg overflow-hidden" />
         </div>
-        <div ref={captchaRef} className="rounded-lg overflow-hidden" />
       </form>
       <p className="text-xs text-primary-foreground/50 leading-relaxed mt-3">
         {t("newsletter.rgpd")}
