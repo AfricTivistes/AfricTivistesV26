@@ -2,8 +2,8 @@
   "_grp_en_tete": {
     "_label": "En-tête",
     "stats.title": {
-      "fr": "ans d'existence d'AfricTivistes en chiffres",
-      "en": "years of AfricTivistes in numbers"
+      "fr": "ans d'existence en chiffres",
+      "en": "years in numbers"
     },
     "stats.label": {
       "fr": "Notre impact",
@@ -11,53 +11,10 @@
     }
   },
   "_grp_chiffres": {
-    "_label": "Chiffres",
-    "stats.trainees": {
-      "fr": "Bénéficiaires des formations",
-      "en": "Training beneficiaries",
-      "value": 12000,
-      "suffix": "+"
-    },
-    "stats.activists": {
-      "fr": "Activistes pro-démocratie et journalistes en danger appuyés",
-      "en": "Pro-democracy activists and at-risk journalists supported",
-      "value": 11,
-      "suffix": ""
-    },
-    "stats.elections": {
-      "fr": "Élections présidentielles appuyées",
-      "en": "Presidential elections supported",
-      "value": 15,
-      "suffix": ""
-    },
-    "stats.communities": {
-      "fr": "Communautés créées",
-      "en": "Communities created",
-      "value": 32,
-      "suffix": ""
-    },
-    "stats.mooc": {
-      "fr": "Bénéficiaires en ligne des formations",
-      "en": "Online training beneficiaries",
-      "value": 0,
-      "suffix": ""
-    },
-    "stats.summitParticipants": {
-      "fr": "Participants à nos activités",
-      "en": "Participants in our activities",
-      "value": 2000,
-      "suffix": "+"
-    },
     "stats.youth": {
       "fr": "Jeunes appuyés",
       "en": "Young people supported",
       "value": 5000,
-      "suffix": "+"
-    },
-    "stats.civicTech": {
-      "fr": "Initiatives civic tech appuyées",
-      "en": "Civic tech initiatives supported",
-      "value": 30,
       "suffix": "+"
     },
     "stats.awards": {
@@ -66,17 +23,17 @@
       "value": 7,
       "suffix": ""
     },
+    "stats.mooc": {
+      "fr": "Bénéficiaires en ligne des formations",
+      "en": "Online training beneficiaries",
+      "value": 0,
+      "suffix": ""
+    },
     "stats.grants": {
       "fr": "Montant total de subvention aux jeunes",
       "en": "Total grants to young people",
       "value": 420000,
       "suffix": " €"
-    },
-    "stats.technical": {
-      "fr": "Appuis techniques",
-      "en": "Technical support",
-      "value": 7,
-      "suffix": ""
     },
     "stats.research": {
       "fr": "Recherches et analyses",
@@ -84,11 +41,54 @@
       "value": 25,
       "suffix": "+"
     },
+    "stats.elections": {
+      "fr": "Élections présidentielles appuyées",
+      "en": "Presidential elections supported",
+      "value": 15,
+      "suffix": ""
+    },
+    "stats.technical": {
+      "fr": "Appuis techniques",
+      "en": "Technical support",
+      "value": 7,
+      "suffix": ""
+    },
+    "stats.civicTech": {
+      "fr": "Initiatives civic tech appuyées",
+      "en": "Civic tech initiatives supported",
+      "value": 30,
+      "suffix": "+"
+    },
     "stats.elearning": {
       "fr": "Plateformes e-learning",
       "en": "E-learning platforms",
       "value": 3,
       "suffix": ""
+    },
+    "_label": "Chiffres",
+    "stats.communities": {
+      "fr": "Communautés créées",
+      "en": "Communities created",
+      "value": 32,
+      "suffix": ""
+    },
+    "stats.activists": {
+      "fr": "Activistes pro-démocratie et journalistes en danger appuyés",
+      "en": "Pro-democracy activists and at-risk journalists supported",
+      "value": 11,
+      "suffix": ""
+    },
+    "stats.trainees": {
+      "fr": "Bénéficiaires des formations",
+      "en": "Training beneficiaries",
+      "value": 12000,
+      "suffix": "+"
+    },
+    "stats.summitParticipants": {
+      "fr": "Participants à nos activités",
+      "en": "Participants in our activities",
+      "value": 2000,
+      "suffix": "+"
     }
   }
 }
