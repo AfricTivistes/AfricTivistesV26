@@ -1,3 +1,5 @@
+import playlistsData from "@/data/playlists.json";
+
 const CHANNEL_ID = "UCAeD9ZcdIC8yY9-AJLrYGsw";
 const ATOM_NS = "http://www.w3.org/2005/Atom";
 const YT_NS = "http://www.youtube.com/xml/schemas/2015";
@@ -28,29 +30,34 @@ export interface YouTubePlaylist {
 
 /**
  * Playlists de la chaine AfricTivistes.
- * Mises a jour manuellement car le scraping de la page playlists
- * depuis le navigateur est bloque par CORS.
+ * Gerees depuis l'admin (Decap CMS) via src/data/playlists.json.
  */
-export const PLAYLISTS: YouTubePlaylist[] = [
-  { id: "PLalgaepOVrI8eNEV5PtIQ5uR7V3seTUE9", title: "Dakar 2015 - 1er Sommet AfricTivistes" },
-  { id: "PLalgaepOVrI_LAjOb3npZUaBfRnIBf5DE", title: "Ouaga 2018 - 2eme Sommet AfricTivistes" },
-  { id: "PLalgaepOVrI_wxO5BLGwkkknIpWvezZNj", title: "Abidjan 2021 - 3ème Sommet AfricTivistes" },
-  { id: "PLalgaepOVrI9YFGRDVm3yBGlQTtuHBk2N", title: "Séminaire sur l'Information et la Démocratie" },
-  { id: "PLalgaepOVrI8ZpKVEqxDXelPWuc90ZEMi", title: "AfricTivistes Decrypte" },
-  { id: "PLalgaepOVrI9oIfBkLNclr0wWQuKnxlkb", title: "AfricTivistes Citizen Lab" },
-  { id: "PLalgaepOVrI-zxQNn-4GdnANQ11TzuU91", title: "Dialogue Migration" },
-  { id: "PLalgaepOVrI8SMIzD-0ZsvJyZ5ZDS65dc", title: "Film documentaire - Sénégal" },
-  { id: "PLalgaepOVrI9dWP6syRc-oHs6FY1xN0I2", title: "Recap' AfricTivistes" },
-  { id: "PLalgaepOVrI8Pp3hCuORRyBqZHCALXMDH", title: "Causerie de AfricTivistes" },
-  { id: "PLalgaepOVrI9zEhN4U7Lv_kGCYr0YF4dS", title: "Rapport FMI" },
-  { id: "PLalgaepOVrI-tkHdJrFvGAzx9iHgw-bkb", title: "Taxaw Temm, Aar Sunu Bopp" },
-  { id: "PLalgaepOVrI8iZ0UDBCcrZiCXymHvE7iH", title: "Radioscopie AfricTivistes" },
-  { id: "PLalgaepOVrI9XMOF58zmMJcZUIoCrw3o2", title: "Champion AfricTivistes de la gouvernance et de la démocratie" },
-  { id: "PLalgaepOVrI93ajIVJkBOFcvUPD-FWOA8", title: "Posons-nous" },
-  { id: "PLalgaepOVrI8MzAlKN8O-UKD6Umjejw5D", title: "Innov for Democracy" },
-  { id: "PLalgaepOVrI8fKVmlwZPaqyyJVcL1r0Az", title: "Sahel Insight" },
-  { id: "PLalgaepOVrI8Rd0LZt6L5dgZaW_DQ_s8C", title: "Plaidoyers" },
-];
+interface PlaylistEntry {
+  id: string;
+  pinned?: boolean;
+  title: { fr: string; en: string };
+}
+
+const PLAYLIST_ITEMS: PlaylistEntry[] = (playlistsData as { items: PlaylistEntry[] }).items;
+
+/**
+ * Returns all playlists with title in the requested language,
+ * in the order defined in playlists.json.
+ */
+export function getPlaylists(lang: "fr" | "en"): YouTubePlaylist[] {
+  return PLAYLIST_ITEMS.map((p) => ({
+    id: p.id,
+    title: p.title?.[lang] || p.title?.fr || "",
+  }));
+}
+
+/**
+ * Returns the id of the pinned playlist (first one marked pinned),
+ * or null if none.
+ */
+export function getPinnedPlaylistId(): string | null {
+  return PLAYLIST_ITEMS.find((p) => p.pinned)?.id ?? null;
+}
 
 /**
  * Tries each CORS proxy in order until one succeeds.

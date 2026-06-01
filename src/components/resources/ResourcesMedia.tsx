@@ -1,5 +1,5 @@
 import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { m as motion, AnimatePresence } from "framer-motion";
 import { Play, ExternalLink, X } from "lucide-react";
 import GradientHero from "@/components/GradientHero";
@@ -8,7 +8,7 @@ import Pagination from "@/components/ui/Pagination";
 import { useI18n } from "@/lib/i18n";
 import {
   getYouTubeEmbedUrl,
-  PLAYLISTS,
+  getPlaylists,
   type YouTubeVideo,
 } from "@/lib/youtube";
 import { useYouTubeVideos } from "@/hooks/use-youtube";
@@ -117,6 +117,7 @@ const VideoCard = ({ video, index, playingId, onPlay, onStop, formatDate, t }: V
 
 const ResourcesMedia = () => {
   const { t, lang } = useI18n();
+  const playlists = useMemo(() => getPlaylists(lang), [lang]);
   const [playingId, setPlayingId] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [activePlaylist, setActivePlaylist] = useState<string | null>(null);
@@ -174,7 +175,7 @@ const ResourcesMedia = () => {
               >
                 {t("media.all")}
               </button>
-              {PLAYLISTS.map((pl) => (
+              {playlists.map((pl) => (
                 <button
                   key={pl.id}
                   onClick={() => handleFilterChange(pl.id)}

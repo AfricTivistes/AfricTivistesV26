@@ -1,16 +1,15 @@
 import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import { m as motion, AnimatePresence } from "framer-motion";
 import { Play, X, ExternalLink, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { getYouTubeEmbedUrl, PLAYLISTS } from "@/lib/youtube";
+import { getYouTubeEmbedUrl, getPlaylists, getPinnedPlaylistId } from "@/lib/youtube";
 import { useYouTubeVideos } from "@/hooks/use-youtube";
-
-const DEFAULT_PLAYLIST_ID = "PLalgaepOVrI8ZpKVEqxDXelPWuc90ZEMi";
 
 const VideoPlaylist = () => {
   const { t, lang } = useI18n();
-  const [activePlaylist, setActivePlaylist] = useState<string | null>(DEFAULT_PLAYLIST_ID);
+  const playlists = useMemo(() => getPlaylists(lang), [lang]);
+  const [activePlaylist, setActivePlaylist] = useState<string | null>(() => getPinnedPlaylistId());
   const { data: videos = [], isLoading: loading } = useYouTubeVideos(activePlaylist);
   const [playingId, setPlayingId] = useState<string | null>(null);
 
@@ -50,7 +49,7 @@ const VideoPlaylist = () => {
   };
 
   const activePlaylistTitle = activePlaylist
-    ? PLAYLISTS.find((pl) => pl.id === activePlaylist)?.title || ""
+    ? playlists.find((pl) => pl.id === activePlaylist)?.title || ""
     : "";
 
   const viewAllHref = activePlaylist
@@ -152,7 +151,7 @@ const VideoPlaylist = () => {
             >
               {t("videos.allPlaylists")}
             </button>
-            {PLAYLISTS.map((pl) => (
+            {playlists.map((pl) => (
               <button
                 key={pl.id}
                 onClick={() => handlePlaylistChange(pl.id)}

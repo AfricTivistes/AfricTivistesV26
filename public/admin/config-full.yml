@@ -3654,3 +3654,21 @@ collections:
                 fields:
                    - { label: "Français", name: fr, widget: text }
                    - { label: "English", name: en, widget: text }
+      - name: "playlists-data"
+        label: "Playlists YouTube"
+        file: "src/data/playlists.json"
+        description: "Liste des playlists YouTube affichées sur la page d'accueil et la page Médias. Coche « Épinglée » sur la playlist à mettre en avant sur la page d'accueil (une seule à la fois)."
+        fields:
+          - label: "Playlists (glisser-déposer pour réordonner)"
+            name: items
+            widget: list
+            summary: "{{fields.title.fr}}"
+            fields:
+              - { label: "ID YouTube", name: id, widget: string, hint: "Ex: PLalgaepOVrI8ZpKVEqxDXelPWuc90ZEMi", pattern: ['^PL[A-Za-z0-9_-]+$', "ID YouTube invalide (doit commencer par PL)"] }
+              - { label: "📌 Épinglée sur la page d'accueil", name: pinned, widget: boolean, default: false, required: false, hint: "Une seule playlist doit être épinglée. Si plusieurs le sont, la première de la liste sera utilisée." }
+              - label: "Titre"
+                name: title
+                widget: object
+                fields:
+                  - { label: "Français", name: fr, widget: string }
+                  - { label: "English", name: en, widget: string }
