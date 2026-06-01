@@ -4,7 +4,7 @@
     "id": 1,
     "name": "Cheikh Fall",
     "role": {
-      "fr": "Président d'AfricTivistes",
+      "fr": "Président de AfricTivistes",
       "en": "President of AfricTivistes"
     },
     "country": "Sénégal",
@@ -38,7 +38,7 @@
     "country": "Mali",
     "image": "https://randomuser.me/api/portraits/men/75.jpg",
     "quote": {
-      "fr": "Le MOOC d'AfricTivistes m'a ouvert les portes du journalisme citoyen. Aujourd'hui, je forme d'autres jeunes dans ma communauté.",
+      "fr": "Le MOOC de AfricTivistes m'a ouvert les portes du journalisme citoyen. Aujourd'hui, je forme d'autres jeunes dans ma communauté.",
       "en": "The AfricTivistes MOOC opened the doors to citizen journalism for me. Today, I train other young people in my community."
     }
   },
@@ -80,7 +80,7 @@
     "country": "Côte d'Ivoire",
     "image": "https://randomuser.me/api/portraits/women/25.jpg",
     "quote": {
-      "fr": "Les formations en cybersécurité d'AfricTivistes ont transformé ma pratique journalistique. Je me sens désormais mieux armée pour protéger mes sources.",
+      "fr": "Les formations en cybersécurité de AfricTivistes ont transformé ma pratique journalistique. Je me sens désormais mieux armée pour protéger mes sources.",
       "en": "AfricTivistes' cybersecurity training has transformed my journalism practice. I now feel better equipped to protect my sources."
     }
   }
