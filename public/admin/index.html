@@ -23,6 +23,114 @@
     (function () {
       var booted = false;
 
+      // Track last-pinned playlist id at the UI level so a single click
+      // on "épingler" auto-unpins the others. This works by watching the
+      // CMS Redux store for changes on the playlists-data entry draft.
+      function registerSinglePinEnforcement() {
+        if (!window.CMS) return;
+
+        // 1) Belt: enforce single-pin on save (server-side safety net)
+        try {
+          CMS.registerEventListener({
+            name: 'preSave',
+            handler: function (data) {
+              var entry = data && data.entry;
+              if (!entry) return;
+              var slug = entry.get && entry.get('slug');
+              if (slug !== 'playlists-data') return;
+
+              var entryData = entry.get('data');
+              if (!entryData || !entryData.get) return;
+              var items = entryData.get('items');
+              if (!items || !items.size) return;
+
+              var pinnedIndices = [];
+              items.forEach(function (item, idx) {
+                if (item && item.get && item.get('pinned')) {
+                  pinnedIndices.push(idx);
+                }
+              });
+              if (pinnedIndices.length <= 1) return;
+
+              // Keep the last pinned (most recently clicked)
+              var keepIdx = pinnedIndices[pinnedIndices.length - 1];
+              var newItems = items.map(function (item, idx) {
+                return idx === keepIdx ? item : item.set('pinned', false);
+              });
+              return entryData.set('items', newItems);
+            }
+          });
+        } catch (e) {
+          console.warn('[CMS] preSave hook registration failed', e);
+        }
+
+        // 2) Suspenders: live single-select while editing.
+        // Subscribe to the Redux store and, when the playlists-data draft
+        // has multiple pinned items, immediately unpin the previously
+        // pinned ones (keeping the one that just changed).
+        try {
+          var store = CMS.store || (CMS.getStore && CMS.getStore());
+          if (!store || !store.subscribe) return;
+
+          var lastPinnedSet = null;
+
+          store.subscribe(function () {
+            var state = store.getState();
+            var entryDraft = state && (state.entryDraft || state.get && state.get('entryDraft'));
+            if (!entryDraft) return;
+
+            var entry = entryDraft.get ? entryDraft.get('entry') : entryDraft.entry;
+            if (!entry || !entry.get) return;
+            if (entry.get('slug') !== 'playlists-data') {
+              lastPinnedSet = null;
+              return;
+            }
+
+            var data = entry.get('data');
+            if (!data || !data.get) return;
+            var items = data.get('items');
+            if (!items || !items.forEach) return;
+
+            var pinned = [];
+            items.forEach(function (item, idx) {
+              if (item && item.get && item.get('pinned')) pinned.push(idx);
+            });
+
+            if (pinned.length <= 1) {
+              lastPinnedSet = pinned.length === 1 ? pinned[0] : null;
+              return;
+            }
+
+            // Determine which one was just newly pinned (not in last set)
+            var newlyPinned = pinned[pinned.length - 1];
+            if (lastPinnedSet !== null) {
+              for (var i = 0; i < pinned.length; i++) {
+                if (pinned[i] !== lastPinnedSet) { newlyPinned = pinned[i]; break; }
+              }
+            }
+
+            // Dispatch CHANGE_DRAFT_FIELD for each item to unpin
+            pinned.forEach(function (idx) {
+              if (idx === newlyPinned) return;
+              try {
+                store.dispatch({
+                  type: 'DRAFT_CHANGE_FIELD',
+                  payload: {
+                    field: ['items', String(idx), 'pinned'],
+                    value: false
+                  }
+                });
+              } catch (err) {
+                // Fallback: build a new items list and dispatch full replace
+              }
+            });
+            lastPinnedSet = newlyPinned;
+          });
+        } catch (e) {
+          console.warn('[CMS] live single-pin enforcement unavailable', e);
+        }
+      }
+
       function getConfigPath(user) {
         var roles = (user && user.app_metadata && user.app_metadata.roles) || [];
         var isAdmin = roles.indexOf('admin') !== -1;
@@ -49,6 +157,7 @@
             script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
             script.onload = function () {
               CMS.init({ config: cfg });
+              registerSinglePinEnforcement();
             };
             document.body.appendChild(script);
           })

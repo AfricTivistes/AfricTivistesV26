@@ -2406,7 +2406,7 @@ collections:
             summary: "{{fields.title.fr}}"
             fields:
               - { label: "ID YouTube", name: id, widget: string, hint: "Ex: PLalgaepOVrI8ZpKVEqxDXelPWuc90ZEMi", pattern: ['^PL[A-Za-z0-9_-]+$', "ID YouTube invalide (doit commencer par PL)"] }
-              - { label: "📌 Épinglée sur la page d'accueil", name: pinned, widget: boolean, default: false, required: false, hint: "Une seule playlist doit être épinglée. Si plusieurs le sont, la première de la liste sera utilisée." }
+              - { label: "📌 Épinglée sur la page d'accueil", name: pinned, widget: boolean, default: false, required: false, hint: "Coche pour épingler cette playlist sur la page d'accueil. Une seule peut être épinglée à la fois — épingler une autre playlist désépingle automatiquement la précédente lors de la sauvegarde." }
               - label: "Titre"
                 name: title
                 widget: object
