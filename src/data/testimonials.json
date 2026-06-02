@@ -1,88 +1,88 @@
 {
   "items": [
-  {
-    "id": 1,
-    "name": "Cheikh Fall",
-    "role": {
-      "fr": "Président de AfricTivistes",
-      "en": "President of AfricTivistes"
+    {
+      "id": 1,
+      "name": "Carmen Hagenaars",
+      "role": {
+        "fr": "Ambassadrice des Pays-Bas",
+        "en": "Ambassador of the Netherlands"
+      },
+      "country": "Pays-Bas",
+      "image": "https://scontent.fdkr9-1.fna.fbcdn.net/v/t39.30808-6/481470098_1050329177136611_5371868319280020407_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGAyW4YH_kJvIbS49yn_Ez0QobGQ-PmTyVChsZD4-ZPJVmxw3IzTPQuSE7LAMTHL7TnlPu8vSzjle7M3R8eRxx0&_nc_ohc=Dd0o-s6md8gQ7kNvwGdvSRV&_nc_oc=AdpFrt_UgVIT1wejOWpuadLeSYnyXNTE9kwuFnfgS3ktxaYaY6qpPQTmVmErfdshosk&_nc_zt=23&_nc_ht=scontent.fdkr9-1.fna&_nc_gid=PpWyeT58ZNhEYNVqcPLcOA&_nc_ss=7b2a8&oh=00_Af_uFPFo3TUqiNv_BrR3HOZuQDh4VjboAhkSEB7Bvl1cuA&oe=6A248F7F",
+      "quote": {
+        "fr": "Merci à l'équipe AfricTivistes pour le magnifique travail sur des thèmes importants qui sont la base de notre démocratie. En terre régionale et aussi ici au Sénégal votre engagement est vraiment remarquable et tellement important. L'équipe des Pays-Bas a beaucoup de confiance en vous. \n",
+        "en": "Thank you to the AfricTivistes team for your excellent work on important issues that form the foundation of our democracy. Both in the region and here in Senegal, your commitment is truly remarkable and so important. The team in the Netherlands has every confidence in you. \n"
+      }
     },
-    "country": "Sénégal",
-    "image": "https://randomuser.me/api/portraits/men/32.jpg",
-    "quote": {
-      "fr": "AfricTivistes est plus qu'un réseau, c'est un mouvement citoyen qui donne aux Africains les outils numériques pour construire la démocratie de demain.",
-      "en": "AfricTivistes is more than a network, it's a citizen movement that gives Africans the digital tools to build tomorrow's democracy."
-    }
-  },
-  {
-    "id": 2,
-    "name": "Aisha Dabo",
-    "role": {
-      "fr": "Coordinatrice des programmes",
-      "en": "Programs Coordinator"
+    {
+      "id": 2,
+      "name": "Thierry Vallat",
+      "role": {
+        "fr": "Président directeur général de CFI",
+        "en": "Chief Executive Officer of CFI"
+      },
+      "country": "France",
+      "image": "https://cfi.fr/sites/default/files/2024-07/CFI_Signature-36.jpg",
+      "quote": {
+        "fr": "AfricTivistes est une organisation au grand dynamisme. ",
+        "en": "AfricTivistes is a highly dynamic organisation. "
+      }
     },
-    "country": "Gambie",
-    "image": "https://randomuser.me/api/portraits/women/44.jpg",
-    "quote": {
-      "fr": "Grâce à AfricTivistes, j'ai pu développer mes compétences en civic tech et contribuer à des projets d'impact dans toute l'Afrique de l'Ouest.",
-      "en": "Thanks to AfricTivistes, I was able to develop my civic tech skills and contribute to impactful projects across West Africa."
-    }
-  },
-  {
-    "id": 3,
-    "name": "Mohamed Diabaté",
-    "role": {
-      "fr": "Blogueur et cyber-activiste",
-      "en": "Blogger and cyber-activist"
+    {
+      "id": 3,
+      "name": "MECHRI Mokhles",
+      "role": {
+        "fr": "CEO et cofondateur de Hackathon Tunisia",
+        "en": "CEO and co-founder of Hackathon Tunisia"
+      },
+      "country": "Tunisie",
+      "image": "https://media.licdn.com/dms/image/v2/D4D22AQFTyiJfKGocdQ/feedshare-shrink_1280/feedshare-shrink_1280/0/1717421948609?e=1781740800&v=beta&t=s20bEc83epMXZJl1VQkm72VYdTmnvJ0AX0kfM4Fbsik",
+      "quote": {
+        "fr": "J’ai eu l'honneur de participer avec vous au Hackathon Innov 4 Democracy. Je vous remercie sincèrement pour cette opportunité au nom de Hackathon Tunisie et de notre communauté, nous sommes ouverts et motivés à poursuivre ce partenariat pour le meilleur de notre continent africain. ",
+        "en": "I was honoured to take part in the Innov 4 Democracy Hackathon alongside you. On behalf of Hackathon Tunisia and our community, I would like to express my sincere thanks for this opportunity; we are open to and keen to continue this partnership for the betterment of our African continent. "
+      }
     },
-    "country": "Mali",
-    "image": "https://randomuser.me/api/portraits/men/75.jpg",
-    "quote": {
-      "fr": "Le MOOC de AfricTivistes m'a ouvert les portes du journalisme citoyen. Aujourd'hui, je forme d'autres jeunes dans ma communauté.",
-      "en": "The AfricTivistes MOOC opened the doors to citizen journalism for me. Today, I train other young people in my community."
-    }
-  },
-  {
-    "id": 4,
-    "name": "Fatoumata Ndiaye",
-    "role": {
-      "fr": "Chercheuse en gouvernance numérique",
-      "en": "Digital governance researcher"
+    {
+      "id": 4,
+      "name": "Pascal Uriel Elingui",
+      "role": {
+        "fr": "CEO WAKKEH",
+        "en": "CEO WAKKEH"
+      },
+      "country": "Côte d'Ivoire",
+      "image": "https://pbs.twimg.com/profile_images/1062865216537587718/HOcnFkvX_400x400.jpg",
+      "quote": {
+        "fr": "J'ai été honoré de participer au panel sur l'impact de l'intelligence\nArtificielle dans les processus électoraux en Afrique. Je souhaite très longue vie à votre mouvement et que vous sensibilisez le maximum de personnes en Afrique.",
+        "en": "I was honoured to take part in the panel discussion on the impact of artificial intelligence\non electoral processes in Africa. I wish your movement every success and hope you reach as many people in Africa as possible."
+      }
     },
-    "country": "Sénégal",
-    "image": "https://randomuser.me/api/portraits/women/68.jpg",
-    "quote": {
-      "fr": "AfricTivistes joue un rôle essentiel dans la promotion de la transparence électorale en Afrique. Leurs outils d'observation sont devenus des références.",
-      "en": "AfricTivistes plays an essential role in promoting electoral transparency in Africa. Their observation tools have become benchmarks."
-    }
-  },
-  {
-    "id": 5,
-    "name": "Jean-Paul Hirwa",
-    "role": {
-      "fr": "Développeur et activiste numérique",
-      "en": "Developer and digital activist"
+    {
+      "id": 5,
+      "name": "Andrew Songa",
+      "role": {
+        "fr": "Conseiller régional de l'EPD pour l'engagement auprès de l'Union africaine",
+        "en": "EPD's Regional Advisor on African Union Engagement"
+      },
+      "country": "Kenya ",
+      "image": "https://epd.eu/content/uploads/2023/08/Andrew-Songa-.jpg",
+      "quote": {
+        "fr": "Merci de nous avoir accueillis chez AfricTivistes ! Un formidable partenaire dans une ville formidable ! Continuez à inspirer l'engagement citoyen grâce à des approches technologiques innovantes et poursuivez ce chemin à nos côtés pour une Afrique mieux gouvernée !",
+        "en": "Thank you for welcoming us to AfricTivistes! A great partner in a great city! Continue to inspire citizen engagement through innovative technological approaches, and continue to walk this journey with us towards a better-governed Africa!"
+      }
     },
-    "country": "Rwanda",
-    "image": "https://randomuser.me/api/portraits/men/52.jpg",
-    "quote": {
-      "fr": "Les hackathons organisés par AfricTivistes permettent de créer des solutions technologiques adaptées aux réalités africaines. C'est l'innovation endogène en action.",
-      "en": "The hackathons organized by AfricTivistes make it possible to create technological solutions adapted to African realities. This is endogenous innovation in action."
+    {
+      "id": 6,
+      "name": "Valery Nadjibe",
+      "role": {
+        "fr": "Chargé(e) de programme pour l’Afrique centrale, National Endowment for Democracy National Endowment for Democracy",
+        "en": "Program Officer, Central Africa, National Endowment for Democracy"
+      },
+      "country": "Tchad ",
+      "image": "https://pbs.twimg.com/profile_images/1169682558445113349/tdeJs52k_400x400.jpg",
+      "quote": {
+        "fr": "Nous sommes heureux et très fiers du travail que fait AfricTivistes pour faire avancer les valeurs et principes démocratiques en Afrique.\nNED reste et sera toujours du côté des braves activistes comme vous et exprime  sa sincère solidarité pour la population de la région et votre travail\n ",
+        "en": "We are delighted and very proud of the work AfricTivistes is doing to promote democratic values and principles in Africa.\nNED stands, and will always stand, alongside brave activists like you, and expresses its sincere solidarity with the people of the region and your work"
+      }
     }
-  },
-  {
-    "id": 6,
-    "name": "Amina Traoré",
-    "role": {
-      "fr": "Journaliste et formatrice",
-      "en": "Journalist and trainer"
-    },
-    "country": "Côte d'Ivoire",
-    "image": "https://randomuser.me/api/portraits/women/25.jpg",
-    "quote": {
-      "fr": "Les formations en cybersécurité de AfricTivistes ont transformé ma pratique journalistique. Je me sens désormais mieux armée pour protéger mes sources.",
-      "en": "AfricTivistes' cybersecurity training has transformed my journalism practice. I now feel better equipped to protect my sources."
-    }
-  }
-]
+  ]
 }
