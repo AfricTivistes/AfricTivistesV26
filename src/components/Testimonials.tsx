@@ -23,8 +23,12 @@ for (let i = 0; i < testimonials.length; i += ITEMS_PER_SLIDE) {
   slides.push(testimonials.slice(i, i + ITEMS_PER_SLIDE));
 }
 
-const TestimonialCard = ({ item, lang }: { item: Testimonial; lang: Lang }) => (
-  <div className="bg-card rounded-2xl border border-border shadow-lg p-6 sm:p-8 flex flex-col h-full">
+const TestimonialCard = ({ item, lang, onHover }: { item: Testimonial; lang: Lang; onHover?: (paused: boolean) => void }) => (
+  <div
+    className="bg-card rounded-2xl border border-border shadow-lg p-6 sm:p-8 flex flex-col h-full transition-shadow duration-300 cursor-pointer hover:shadow-xl"
+    onMouseEnter={() => onHover?.(true)}
+    onMouseLeave={() => onHover?.(false)}
+  >
     {/* Author photo + info header */}
     <div className="flex items-center gap-4 mb-6">
       <img
@@ -54,7 +58,7 @@ const TestimonialCard = ({ item, lang }: { item: Testimonial; lang: Lang }) => (
       <Quote size={20} className="text-primary/20 absolute -top-1 -left-1" aria-hidden="true" />
       <blockquote className="pl-6">
         <p className="text-[15px] sm:text-base leading-relaxed text-foreground/85 italic">
-          "{item.quote[lang]}"
+          {item.quote[lang]}
         </p>
       </blockquote>
     </div>
@@ -65,6 +69,7 @@ const Testimonials = () => {
   const { t, lang } = useI18n();
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const totalSlides = slides.length;
 
@@ -86,11 +91,12 @@ const Testimonials = () => {
     setCurrent((prev) => (prev - 1 + totalSlides) % totalSlides);
   }, [totalSlides]);
 
-  /* Auto-advance every 7s */
+  /* Auto-advance every 7s, pause when hovering */
   useEffect(() => {
+    if (isPaused) return;
     const timer = setInterval(next, 7000);
     return () => clearInterval(timer);
-  }, [next]);
+  }, [next, isPaused]);
 
   const slideVariants = {
     enter: (d: number) => ({ x: d > 0 ? 80 : -80, opacity: 0 }),
@@ -151,7 +157,7 @@ const Testimonials = () => {
               >
                 {currentSlide.map((item) => (
                   <div key={item.id} role="listitem">
-                    <TestimonialCard item={item} lang={lang} />
+                    <TestimonialCard item={item} lang={lang} onHover={setIsPaused} />
                   </div>
                 ))}
               </motion.div>
