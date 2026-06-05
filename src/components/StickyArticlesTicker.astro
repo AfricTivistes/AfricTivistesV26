@@ -1,0 +1,90 @@
+---
+import { t, type Lang } from "@/lib/i18n";
+import { stripHtml, formatDate, type WPPost } from "@/lib/wordpress";
+
+interface Props {
+  lang: Lang;
+  /** Sticky posts (mobile ticker) */
+  stickyPosts: WPPost[];
+  /** Communique posts (desktop ticker) */
+  communiquePosts: WPPost[];
+}
+
+const { lang, stickyPosts, communiquePosts } = Astro.props;
+
+const arrowRightPath = '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>';
+const newspaperPath = '<path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/>';
+
+const dateLocale = lang === "en" ? "en-US" : "fr-FR";
+const stickyLabel = t("ticker.label", lang);
+const releasesLabel = t("releases.title", lang);
+
+/* Duplicate posts for the seamless CSS marquee (translateX: 0 -> -50%). */
+const stickyDuplicated = [...stickyPosts, ...stickyPosts];
+const communiqueDuplicated = [...communiquePosts, ...communiquePosts];
+---
+{stickyPosts.length > 0 && (
+  <section class="bg-primary overflow-hidden lg:hidden" data-testid="ticker-section-mobile">
+    <div class="flex items-center">
+      <div class="shrink-0 bg-secondary text-secondary-foreground px-4 py-3 flex items-center gap-2 z-10" data-testid="ticker-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={newspaperPath}></svg>
+        <span class="text-xs font-bold uppercase tracking-wide">{stickyLabel}</span>
+      </div>
+      <div class="relative flex-1 overflow-hidden py-3">
+        <div class="flex gap-8 animate-ticker whitespace-nowrap">
+          {stickyDuplicated.map((post, i) => (
+            <a
+              href={`/${lang}/blog/${post.slug}`}
+              class="shrink-0 flex items-center gap-3 opacity-90 hover:opacity-100 transition-opacity"
+              data-testid={`ticker-article-${post.id}`}
+              aria-hidden={i >= stickyPosts.length ? "true" : undefined}
+              tabindex={i >= stickyPosts.length ? -1 : undefined}
+            >
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
+              <span class="text-sm text-primary-foreground font-medium">
+                {stripHtml(post.title.rendered)}
+              </span>
+              <span class="text-xs text-primary-foreground/50">
+                {formatDate(post.date, dateLocale)}
+              </span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary-foreground/40" aria-hidden="true" set:html={arrowRightPath}></svg>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+{communiquePosts.length > 0 && (
+  <section class="bg-primary overflow-hidden hidden lg:block" data-testid="ticker-section-desktop">
+    <div class="flex items-center">
+      <div class="shrink-0 bg-secondary text-secondary-foreground px-4 py-3 flex items-center gap-2 z-10" data-testid="ticker-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={newspaperPath}></svg>
+        <span class="text-xs font-bold uppercase tracking-wide">{releasesLabel}</span>
+      </div>
+      <div class="relative flex-1 overflow-hidden py-3">
+        <div class="flex gap-8 animate-ticker whitespace-nowrap">
+          {communiqueDuplicated.map((post, i) => (
+            <a
+              href={`/${lang}/blog/${post.slug}`}
+              class="shrink-0 flex items-center gap-3 opacity-90 hover:opacity-100 transition-opacity"
+              data-testid={`ticker-article-${post.id}`}
+              aria-hidden={i >= communiquePosts.length ? "true" : undefined}
+              tabindex={i >= communiquePosts.length ? -1 : undefined}
+            >
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
+              <span class="text-sm text-primary-foreground font-medium">
+                {stripHtml(post.title.rendered)}
+              </span>
+              <span class="text-xs text-primary-foreground/50">
+                {formatDate(post.date, dateLocale)}
+              </span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary-foreground/40" aria-hidden="true" set:html={arrowRightPath}></svg>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+)}

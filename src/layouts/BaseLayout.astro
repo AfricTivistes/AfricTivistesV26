@@ -2,7 +2,7 @@
 import "@/index.css";
 import { ClientRouter } from "astro:transitions";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Footer from "@/components/Footer.astro";
 
 type ImageMime = "image/avif" | "image/webp" | "image/jpeg" | "image/png" | "image/svg+xml";
 
@@ -200,7 +200,7 @@ const ogImageAbsolute = ogImageUrl.startsWith("http") ? ogImageUrl : `${siteOrig
       <main id="main-content" class={mainClass}>
         <slot />
       </main>
-      <Footer lang={lang} client:visible transition:persist transition:name="site-footer" />
+      <Footer lang={lang} transition:persist transition:name="site-footer" />
     </div>
 
     {/* Global IntersectionObserver: any element with `.a-reveal` fades in once visible.

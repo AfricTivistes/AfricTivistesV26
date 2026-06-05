@@ -296,6 +296,159 @@ export function getCountryName(code: string, lang: Lang | string = "fr"): string
   return table[code] || code;
 }
 
+/* ================================================================
+   5b. PAYLOAD SLIMMERS -- pour reduire la taille du __PRELOAD__ inline
+   ================================================================ */
+
+interface SlimWpPostOptions {
+  /** Conserver content.rendered (necessaire pour les pages single-post) */
+  keepContent?: boolean;
+  /** Conserver excerpt.rendered (defaut: true) */
+  keepExcerpt?: boolean;
+}
+
+/**
+ * Reduit drastiquement un objet WPPost pour limiter le poids du
+ * payload inline `window.__PRELOAD__`.
+ *
+ * Drop par defaut :
+ *  - content.rendered (corps HTML jamais rendu sur les cards)
+ *  - _links (HATEOAS jamais lu cote client)
+ *  - _embedded.author / _embedded.replies (jamais lus)
+ *
+ * Garde :
+ *  - id, slug, date, title, excerpt
+ *  - _embedded["wp:featuredmedia"][0].source_url + media_details essentiels
+ *  - _embedded["wp:term"] (categories/tags utilises pour les badges)
+ */
+export function slimWpPost<T extends Partial<WPPost>>(
+  post: T,
+  opts: SlimWpPostOptions = {},
+): T {
+  const { keepContent = false, keepExcerpt = true } = opts;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const p = post as any;
+  const featured = p._embedded?.["wp:featuredmedia"]?.[0];
+  const slimFeatured = featured
+    ? [{
+        source_url: featured.source_url,
+        alt_text: featured.alt_text,
+        ...(featured.media_details
+          ? {
+              media_details: {
+                width: featured.media_details.width,
+                height: featured.media_details.height,
+                /* on ne garde que les variantes utilisees (large/medium_large/full) */
+                sizes: featured.media_details.sizes
+                  ? Object.fromEntries(
+                      Object.entries(
+                        featured.media_details.sizes as Record<string, unknown>,
+                      ).filter(([k]) =>
+                        ["large", "medium_large", "full", "medium"].includes(k),
+                      ),
+                    )
+                  : undefined,
+              },
+            }
+          : {}),
+      }]
+    : undefined;
+
+  const slim: Record<string, unknown> = {
+    id: p.id,
+    slug: p.slug,
+    date: p.date,
+    title: p.title,
+    featured_media: p.featured_media,
+    categories: p.categories,
+    translations: p.translations,
+    lang: p.lang,
+  };
+  if (keepExcerpt && p.excerpt) slim.excerpt = p.excerpt;
+  if (keepContent && p.content) slim.content = p.content;
+  if (slimFeatured || p._embedded?.["wp:term"]) {
+    slim._embedded = {
+      ...(slimFeatured ? { "wp:featuredmedia": slimFeatured } : {}),
+      ...(p._embedded?.["wp:term"]
+        ? { "wp:term": p._embedded["wp:term"] }
+        : {}),
+    };
+  }
+  return slim as T;
+}
+
+export function slimWpPosts<T extends Partial<WPPost>>(
+  posts: T[],
+  opts: SlimWpPostOptions = {},
+): T[] {
+  return posts.map((p) => slimWpPost(p, opts));
+}
+
+interface SlimWpProjetOptions {
+  /** Conserver l'ACF complet (necessaire sur la page detail). Defaut false. */
+  keepAcf?: boolean;
+}
+
+/**
+ * Reduit un WPProjet pour le payload inline.
+ *
+ * Drop par defaut :
+ *  - content.rendered, excerpt.rendered (jamais affiches sur les cards)
+ *  - _links
+ *  - acf complet (ne garde que `objectif` qui peut servir au tooltip)
+ *  - media_details superflu sur featuredmedia
+ *
+ * Garde :
+ *  - id, slug, title, parent, thematique, projet_mere, lang, translations
+ *  - _embedded["wp:featuredmedia"][0].source_url
+ *  - _embedded["wp:term"] (thematiques pour le badge)
+ */
+export function slimWpProjet<T extends Partial<WPProjet>>(
+  projet: T,
+  opts: SlimWpProjetOptions = {},
+): T {
+  const { keepAcf = false } = opts;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const p = projet as any;
+  const featured = p._embedded?.["wp:featuredmedia"]?.[0];
+  const slimFeatured = featured
+    ? [{ source_url: featured.source_url, alt_text: featured.alt_text }]
+    : undefined;
+  const slim: Record<string, unknown> = {
+    id: p.id,
+    slug: p.slug,
+    title: p.title,
+    featured_media: p.featured_media,
+    parent: p.parent,
+    thematique: p.thematique,
+    projet_mere: p.projet_mere,
+    translations: p.translations,
+    lang: p.lang,
+    acf: keepAcf
+      ? p.acf
+      : {
+          /* on ne garde que les champs reellement lus par les cards */
+          objectif: p.acf?.objectif,
+        },
+  };
+  if (slimFeatured || p._embedded?.["wp:term"]) {
+    slim._embedded = {
+      ...(slimFeatured ? { "wp:featuredmedia": slimFeatured } : {}),
+      ...(p._embedded?.["wp:term"]
+        ? { "wp:term": p._embedded["wp:term"] }
+        : {}),
+    };
+  }
+  return slim as T;
+}
+
+export function slimWpProjets<T extends Partial<WPProjet>>(
+  projets: T[],
+  opts: SlimWpProjetOptions = {},
+): T[] {
+  return projets.map((p) => slimWpProjet(p, opts));
+}
+
 
 
 /* ================================================================

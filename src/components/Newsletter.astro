@@ -1,0 +1,27 @@
+---
+import Reveal from "@/components/astro/Reveal.astro";
+import { t, type Lang } from "@/lib/i18n";
+import NewsletterForm from "@/components/NewsletterForm";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+
+const mailPath = '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>';
+---
+<section class="py-12 lg:py-16 relative overflow-hidden" aria-labelledby="newsletter-heading">
+  <div class="absolute inset-0 hero-gradient" aria-hidden="true"></div>
+  <div class="absolute inset-0 pattern-african" aria-hidden="true"></div>
+  <div class="section-container relative z-10">
+    <Reveal class="max-w-2xl mx-auto text-center">
+      <svg class="mx-auto mb-4 text-secondary" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={mailPath}></svg>
+      <h2 id="newsletter-heading" class="text-3xl lg:text-4xl font-bold text-primary-foreground mb-4">
+        {t("newsletter.title", lang)}
+      </h2>
+      <p class="text-primary-foreground/70 mb-8 text-lg">
+        {t("newsletter.desc", lang)}
+      </p>
+
+      <NewsletterForm client:idle lang={lang} variant="inline" idPrefix="newsletter" />
+    </Reveal>
+  </div>
+</section>

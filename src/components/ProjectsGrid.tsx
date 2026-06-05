@@ -1,5 +1,5 @@
 import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { m as motion, useAnimation } from "framer-motion";
 import { Link } from "@/lib/router-shim";
 import { ArrowRight } from "lucide-react";
@@ -7,14 +7,24 @@ import { useI18n } from "@/lib/i18n";
 import { useProjets, useThematiques } from "@/hooks/use-wordpress";
 import ProjetCard from "@/components/ui/ProjetCard";
 import ThematiqueFilterBar from "@/components/ui/ThematiqueFilterBar";
+import type { WPProjet, WPThematique } from "@/lib/wordpress";
 
 const CARD_WIDTH = 320;
 
-const ProjectsGrid = () => {
+interface ProjectsGridProps {
+  /** Server-rendered initial projets (slimmed) -- avoids first-paint skeleton. */
+  initialProjets?: WPProjet[];
+  /** Server-rendered initial thematiques. */
+  initialThematiques?: WPThematique[];
+}
+
+const ProjectsGrid = ({ initialProjets, initialThematiques }: ProjectsGridProps) => {
   const [activeType, setActiveType] = useState<number | null>(null);
   const { t, lang } = useI18n();
-  const { data: thematiques = [] } = useThematiques();
-  const { data: projets = [], isLoading } = useProjets(100);
+  const { data: thematiques = [] } = useThematiques({ initialData: initialThematiques });
+  const { data: projets = [], isLoading } = useProjets(100, undefined, {
+    initialData: initialProjets,
+  });
   const controls = useAnimation();
   const isPaused = useRef(false);
 
@@ -42,7 +52,20 @@ const ProjectsGrid = () => {
     startScroll();
   };
 
-  if (isLoading) {
+  /* Demarre l'auto-scroll au montage (et quand le filtre redevient null).
+     Avant: depend de onViewportEnter qui ne se declenche jamais quand le
+     composant est deja en viewport au moment de l'hydratation. */
+  useEffect(() => {
+    if (activeType !== null) return;
+    if (projets.length === 0) return;
+    startScroll();
+    return () => {
+      controls.stop();
+    };
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
+  }, [activeType, projets.length]);
+
+  if (isLoading && projets.length === 0) {
     return (
       <section className="py-12 lg:py-16 bg-muted/30">
         <div className="section-container">
@@ -68,8 +91,8 @@ const ProjectsGrid = () => {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
           className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12"
         >
           <div>
@@ -95,8 +118,8 @@ const ProjectsGrid = () => {
         {/* Filters */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
         >
           <ThematiqueFilterBar
             thematiques={thematiques}
@@ -115,7 +138,6 @@ const ProjectsGrid = () => {
           >
             <motion.div
               animate={controls}
-              onViewportEnter={startScroll}
               className="flex gap-5 w-max"
               style={{ willChange: "transform" }}
             >

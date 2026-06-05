@@ -1,83 +1,108 @@
 ---
 export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Hero from "@/components/Hero";
-import StickyArticlesTicker from "@/components/StickyArticlesTicker";
+import Hero from "@/components/Hero.astro";
+import StickyArticlesTicker from "@/components/StickyArticlesTicker.astro";
 import AboutPreview from "@/components/AboutPreview.astro";
 import VideoPlaylist from "@/components/VideoPlaylist";
 import LatestNews from "@/components/LatestNews.astro";
 import StatsSection from "@/components/StatsSection.astro";
-import Publications from "@/components/Publications";
+import Publications from "@/components/Publications.astro";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import ProjectThemes from "@/components/ProjectThemes.astro";
 import Testimonials from "@/components/Testimonials";
 import Partners from "@/components/Partners.astro";
-import Newsletter from "@/components/Newsletter";
+import Newsletter from "@/components/Newsletter.astro";
 import {
   fetchPosts,
   fetchStickyPosts,
-  fetchPartenaires,
   fetchProjets,
   fetchThematiques,
+  slimWpPosts,
+  slimWpProjets,
   COMMUNIQUE_CATEGORY_IDS,
   PUBLICATION_CATEGORY_IDS,
 } from "@/lib/wordpress";
+import {
+  fetchPlaylistVideosSSR,
+  getPinnedPlaylistId,
+  getPlaylists,
+  type YouTubeVideo,
+} from "@/lib/youtube";
 import heroBg from "@/assets/hero-bg.avif?url";
 
 const lang = "fr";
 const communiqueCatId = COMMUNIQUE_CATEGORY_IDS[lang] || COMMUNIQUE_CATEGORY_IDS.fr;
 const pubCatId = PUBLICATION_CATEGORY_IDS[lang] || PUBLICATION_CATEGORY_IDS.fr;
+const initialPlaylistId = getPinnedPlaylistId();
+const allPlaylists = getPlaylists(lang);
 
-// Server-side prefetch en parallele : tout ce que les composants vont consommer.
+/* Server-side prefetch en parallele.
+   Toutes les donnees sont passees en props directes aux composants
+   qui les consomment (Hero/StickyArticlesTicker/Publications/ProjectsGrid/VideoPlaylist).
+   Plus de window.__PRELOAD__ inline -- les payloads sont slimmes
+   pour reduire le poids HTML.
+
+   Pour VideoPlaylist : on fetch les 18 playlists en parallele au build,
+   slice a 5 videos chacune (~31 KB HTML), pour que le changement de
+   playlist soit instantane cote client (cache TanStack pre-seede). */
 const [
-  postsHero,
-  postsLatest,
+  postsHeroData,
   stickyPosts,
   communiqueData,
   publicationData,
-  partenaires,
   thematiques,
-  projets,
+  projetsRaw,
+  playlistVideosEntries,
 ] = await Promise.all([
   fetchPosts({ perPage: 3, lang }).catch(() => ({ posts: [], totalPages: 1, total: 0 })),
-  fetchPosts({ perPage: 6, lang }).catch(() => ({ posts: [], totalPages: 1, total: 0 })),
   fetchStickyPosts(10, lang).catch(() => []),
   fetchPosts({ perPage: 10, categories: [communiqueCatId], lang }).catch(() => ({ posts: [], totalPages: 1, total: 0 })),
   fetchPosts({ perPage: 3, categories: [pubCatId], lang }).catch(() => ({ posts: [], totalPages: 1, total: 0 })),
-  fetchPartenaires(100).catch(() => []),
   fetchThematiques(lang).catch(() => []),
   fetchProjets(100).catch(() => []),
+  Promise.all(
+    allPlaylists.map((pl) =>
+      fetchPlaylistVideosSSR(pl.id)
+        .then((videos) => [pl.id, videos.slice(0, 5)] as [string, YouTubeVideo[]])
+        .catch(() => [pl.id, [] as YouTubeVideo[]] as [string, YouTubeVideo[]]),
+    ),
+  ),
 ]);
 
-const projetsFiltered = projets.filter((p) => !p.lang || p.lang === lang);
+/* Slim payloads (drop content/excerpt/_links/acf etc.) */
+const heroPosts = slimWpPosts(postsHeroData.posts);
+const stickyPostsSlim = slimWpPosts(stickyPosts);
+const communiquePostsSlim = slimWpPosts(communiqueData.posts);
+const publicationPostsSlim = slimWpPosts(publicationData.posts);
+const projetsFiltered = projetsRaw.filter((p) => !p.lang || p.lang === lang);
+const projetsSlim = slimWpProjets(projetsFiltered);
 
-// QueryClient preload (queryKeys = celles utilisees dans src/hooks/use-wordpress.ts)
-const preload = [
-  { key: ["posts", { page: 1, perPage: 3, lang }], data: postsHero },
-  { key: ["posts", { page: 1, perPage: 6, lang }], data: postsLatest },
-  { key: ["stickyPosts", lang, 10], data: stickyPosts },
-  { key: ["communiquePosts", lang, communiqueCatId, 10], data: communiqueData },
-  { key: ["publicationPosts", lang, pubCatId, 3], data: publicationData },
-  { key: ["partenaires", 100], data: partenaires },
-  { key: ["thematiques", lang], data: thematiques },
-  { key: ["projets", lang, 100, undefined], data: projetsFiltered },
-];
+const initialVideosByPlaylist: Record<string, YouTubeVideo[]> = Object.fromEntries(playlistVideosEntries);
+const initialVideos = initialPlaylistId ? (initialVideosByPlaylist[initialPlaylistId] ?? []) : [];
 ---
 <BaseLayout lang={lang} mainClass="" preloadImage={heroBg}>
-  <script is:inline define:vars={{ preload }}>
-    window.__PRELOAD__ = preload;
-  </script>
-
-  <Hero lang={lang} client:load />
-  <StickyArticlesTicker lang={lang} client:visible />
+  <Hero lang={lang} posts={heroPosts} />
+  <StickyArticlesTicker lang={lang} stickyPosts={stickyPostsSlim} communiquePosts={communiquePostsSlim} />
   <AboutPreview lang={lang} />
   <ProjectThemes lang={lang} />
-  <ProjectsGrid lang={lang} client:visible />
-  <VideoPlaylist lang={lang} client:visible />
+  <ProjectsGrid
+    client:visible
+    lang={lang}
+    initialProjets={projetsSlim}
+    initialThematiques={thematiques}
+  />
+  <VideoPlaylist
+    client:idle
+    lang={lang}
+    initialPlaylistId={initialPlaylistId}
+    initialVideos={initialVideos}
+    initialVideosByPlaylist={initialVideosByPlaylist}
+  />
   <StatsSection lang={lang} />
-  <Publications lang={lang} client:visible />
+  <Publications lang={lang} posts={publicationPostsSlim} />
   <LatestNews lang={lang} />
-  <Testimonials lang={lang} client:visible />
+  <Testimonials client:visible lang={lang} />
   <Partners lang={lang} />
-  <Newsletter lang={lang} client:visible />
+  <Newsletter lang={lang} />
 </BaseLayout>

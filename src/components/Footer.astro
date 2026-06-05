@@ -1,0 +1,158 @@
+---
+import { t, type Lang } from "@/lib/i18n";
+import NewsletterForm from "@/components/NewsletterForm";
+import logo from "@/assets/logo.svg?url";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+
+const phonePath = '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>';
+const mailPath = '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>';
+const mapPinPath = '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>';
+const twitterPath = '<path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>';
+const facebookPath = '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>';
+const linkedinPath = '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>';
+const youtubePath = '<path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/>';
+const instagramPath = '<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>';
+
+const socials = [
+  { name: "Twitter", href: "https://twitter.com/AfricTivistes", path: twitterPath },
+  { name: "Facebook", href: "https://facebook.com/AfricTivistes", path: facebookPath },
+  { name: "LinkedIn", href: "https://linkedin.com/company/africtivistes", path: linkedinPath },
+  { name: "YouTube", href: "https://youtube.com/@AfricTivistes", path: youtubePath },
+  { name: "Instagram", href: "https://instagram.com/africtivistes", path: instagramPath },
+];
+
+const navItems = [
+  { labelKey: "nav.home", path: "/" },
+  { labelKey: "nav.about", path: "/about" },
+  { labelKey: "nav.news", path: "/blog" },
+  { labelKey: "nav.projects", path: "/initiatives" },
+  { labelKey: "nav.contact", path: "/contact" },
+];
+
+const followLabel = lang === "fr" ? "Suivez-nous sur" : "Follow us on";
+const socialsLabel = lang === "fr" ? "Réseaux sociaux" : "Social networks";
+const navLabel = lang === "fr" ? "Navigation du pied de page" : "Footer navigation";
+const subscribeLabel = lang === "fr" ? "S'abonner à la newsletter" : "Subscribe to the newsletter";
+
+const year = new Date().getFullYear();
+---
+<footer class="bg-foreground text-background" role="contentinfo">
+  <div class="section-container py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <div>
+        <img
+          src={logo}
+          alt="AfricTivistes"
+          class="h-10 mb-5 brightness-0 invert"
+          width="134"
+          height="60"
+          loading="lazy"
+          decoding="async"
+        />
+        <p class="text-sm text-white/60 leading-relaxed mb-6">
+          {t("footer.desc", lang)}
+        </p>
+        <div class="flex gap-3" role="list" aria-label={socialsLabel}>
+          {socials.map((s) => (
+            <a
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${followLabel} ${s.name}`}
+              class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary"
+              data-testid={`link-social-${s.name.toLowerCase()}`}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={s.path}></svg>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-heading text-sm font-bold mb-5 text-white/90 uppercase tracking-wider">{t("footer.newsletter", lang)}</h4>
+        <p class="text-sm text-white/60 mb-4">{t("footer.receiveNewsletter", lang)}</p>
+        <NewsletterForm
+          client:idle
+          lang={lang}
+          variant="footer"
+          idPrefix="footer-newsletter"
+        />
+      </div>
+
+      <div>
+        <h4 class="font-heading text-sm font-bold mb-5 text-white/90 uppercase tracking-wider">{t("footer.navigation", lang)}</h4>
+        <nav aria-label={navLabel}>
+          <ul class="space-y-2.5">
+            {navItems.map((item) => (
+              <li>
+                <a
+                  href={`/${lang}${item.path === "/" ? "/" : item.path}`}
+                  class="text-sm text-white/60 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-primary rounded-sm"
+                  data-testid={`link-footer-${item.labelKey}`}
+                >
+                  {t(item.labelKey, lang)}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+
+      <div>
+        <h4 class="font-heading text-sm font-bold mb-5 text-white/90 uppercase tracking-wider">{t("footer.contact", lang)}</h4>
+        <address class="not-italic">
+          <ul class="space-y-3 text-sm text-white/60">
+            <li>
+              <a href="tel:+221338375124" class="flex items-start gap-2.5 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-primary rounded-sm" data-testid="link-footer-phone">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true" set:html={phonePath}></svg>
+                <span>(+221) 33 837 51 24</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@africtivistes.org" class="flex items-start gap-2.5 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-primary rounded-sm" data-testid="link-footer-email">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true" set:html={mailPath}></svg>
+                <span>info@africtivistes.org</span>
+              </a>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true" set:html={mapPinPath}></svg>
+              <span>Liberté 6 extension villa N°263, Dakar, Sénégal</span>
+            </li>
+          </ul>
+        </address>
+
+        <div class="mt-6 pt-5 border-t border-white/10">
+          <p class="text-xs text-white/50 mb-2 uppercase tracking-wider">{t("footer.equivalency", lang)}</p>
+          <a
+            href="https://www.ngosource.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="link-ngosource"
+          >
+            <img
+              src="/NGOsource-ED.webp"
+              alt="NGOsource Equivalency Determination"
+              class="h-10 w-28 object-contain opacity-80 transition-opacity hover:opacity-100"
+              loading="lazy"
+              decoding="async"
+              width="112"
+              height="40"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-white/40">
+        © {year} AfricTivistes. {t("footer.rights", lang)}
+      </p>
+      <p class="text-xs text-white/40">
+        {t("footer.tagline", lang)}
+      </p>
+    </div>
+  </div>
+</footer>

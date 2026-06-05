@@ -1,16 +1,52 @@
 import { withI18nQueryMotion } from "@/lib/providers/withI18nQueryMotion";
 import { useState, useRef, useEffect, useMemo } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import { m as motion, AnimatePresence } from "framer-motion";
 import { Play, X, ExternalLink, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { getYouTubeEmbedUrl, getPlaylists, getPinnedPlaylistId } from "@/lib/youtube";
+import { getYouTubeEmbedUrl, getPlaylists, getPinnedPlaylistId, type YouTubeVideo } from "@/lib/youtube";
 import { useYouTubeVideos } from "@/hooks/use-youtube";
 
-const VideoPlaylist = () => {
+interface VideoPlaylistProps {
+  /** Videos pre-fetched server-side for the initial playlist (avoids skeleton). */
+  initialVideos?: YouTubeVideo[];
+  /** Playlist id selected by default. Defaults to getPinnedPlaylistId(). */
+  initialPlaylistId?: string | null;
+  /** Videos pre-fetched server-side for every playlist (id -> videos[]).
+      Seeded into the TanStack cache on mount so switching playlists is
+      instantaneous (no skeleton, no client-side CORS proxy fetch). */
+  initialVideosByPlaylist?: Record<string, YouTubeVideo[]>;
+}
+
+const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlaylist }: VideoPlaylistProps) => {
   const { t, lang } = useI18n();
+  const queryClient = useQueryClient();
   const playlists = useMemo(() => getPlaylists(lang), [lang]);
-  const [activePlaylist, setActivePlaylist] = useState<string | null>(() => getPinnedPlaylistId());
-  const { data: videos = [], isLoading: loading } = useYouTubeVideos(activePlaylist);
+  const defaultPlaylistId = useMemo(
+    () => (initialPlaylistId !== undefined ? initialPlaylistId : getPinnedPlaylistId()),
+    [initialPlaylistId],
+  );
+  const [activePlaylist, setActivePlaylist] = useState<string | null>(defaultPlaylistId);
+  /* Pre-seed le cache TanStack pour TOUTES les playlists avec les videos
+     fetchees au build (SSR). Idempotent : on n'ecrase pas une entree deja
+     presente (ex. fetch client plus recent apres interaction). Resultat :
+     basculer entre playlists est instantane (cache hit, pas de proxy CORS). */
+  useEffect(() => {
+    if (!initialVideosByPlaylist) return;
+    for (const [id, vids] of Object.entries(initialVideosByPlaylist)) {
+      const key = ["youtubeVideos", id];
+      if (queryClient.getQueryData(key) !== undefined) continue;
+      queryClient.setQueryData(key, vids);
+    }
+  }, [initialVideosByPlaylist, queryClient]);
+  /* `initialData` reste passe a la requete de la playlist active pour
+     garantir que le HTML SSR contient deja la grille (pas de skeleton).
+     Le seeding via setQueryData (useEffect ci-dessus) couvre les AUTRES
+     playlists -- l'utilisateur peut cliquer n'importe laquelle sans delai. */
+  const matchesInitial = activePlaylist === defaultPlaylistId;
+  const { data: videos = [], isLoading: loading } = useYouTubeVideos(activePlaylist, {
+    initialData: matchesInitial ? initialVideos : undefined,
+  });
   const [playingId, setPlayingId] = useState<string | null>(null);
 
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -109,8 +145,8 @@ const VideoPlaylist = () => {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-8"
         >
           <h2 id="videos-heading" className="text-3xl lg:text-4xl font-bold text-foreground">

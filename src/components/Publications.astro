@@ -1,0 +1,88 @@
+---
+import Reveal from "@/components/astro/Reveal.astro";
+import { t, type Lang } from "@/lib/i18n";
+import {
+  getFeaturedImageUrl,
+  stripHtml,
+  type WPPost,
+} from "@/lib/wordpress";
+
+interface Props {
+  lang: Lang;
+  posts: WPPost[];
+}
+
+const { lang, posts } = Astro.props;
+
+if (posts.length === 0) {
+  /* Astro `null` slot expression renders nothing -- early return. */
+}
+
+const arrowRightPath = '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>';
+const fileTextPath = '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>';
+const readLabel = t("releases.read", lang);
+---
+{posts.length > 0 && (
+  <section class="py-12 lg:py-16 bg-muted/30" aria-labelledby="publications-heading">
+    <div class="section-container">
+      <Reveal class="text-center mb-14">
+        <h2 id="publications-heading" class="text-3xl lg:text-4xl font-bold text-foreground">
+          {t("publications.title", lang)}
+        </h2>
+        <div class="w-20 h-1 bg-secondary mx-auto mt-4 rounded-full" aria-hidden="true"></div>
+      </Reveal>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
+        {posts.map((post, i) => {
+          const imageUrl = getFeaturedImageUrl(post);
+          const title = stripHtml(post.title.rendered);
+          return (
+            <Reveal delay={i * 60} class="contents">
+              <article role="listitem">
+                <div class="group bg-card rounded-xl border border-border overflow-hidden transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1">
+                  <a
+                    href={`/${lang}/blog/${post.slug}`}
+                    class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    aria-label={`${readLabel} : ${title}`}
+                  >
+                    <div class="aspect-[3/4] overflow-hidden bg-muted/50 p-6 flex items-center justify-center">
+                      {imageUrl ? (
+                        <img
+                          src={imageUrl}
+                          alt={title}
+                          class="max-w-full max-h-full object-contain drop-shadow-md transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      ) : (
+                        <div class="w-full h-full flex items-center justify-center" aria-hidden="true">
+                          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground/30" set:html={fileTextPath}></svg>
+                        </div>
+                      )}
+                    </div>
+                    <div class="p-5">
+                      <h3 class="font-heading text-sm font-bold text-card-foreground leading-tight line-clamp-3 group-hover:text-primary transition-colors">
+                        {title}
+                      </h3>
+                    </div>
+                  </a>
+                </div>
+              </article>
+            </Reveal>
+          );
+        })}
+      </div>
+
+      <div class="text-center mt-5">
+        <a
+          href={`/${lang}/resources/publications`}
+          class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm"
+          aria-label={t("publications.viewAll", lang)}
+        >
+          {t("publications.viewAll", lang)}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={arrowRightPath}></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+)}

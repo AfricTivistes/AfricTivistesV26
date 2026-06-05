@@ -23,6 +23,8 @@ import {
   COMMUNIQUE_CATEGORY_IDS,
   PUBLICATION_CATEGORY_IDS,
   type FetchPostsOptions,
+  type WPProjet,
+  type WPThematique,
 } from "@/lib/wordpress";
 import { useI18n } from "@/lib/i18n";
 
@@ -163,7 +165,11 @@ export function useProjetBySlug(slug: string | undefined) {
   });
 }
 
-export function useProjets(perPage = 100, thematique?: number, options?: { enabled?: boolean }) {
+export function useProjets(
+  perPage = 100,
+  thematique?: number,
+  options?: { enabled?: boolean; initialData?: WPProjet[] },
+) {
   const { lang } = useI18n();
 
   return useQuery({
@@ -173,6 +179,7 @@ export function useProjets(perPage = 100, thematique?: number, options?: { enabl
       return lang ? all.filter((p) => !p.lang || p.lang === lang) : all;
     },
     enabled: options?.enabled ?? true,
+    initialData: options?.initialData,
   });
 }
 
@@ -184,12 +191,13 @@ export function useChildProjets(parentId: number | undefined, perPage = 100) {
   });
 }
 
-export function useThematiques() {
+export function useThematiques(options?: { initialData?: WPThematique[] }) {
   const { lang } = useI18n();
 
   return useQuery({
     queryKey: ["thematiques", lang],
     queryFn: () => fetchThematiques(lang),
+    initialData: options?.initialData,
   });
 }
 

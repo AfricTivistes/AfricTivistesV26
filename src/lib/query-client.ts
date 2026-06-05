@@ -35,6 +35,13 @@ let _lastPreload: unknown = null;
  * Called synchronously before the first render of each page's islands.
  * Supports View Transitions: detects when a new page injects a fresh
  * `__PRELOAD__` array (different reference) and re-hydrates accordingly.
+ *
+ * Important : ne JAMAIS ecraser une entree deja peuplee. Quand un composant
+ * recoit ses donnees en props (pattern initialData), TanStack Query injecte
+ * la valeur dans le cache des le premier render via `initialData` ; ces
+ * donnees sont la source de verite. Le `__PRELOAD__` ne sert qu'a
+ * pre-remplir le cache pour les hooks qui n'ont PAS recu de props (ex.
+ * navigation View Transitions ou autres pages).
  */
 export function hydratePreloadOnce(): void {
   if (typeof window === "undefined") return;
@@ -48,8 +55,9 @@ export function hydratePreloadOnce(): void {
   _lastPreload = preload;
   const client = getQueryClient();
   for (const entry of preload) {
-    if (entry && Array.isArray(entry.key)) {
-      client.setQueryData(entry.key, entry.data);
-    }
+    if (!entry || !Array.isArray(entry.key)) continue;
+    const existing = client.getQueryData(entry.key);
+    if (existing !== undefined) continue; // ne pas ecraser les donnees props/initialData
+    client.setQueryData(entry.key, entry.data);
   }
 }

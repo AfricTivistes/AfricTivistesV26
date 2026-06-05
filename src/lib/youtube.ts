@@ -163,6 +163,84 @@ export async function fetchPlaylistVideos(playlistId: string): Promise<YouTubeVi
   }
 }
 
+/* ================================================================
+   SSR variants -- direct fetch (no CORS proxy) + regex parser
+   pour usage cote Node (build-time / SSR Astro).
+   ================================================================ */
+
+function decodeEntities(s: string): string {
+  return s
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&apos;/g, "'");
+}
+
+/**
+ * Parser RSS YouTube sans dependance DOM (compatible Node).
+ * Utilise des regex sur la structure RSS YouTube qui est tres previsible.
+ */
+function parseVideosFromXmlRegex(text: string): YouTubeVideo[] {
+  const videos: YouTubeVideo[] = [];
+  const entryRegex = /<entry>([\s\S]*?)<\/entry>/g;
+  let match: RegExpExecArray | null;
+  while ((match = entryRegex.exec(text))) {
+    const entry = match[1];
+    const videoIdMatch = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/);
+    const idFallback = entry.match(/<id>yt:video:([^<]+)<\/id>/);
+    const videoId = videoIdMatch?.[1] ?? idFallback?.[1];
+    if (!videoId) continue;
+
+    const titleRaw = entry.match(/<title>([\s\S]*?)<\/title>/)?.[1]?.trim() ?? "";
+    const title = decodeEntities(titleRaw);
+    const publishedAt = entry.match(/<published>([^<]+)<\/published>/)?.[1]?.trim() ?? "";
+    const thumbnail = entry.match(/<media:thumbnail\s+url="([^"]+)"/)?.[1]
+      ?? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
+    videos.push({
+      id: videoId,
+      title,
+      thumbnail,
+      publishedAt,
+      link: `https://www.youtube.com/watch?v=${videoId}`,
+    });
+  }
+  return videos;
+}
+
+/**
+ * SSR : fetch direct du flux RSS YouTube sans proxy CORS
+ * (les CORS proxies sont superflus cote serveur car pas de browser).
+ *
+ * A utiliser dans les frontmatters .astro pour hydrater le first paint
+ * sans skeleton, en passant le resultat en `initialData` prop.
+ */
+export async function fetchYouTubeVideosSSR(): Promise<YouTubeVideo[]> {
+  try {
+    const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+    const res = await fetch(rssUrl);
+    if (!res.ok) return [];
+    const text = await res.text();
+    return parseVideosFromXmlRegex(text);
+  } catch {
+    return [];
+  }
+}
+
+export async function fetchPlaylistVideosSSR(playlistId: string): Promise<YouTubeVideo[]> {
+  try {
+    const rssUrl = `https://www.youtube.com/feeds/videos.xml?playlist_id=${playlistId}`;
+    const res = await fetch(rssUrl);
+    if (!res.ok) return [];
+    const text = await res.text();
+    return parseVideosFromXmlRegex(text);
+  } catch {
+    return [];
+  }
+}
+
 /**
  * Returns the embed URL for a given YouTube video ID.
  */

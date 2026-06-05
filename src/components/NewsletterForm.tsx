@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Send, Check } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import { withI18n } from "@/lib/providers/withI18n";
 
 type NewsletterFormVariant = "inline" | "stacked" | "footer";
 
@@ -262,4 +263,4 @@ const NewsletterForm = ({ variant = "inline", idPrefix = "newsletter" }: Newslet
   );
 };
 
-export default NewsletterForm;
+export default withI18n(NewsletterForm);

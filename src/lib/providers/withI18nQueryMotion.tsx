@@ -24,8 +24,10 @@ export function withI18nQueryMotion<P extends object>(
 ): ComponentType<WithLang<P>> {
   const Wrapped = ({ lang, ...rest }: WithLang<P>) => {
     // Hydrate SSR-preloaded data into the cache synchronously before render.
-    // Since these islands use client:load (no SSR HTML), there is no
-    // hydration mismatch risk — React does a full client render.
+    // The hydratePreloadOnce() call is a no-op on the server, and on the
+    // client it only fills cache entries that are missing — components that
+    // receive `initialData` props keep their server-rendered HTML and avoid
+    // any hydration flash.
     hydratePreloadOnce();
 
     return (
