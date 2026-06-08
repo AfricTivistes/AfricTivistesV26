@@ -1,11 +1,24 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ProjetDetail from "@/components/projet/ProjetDetail";
-import { fetchProjetBySlugWithLang, getOgImageUrl, stripHtml } from "@/lib/wordpress";
+import {
+  fetchProjetBySlugWithLang,
+  fetchProjets,
+  fetchPlateformesByIds,
+  fetchPartenairesByIds,
+  fetchProjetMeres,
+  getOgImageUrl,
+  stripHtml,
+  collectPhases,
+  slimWpProjets,
+} from "@/lib/wordpress";
 
 const lang = "fr";
 const { slug } = Astro.params;
 
+/* SSR : on fetch le projet, puis on lance en parallele toutes les sous-ressources
+   (similaires, plateformes, partenaires, projets meres). Donnees passees en props
+   directes -- plus de window.__PRELOAD__ inline. */
 let projet = null;
 try {
   projet = await fetchProjetBySlugWithLang(slug, lang);
@@ -13,7 +26,50 @@ try {
   console.error("[ProjetDetail SSR prefetch] failed:", err);
 }
 
-const preload = projet ? [{ key: ["projet", slug, lang], data: projet }] : [];
+let initialSimilarProjets: ReturnType<typeof slimWpProjets> | undefined;
+let initialPlateformes: Awaited<ReturnType<typeof fetchPlateformesByIds>> | undefined;
+let initialPartenaires: Awaited<ReturnType<typeof fetchPartenairesByIds>> | undefined;
+let initialProjetsMeres: Awaited<ReturnType<typeof fetchProjetMeres>> | undefined;
+
+if (projet) {
+  const thematiqueId = projet.thematique?.[0];
+  const plateformeIds = projet.acf?.plateformes_projet || [];
+  const projetMereIds = projet.projet_mere || [];
+
+  const phases = collectPhases(projet.acf);
+  const phasePartenaireIds = new Set<number>();
+  phases.forEach((ph) => ph.phase_partenaires?.forEach((id) => phasePartenaireIds.add(id)));
+  const allPartenaireIds = [
+    ...new Set([
+      ...phasePartenaireIds,
+      ...(projet.acf?.soutenu_par || []),
+      ...(projet.acf?.en_partenariat_avec || []),
+    ]),
+  ];
+
+  const [similarRaw, plateformes, partenaires, projetsMeres] = await Promise.all([
+    thematiqueId
+      ? fetchProjets(5, thematiqueId).catch(() => [])
+      : Promise.resolve([]),
+    plateformeIds.length
+      ? fetchPlateformesByIds(plateformeIds).catch(() => [])
+      : Promise.resolve([]),
+    allPartenaireIds.length
+      ? fetchPartenairesByIds(allPartenaireIds).catch(() => [])
+      : Promise.resolve([]),
+    projetMereIds.length
+      ? fetchProjetMeres(projetMereIds).catch(() => [])
+      : Promise.resolve([]),
+  ]);
+
+  /* Filtrage similaires par lang -- reproduit la queryFn de useProjets pour
+     que la cle de cache matche cote client. */
+  const similarFiltered = similarRaw.filter((p) => !p.lang || p.lang === lang);
+  initialSimilarProjets = slimWpProjets(similarFiltered);
+  initialPlateformes = plateformes;
+  initialPartenaires = partenaires;
+  initialProjetsMeres = projetsMeres;
+}
 
 const ogTitle = projet ? `${stripHtml(projet.title.rendered)} | AfricTivistes` : undefined;
 const ogDescription = projet?.excerpt?.rendered ? stripHtml(projet.excerpt.rendered).slice(0, 200) : undefined;
@@ -26,9 +82,14 @@ const ogImage = projet ? getOgImageUrl(projet) ?? undefined : undefined;
   description={ogDescription}
   ogImage={ogImage}
 >
-  <script is:inline define:vars={{ slug, preload }}>
-    window.__ASTRO_PARAMS__ = { slug };
-    window.__PRELOAD__ = preload;
-  </script>
-  <ProjetDetail slug={slug} lang={lang} client:load />
+  <ProjetDetail
+    client:idle
+    lang={lang}
+    slug={slug}
+    initialProjet={projet}
+    initialSimilarProjets={initialSimilarProjets}
+    initialPlateformes={initialPlateformes}
+    initialPartenaires={initialPartenaires}
+    initialProjetsMeres={initialProjetsMeres}
+  />
 </BaseLayout>

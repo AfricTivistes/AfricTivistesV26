@@ -27,6 +27,9 @@ import {
   type WPCategory,
   type WPProjet,
   type WPThematique,
+  type WPPartenaire,
+  type WPPlateforme,
+  type WPProjetMere,
 } from "@/lib/wordpress";
 import { useI18n } from "@/lib/i18n";
 
@@ -141,11 +144,15 @@ export function usePlateformes(perPage = 100) {
   });
 }
 
-export function usePlateformesByIds(ids: number[]) {
+export function usePlateformesByIds(
+  ids: number[],
+  options?: { initialData?: WPPlateforme[] },
+) {
   return useQuery({
     queryKey: ["plateformesByIds", ids],
     queryFn: () => fetchPlateformesByIds(ids),
     enabled: ids.length > 0,
+    initialData: options?.initialData,
   });
 }
 
@@ -167,12 +174,21 @@ export function useTeamMembers(perPage = 100) {
    Nouveaux hooks : Projet, Initiative, Partenaire, Thematique
    ================================================================ */
 
-export function useProjetBySlug(slug: string | undefined) {
+export function useProjetBySlug(
+  slug: string | undefined,
+  options?: { initialData?: WPProjet | null },
+) {
   const { lang } = useI18n();
+  // Pass null through directly: it signals a confirmed "not found" from SSR
+  // and lets React Query skip the loading flash. `undefined` keeps the
+  // default behavior (no initial data, queryFn runs).
   return useQuery({
     queryKey: ["projet", slug, lang],
     queryFn: () => fetchProjetBySlugWithLang(slug!, lang),
     enabled: !!slug,
+    initialData: options?.initialData === undefined
+      ? undefined
+      : (options.initialData as WPProjet),
   });
 }
 
@@ -227,19 +243,27 @@ export function usePartenaires(perPage = 100) {
   });
 }
 
-export function usePartenairesByIds(ids: number[]) {
+export function usePartenairesByIds(
+  ids: number[],
+  options?: { initialData?: WPPartenaire[] },
+) {
   return useQuery({
     queryKey: ["partenairesByIds", ids],
     queryFn: () => fetchPartenairesByIds(ids),
     enabled: ids.length > 0,
+    initialData: options?.initialData,
   });
 }
 
-export function useProjetMeres(ids: number[]) {
+export function useProjetMeres(
+  ids: number[],
+  options?: { initialData?: WPProjetMere[] },
+) {
   return useQuery({
     queryKey: ["projetMeres", ids],
     queryFn: () => fetchProjetMeres(ids),
     enabled: ids.length > 0,
+    initialData: options?.initialData,
   });
 }
 

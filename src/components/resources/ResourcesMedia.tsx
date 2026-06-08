@@ -115,14 +115,27 @@ const VideoCard = ({ video, index, playingId, onPlay, onStop, formatDate, t }: V
   );
 };
 
-const ResourcesMedia = () => {
+interface ResourcesMediaProps {
+  /** Server-rendered "all videos" (no playlist filter). Hydrates the initial
+      first paint to avoid the skeleton flash. Only used when
+      `activePlaylist === null` -- switching to a specific playlist refetches
+      via TanStack Query as usual. */
+  initialVideos?: YouTubeVideo[];
+}
+
+const ResourcesMedia = ({ initialVideos }: ResourcesMediaProps) => {
   const { t, lang } = useI18n();
   const playlists = useMemo(() => getPlaylists(lang), [lang]);
   const [playingId, setPlayingId] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [activePlaylist, setActivePlaylist] = useState<string | null>(null);
 
-  const { data: videos = [], isLoading: loading } = useYouTubeVideos(activePlaylist);
+  const { data: videos = [], isLoading: loading } = useYouTubeVideos(
+    activePlaylist,
+    // initialData ne s'applique qu'a la queryKey ["youtubeVideos", null] (= all
+    // videos). Selectionner une playlist declenche un fetch normal.
+    { initialData: activePlaylist === null ? initialVideos : undefined },
+  );
 
   const handleFilterChange = (playlistId: string | null) => {
     setActivePlaylist(playlistId);

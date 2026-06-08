@@ -2,8 +2,16 @@
 export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ResourcesMedia from "@/components/resources/ResourcesMedia";
+import { fetchYouTubeVideosSSR } from "@/lib/youtube";
+
 const lang = "fr";
+
+/* SSR : recupere la liste "all videos" du flux RSS YouTube sans proxy CORS
+   (cf. fetchYouTubeVideosSSR -- fetch direct cote Node). Les donnees sont
+   passees en prop directe a ResourcesMedia pour hydrater le first paint
+   sans skeleton. Switching de playlist reste un fetch client normal. */
+const initialVideos = await fetchYouTubeVideosSSR().catch(() => []);
 ---
 <BaseLayout lang={lang}>
-  <ResourcesMedia lang={lang} client:load />
+  <ResourcesMedia client:idle lang={lang} initialVideos={initialVideos} />
 </BaseLayout>

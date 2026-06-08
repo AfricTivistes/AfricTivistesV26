@@ -2,8 +2,16 @@
 export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ResourcesMedia from "@/components/resources/ResourcesMedia";
+import { fetchYouTubeVideosSSR } from "@/lib/youtube";
+
 const lang = "en";
+
+/* SSR : fetch the "all videos" YouTube RSS feed directly from Node (no CORS
+   proxy needed on the server). Result is passed as a prop to ResourcesMedia
+   to hydrate the first paint and skip the skeleton. Switching to a specific
+   playlist is still handled client-side by TanStack Query. */
+const initialVideos = await fetchYouTubeVideosSSR().catch(() => []);
 ---
 <BaseLayout lang={lang}>
-  <ResourcesMedia lang={lang} client:load />
+  <ResourcesMedia client:idle lang={lang} initialVideos={initialVideos} />
 </BaseLayout>

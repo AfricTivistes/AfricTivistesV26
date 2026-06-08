@@ -22,7 +22,13 @@ import {
   toPartnerOrgs,
   AFRICTIVISTES_ORG,
 } from "@/lib/wordpress";
-import type { WPPartenaire, PartnerOrg } from "@/lib/wordpress";
+import type {
+  WPPartenaire,
+  PartnerOrg,
+  WPProjet,
+  WPPlateforme,
+  WPProjetMere,
+} from "@/lib/wordpress";
 import { useI18n } from "@/lib/i18n";
 import {
   useProjetBySlug,
@@ -32,12 +38,29 @@ import {
   useProjetMeres,
 } from "@/hooks/use-wordpress";
 
-interface ProjetDetailProps { slug?: string }
-const ProjetDetail = ({ slug: slugProp }: ProjetDetailProps = {}) => {
+interface ProjetDetailProps {
+  slug?: string;
+  /** SSR-prefetched data: when present, hooks hydrate without a loading flash. */
+  initialProjet?: WPProjet | null;
+  initialSimilarProjets?: WPProjet[];
+  initialPlateformes?: WPPlateforme[];
+  initialPartenaires?: WPPartenaire[];
+  initialProjetsMeres?: WPProjetMere[];
+}
+const ProjetDetail = ({
+  slug: slugProp,
+  initialProjet,
+  initialSimilarProjets,
+  initialPlateformes,
+  initialPartenaires,
+  initialProjetsMeres,
+}: ProjetDetailProps = {}) => {
   const { t, lang } = useI18n();
   const params = useParams<{ slug: string }>();
   const slug = slugProp ?? params.slug;
-  const { data: projet, isLoading: loading } = useProjetBySlug(slug);
+  const { data: projet, isLoading: loading } = useProjetBySlug(slug, {
+    initialData: initialProjet,
+  });
   const [activeTab, setActiveTab] = useState<"presentation" | "actions">("presentation");
 
   /* Taxonomie thematique */
@@ -48,11 +71,16 @@ const ProjetDetail = ({ slug: slugProp }: ProjetDetailProps = {}) => {
   const acf = projet?.acf || null;
 
   /* Projets similaires : fetch cible (5 projets de la meme thematique) au lieu de 100 */
-  const { data: similarRaw = [] } = useProjets(5, thematiqueId, { enabled: !!thematiqueId });
+  const { data: similarRaw = [] } = useProjets(5, thematiqueId, {
+    enabled: !!thematiqueId,
+    initialData: initialSimilarProjets,
+  });
 
   /* Plateformes : fetch uniquement les IDs lies au projet */
   const plateformeIds = useMemo(() => acf?.plateformes_projet || [], [acf]);
-  const { data: linkedPlateformes = [] } = usePlateformesByIds(plateformeIds);
+  const { data: linkedPlateformes = [] } = usePlateformesByIds(plateformeIds, {
+    initialData: initialPlateformes,
+  });
 
   /* ---- Phases ---- */
   const phases = useMemo(() => acf ? collectPhases(acf) : [], [acf]);
@@ -73,7 +101,9 @@ const ProjetDetail = ({ slug: slugProp }: ProjetDetailProps = {}) => {
     () => [...new Set([...phasePartenaireIds, ...soutenuParIds, ...enPartenariatAvecIds])],
     [phasePartenaireIds, soutenuParIds, enPartenariatAvecIds],
   );
-  const { data: wpPartenaires = [] } = usePartenairesByIds(allPartenaireIds);
+  const { data: wpPartenaires = [] } = usePartenairesByIds(allPartenaireIds, {
+    initialData: initialPartenaires,
+  });
 
   /* Map pour resolution rapide par ID */
   const partenaireMap = useMemo(() => {
@@ -133,7 +163,9 @@ const ProjetDetail = ({ slug: slugProp }: ProjetDetailProps = {}) => {
 
   /* Projets meres (taxonomie) */
   const projetMereIds = useMemo(() => projet?.projet_mere || [], [projet]);
-  const { data: projetsMeres = [] } = useProjetMeres(projetMereIds);
+  const { data: projetsMeres = [] } = useProjetMeres(projetMereIds, {
+    initialData: initialProjetsMeres,
+  });
 
   /* Actions (WYSIWYG HTML -> parse) */
   const actions = useMemo(() => acf ? parseActionsHtml(acf.actions_html) : [], [acf]);
