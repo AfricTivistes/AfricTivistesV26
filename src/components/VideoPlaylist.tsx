@@ -251,6 +251,9 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                             className="w-full h-full"
+                            width="560"
+                            height="315"
+                            loading="lazy"
                           />
                           <button
                             onClick={() => setPlayingId(null)}
@@ -274,6 +277,10 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
                             src={featured.thumbnail}
                             alt=""
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
                           />
                           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
                           <div className="absolute inset-0 flex items-center justify-center">
@@ -328,6 +335,9 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                             className="w-full h-full"
+                            width="560"
+                            height="315"
+                            loading="lazy"
                           />
                           <button
                             onClick={() => setPlayingId(null)}
@@ -349,6 +359,9 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
                               alt=""
                               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                               loading="lazy"
+                              decoding="async"
+                              width="480"
+                              height="270"
                             />
                             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors" />
                             <div className="absolute inset-0 flex items-center justify-center">

@@ -57,6 +57,10 @@ const ResourcesToolkits = ({ initialPostsData }: ResourcesToolkitsProps) => {
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            width="1920"
+            height="600"
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/90 via-emerald-900/85 to-teal-900/90" aria-hidden="true" />

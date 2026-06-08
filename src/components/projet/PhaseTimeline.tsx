@@ -155,6 +155,10 @@ const PhaseTimeline = ({ phases, partenaireMap, phasesLabel, phasesDesc, lang }:
                             src={`https://flagcdn.com/20x15/${c.code.toLowerCase()}.png`}
                             alt={c.name}
                             className="w-4 h-3 object-cover rounded-[2px] shadow-sm"
+                            width="20"
+                            height="15"
+                            loading="lazy"
+                            decoding="async"
                           />
                         )}
                         {c.name}
@@ -185,6 +189,10 @@ const PhaseTimeline = ({ phases, partenaireMap, phasesLabel, phasesDesc, lang }:
                               src={logo}
                               alt={stripHtml(p.title.rendered)}
                               className="w-full h-full object-contain"
+                              loading="lazy"
+                              decoding="async"
+                              width="80"
+                              height="80"
                             />
                           </a>
                         ) : null;

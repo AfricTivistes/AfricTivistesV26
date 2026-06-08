@@ -36,6 +36,8 @@ const PostCard = ({ post, linkState }: PostCardProps) => {
               className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
               decoding="async"
+              width="800"
+              height="500"
             />
           ) : (
             <div className="w-full h-full pattern-kente flex items-center justify-center" aria-hidden="true">

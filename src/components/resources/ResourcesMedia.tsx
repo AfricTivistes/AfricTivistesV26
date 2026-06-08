@@ -53,6 +53,9 @@ const VideoCard = ({ video, index, playingId, onPlay, onStop, formatDate, t }: V
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="w-full h-full"
+                width="560"
+                height="315"
+                loading="lazy"
               />
               <button
                 onClick={(e) => { e.stopPropagation(); onStop(); }}

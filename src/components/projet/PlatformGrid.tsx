@@ -37,6 +37,9 @@ const PlatformGrid = ({ platforms }: PlatformGridProps) => {
                   alt={title}
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  decoding="async"
+                  width="48"
+                  height="48"
                 />
               ) : (
                 <Globe size={20} className="text-muted-foreground" />

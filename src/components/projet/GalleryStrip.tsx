@@ -69,6 +69,9 @@ const GalleryStrip = ({ images }: GalleryStripProps) => {
             alt={images[0].alt}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
+            decoding="async"
+            width="800"
+            height="600"
           />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
           <div className="absolute bottom-3 left-3 flex items-center gap-1.5 text-[11px] font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">

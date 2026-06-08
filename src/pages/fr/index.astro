@@ -29,7 +29,7 @@ import {
   getPlaylists,
   type YouTubeVideo,
 } from "@/lib/youtube";
-import heroBg from "@/assets/hero-bg.avif?url";
+import { getHeroImageVariants } from "@/lib/hero-image";
 
 const lang = "fr";
 const communiqueCatId = COMMUNIQUE_CATEGORY_IDS[lang] || COMMUNIQUE_CATEGORY_IDS.fr;
@@ -80,8 +80,19 @@ const projetsSlim = slimWpProjets(projetsFiltered);
 
 const initialVideosByPlaylist: Record<string, YouTubeVideo[]> = Object.fromEntries(playlistVideosEntries);
 const initialVideos = initialPlaylistId ? (initialVideosByPlaylist[initialPlaylistId] ?? []) : [];
+
+/* Hero LCP : AVIF responsive srcset preloaded. Browser picks the size matching
+   the viewport (640w on mobile ~25KB vs 86KB monolithique avant P2). */
+const hero = await getHeroImageVariants();
 ---
-<BaseLayout lang={lang} mainClass="" preloadImage={heroBg}>
+<BaseLayout
+  lang={lang}
+  mainClass=""
+  preloadImage={hero.avifPreloadFallback}
+  preloadImageType="image/avif"
+  preloadImageSrcset={hero.avifSrcset}
+  preloadImageSizes={hero.sizes}
+>
   <Hero lang={lang} posts={heroPosts} />
   <StickyArticlesTicker lang={lang} stickyPosts={stickyPostsSlim} communiquePosts={communiquePostsSlim} />
   <AboutPreview lang={lang} />

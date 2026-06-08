@@ -38,6 +38,10 @@ const PartnerLogo = ({ org, index }: PartnerLogoProps) => {
             alt={org.name}
             className="w-14 h-14 object-contain grayscale group-hover/logo:grayscale-0 transition-all duration-300"
             onError={() => setFailed(true)}
+            loading="lazy"
+            decoding="async"
+            width="56"
+            height="56"
           />
         )}
       </div>

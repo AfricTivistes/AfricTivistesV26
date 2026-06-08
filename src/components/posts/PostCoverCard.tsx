@@ -41,6 +41,8 @@ const PostCoverCard = ({ post, linkState, placeholderIcon: Icon = FileText, show
               className="max-w-full max-h-full object-contain drop-shadow-md transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
               decoding="async"
+              width="600"
+              height="800"
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center">

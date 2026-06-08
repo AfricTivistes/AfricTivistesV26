@@ -8,9 +8,7 @@ import {
   formatDate,
   type WPPost,
 } from "@/lib/wordpress";
-import heroBg from "@/assets/hero-bg.jpg?url";
-import heroBgWebp from "@/assets/hero-bg.webp?url";
-import heroBgAvif from "@/assets/hero-bg.avif?url";
+import { getHeroImageVariants } from "@/lib/hero-image";
 
 interface Props {
   lang: Lang;
@@ -18,6 +16,11 @@ interface Props {
 }
 
 const { lang, posts } = Astro.props;
+
+/* P2 : responsive multi-size hero (640/1024/1920) genere a partir de
+   hero-bg.jpg via astro:assets. AVIF -> WebP -> JPG fallback. Mobile
+   telecharge ~25KB AVIF au lieu des 86KB de la version 1920w. */
+const hero = await getHeroImageVariants();
 
 const arrowRightPath = '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>';
 const bookOpenPath = '<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>';
@@ -43,17 +46,19 @@ const sectionLabel = lang === "fr" ? "Section d'accueil" : "Home section";
   {/* Background */}
   <div class="absolute inset-0" aria-hidden="true">
     <picture>
-      <source srcset={heroBgAvif} type="image/avif" />
-      <source srcset={heroBgWebp} type="image/webp" />
+      <source srcset={hero.avifSrcset} sizes={hero.sizes} type="image/avif" />
+      <source srcset={hero.webpSrcset} sizes={hero.sizes} type="image/webp" />
       <img
-        src={heroBg}
+        src={hero.fallbackSrc}
+        srcset={hero.jpgSrcset}
+        sizes={hero.sizes}
         alt=""
         class="w-full h-full object-cover"
         loading="eager"
         fetchpriority="high"
         decoding="async"
-        width="1920"
-        height="1080"
+        width={hero.width}
+        height={hero.height}
       />
     </picture>
     <div class="absolute inset-0 hero-gradient opacity-90"></div>
@@ -119,7 +124,7 @@ const sectionLabel = lang === "fr" ? "Section d'accueil" : "Home section";
             /* Fallback si aucun article */
             <div class="w-full h-full flex items-center justify-center">
               <img
-                src={heroBg}
+                src={hero.fallbackSrc}
                 alt=""
                 class="w-full h-full object-cover opacity-60"
                 loading="lazy"
