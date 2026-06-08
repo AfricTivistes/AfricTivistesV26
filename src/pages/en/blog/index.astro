@@ -4,12 +4,17 @@ import BlogPage from "@/components/blog/BlogPage";
 import {
   fetchPosts,
   fetchCategories,
+  slimWpPosts,
+  CATEGORY_IDS,
   PUBLICATION_CATEGORY_IDS,
   TOOLKIT_CATEGORY_IDS,
 } from "@/lib/wordpress";
 
 const lang = "en";
 
+/* SSR : on lit les params URL pour rendre la bonne vue cote serveur.
+   Donnees passees en props directes (initialPostsData, initialCategories,
+   initialSearch) -- plus de window.__PRELOAD__ inline, posts slim. */
 const url = new URL(Astro.request.url);
 const currentPage = parseInt(url.searchParams.get("page") || "1");
 const currentCat = url.searchParams.get("cat") || "";
@@ -17,32 +22,38 @@ const currentCat = url.searchParams.get("cat") || "";
 const publicationCatId = PUBLICATION_CATEGORY_IDS[lang] || PUBLICATION_CATEGORY_IDS.fr;
 const toolkitCatId = TOOLKIT_CATEGORY_IDS[lang] || TOOLKIT_CATEGORY_IDS.fr;
 const excludedCatIds = [publicationCatId, toolkitCatId];
-const categories = currentCat ? [parseInt(currentCat)] : undefined;
 
-const postsOpts = {
+/* On fetch les categories en premier pour resoudre un eventuel slug WP. */
+const allCategories = await fetchCategories(lang).catch(() => []);
+
+const resolveCatId = (slug: string): number | null => {
+  if (!slug) return null;
+  if (CATEGORY_IDS[slug]) return CATEGORY_IDS[slug][lang];
+  const match = allCategories.find((c) => c.slug === slug);
+  return match?.id ?? null;
+};
+const resolvedCatId = resolveCatId(currentCat);
+
+const postsData = await fetchPosts({
   page: currentPage,
   perPage: 9,
   categoriesExclude: excludedCatIds,
-  ...(categories ? { categories } : {}),
+  ...(resolvedCatId ? { categories: [resolvedCatId] } : {}),
   lang,
+}).catch(() => ({ posts: [], totalPages: 1, total: 0 }));
+
+const initialPostsData = {
+  ...postsData,
+  posts: slimWpPosts(postsData.posts),
 };
-
-const [postsData, allCategories] = await Promise.all([
-  fetchPosts(postsOpts).catch(() => ({ posts: [], totalPages: 1, total: 0 })),
-  fetchCategories(lang).catch(() => []),
-]);
-
-const preload = [
-  {
-    key: ["posts", { page: currentPage, perPage: 9, categories, categoriesExclude: excludedCatIds, search: undefined, lang }],
-    data: postsData,
-  },
-  { key: ["categories", lang], data: allCategories },
-];
+const initialSearch = url.search; // "" ou "?page=2&cat=communiques"
 ---
 <BaseLayout lang={lang} mainClass="">
-  <script is:inline define:vars={{ preload }}>
-    window.__PRELOAD__ = preload;
-  </script>
-  <BlogPage lang={lang} client:load />
+  <BlogPage
+    client:idle
+    lang={lang}
+    initialPostsData={initialPostsData}
+    initialCategories={allCategories}
+    initialSearch={initialSearch}
+  />
 </BaseLayout>

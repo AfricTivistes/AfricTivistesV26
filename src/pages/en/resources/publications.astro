@@ -2,28 +2,25 @@
 export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ResourcesPublications from "@/components/resources/ResourcesPublications";
-import { fetchPosts, PUBLICATION_CATEGORY_IDS } from "@/lib/wordpress";
+import { fetchPosts, slimWpPosts, PUBLICATION_CATEGORY_IDS } from "@/lib/wordpress";
 
 const lang = "en";
 const pubCatId = PUBLICATION_CATEGORY_IDS[lang] || PUBLICATION_CATEGORY_IDS.fr;
 
+/* Server-side prefetch: page 1 publications. Donnees passees en props
+   directes a ResourcesPublications -- plus de window.__PRELOAD__ inline,
+   payload posts slim (excerpt garde, content drop). */
 const postsData = await fetchPosts({
   page: 1,
   perPage: 9,
   categories: [pubCatId],
   lang,
 }).catch(() => ({ posts: [], totalPages: 1, total: 0 }));
-
-const preload = [
-  {
-    key: ["posts", { page: 1, perPage: 9, categories: [pubCatId], categoriesExclude: undefined, search: undefined, lang }],
-    data: postsData,
-  },
-];
+const initialPostsData = {
+  ...postsData,
+  posts: slimWpPosts(postsData.posts),
+};
 ---
 <BaseLayout lang={lang}>
-  <script is:inline define:vars={{ preload }}>
-    window.__PRELOAD__ = preload;
-  </script>
-  <ResourcesPublications lang={lang} client:load />
+  <ResourcesPublications client:idle lang={lang} initialPostsData={initialPostsData} />
 </BaseLayout>

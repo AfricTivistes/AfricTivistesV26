@@ -8,11 +8,17 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
 import Pagination from "@/components/ui/Pagination";
 import { useI18n } from "@/lib/i18n";
 import { getFeaturedImageUrl, TOOLKIT_CATEGORY_IDS } from "@/lib/wordpress";
+import type { WPPost } from "@/lib/wordpress";
 import { usePosts } from "@/hooks/use-wordpress";
 
 const POSTS_PER_PAGE = 9;
 
-const ResourcesToolkits = () => {
+interface ResourcesToolkitsProps {
+  /** Server-rendered initial posts data (page 1). Avoids first-paint skeleton. */
+  initialPostsData?: { posts: WPPost[]; totalPages: number; total: number };
+}
+
+const ResourcesToolkits = ({ initialPostsData }: ResourcesToolkitsProps) => {
   const { t, lang } = useI18n();
   const [currentPage, setCurrentPage] = useState(1);
   const toolkitCatId = TOOLKIT_CATEGORY_IDS[lang] || TOOLKIT_CATEGORY_IDS.fr;
@@ -21,11 +27,14 @@ const ResourcesToolkits = () => {
     setCurrentPage(1);
   }, [lang]);
 
-  const { data, isLoading: loading } = usePosts({
-    page: currentPage,
-    perPage: POSTS_PER_PAGE,
-    categories: [toolkitCatId],
-  });
+  const { data, isLoading: loading } = usePosts(
+    {
+      page: currentPage,
+      perPage: POSTS_PER_PAGE,
+      categories: [toolkitCatId],
+    },
+    { initialData: currentPage === 1 ? initialPostsData : undefined },
+  );
 
   const posts = data?.posts ?? [];
   const totalPages = data?.totalPages ?? 1;
@@ -116,7 +125,7 @@ const ResourcesToolkits = () => {
         <div className="section-container">
           <SectionHeader titleKey="resources.toolkits.allTitle" bottomMargin="mb-12" />
 
-          {loading ? (
+          {loading && posts.length === 0 ? (
             <PostGridSkeleton count={3} variant="cover" columns={3} />
           ) : posts.length === 0 ? (
             <div className="text-center py-12 lg:py-16">

@@ -10,6 +10,7 @@ import Pagination from "@/components/ui/Pagination";
 import { useI18n } from "@/lib/i18n";
 import { usePosts, useCategories } from "@/hooks/use-wordpress";
 import { CATEGORY_IDS, PUBLICATION_CATEGORY_IDS, TOOLKIT_CATEGORY_IDS } from "@/lib/wordpress";
+import type { WPPost, WPCategory } from "@/lib/wordpress";
 import { cn } from "@/lib/utils";
 
 const MAIN_FILTERS = [
@@ -20,14 +21,25 @@ const MAIN_FILTERS = [
   { key: "champions", icon: Trophy, labelKey: "blog.champions" },
 ];
 
-const BlogPage = () => {
+interface BlogPageProps {
+  /** SSR-fetched posts data matching the current URL filters. Used as initialData. */
+  initialPostsData?: { posts: WPPost[]; totalPages: number; total: number };
+  /** All blog categories for the current lang. Used as initialData. */
+  initialCategories?: WPCategory[];
+  /** URL search string (e.g. "?page=2&cat=communiques"). Provides SSR-safe state. */
+  initialSearch?: string;
+}
+
+const BlogPage = ({ initialPostsData, initialCategories, initialSearch = "" }: BlogPageProps = {}) => {
   const { t, lang } = useI18n();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams(initialSearch);
   const currentPage = parseInt(searchParams.get("page") || "1");
   const currentCat = searchParams.get("cat") || "";
 
   /* Toutes les categories de la langue */
-  const { data: allCategories = [], isLoading: categoriesLoading } = useCategories();
+  const { data: allCategories = [], isLoading: categoriesLoading } = useCategories({
+    initialData: initialCategories,
+  });
 
   /* Quand la langue change : si le filtre actif est une catégorie dynamique
      (pas une clé CATEGORY_IDS), on reset car le slug n'a pas d'équivalent dans l'autre langue */
@@ -76,7 +88,12 @@ const BlogPage = () => {
     ...(resolvedCatId ? { categories: [resolvedCatId] } : {}),
     enabled: catResolved,
   };
-  const { data: postsData, isLoading: postsLoading } = usePosts(postsOpts);
+  const { data: postsData, isLoading: postsLoading } = usePosts(
+    postsOpts,
+    // initialData ne s'applique qu'a la queryKey du premier render, qui
+    // correspond exactement aux params URL utilises par Astro pour le SSR.
+    { initialData: initialPostsData },
+  );
   const loading = postsLoading || !catResolved;
   const posts = postsData?.posts ?? [];
   const totalPages = postsData?.totalPages ?? 1;

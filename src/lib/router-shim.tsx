@@ -24,6 +24,7 @@ import {
   type AnchorHTMLAttributes,
   type ReactNode,
 } from "react";
+import { I18nContext } from "@/lib/i18n";
 
 /* -------------------------------------------------------------------------- */
 /* Context                                                                    */
@@ -88,17 +89,17 @@ function shouldSkipLangPrefix(path: string): boolean {
   return false;
 }
 
-function withLangPrefix(path: string): string {
+function withLangPrefix(path: string, lang?: "fr" | "en"): string {
   if (shouldSkipLangPrefix(path)) return path;
   if (!path.startsWith("/")) return path;
-  const lang = getCurrentLang();
-  return "/" + lang + path;
+  const finalLang = lang ?? getCurrentLang();
+  return "/" + finalLang + path;
 }
 
-function resolveTo(to: To): string {
-  if (typeof to === "string") return withLangPrefix(to);
+function resolveTo(to: To, lang?: "fr" | "en"): string {
+  if (typeof to === "string") return withLangPrefix(to, lang);
   const { pathname = "", search = "", hash = "" } = to;
-  const prefixed = pathname ? withLangPrefix(pathname) : "";
+  const prefixed = pathname ? withLangPrefix(pathname, lang) : "";
   return `${prefixed}${search}${hash}`;
 }
 
@@ -120,7 +121,13 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
   { to, replace, state, reloadDocument, preventScrollReset, children, ...rest },
   ref,
 ) {
-  const href = resolveTo(to);
+  // Read lang from I18nContext when available (set by withI18n* HOCs around
+  // page-level islands). Falls back to URL detection (browser-only). This is
+  // critical for SSR: `getCurrentLang()` returns "fr" on the server because
+  // it can't read window.location, so links inside EN pages would be
+  // FR-prefixed without this context lookup.
+  const ctx = useContext(I18nContext);
+  const href = resolveTo(to, ctx?.lang);
   return (
     <a ref={ref} href={href} {...rest}>
       {children}
@@ -139,7 +146,9 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(function NavL
   { to, end, className, style, children, ...rest },
   ref,
 ) {
-  const href = resolveTo(to);
+  // See Link above — same SSR rationale for reading lang from context.
+  const ctx = useContext(I18nContext);
+  const href = resolveTo(to, ctx?.lang);
   const [pathname, setPathname] = useState("");
   useEffect(() => {
     if (!isBrowser) return;

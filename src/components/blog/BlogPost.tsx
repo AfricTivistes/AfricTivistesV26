@@ -11,21 +11,29 @@ function formatPostContent(html: string): string {
     .map(para => `<p>${para.replace(/\n/g, "<br>")}</p>`)
     .join("");
 }
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, Calendar, Facebook, Linkedin, Mail, Tag } from "lucide-react";
 import { getFeaturedImageUrl, getPostCategories, formatDate, CATEGORY_IDS } from "@/lib/wordpress";
+import type { WPPost } from "@/lib/wordpress";
 import { useI18n } from "@/lib/i18n";
 import { usePostBySlug, usePostById, usePosts } from "@/hooks/use-wordpress";
 import { PostGrid, PostGridSkeleton } from "@/components/posts";
 import NewsletterCard from "@/components/posts/NewsletterCard";
 
-/** Reusable share buttons block */
-const ShareButtons = ({ title, label }: { title: string; label: string }) => (
+/** Reusable share buttons block — SSR-safe (reads window.location only after hydration). */
+const ShareButtons = ({ title, label }: { title: string; label: string }) => {
+  const [shareUrl, setShareUrl] = useState("");
+  useEffect(() => {
+    if (typeof window !== "undefined") setShareUrl(window.location.href);
+  }, []);
+  const encodedUrl = encodeURIComponent(shareUrl);
+  const encodedTitle = encodeURIComponent(title);
+  return (
   <div className="rounded-xl border border-border bg-card p-5">
     <h3 className="text-sm font-bold text-foreground mb-3 font-heading">{label}</h3>
     <div className="flex items-center gap-2">
       <a
-        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(title)}`}
+        href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-border hover:bg-muted hover:border-primary/30 transition-colors"
@@ -36,7 +44,7 @@ const ShareButtons = ({ title, label }: { title: string; label: string }) => (
         </svg>
       </a>
       <a
-        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-border hover:bg-muted hover:border-primary/30 transition-colors"
@@ -45,7 +53,7 @@ const ShareButtons = ({ title, label }: { title: string; label: string }) => (
         <Linkedin size={16} />
       </a>
       <a
-        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+        href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-border hover:bg-muted hover:border-primary/30 transition-colors"
@@ -54,7 +62,7 @@ const ShareButtons = ({ title, label }: { title: string; label: string }) => (
         <Facebook size={16} />
       </a>
       <a
-        href={`mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(window.location.href)}`}
+        href={`mailto:?subject=${encodedTitle}&body=${encodedUrl}`}
         className="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-border hover:bg-muted hover:border-primary/30 transition-colors"
         aria-label="Partager par email"
       >
@@ -62,18 +70,38 @@ const ShareButtons = ({ title, label }: { title: string; label: string }) => (
       </a>
     </div>
   </div>
-);
+  );
+};
 
-interface BlogPostProps { slug?: string }
+interface BlogPostProps {
+  slug?: string;
+  /** Server-rendered initial post. Used as initialData to avoid skeleton flash on first paint. */
+  initialPost?: WPPost | null;
+  /** Server-rendered related posts (up to 4, same categories). Used as initialData. */
+  initialRelatedPosts?: { posts: WPPost[]; totalPages: number; total: number };
+}
 
 /** Related posts section — fetches posts from the same categories */
-const RelatedPosts = ({ categories, excludeId, lang }: { categories: number[]; excludeId: number; lang: string }) => {
+const RelatedPosts = ({
+  categories,
+  excludeId,
+  lang,
+  initialData,
+}: {
+  categories: number[];
+  excludeId: number;
+  lang: string;
+  initialData?: { posts: WPPost[]; totalPages: number; total: number };
+}) => {
   const { t } = useI18n();
   // Fetch more than needed so we can exclude current post and still show 3
-  const { data, isLoading } = usePosts({
-    perPage: 4,
-    categories,
-  });
+  const { data, isLoading } = usePosts(
+    {
+      perPage: 4,
+      categories,
+    },
+    { initialData },
+  );
 
   const related = (data?.posts ?? []).filter((p) => p.id !== excludeId).slice(0, 3);
 
@@ -93,7 +121,7 @@ const RelatedPosts = ({ categories, excludeId, lang }: { categories: number[]; e
   );
 };
 
-const BlogPost = ({ slug: slugProp }: BlogPostProps = {}) => {
+const BlogPost = ({ slug: slugProp, initialPost, initialRelatedPosts }: BlogPostProps = {}) => {
   const { t, lang } = useI18n();
   const params = useParams<{ slug: string }>();
   const slug = slugProp ?? params.slug;
@@ -101,7 +129,7 @@ const BlogPost = ({ slug: slugProp }: BlogPostProps = {}) => {
   const locationState = location.state as { from?: string; fromLabelKey?: string } | null;
   const backTo = locationState?.from ?? "/blog";
   const backLabel = locationState?.fromLabelKey ? t(locationState.fromLabelKey) : t("blogPost.back");
-  const { data: post, isLoading: loading } = usePostBySlug(slug);
+  const { data: post, isLoading: loading } = usePostBySlug(slug, { initialData: initialPost });
 
   const frId = post?.translations?.fr;
   const enId = post?.translations?.en;
@@ -268,6 +296,7 @@ const BlogPost = ({ slug: slugProp }: BlogPostProps = {}) => {
             categories={post.categories}
             excludeId={post.id}
             lang={lang}
+            initialData={initialRelatedPosts}
           />
         )}
       </article>

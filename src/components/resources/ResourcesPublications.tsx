@@ -8,11 +8,17 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
 import Pagination from "@/components/ui/Pagination";
 import { useI18n } from "@/lib/i18n";
 import { PUBLICATION_CATEGORY_IDS, getFeaturedImageUrl } from "@/lib/wordpress";
+import type { WPPost } from "@/lib/wordpress";
 import { usePosts } from "@/hooks/use-wordpress";
 
 const POSTS_PER_PAGE = 9;
 
-const ResourcesPublications = () => {
+interface ResourcesPublicationsProps {
+  /** Server-rendered initial posts data (page 1). Avoids first-paint skeleton. */
+  initialPostsData?: { posts: WPPost[]; totalPages: number; total: number };
+}
+
+const ResourcesPublications = ({ initialPostsData }: ResourcesPublicationsProps) => {
   const { t, lang } = useI18n();
   const [currentPage, setCurrentPage] = useState(1);
   const pubCatId = PUBLICATION_CATEGORY_IDS[lang] || PUBLICATION_CATEGORY_IDS.fr;
@@ -21,11 +27,17 @@ const ResourcesPublications = () => {
     setCurrentPage(1);
   }, [lang]);
 
-  const { data, isLoading: loading } = usePosts({
-    page: currentPage,
-    perPage: POSTS_PER_PAGE,
-    categories: [pubCatId],
-  });
+  const { data, isLoading: loading } = usePosts(
+    {
+      page: currentPage,
+      perPage: POSTS_PER_PAGE,
+      categories: [pubCatId],
+    },
+    // initialData ne s'applique qu'a la queryKey de la page 1, ce qui est
+    // exactement ce qu'on rend en SSR. Pour les pages suivantes, useQuery
+    // refetch normalement.
+    { initialData: currentPage === 1 ? initialPostsData : undefined },
+  );
 
   const posts = data?.posts ?? [];
   const totalPages = data?.totalPages ?? 1;
@@ -116,7 +128,7 @@ const ResourcesPublications = () => {
         <div className="section-container">
           <SectionHeader titleKey="resources.publications.allTitle" bottomMargin="mb-12" />
 
-          {loading ? (
+          {loading && posts.length === 0 ? (
             <PostGridSkeleton count={6} variant="cover" columns={3} />
           ) : posts.length === 0 ? (
             <div className="text-center py-12 lg:py-16">

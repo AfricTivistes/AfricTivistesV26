@@ -23,6 +23,8 @@ import {
   COMMUNIQUE_CATEGORY_IDS,
   PUBLICATION_CATEGORY_IDS,
   type FetchPostsOptions,
+  type WPPost,
+  type WPCategory,
   type WPProjet,
   type WPThematique,
 } from "@/lib/wordpress";
@@ -30,6 +32,9 @@ import { useI18n } from "@/lib/i18n";
 
 export function usePosts(
   options: Omit<FetchPostsOptions, "lang"> & { enabled?: boolean } = {},
+  hookOpts: {
+    initialData?: { posts: WPPost[]; totalPages: number; total: number };
+  } = {},
 ) {
   const { lang } = useI18n();
   const { page = 1, perPage = 9, categories, categoriesExclude, search, enabled = true } = options;
@@ -38,6 +43,7 @@ export function usePosts(
     queryKey: ["posts", { page, perPage, categories, categoriesExclude, search, lang }],
     queryFn: () => fetchPosts({ page, perPage, categories, categoriesExclude, search, lang }),
     enabled,
+    initialData: hookOpts.initialData,
   });
 }
 
@@ -72,11 +78,15 @@ export function usePublicationPosts(perPage = 3) {
   });
 }
 
-export function usePostBySlug(slug: string | undefined) {
+export function usePostBySlug(
+  slug: string | undefined,
+  hookOpts: { initialData?: WPPost | null } = {},
+) {
   return useQuery({
     queryKey: ["post", slug],
     queryFn: () => fetchPostBySlug(slug!),
     enabled: !!slug,
+    initialData: hookOpts.initialData ?? undefined,
   });
 }
 
@@ -88,12 +98,13 @@ export function usePostById(id: number | undefined) {
   });
 }
 
-export function useCategories() {
+export function useCategories(hookOpts: { initialData?: WPCategory[] } = {}) {
   const { lang } = useI18n();
 
   return useQuery({
     queryKey: ["categories", lang],
     queryFn: () => fetchCategories(lang),
+    initialData: hookOpts.initialData,
   });
 }
 

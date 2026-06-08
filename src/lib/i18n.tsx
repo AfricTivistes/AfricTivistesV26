@@ -67,7 +67,16 @@ export function extractImages(sectionData: Record<string, unknown>): Record<stri
   return imgs;
 }
 
-const I18nContext = createContext<I18nContextType | null>(null);
+/**
+ * Exported so SSR-rendered helpers (e.g. router-shim's `Link`) can read the
+ * current language from React context without going through `useI18n()`,
+ * which would also create a `MutationObserver` and other browser-only setup.
+ *
+ * The context is only ever populated when an `<I18nProvider>` is mounted by
+ * one of the `withI18n*` HOCs that wrap top-level islands. Outside of that,
+ * consumers should fall back to URL-based detection.
+ */
+export const I18nContext = createContext<I18nContextType | null>(null);
 
 function detectInitialLang(initialLang?: Lang): Lang {
   if (initialLang === "en" || initialLang === "fr") return initialLang;

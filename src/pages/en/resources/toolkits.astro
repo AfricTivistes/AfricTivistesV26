@@ -2,28 +2,25 @@
 export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ResourcesToolkits from "@/components/resources/ResourcesToolkits";
-import { fetchPosts, TOOLKIT_CATEGORY_IDS } from "@/lib/wordpress";
+import { fetchPosts, slimWpPosts, TOOLKIT_CATEGORY_IDS } from "@/lib/wordpress";
 
 const lang = "en";
 const toolkitCatId = TOOLKIT_CATEGORY_IDS[lang] || TOOLKIT_CATEGORY_IDS.fr;
 
+/* Server-side prefetch: page 1 toolkits. Donnees passees en props directes
+   a ResourcesToolkits -- plus de window.__PRELOAD__ inline, payload posts
+   slim (excerpt garde, content drop). */
 const postsData = await fetchPosts({
   page: 1,
   perPage: 9,
   categories: [toolkitCatId],
   lang,
 }).catch(() => ({ posts: [], totalPages: 1, total: 0 }));
-
-const preload = [
-  {
-    key: ["posts", { page: 1, perPage: 9, categories: [toolkitCatId], categoriesExclude: undefined, search: undefined, lang }],
-    data: postsData,
-  },
-];
+const initialPostsData = {
+  ...postsData,
+  posts: slimWpPosts(postsData.posts),
+};
 ---
 <BaseLayout lang={lang}>
-  <script is:inline define:vars={{ preload }}>
-    window.__PRELOAD__ = preload;
-  </script>
-  <ResourcesToolkits lang={lang} client:load />
+  <ResourcesToolkits client:idle lang={lang} initialPostsData={initialPostsData} />
 </BaseLayout>

@@ -1,7 +1,14 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import BlogPost from "@/components/blog/BlogPost";
-import { fetchPostBySlug, getOgImageUrl, stripHtml } from "@/lib/wordpress";
+import {
+  fetchPostBySlug,
+  fetchPosts,
+  getOgImageUrl,
+  slimWpPost,
+  slimWpPosts,
+  stripHtml,
+} from "@/lib/wordpress";
 
 const lang = "en";
 const { slug } = Astro.params;
@@ -13,7 +20,24 @@ try {
   console.error("[BlogPost SSR prefetch] failed:", err);
 }
 
-const preload = post ? [{ key: ["post", slug], data: post }] : [];
+/* On slim le post mais on conserve content.rendered (corps de l'article
+   indispensable au rendu single-post). Les champs HATEOAS et embedded
+   bruts sont droppes. */
+const initialPost = post ? slimWpPost(post, { keepContent: true }) : null;
+
+/* SSR aussi les articles relies pour eviter le skeleton flash en bas de page. */
+let initialRelatedPosts = undefined;
+if (post && post.categories && post.categories.length > 0) {
+  const related = await fetchPosts({
+    perPage: 4,
+    categories: post.categories,
+    lang,
+  }).catch(() => ({ posts: [], totalPages: 1, total: 0 }));
+  initialRelatedPosts = {
+    ...related,
+    posts: slimWpPosts(related.posts),
+  };
+}
 
 const ogTitle = post ? `${stripHtml(post.title.rendered)} | AfricTivistes` : undefined;
 const ogDescription = post ? stripHtml(post.excerpt.rendered).slice(0, 200) : undefined;
@@ -27,9 +51,11 @@ const ogImage = post ? getOgImageUrl(post) ?? undefined : undefined;
   ogImage={ogImage}
   ogType="article"
 >
-  <script is:inline define:vars={{ slug, preload }}>
-    window.__ASTRO_PARAMS__ = { slug };
-    window.__PRELOAD__ = preload;
-  </script>
-  <BlogPost slug={slug} lang={lang} client:load />
+  <BlogPost
+    slug={slug}
+    lang={lang}
+    initialPost={initialPost}
+    initialRelatedPosts={initialRelatedPosts}
+    client:idle
+  />
 </BaseLayout>
