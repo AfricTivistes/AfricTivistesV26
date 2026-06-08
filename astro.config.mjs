@@ -4,6 +4,7 @@ import tailwind from "@astrojs/tailwind";
 import netlify from "@astrojs/netlify";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import stripControlChars from "./src/integrations/strip-control-chars.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -19,6 +20,9 @@ export default defineConfig({
   integrations: [
     react(),
     tailwind({ applyBaseStyles: false }),
+    // Post-build hook : strip NUL/C0 bytes injectes par React 18 SSR au
+    // boundary de chunks UTF-8 (cf. src/integrations/strip-control-chars.ts).
+    stripControlChars(),
   ],
   vite: {
     resolve: {

@@ -46,6 +46,26 @@ interface WpFetchOptions<T> {
   retry?: number;
 }
 
+/* Strip C0 controls (NUL etc., except \t \n \r) and DEL from WP JSON strings.
+   WordPress data parfois inclut des NUL bytes (cause: copier-coller, plugins
+   buggy) -- ces caracteres sont invalides en HTML5 et corrompent les payloads
+   inlines (rendu cote serveur via Astro). On nettoie au boundary du fetch
+   pour que TOUS les consommateurs (cards, JSON props, etc.) recoivent des
+   donnees propres.
+
+   On utilise un reviver JSON.parse pour capturer aussi bien les NULs sous
+   forme `\u0000` echappee dans le JSON que les NULs bruts inseres dans la
+   reponse. */
+function parseWpJson<T>(text: string): T {
+  return JSON.parse(text, (_key, value) => {
+    if (typeof value === "string") {
+      // eslint-disable-next-line no-control-regex
+      return value.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, "");
+    }
+    return value;
+  }) as T;
+}
+
 async function wpFetch<T>(
   endpoint: string,
   params?: URLSearchParams | Record<string, string | number>,
@@ -73,7 +93,7 @@ async function wpFetch<T>(
         if (fallback !== undefined) return fallback;
         throw new Error(`WP fetch failed: ${res.status} ${endpoint}`);
       }
-      return (await res.json()) as T;
+      return parseWpJson<T>(await res.text());
     } catch (err) {
       clearTimeout(timer);
       lastErr = err;
@@ -99,7 +119,7 @@ async function wpFetchWithHeaders<T>(
     const res = await fetch(url, { signal: controller.signal });
     clearTimeout(timer);
     if (!res.ok) throw new Error(`WP fetch failed: ${res.status} ${endpoint}`);
-    const data = (await res.json()) as T;
+    const data = parseWpJson<T>(await res.text());
     return { data, headers: res.headers };
   } finally {
     clearTimeout(timer);

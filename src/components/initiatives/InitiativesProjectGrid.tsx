@@ -6,12 +6,22 @@ import ProjetCard from "@/components/ui/ProjetCard";
 import ThematiqueFilterBar from "@/components/ui/ThematiqueFilterBar";
 import { useI18n } from "@/lib/i18n";
 import { useProjets, useThematiques } from "@/hooks/use-wordpress";
+import type { WPProjet, WPThematique } from "@/lib/wordpress";
 
-const InitiativesProjectGrid = () => {
+interface InitiativesProjectGridProps {
+  /** Server-rendered initial projets (slimmed) -- avoids first-paint skeleton. */
+  initialProjets?: WPProjet[];
+  /** Server-rendered initial thematiques. */
+  initialThematiques?: WPThematique[];
+}
+
+const InitiativesProjectGrid = ({ initialProjets, initialThematiques }: InitiativesProjectGridProps) => {
   const [activeType, setActiveType] = useState<number | null>(null);
   const { t } = useI18n();
-  const { data: thematiques = [] } = useThematiques();
-  const { data: projets = [], isLoading: loading } = useProjets(100);
+  const { data: thematiques = [] } = useThematiques({ initialData: initialThematiques });
+  const { data: projets = [], isLoading: loading } = useProjets(100, undefined, {
+    initialData: initialProjets,
+  });
 
   const filtered = activeType === null
     ? projets
@@ -35,7 +45,7 @@ const InitiativesProjectGrid = () => {
         />
 
         {/* Grid */}
-        {loading ? (
+        {loading && projets.length === 0 ? (
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             {Array.from({ length: 12 }).map((_, i) => (
               <div key={i} className="animate-pulse">
@@ -55,8 +65,7 @@ const InitiativesProjectGrid = () => {
               <motion.div
                 key={p.id}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: Math.min(i * 0.03, 0.3) }}
                 role="listitem"
               >

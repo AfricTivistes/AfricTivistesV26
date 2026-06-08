@@ -6,26 +6,21 @@ import ProjectThemes from "@/components/ProjectThemes.astro";
 import CtaBanner from "@/components/CtaBanner.astro";
 import InitiativesIntro from "@/components/initiatives/InitiativesIntro.astro";
 import InitiativesProjectGrid from "@/components/initiatives/InitiativesProjectGrid";
-import { fetchProjets, fetchThematiques } from "@/lib/wordpress";
+import { fetchProjets, fetchThematiques, slimWpProjets } from "@/lib/wordpress";
 
 const lang = "en";
 
-const [thematiques, projets] = await Promise.all([
+/* Server-side prefetch en parallele.
+   Donnees passees en props directes a InitiativesProjectGrid -- plus de
+   window.__PRELOAD__ inline, payload projets slim. */
+const [thematiques, projetsRaw] = await Promise.all([
   fetchThematiques(lang).catch(() => []),
   fetchProjets(100).catch(() => []),
 ]);
-const projetsFiltered = projets.filter((p) => !p.lang || p.lang === lang);
-
-const preload = [
-  { key: ["thematiques", lang], data: thematiques },
-  { key: ["projets", lang, 100, undefined], data: projetsFiltered },
-];
+const projetsFiltered = projetsRaw.filter((p) => !p.lang || p.lang === lang);
+const projetsSlim = slimWpProjets(projetsFiltered);
 ---
 <BaseLayout lang={lang}>
-  <script is:inline define:vars={{ preload }}>
-    window.__PRELOAD__ = preload;
-  </script>
-
   <GradientHero
     lang={lang}
     titleKey="programmes.title"
@@ -45,7 +40,12 @@ const preload = [
       to: "/about/join",
     }}
   />
-  <InitiativesProjectGrid lang={lang} client:idle />
+  <InitiativesProjectGrid
+    client:idle
+    lang={lang}
+    initialProjets={projetsSlim}
+    initialThematiques={thematiques}
+  />
   <CtaBanner
     lang={lang}
     titleKey="about.ctaTitle"
