@@ -10,6 +10,7 @@ import ThematiqueRelatedProjets from "@/components/thematique/ThematiqueRelatedP
 import { useI18n } from "@/lib/i18n";
 import { useProjets, useThematiques } from "@/hooks/use-wordpress";
 import type { ThematiqueData } from "@/data/thematiques";
+import type { WPProjet, WPThematique } from "@/lib/wordpress";
 
 const ICONS: Record<string, typeof Lightbulb> = {
   Lightbulb,
@@ -21,15 +22,27 @@ const ICONS: Record<string, typeof Lightbulb> = {
 
 interface ThematiquePageProps {
   data: ThematiqueData;
+  /** SSR-prefetched data: when present, hooks hydrate without a loading flash. */
+  initialThematiques?: WPThematique[];
+  initialProjets?: WPProjet[];
+  /** SSR-resolved thematique ID — must match the one used to fetch `initialProjets`
+   *  so the `useProjets` query key lines up and `initialData` is consumed.
+   *  Falls back to client-side useMemo lookup when omitted. */
+  initialMatchedThematiqueId?: number;
 }
 
-const ThematiquePage = ({ data }: ThematiquePageProps) => {
+const ThematiquePage = ({
+  data,
+  initialThematiques,
+  initialProjets,
+  initialMatchedThematiqueId,
+}: ThematiquePageProps) => {
   const { t, lang } = useI18n();
   const content = data[lang];
   const IconComponent = ICONS[data.icon] || Lightbulb;
 
   /* Fetch projets lies a cette thematique via WordPress */
-  const { data: allThematiques = [] } = useThematiques();
+  const { data: allThematiques = [] } = useThematiques({ initialData: initialThematiques });
   const matchedThematique = useMemo(() => {
     const frTitle = t(data.titleKey);
     return allThematiques.find(
@@ -37,15 +50,21 @@ const ThematiquePage = ({ data }: ThematiquePageProps) => {
     );
   }, [allThematiques, data, t]);
 
+  // Prefer the SSR-resolved ID on first render so initialProjets matches the
+  // useProjets query key. After client hydration, the useMemo lookup takes
+  // over for any subsequent re-renders (lang switch via View Transitions).
+  const effectiveThematiqueId = matchedThematique?.id ?? initialMatchedThematiqueId;
+
   const { data: projets = [], isLoading: projetsLoading } = useProjets(
     100,
-    matchedThematique?.id,
+    effectiveThematiqueId,
+    { initialData: initialProjets },
   );
 
   const relatedProjets = useMemo(() => {
-    if (!matchedThematique) return [];
-    return projets.filter((p) => p.thematique?.includes(matchedThematique.id)).slice(0, 6);
-  }, [projets, matchedThematique]);
+    if (!effectiveThematiqueId) return [];
+    return projets.filter((p) => p.thematique?.includes(effectiveThematiqueId)).slice(0, 6);
+  }, [projets, effectiveThematiqueId]);
 
   return (
     <>
@@ -83,3 +102,4 @@ const ThematiquePage = ({ data }: ThematiquePageProps) => {
 };
 
 export default withI18nQueryMotion(ThematiquePage);
+
