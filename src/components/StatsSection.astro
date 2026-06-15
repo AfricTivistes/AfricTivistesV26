@@ -6,8 +6,11 @@ import statsData from "@/data/translations/stats.json";
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 
-// Read value/suffix from stats.json (stored alongside fr/en in _grp_chiffres)
-const chiffres = statsData._grp_chiffres as Record<string, { fr: string; en: string; value?: number; suffix?: string }>;
+// Read value/suffix from stats.json (stored alongside fr/en in _grp_chiffres).
+// Le JSON contient aussi un champ `_label: string` qui rompt l'index signature
+// directe, d'ou le cast via `unknown` (les cles consommees ici sont bien des
+// stats typees, _label n'est jamais acced\u00e9).
+const chiffres = statsData._grp_chiffres as unknown as Record<string, { fr: string; en: string; value?: number; suffix?: string }>;
 
 const stats = [
   { icon: "graduation-cap", labelKey: "stats.trainees" },
