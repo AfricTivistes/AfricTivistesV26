@@ -62,7 +62,7 @@ const GalleryStrip = ({ images }: GalleryStripProps) => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
           onClick={() => setLightbox(0)}
-          className={`${primarySpan} relative group overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary`}
+          className={`${primarySpan} relative group overflow-hidden cursor-pointer focus:outline-hidden focus-visible:ring-2 focus-visible:ring-primary`}
         >
           <img
             src={images[0].url}
@@ -88,7 +88,7 @@ const GalleryStrip = ({ images }: GalleryStripProps) => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.35, delay: 0.08 + i * 0.06 }}
             onClick={() => setLightbox(i + 1)}
-            className="relative group overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            className="relative group overflow-hidden cursor-pointer focus:outline-hidden focus-visible:ring-2 focus-visible:ring-primary"
           >
             <img
               src={img.url}
@@ -115,11 +115,11 @@ const GalleryStrip = ({ images }: GalleryStripProps) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-xs p-4"
             onClick={() => setLightbox(null)}
           >
             <motion.button
-              className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors focus:outline-none"
+              className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors focus:outline-hidden"
               onClick={() => setLightbox(null)}
             >
               <X size={20} />
@@ -132,7 +132,7 @@ const GalleryStrip = ({ images }: GalleryStripProps) => {
                   e.stopPropagation();
                   goPrev();
                 }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white/50"
               >
                 <ChevronLeft size={22} />
               </button>
@@ -145,7 +145,7 @@ const GalleryStrip = ({ images }: GalleryStripProps) => {
                   e.stopPropagation();
                   goNext();
                 }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white/50"
               >
                 <ChevronRight size={22} />
               </button>

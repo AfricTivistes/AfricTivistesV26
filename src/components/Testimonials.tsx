@@ -124,7 +124,7 @@ const Testimonials = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-14"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-3 border border-primary/15 backdrop-blur-sm">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-3 border border-primary/15 backdrop-blur-xs">
             {t("testimonials.label")}
           </span>
           <h2
@@ -136,7 +136,7 @@ const Testimonials = () => {
           <p className="mt-3 max-w-2xl mx-auto text-muted-foreground">
             {t("testimonials.subtitle")}
           </p>
-          <div className="w-16 h-0.5 bg-gradient-to-r from-primary via-secondary to-accent mx-auto mt-4 rounded-full" aria-hidden="true" />
+          <div className="w-16 h-0.5 bg-linear-to-r from-primary via-secondary to-accent mx-auto mt-4 rounded-full" aria-hidden="true" />
         </motion.div>
 
         {/* Carousel */}

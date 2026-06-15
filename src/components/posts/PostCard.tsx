@@ -25,10 +25,10 @@ const PostCard = ({ post, linkState }: PostCardProps) => {
       <Link
         to={`/blog/${post.slug}`}
         state={linkState}
-        className="group block bg-card rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        className="group block bg-card rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2"
         aria-label={`Lire l'article: ${stripHtml(post.title.rendered)}`}
       >
-        <div className="aspect-[16/10] overflow-hidden bg-muted flex items-center justify-center">
+        <div className="aspect-16/10 overflow-hidden bg-muted flex items-center justify-center">
           {imageUrl ? (
             <img
               src={imageUrl}

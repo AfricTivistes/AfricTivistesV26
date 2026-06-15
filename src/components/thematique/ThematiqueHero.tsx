@@ -17,7 +17,7 @@ const ThematiqueHero = ({ content, bg, gradientFrom, gradientTo, IconComponent }
 
   return (
     <section className="relative py-20 lg:py-28 overflow-hidden">
-      <div className={`absolute inset-0 bg-gradient-to-br ${gradientFrom} ${gradientTo}`} aria-hidden="true" />
+      <div className={`absolute inset-0 bg-linear-to-br ${gradientFrom} ${gradientTo}`} aria-hidden="true" />
       <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
       <div className="absolute inset-0 pattern-african opacity-[0.06]" aria-hidden="true" />
 
@@ -38,7 +38,7 @@ const ThematiqueHero = ({ content, bg, gradientFrom, gradientTo, IconComponent }
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className={`w-14 h-14 rounded-2xl ${bg} flex items-center justify-center flex-shrink-0 backdrop-blur-sm border border-white/20`}
+            className={`w-14 h-14 rounded-2xl ${bg} flex items-center justify-center shrink-0 backdrop-blur-xs border border-white/20`}
           >
             <IconComponent size={28} className="text-white" />
           </motion.div>

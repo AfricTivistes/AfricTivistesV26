@@ -85,7 +85,7 @@ const DropdownNavItem = ({ link, isActive, currentUrl, t }: DropdownNavItemProps
       <button
         onClick={() => setOpen(!open)}
         className={cn(
-          "text-sm font-medium transition-colors hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm px-1 inline-flex items-center gap-1",
+          "text-sm font-medium transition-colors hover:text-primary focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm px-1 inline-flex items-center gap-1",
           isActive ? "text-primary" : "text-muted-foreground"
         )}
         aria-expanded={open}
@@ -222,7 +222,7 @@ const Navbar = () => {
                   key={link.href}
                   to={link.href}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm px-1",
+                    "text-sm font-medium transition-colors hover:text-primary focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm px-1",
                     location.pathname === link.href
                       ? "text-primary"
                       : "text-muted-foreground"
@@ -235,14 +235,14 @@ const Navbar = () => {
             )}
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              className="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2"
               aria-label={t("nav.contact")}
             >
               {t("nav.contact")}
             </Link>
             <button
               onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-              className="px-3 py-1.5 text-xs font-semibold border border-border rounded-md text-foreground transition-colors hover:bg-muted focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              className="px-3 py-1.5 text-xs font-semibold border border-border rounded-md text-foreground transition-colors hover:bg-muted focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2"
               data-testid="button-lang-toggle"
               aria-label={`Changer la langue vers ${lang === "fr" ? "l'anglais" : "le français"}`}
             >
@@ -253,7 +253,7 @@ const Navbar = () => {
           {/* Mobile toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded-md"
+            className="lg:hidden p-2 text-foreground focus:outline-hidden focus:ring-2 focus:ring-primary rounded-md"
             aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={isOpen}
           >
@@ -278,7 +278,7 @@ const Navbar = () => {
                     <button
                       onClick={() => toggleSubmenu(link.href || link.labelKey)}
                       className={cn(
-                        "w-full flex items-center justify-between text-base font-medium py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-sm px-1",
+                        "w-full flex items-center justify-between text-base font-medium py-2 transition-colors focus:outline-hidden focus:ring-2 focus:ring-primary rounded-sm px-1",
                         isActive(link) ? "text-primary" : "text-muted-foreground"
                       )}
                       aria-expanded={openSubmenu === (link.href || link.labelKey)}
@@ -356,7 +356,7 @@ const Navbar = () => {
                     to={link.href}
                     onClick={() => setIsOpen(false)}
                     className={cn(
-                      "text-base font-medium py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-sm px-1",
+                      "text-base font-medium py-2 transition-colors focus:outline-hidden focus:ring-2 focus:ring-primary rounded-sm px-1",
                       location.pathname === link.href
                         ? "text-primary"
                         : "text-muted-foreground"
@@ -370,13 +370,13 @@ const Navbar = () => {
               <Link
                 to="/contact"
                 onClick={() => setIsOpen(false)}
-                className="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 mt-2"
+                className="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 mt-2"
               >
                 {t("nav.contact")}
               </Link>
               <button
                 onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-                className="self-start px-3 py-1.5 text-xs font-semibold border border-border rounded-md text-foreground transition-colors hover:bg-muted focus:outline-none focus:ring-2 focus:ring-primary"
+                className="self-start px-3 py-1.5 text-xs font-semibold border border-border rounded-md text-foreground transition-colors hover:bg-muted focus:outline-hidden focus:ring-2 focus:ring-primary"
                 data-testid="button-lang-toggle-mobile"
                 aria-label={`Changer la langue vers ${lang === "fr" ? "l'anglais" : "le français"}`}
               >

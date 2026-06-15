@@ -28,7 +28,7 @@ const ProjetCard = ({ projet, carousel }: ProjetCardProps) => {
     <motion.article
       whileHover={{ y: -6 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className={carousel ? "flex-shrink-0" : ""}
+      className={carousel ? "shrink-0" : ""}
     >
       <Link
         to={`/initiatives/${projet.slug}`}
@@ -50,8 +50,8 @@ const ProjetCard = ({ projet, carousel }: ProjetCardProps) => {
           ) : (
             <div className="absolute inset-0 pattern-kente" aria-hidden="true" />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all -translate-y-1 group-hover:translate-y-0">
+          <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all -translate-y-1 group-hover:translate-y-0">
             <ArrowUpRight size={14} className="text-foreground" />
           </div>
         </div>

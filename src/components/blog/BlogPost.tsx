@@ -165,7 +165,7 @@ const BlogPost = ({ slug: slugProp, initialPost, initialRelatedPosts }: BlogPost
       <div className="pt-28 section-container animate-pulse">
         <div className="h-8 bg-muted rounded w-2/3 mb-4" />
         <div className="h-4 bg-muted rounded w-1/3 mb-8" />
-        <div className="aspect-[2/1] bg-muted rounded-xl mb-8" />
+        <div className="aspect-2/1 bg-muted rounded-xl mb-8" />
         <div className="space-y-3 max-w-3xl">
           {Array.from({ length: 8 }).map((_, i) => (
             <div key={i} className="h-4 bg-muted rounded" style={{ width: `${70 + Math.random() * 30}%` }} />
@@ -250,7 +250,7 @@ const BlogPost = ({ slug: slugProp, initialPost, initialRelatedPosts }: BlogPost
             </div>
 
             {/* Right: sidebar */}
-            <aside className="w-full lg:w-80 flex-shrink-0 lg:sticky lg:top-28 lg:self-start space-y-6">
+            <aside className="w-full lg:w-80 shrink-0 lg:sticky lg:top-28 lg:self-start space-y-6">
               {/* Share — desktop only */}
               <div className="hidden lg:block">
                 <ShareButtons title={post.title.rendered} label={t("blogPost.share")} />

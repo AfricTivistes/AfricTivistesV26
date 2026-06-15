@@ -28,7 +28,7 @@ const CtaBanner = ({ titleKey, descKey, btnKey, linkTo, showDecoShapes = false, 
         >
           {gradientFrom && gradientTo ? (
             <>
-              <div className={`absolute inset-0 bg-gradient-to-br ${gradientFrom} ${gradientTo}`} />
+              <div className={`absolute inset-0 bg-linear-to-br ${gradientFrom} ${gradientTo}`} />
               <div className="absolute inset-0 bg-black/40" />
             </>
           ) : (
@@ -50,7 +50,7 @@ const CtaBanner = ({ titleKey, descKey, btnKey, linkTo, showDecoShapes = false, 
             </p>
             <Link
               to={linkTo}
-              className="inline-flex items-center gap-2 rounded-lg bg-white/15 border border-white/30 backdrop-blur-sm px-8 py-3.5 text-sm font-bold text-white hover:bg-white/25 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2"
+              className="inline-flex items-center gap-2 rounded-lg bg-white/15 border border-white/30 backdrop-blur-xs px-8 py-3.5 text-sm font-bold text-white hover:bg-white/25 transition-colors focus:outline-hidden focus:ring-2 focus:ring-white/50 focus:ring-offset-2"
             >
               {t(btnKey)}
               <ArrowRight size={16} />

@@ -42,10 +42,10 @@ const readLabel = t("releases.read", lang);
                 <div class="group bg-card rounded-xl border border-border overflow-hidden transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1">
                   <a
                     href={`/${lang}/blog/${post.slug}`}
-                    class="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    class="block focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2"
                     aria-label={`${readLabel} : ${title}`}
                   >
-                    <div class="aspect-[3/4] overflow-hidden bg-muted/50 p-6 flex items-center justify-center">
+                    <div class="aspect-3/4 overflow-hidden bg-muted/50 p-6 flex items-center justify-center">
                       {imageUrl ? (
                         <img
                           src={imageUrl}
@@ -78,7 +78,7 @@ const readLabel = t("releases.read", lang);
       <div class="text-center mt-5">
         <a
           href={`/${lang}/resources/publications`}
-          class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm"
+          class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm"
           aria-label={t("publications.viewAll", lang)}
         >
           {t("publications.viewAll", lang)}

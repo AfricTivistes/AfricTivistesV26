@@ -41,7 +41,7 @@ const ThematiqueObjectifs = ({ objectifs, bg, bgSolid, color, borderColor }: The
               onMouseLeave={() => setHoveredIdx(null)}
             >
               <div className="flex items-start gap-3">
-                <div className={`w-8 h-8 rounded-lg ${bg} flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                <div className={`w-8 h-8 rounded-lg ${bg} flex items-center justify-center shrink-0 mt-0.5`}>
                   <Target size={14} className={color} />
                 </div>
                 <p className="text-sm text-foreground leading-relaxed font-medium">

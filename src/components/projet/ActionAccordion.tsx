@@ -17,7 +17,7 @@ const ActionAccordion = ({ index, title, details }: ActionAccordionProps) => {
       className="border border-border rounded-2xl overflow-hidden bg-card"
     >
       <div className="flex items-start gap-4 p-5 lg:p-6">
-        <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-lg bg-primary text-primary-foreground text-xs font-bold mt-0.5">
+        <span className="shrink-0 flex items-center justify-center w-8 h-8 rounded-lg bg-primary text-primary-foreground text-xs font-bold mt-0.5">
           {String(index + 1).padStart(2, "0")}
         </span>
         <span className="flex-1 text-sm lg:text-[15px] font-semibold text-foreground leading-snug">
@@ -26,11 +26,11 @@ const ActionAccordion = ({ index, title, details }: ActionAccordionProps) => {
       </div>
 
       {details.length > 0 && (
-        <div className="px-5 lg:px-6 pb-5 lg:pb-6 pl-[4rem]">
+        <div className="px-5 lg:px-6 pb-5 lg:pb-6 pl-16">
           <ul className="space-y-2.5">
             {details.map((d, i) => (
               <li key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground leading-relaxed">
-                <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-secondary mt-2" />
+                <span className="shrink-0 w-1.5 h-1.5 rounded-full bg-secondary mt-2" />
                 {d}
               </li>
             ))}

@@ -55,11 +55,11 @@ const ThematiqueActions = ({ actions, bg, bgSolid, color, borderColor }: Themati
               >
                 <button
                   onClick={() => setOpenAction(isOpen ? null : i)}
-                  className="w-full flex items-center gap-4 p-5 lg:p-6 text-left focus:outline-none focus:ring-2 focus:ring-inset"
+                  className="w-full flex items-center gap-4 p-5 lg:p-6 text-left focus:outline-hidden focus:ring-2 focus:ring-inset"
                   style={{ '--tw-ring-color': 'transparent' } as React.CSSProperties}
                   aria-expanded={isOpen}
                 >
-                  <div className={`w-10 h-10 rounded-xl ${bg} flex items-center justify-center flex-shrink-0`}>
+                  <div className={`w-10 h-10 rounded-xl ${bg} flex items-center justify-center shrink-0`}>
                     <span className={`text-sm font-bold ${color}`}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -76,7 +76,7 @@ const ThematiqueActions = ({ actions, bg, bgSolid, color, borderColor }: Themati
                   </div>
                   <ChevronDown
                     size={20}
-                    className={`text-muted-foreground flex-shrink-0 transition-transform duration-300 ${
+                    className={`text-muted-foreground shrink-0 transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
@@ -98,7 +98,7 @@ const ThematiqueActions = ({ actions, bg, bgSolid, color, borderColor }: Themati
                           key={j}
                           className="flex items-start gap-2.5 text-sm text-foreground"
                         >
-                          <Zap size={14} className={`${color} flex-shrink-0 mt-0.5`} />
+                          <Zap size={14} className={`${color} shrink-0 mt-0.5`} />
                           <span className="leading-relaxed">{detail}</span>
                         </div>
                       ))}

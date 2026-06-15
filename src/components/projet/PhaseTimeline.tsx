@@ -35,7 +35,7 @@ const PhaseTimeline = ({ phases, partenaireMap, phasesLabel, phasesDesc, lang }:
 
       <div className="relative">
         {/* Ligne centrale desktop */}
-        <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/25 via-border to-transparent pointer-events-none" />
+        <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-linear-to-b from-primary/25 via-border to-transparent pointer-events-none" />
 
         <div className="space-y-5 lg:space-y-10">
           {phases.map((phase, i) => {
@@ -75,7 +75,7 @@ const PhaseTimeline = ({ phases, partenaireMap, phasesLabel, phasesDesc, lang }:
                 className="group relative rounded-2xl border border-border bg-card p-5 lg:p-6 hover:border-primary/25 hover:shadow-xl transition-all duration-300 overflow-hidden"
               >
                 {/* Numéro en filigrane */}
-                <span className="absolute -bottom-3 -right-2 text-8xl font-black text-muted-foreground/[0.05] leading-none select-none pointer-events-none">
+                <span className="absolute -bottom-3 -right-2 text-8xl font-black text-muted-foreground/5 leading-none select-none pointer-events-none">
                   {String(i + 1).padStart(2, "0")}
                 </span>
 
@@ -86,7 +86,7 @@ const PhaseTimeline = ({ phases, partenaireMap, phasesLabel, phasesDesc, lang }:
                   </span>
                   {statusLabel && (
                     <span className={`inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${statusClass}`}>
-                      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${dotClass}`} />
+                      <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dotClass}`} />
                       {statusLabel}
                     </span>
                   )}
@@ -103,13 +103,13 @@ const PhaseTimeline = ({ phases, partenaireMap, phasesLabel, phasesDesc, lang }:
                 {/* Dates */}
                 {phase.phase_date_debut && (
                   <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-muted/50 border border-border/60 mt-2 mb-4">
-                    <Calendar size={11} className="text-primary/60 flex-shrink-0" />
+                    <Calendar size={11} className="text-primary/60 shrink-0" />
                     <span className="text-[11px] font-semibold text-foreground/70">
                       {formatDate(phase.phase_date_debut, lang)}
                     </span>
                     {phase.phase_date_fin && (
                       <>
-                        <ArrowRight size={9} className="text-muted-foreground/40 flex-shrink-0" />
+                        <ArrowRight size={9} className="text-muted-foreground/40 shrink-0" />
                         <span className="text-[11px] font-semibold text-foreground/70">
                           {formatDate(phase.phase_date_fin, lang)}
                         </span>
@@ -149,12 +149,12 @@ const PhaseTimeline = ({ phases, partenaireMap, phasesLabel, phasesDesc, lang }:
                         className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-muted/60 hover:bg-primary/10 hover:text-primary transition-colors text-[11px] font-medium text-muted-foreground border border-border/40 hover:border-primary/20"
                       >
                         {c.code === "PANAF" ? (
-                          <Globe size={14} className="text-primary/70 flex-shrink-0" />
+                          <Globe size={14} className="text-primary/70 shrink-0" />
                         ) : (
                           <img
                             src={`https://flagcdn.com/20x15/${c.code.toLowerCase()}.png`}
                             alt={c.name}
-                            className="w-4 h-3 object-cover rounded-[2px] shadow-sm"
+                            className="w-4 h-3 object-cover rounded-[2px] shadow-xs"
                             width="20"
                             height="15"
                             loading="lazy"
@@ -219,12 +219,12 @@ const PhaseTimeline = ({ phases, partenaireMap, phasesLabel, phasesDesc, lang }:
 
                 {/* Mobile : liste verticale */}
                 <div className="lg:hidden flex gap-4">
-                  <div className="flex flex-col items-center flex-shrink-0">
-                    <div className="w-8 h-8 rounded-full bg-card border-2 border-primary/50 flex items-center justify-center shadow-sm ring-2 ring-background mt-0.5">
+                  <div className="flex flex-col items-center shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-card border-2 border-primary/50 flex items-center justify-center shadow-xs ring-2 ring-background mt-0.5">
                       <span className="text-[10px] font-black text-primary">{i + 1}</span>
                     </div>
                     {i < phases.length - 1 && (
-                      <div className="w-px flex-1 min-h-[24px] mt-2 bg-gradient-to-b from-border to-transparent" />
+                      <div className="w-px flex-1 min-h-[24px] mt-2 bg-linear-to-b from-border to-transparent" />
                     )}
                   </div>
                   <div className="flex-1 pb-5">{cardJsx}</div>

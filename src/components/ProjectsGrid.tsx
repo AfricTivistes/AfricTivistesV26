@@ -72,7 +72,7 @@ const ProjectsGrid = ({ initialProjets, initialThematiques }: ProjectsGridProps)
           <div className="h-8 w-48 bg-muted rounded mb-12 mx-auto animate-pulse" />
           <div className="flex gap-5 overflow-hidden">
             {Array.from({ length: 4 }).map((_, i) => (
-              <div key={i} className="w-80 flex-shrink-0 animate-pulse">
+              <div key={i} className="w-80 shrink-0 animate-pulse">
                 <div className="aspect-square bg-muted rounded-2xl mb-3" />
                 <div className="h-3 bg-muted rounded w-1/3 mb-2" />
                 <div className="h-4 bg-muted rounded w-3/4" />
@@ -173,7 +173,7 @@ const ProjectsGrid = ({ initialProjets, initialThematiques }: ProjectsGridProps)
         <div className="text-center mt-5">
           <Link
             to="/initiatives"
-            className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 text-sm font-bold text-primary-foreground hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 text-sm font-bold text-primary-foreground hover:bg-primary/90 transition-colors focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2"
           >
             {t("programmes.viewAll")}
             <ArrowRight size={16} />

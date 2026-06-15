@@ -122,7 +122,7 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
           <div className="lg:col-span-2 space-y-4">
             {Array.from({ length: 4 }).map((_, i) => (
               <div key={i} className="flex gap-3 animate-pulse" aria-hidden="true">
-                <div className="w-36 flex-shrink-0 aspect-video rounded-lg bg-muted" />
+                <div className="w-36 shrink-0 aspect-video rounded-lg bg-muted" />
                 <div className="flex-1 space-y-2 py-1">
                   <div className="h-3 bg-muted rounded w-3/4" />
                   <div className="h-3 bg-muted rounded w-1/2" />
@@ -163,7 +163,7 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
           {canScrollLeft && (
             <button
               onClick={() => scroll("left")}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-background/90 border border-border shadow-sm flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-background/90 border border-border shadow-xs flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Scroll left"
             >
               <ChevronLeft size={16} />
@@ -178,7 +178,7 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
           >
             <button
               onClick={() => handlePlaylistChange(null)}
-              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors focus:outline-hidden focus:ring-2 focus:ring-primary ${
                 activePlaylist === null
                   ? "bg-primary text-primary-foreground"
                   : "bg-muted text-muted-foreground hover:bg-muted/80"
@@ -191,7 +191,7 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
               <button
                 key={pl.id}
                 onClick={() => handlePlaylistChange(pl.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
+                className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors focus:outline-hidden focus:ring-2 focus:ring-primary ${
                   activePlaylist === pl.id
                     ? "bg-primary text-primary-foreground"
                     : "bg-muted text-muted-foreground hover:bg-muted/80"
@@ -205,7 +205,7 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
           {canScrollRight && (
             <button
               onClick={() => scroll("right")}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-background/90 border border-border shadow-sm flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-background/90 border border-border shadow-xs flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Scroll right"
             >
               <ChevronRight size={16} />
@@ -234,7 +234,7 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
                 animate={{ opacity: 1, y: 0 }}
                 className="lg:col-span-3"
               >
-                <div className="bg-card rounded-xl border border-border overflow-hidden shadow-sm">
+                <div className="bg-card rounded-xl border border-border overflow-hidden shadow-xs">
                   <div className="relative aspect-video overflow-hidden bg-foreground/5">
                     <AnimatePresence mode="wait">
                       {isFeaturedPlaying ? (
@@ -257,7 +257,7 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
                           />
                           <button
                             onClick={() => setPlayingId(null)}
-                            className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-colors"
+                            className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-black/60 backdrop-blur-xs flex items-center justify-center text-white hover:bg-black/80 transition-colors"
                             aria-label="Fermer"
                           >
                             <X size={16} />
@@ -270,7 +270,7 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                           onClick={() => setPlayingId(featured.id)}
-                          className="w-full h-full relative focus:outline-none focus:ring-2 focus:ring-primary group"
+                          className="w-full h-full relative focus:outline-hidden focus:ring-2 focus:ring-primary group"
                           aria-label={`${t("videos.play")}: ${featured.title}`}
                         >
                           <img
@@ -284,7 +284,7 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
                           />
                           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
                           <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-16 h-16 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center shadow-xl transform transition-transform group-hover:scale-110">
+                            <div className="w-16 h-16 rounded-full bg-primary/90 backdrop-blur-xs flex items-center justify-center shadow-xl transform transition-transform group-hover:scale-110">
                               <Play size={26} className="text-primary-foreground ml-1" fill="currentColor" aria-hidden="true" />
                             </div>
                           </div>
@@ -341,7 +341,7 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
                           />
                           <button
                             onClick={() => setPlayingId(null)}
-                            className="absolute top-2 right-2 z-10 w-7 h-7 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-colors"
+                            className="absolute top-2 right-2 z-10 w-7 h-7 rounded-full bg-black/60 backdrop-blur-xs flex items-center justify-center text-white hover:bg-black/80 transition-colors"
                             aria-label="Fermer"
                           >
                             <X size={14} />
@@ -350,10 +350,10 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
                       ) : (
                         <button
                           onClick={() => setPlayingId(video.id)}
-                          className="flex gap-3 items-start w-full text-left rounded-lg p-2 -m-2 transition-colors hover:bg-card focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                          className="flex gap-3 items-start w-full text-left rounded-lg p-2 -m-2 transition-colors hover:bg-card focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2"
                           aria-label={`${t("videos.play")}: ${video.title}`}
                         >
-                          <div className="w-36 flex-shrink-0 aspect-video rounded-lg overflow-hidden bg-muted relative">
+                          <div className="w-36 shrink-0 aspect-video rounded-lg overflow-hidden bg-muted relative">
                             <img
                               src={video.thumbnail}
                               alt=""
@@ -392,7 +392,7 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
                 href={viewAllHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm"
                 aria-label={t("videos.viewAll")}
               >
                 {t("videos.viewAll")}

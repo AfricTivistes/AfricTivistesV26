@@ -29,11 +29,11 @@ const PostCoverCard = ({ post, linkState, placeholderIcon: Icon = FileText, show
       <Link
         to={`/blog/${post.slug}`}
         state={linkState}
-        className="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        className="block focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2"
         aria-label={`${t("releases.read")} : ${title}`}
       >
         {/* Cover image - portrait ratio for report/document covers */}
-        <div className="aspect-[3/4] overflow-hidden bg-muted/50 p-6 flex items-center justify-center">
+        <div className="aspect-3/4 overflow-hidden bg-muted/50 p-6 flex items-center justify-center">
           {imageUrl ? (
             <img
               src={imageUrl}
