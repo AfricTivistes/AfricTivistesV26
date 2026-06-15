@@ -12,7 +12,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        heading: ['"Onest"', '"Space Grotesk"', 'system-ui', 'sans-serif'],
         body: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
       colors: {
