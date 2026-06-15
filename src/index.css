@@ -90,8 +90,36 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply text-foreground font-body antialiased;
+    background-color: hsl(var(--background)); /* fallback si bg.webp 404 */
     line-height: 1.6;
+  }
+
+  /* Image de fond globale du site : fixe au viewport, attenuee par overlay
+     blanc 88% pour preserver le contraste WCAG AA du texte noir.
+     Pose en ::before pour rester sous tout le contenu (z-index: -1) et
+     transparaitre derriere les zones translucides (navbar bg/80, sticky bars). */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(hsl(var(--background) / 0.97), hsl(var(--background) / 0.97)),
+      url("/bg.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    pointer-events: none;
+  }
+
+  /* iOS Safari : background-attachment: fixed cause des saccades et bugs de
+     zoom. Fallback en scroll (l'image suit le scroll, pas de parallax). */
+  @supports (-webkit-touch-callout: none) {
+    body::before {
+      background-attachment: scroll;
+    }
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-bold tracking-tight;

@@ -99,6 +99,11 @@ const ogImageAbsolute = ogImageUrl.startsWith("http") ? ogImageUrl : `${siteOrig
       />
     )}
 
+    {/* Background image globale (body::before). Preload low-priority pour
+        eviter un flash blanc sans concurrencer le LCP. Note : bg.webp est
+        en realite encode en JPEG, d'ou type="image/jpeg". */}
+    <link rel="preload" as="image" href="/bg.webp" type="image/jpeg" fetchpriority="low" />
+
     {/* Preconnect to WordPress media CDN (used by most subpages) */}
     <link rel="preconnect" href="https://update.africtivistes.org" crossorigin />
     <link rel="dns-prefetch" href="https://update.africtivistes.org" />
@@ -225,7 +230,7 @@ const ogImageAbsolute = ogImageUrl.startsWith("http") ? ogImageUrl : `${siteOrig
       <textarea name="motivation"></textarea>
     </form>
 
-    <div class="min-h-screen bg-background">
+    <div class="min-h-screen">
       <a href="#main-content" class="skip-to-content">
         {lang === "fr" ? "Aller au contenu principal" : "Skip to main content"}
       </a>
