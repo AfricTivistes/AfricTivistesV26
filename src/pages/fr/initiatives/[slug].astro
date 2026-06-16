@@ -11,6 +11,7 @@ import {
   stripHtml,
   collectPhases,
   slimWpProjets,
+  type WPProjet,
 } from "@/lib/wordpress";
 
 const lang = "fr";
@@ -26,7 +27,7 @@ try {
   console.error("[ProjetDetail SSR prefetch] failed:", err);
 }
 
-let initialSimilarProjets: ReturnType<typeof slimWpProjets> | undefined;
+let initialSimilarProjets: WPProjet[] | undefined;
 let initialPlateformes: Awaited<ReturnType<typeof fetchPlateformesByIds>> | undefined;
 let initialPartenaires: Awaited<ReturnType<typeof fetchPartenairesByIds>> | undefined;
 let initialProjetsMeres: Awaited<ReturnType<typeof fetchProjetMeres>> | undefined;
@@ -63,9 +64,12 @@ if (projet) {
   ]);
 
   /* Filtrage similaires par lang -- reproduit la queryFn de useProjets pour
-     que la cle de cache matche cote client. */
+     que la cle de cache matche cote client.
+     Cast en WPProjet[] : slimWpProjets retire excerpt/content (non lus par
+     SimilarProjetsSection : seuls id/slug/title/_embedded sont consommes),
+     donc la donnee est structurellement compatible. */
   const similarFiltered = similarRaw.filter((p) => !p.lang || p.lang === lang);
-  initialSimilarProjets = slimWpProjets(similarFiltered);
+  initialSimilarProjets = slimWpProjets(similarFiltered) as WPProjet[];
   initialPlateformes = plateformes;
   initialPartenaires = partenaires;
   initialProjetsMeres = projetsMeres;

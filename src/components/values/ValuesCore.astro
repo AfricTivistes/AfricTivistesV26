@@ -81,10 +81,10 @@ const checkPath = '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>';
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {coreValues.map((v, i) => (
         <Reveal delay={i * 80} class={`group bg-card rounded-2xl border border-border ${v.borderHover} hover:shadow-xl transition-all duration-300 overflow-hidden relative`}>
-          <div class={`h-1.5 bg-gradient-to-r ${v.gradient}`}></div>
+          <div class={`h-1.5 bg-linear-to-r ${v.gradient}`}></div>
           <div class="p-7">
             <div class="flex items-start gap-4 mb-5">
-              <div class={`w-14 h-14 rounded-xl ${v.iconBg} flex items-center justify-center flex-shrink-0 transition-colors duration-300`}>
+              <div class={`w-14 h-14 rounded-xl ${v.iconBg} flex items-center justify-center shrink-0 transition-colors duration-300`}>
                 <svg class={v.iconColor} width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={icons[v.icon]}></svg>
               </div>
               <div>
@@ -99,7 +99,7 @@ const checkPath = '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>';
             <div class="space-y-2.5">
               {v.details.map((detailKey: string) => (
                 <div class="flex items-center gap-2.5">
-                  <svg class={`${v.checkColor} flex-shrink-0`} width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={checkPath}></svg>
+                  <svg class={`${v.checkColor} shrink-0`} width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={checkPath}></svg>
                   <span class="text-sm text-foreground/80 font-medium">{t(detailKey, lang)}</span>
                 </div>
               ))}

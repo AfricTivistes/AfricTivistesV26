@@ -28,7 +28,7 @@ const ThematiqueFilterBar = ({ thematiques, activeType, onSelect, className = ""
       <button
         onClick={() => onSelect(null)}
         aria-pressed={activeType === null}
-        className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors border focus:outline-none focus:ring-2 focus:ring-primary ${
+        className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors border focus:outline-hidden focus:ring-2 focus:ring-primary ${
           activeType === null
             ? "bg-primary text-primary-foreground border-primary"
             : "border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
@@ -44,7 +44,7 @@ const ThematiqueFilterBar = ({ thematiques, activeType, onSelect, className = ""
             key={th.id}
             onClick={() => onSelect(th.id)}
             aria-pressed={isActive}
-            className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors border focus:outline-none focus:ring-2 focus:ring-primary ${
+            className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors border focus:outline-hidden focus:ring-2 focus:ring-primary ${
               isActive
                 ? `${style?.bgSolid ?? "bg-primary"} text-white border-transparent`
                 : "border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"

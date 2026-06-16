@@ -36,7 +36,7 @@ const HeroSection = ({ title, imageUrl, thematiqueName, thematiqueSlug, pays, la
       ) : (
         <div className="w-full h-full hero-gradient" />
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/20" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/50 to-black/20" />
       <div className="absolute inset-0 pattern-african opacity-[0.07]" />
     </div>
 
@@ -82,7 +82,7 @@ const HeroSection = ({ title, imageUrl, thematiqueName, thematiqueSlug, pays, la
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3 + i * 0.05 }}
-                className="inline-flex items-center gap-1.5 text-xs text-white/90 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/10"
+                className="inline-flex items-center gap-1.5 text-xs text-white/90 bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded-full border border-white/10"
               >
                 {code === "PANAF" ? <Globe size={12} /> : <MapPin size={12} />}
                 {code === "PANAF" ? t("country.panafricain") : getCountryName(code)}

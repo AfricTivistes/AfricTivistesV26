@@ -66,7 +66,7 @@ const MainContent = ({
                         prose-h3:text-lg prose-h3:font-bold prose-h3:mt-8 prose-h3:mb-3
                         prose-p:text-muted-foreground prose-p:leading-[1.8]
                         prose-li:text-muted-foreground
-                        prose-a:text-primary prose-a:font-medium prose-a:no-underline hover:prose-a:underline
+                        prose-a:text-primary prose-a:font-medium prose-a:no-underline prose-a:hover:underline
                         prose-img:rounded-xl prose-img:max-w-full prose-img:h-auto
                         prose-ul:pl-5 prose-ol:pl-5
                         prose-strong:text-foreground"
@@ -130,24 +130,24 @@ const MainContent = ({
                             <img
                               src={pm.pm_image}
                               alt=""
-                              className="w-8 h-8 rounded-lg object-cover flex-shrink-0 border border-border"
+                              className="w-8 h-8 rounded-lg object-cover shrink-0 border border-border"
                               width="32"
                               height="32"
                               loading="lazy"
                               decoding="async"
                             />
                           ) : (
-                            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                               <ExternalLink size={14} className="text-primary" />
                             </div>
                           )}
                           <div className="flex-1 min-w-0">
                             <h4 className="text-xs font-bold text-foreground leading-snug line-clamp-2 group-hover:text-primary transition-colors flex items-center gap-1.5">
                               {pm.name}
-                              <ExternalLink size={10} className="opacity-0 group-hover:opacity-100 transition-opacity text-primary flex-shrink-0" />
+                              <ExternalLink size={10} className="opacity-0 group-hover:opacity-100 transition-opacity text-primary shrink-0" />
                             </h4>
                           </div>
-                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full flex-shrink-0 ${
+                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full shrink-0 ${
                             pm.pm_statut === "termine"
                               ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
                               : "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400"

@@ -176,14 +176,14 @@ const NewsletterForm = ({ variant = "inline", idPrefix = "newsletter" }: Newslet
             placeholder="Email"
             data-inf-meta="1"
             data-inf-error=""
-            className="flex-1 min-w-0 px-3 py-2 rounded-md bg-white/10 border border-white/15 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary"
+            className="flex-1 min-w-0 px-3 py-2 rounded-md bg-white/10 border border-white/15 text-sm text-white placeholder:text-white/40 focus:outline-hidden focus:ring-2 focus:ring-primary"
             data-testid="input-newsletter-email"
             aria-label={t("newsletter.placeholder")}
           />
           <button
             type="submit"
             disabled={loading}
-            className="px-3 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary disabled:opacity-50"
+            className="px-3 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium transition-colors focus:outline-hidden focus:ring-2 focus:ring-primary disabled:opacity-50"
             data-testid="button-newsletter-submit"
             aria-label="S'abonner à la newsletter"
           >
@@ -210,14 +210,14 @@ const NewsletterForm = ({ variant = "inline", idPrefix = "newsletter" }: Newslet
           data-inf-meta="1"
           data-inf-error=""
           placeholder={t("newsletter.placeholder")}
-          className="w-full px-4 py-2.5 rounded-lg bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 text-sm text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-secondary transition"
+          className="w-full px-4 py-2.5 rounded-lg bg-primary-foreground/10 backdrop-blur-xs border border-primary-foreground/20 text-sm text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-hidden focus:ring-2 focus:ring-secondary transition"
           aria-label={t("newsletter.placeholder")}
         />
         <div ref={captchaRef} className="rounded-lg overflow-hidden" />
         <button
           type="submit"
           disabled={loading}
-          className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-5 py-2.5 text-sm font-bold text-secondary-foreground hover:bg-secondary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 disabled:opacity-50"
+          className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-5 py-2.5 text-sm font-bold text-secondary-foreground hover:bg-secondary/90 transition-colors focus:outline-hidden focus:ring-2 focus:ring-secondary focus:ring-offset-2 disabled:opacity-50"
         >
           <Send size={14} aria-hidden="true" />
           {t("newsletter.subscribe")}
@@ -242,13 +242,13 @@ const NewsletterForm = ({ variant = "inline", idPrefix = "newsletter" }: Newslet
             data-inf-meta="1"
             data-inf-error=""
             placeholder={t("newsletter.placeholder")}
-            className="flex-1 px-5 py-3.5 rounded-lg bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-secondary transition"
+            className="flex-1 px-5 py-3.5 rounded-lg bg-primary-foreground/10 backdrop-blur-xs border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-hidden focus:ring-2 focus:ring-secondary transition"
             aria-label={t("newsletter.placeholder")}
           />
           <button
             type="submit"
             disabled={loading}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-7 py-3.5 font-bold text-secondary-foreground hover:bg-secondary/90 transition-colors whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 disabled:opacity-50"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-7 py-3.5 font-bold text-secondary-foreground hover:bg-secondary/90 transition-colors whitespace-nowrap focus:outline-hidden focus:ring-2 focus:ring-secondary focus:ring-offset-2 disabled:opacity-50"
           >
             <Send size={16} aria-hidden="true" />
             {t("newsletter.subscribe")}

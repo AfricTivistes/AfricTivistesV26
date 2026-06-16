@@ -60,7 +60,7 @@ const langPrefix = (path: string) => `/${lang}${path.startsWith("/") ? path : "/
           <Reveal delay={i * 80}>
             <a
               href={langPrefix(theme.route)}
-              class="group block h-full bg-card rounded-xl border border-border p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              class="group block h-full bg-card rounded-xl border border-border p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:-translate-y-1 focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2"
               aria-label={`${content.heroTitle} - ${t("projectThemes.explore", lang)}`}
             >
               <div class={`w-12 h-12 rounded-lg ${theme.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`} aria-hidden="true">
@@ -85,7 +85,7 @@ const langPrefix = (path: string) => `/${lang}${path.startsWith("/") ? path : "/
         <Reveal delay={thematiqueList.length * 80}>
           <a
             href={langPrefix(ctaCard.to)}
-            class="group block h-full rounded-xl border-2 border-dashed border-primary/30 bg-primary/5 p-6 transition-all hover:border-primary hover:bg-primary/10 hover:shadow-lg hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            class="group block h-full rounded-xl border-2 border-dashed border-primary/30 bg-primary/5 p-6 transition-all hover:border-primary hover:bg-primary/10 hover:shadow-lg hover:-translate-y-1 focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2"
             aria-label={t(ctaCard.ctaKey, lang)}
           >
             <div class="w-12 h-12 rounded-lg bg-primary/15 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">

@@ -19,7 +19,7 @@ const ObjectiveCard = ({ objectif, objectivesLabel, imageUrl, imageAlt }: Object
       >
         <div className="flex items-start gap-6">
           <div className="flex items-start gap-4 flex-1 min-w-0">
-            <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <div className="shrink-0 w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
               <Target size={18} className="text-primary" />
             </div>
             <div className="flex-1 min-w-0">
@@ -32,7 +32,7 @@ const ObjectiveCard = ({ objectif, objectivesLabel, imageUrl, imageAlt }: Object
             </div>
           </div>
           {imageUrl && (
-            <div className="hidden sm:flex flex-shrink-0 w-20 h-20 lg:w-28 lg:h-28 rounded-2xl overflow-hidden border border-border bg-muted/30">
+            <div className="hidden sm:flex shrink-0 w-20 h-20 lg:w-28 lg:h-28 rounded-2xl overflow-hidden border border-border bg-muted/30">
               <img
                 src={imageUrl}
                 alt={imageAlt}

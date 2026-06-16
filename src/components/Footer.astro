@@ -31,6 +31,12 @@ const navItems = [
   { labelKey: "nav.contact", path: "/contact" },
 ];
 
+const externalNavItems = [
+  { label: "AfricTivistes CitizenLab", href: "https://africtivistescitizenlab.org/" },
+  { label: "AfricTivistes Academy", href: "https://academy.africtivistes.org/" },
+  { label: "Election Civic tech Fund", href: "https://electioncivictechfund.africtivistes.com/fr" },
+];
+
 const followLabel = lang === "fr" ? "Suivez-nous sur" : "Follow us on";
 const socialsLabel = lang === "fr" ? "Réseaux sociaux" : "Social networks";
 const navLabel = lang === "fr" ? "Navigation du pied de page" : "Footer navigation";
@@ -62,7 +68,7 @@ const year = new Date().getFullYear();
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${followLabel} ${s.name}`}
-              class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary"
+              class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-primary focus:outline-hidden focus:ring-2 focus:ring-primary"
               data-testid={`link-social-${s.name.toLowerCase()}`}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={s.path}></svg>
@@ -90,10 +96,22 @@ const year = new Date().getFullYear();
               <li>
                 <a
                   href={`/${lang}${item.path === "/" ? "/" : item.path}`}
-                  class="text-sm text-white/60 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-primary rounded-sm"
+                  class="text-sm text-white/60 transition-colors hover:text-white focus:outline-hidden focus:ring-2 focus:ring-primary rounded-sm"
                   data-testid={`link-footer-${item.labelKey}`}
                 >
                   {t(item.labelKey, lang)}
+                </a>
+              </li>
+            ))}
+            {externalNavItems.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm text-white/60 transition-colors hover:text-white focus:outline-hidden focus:ring-2 focus:ring-primary rounded-sm"
+                >
+                  {item.label}
                 </a>
               </li>
             ))}
@@ -106,13 +124,13 @@ const year = new Date().getFullYear();
         <address class="not-italic">
           <ul class="space-y-3 text-sm text-white/60">
             <li>
-              <a href="tel:+221338375124" class="flex items-start gap-2.5 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-primary rounded-sm" data-testid="link-footer-phone">
+              <a href="tel:+221338375124" class="flex items-start gap-2.5 transition-colors hover:text-white focus:outline-hidden focus:ring-2 focus:ring-primary rounded-sm" data-testid="link-footer-phone">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true" set:html={phonePath}></svg>
                 <span>(+221) 33 837 51 24</span>
               </a>
             </li>
             <li>
-              <a href="mailto:info@africtivistes.org" class="flex items-start gap-2.5 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-primary rounded-sm" data-testid="link-footer-email">
+              <a href="mailto:info@africtivistes.org" class="flex items-start gap-2.5 transition-colors hover:text-white focus:outline-hidden focus:ring-2 focus:ring-primary rounded-sm" data-testid="link-footer-email">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true" set:html={mailPath}></svg>
                 <span>info@africtivistes.org</span>
               </a>

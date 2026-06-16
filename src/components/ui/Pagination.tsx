@@ -49,8 +49,8 @@ const Pagination = (props: PaginationProps) => {
   const prevLabel = lang === "fr" ? "Page précédente" : "Previous page";
   const nextLabel = lang === "fr" ? "Page suivante" : "Next page";
 
-  const navBtnClass = "p-2 rounded-lg border border-border transition-colors hover:bg-muted focus:outline-none focus:ring-2 focus:ring-primary";
-  const pageBtnClass = "w-10 h-10 rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary inline-flex items-center justify-center";
+  const navBtnClass = "p-2 rounded-lg border border-border transition-colors hover:bg-muted focus:outline-hidden focus:ring-2 focus:ring-primary";
+  const pageBtnClass = "w-10 h-10 rounded-lg text-sm font-medium transition-colors focus:outline-hidden focus:ring-2 focus:ring-primary inline-flex items-center justify-center";
 
   if (isLinkMode(props)) {
     return (

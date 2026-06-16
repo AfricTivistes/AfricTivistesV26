@@ -29,7 +29,7 @@ const PartnerLogo = ({ org, index }: PartnerLogoProps) => {
       className="group/logo relative flex items-center justify-center"
       title={org.name}
     >
-      <div className="w-20 h-20 rounded-xl bg-white dark:bg-card flex items-center justify-center overflow-hidden border border-border/60 shadow-sm group-hover/logo:shadow-md group-hover/logo:border-primary/30 group-hover/logo:scale-105 transition-all duration-200">
+      <div className="w-20 h-20 rounded-xl bg-white dark:bg-card flex items-center justify-center overflow-hidden border border-border/60 shadow-xs group-hover/logo:shadow-md group-hover/logo:border-primary/30 group-hover/logo:scale-105 transition-all duration-200">
         {failed || !org.logo ? (
           <span className="text-xs font-bold text-primary/70">{initials}</span>
         ) : (

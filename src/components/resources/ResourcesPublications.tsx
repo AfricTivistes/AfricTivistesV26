@@ -66,7 +66,7 @@ const ResourcesPublications = ({ initialPostsData }: ResourcesPublicationsProps)
             height="600"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/90 via-primary/85 to-indigo-900/90" aria-hidden="true" />
+        <div className="absolute inset-0 bg-linear-to-br from-indigo-950/90 via-primary/85 to-indigo-900/90" aria-hidden="true" />
         <div className="absolute inset-0 pattern-african opacity-[0.06]" aria-hidden="true" />
 
         {/* Decorative elements */}
@@ -89,7 +89,7 @@ const ResourcesPublications = ({ initialPostsData }: ResourcesPublicationsProps)
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="w-14 h-14 rounded-2xl bg-secondary/20 flex items-center justify-center flex-shrink-0 backdrop-blur-sm border border-white/10"
+                  className="w-14 h-14 rounded-2xl bg-secondary/20 flex items-center justify-center shrink-0 backdrop-blur-xs border border-white/10"
                 >
                   <BookOpen size={28} className="text-secondary" />
                 </motion.div>
@@ -118,7 +118,7 @@ const ResourcesPublications = ({ initialPostsData }: ResourcesPublicationsProps)
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="flex-shrink-0 bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-8 py-6 text-center"
+                className="shrink-0 bg-white/10 backdrop-blur-xs border border-white/15 rounded-2xl px-8 py-6 text-center"
               >
                 <p className="text-4xl font-bold text-secondary font-heading">{total}</p>
                 <p className="text-sm text-white/70 mt-1">{t("resources.publications.count")}</p>

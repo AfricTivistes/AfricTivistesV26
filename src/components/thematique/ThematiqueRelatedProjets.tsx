@@ -68,7 +68,7 @@ const ThematiqueRelatedProjets = ({ projets, loading, bgSolid, color, gradientFr
         <div className="text-center mt-5">
           <Link
             to="/initiatives"
-            className={`inline-flex items-center gap-2 rounded-xl bg-gradient-to-r ${gradientFrom} ${gradientTo} px-7 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90`}
+            className={`inline-flex items-center gap-2 rounded-xl bg-linear-to-r ${gradientFrom} ${gradientTo} px-7 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90`}
           >
             {t("projet.viewAll")}
             <ArrowRight size={16} />

@@ -30,7 +30,7 @@ const PlatformGrid = ({ platforms }: PlatformGridProps) => {
             className="group flex items-center gap-4 bg-card rounded-xl border border-border p-4 transition-all hover:shadow-md hover:border-primary/30 hover:-translate-y-0.5 duration-300"
           >
             {/* Thumbnail ou icone */}
-            <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center overflow-hidden flex-shrink-0 border border-border/60">
+            <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center overflow-hidden shrink-0 border border-border/60">
               {imageUrl ? (
                 <img
                   src={imageUrl}
@@ -61,7 +61,7 @@ const PlatformGrid = ({ platforms }: PlatformGridProps) => {
             {/* Fleche */}
             <ExternalLink
               size={14}
-              className="text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0"
+              className="text-muted-foreground group-hover:text-primary transition-colors shrink-0"
             />
           </motion.a>
         );

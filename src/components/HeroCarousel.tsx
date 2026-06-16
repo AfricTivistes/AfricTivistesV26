@@ -107,7 +107,7 @@ export default function HeroCarousel({
                 </div>
               )}
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 {categories.length > 0 && (
                   <span className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold mb-3">
@@ -130,14 +130,14 @@ export default function HeroCarousel({
         <>
           <button
             onClick={prevSlide}
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/60 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50 z-10"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/40 backdrop-blur-xs text-white flex items-center justify-center hover:bg-black/60 transition-colors focus:outline-hidden focus:ring-2 focus:ring-white/50 z-10"
             aria-label={aPrev}
           >
             <ChevronLeft size={18} />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/60 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50 z-10"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/40 backdrop-blur-xs text-white flex items-center justify-center hover:bg-black/60 transition-colors focus:outline-hidden focus:ring-2 focus:ring-white/50 z-10"
             aria-label={aNext}
           >
             <ChevronRight size={18} />
@@ -148,7 +148,7 @@ export default function HeroCarousel({
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`h-1 rounded-full transition-all duration-300 focus:outline-none ${
+                className={`h-1 rounded-full transition-all duration-300 focus:outline-hidden ${
                   index === currentSlide
                     ? "w-8 bg-secondary"
                     : "w-4 bg-white/40 hover:bg-white/60"

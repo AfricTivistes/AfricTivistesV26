@@ -24,7 +24,7 @@ const PostGridSkeleton = ({ count = 6, variant = "landscape", columns = 3 }: Pos
     <div className={colsClass[columns]} aria-hidden="true">
       {Array.from({ length: count }).map((_, i) => (
         <div key={i} className="bg-card rounded-xl border border-border overflow-hidden animate-pulse">
-          <div className={variant === "cover" ? "aspect-[3/4] bg-muted" : "aspect-[16/10] bg-muted"} />
+          <div className={variant === "cover" ? "aspect-3/4 bg-muted" : "aspect-16/10 bg-muted"} />
           <div className="p-5 space-y-3">
             {variant === "landscape" && (
               <div className="flex gap-2">

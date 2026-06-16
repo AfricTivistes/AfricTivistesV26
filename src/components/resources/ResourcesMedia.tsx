@@ -59,7 +59,7 @@ const VideoCard = ({ video, index, playingId, onPlay, onStop, formatDate, t }: V
               />
               <button
                 onClick={(e) => { e.stopPropagation(); onStop(); }}
-                className="absolute top-2 right-2 z-10 w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-colors"
+                className="absolute top-2 right-2 z-10 w-8 h-8 rounded-full bg-black/60 backdrop-blur-xs flex items-center justify-center text-white hover:bg-black/80 transition-colors"
                 aria-label="Close"
               >
                 <X size={16} />
@@ -72,7 +72,7 @@ const VideoCard = ({ video, index, playingId, onPlay, onStop, formatDate, t }: V
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => onPlay(video.id)}
-              className="w-full h-full relative focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full h-full relative focus:outline-hidden focus:ring-2 focus:ring-primary"
               aria-label={`${t("media.play")}: ${video.title}`}
             >
               <img
@@ -86,7 +86,7 @@ const VideoCard = ({ video, index, playingId, onPlay, onStop, formatDate, t }: V
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-14 h-14 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center shadow-lg transform transition-transform group-hover:scale-110">
+                <div className="w-14 h-14 rounded-full bg-primary/90 backdrop-blur-xs flex items-center justify-center shadow-lg transform transition-transform group-hover:scale-110">
                   <Play size={22} className="text-primary-foreground ml-0.5" fill="currentColor" aria-hidden="true" />
                 </div>
               </div>
@@ -182,7 +182,7 @@ const ResourcesMedia = ({ initialVideos }: ResourcesMediaProps) => {
             <div className="flex flex-wrap justify-center gap-2 mb-10" role="group" aria-label={lang === "fr" ? "Filtrer par playlist" : "Filter by playlist"}>
               <button
                 onClick={() => handleFilterChange(null)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors focus:outline-hidden focus:ring-2 focus:ring-primary ${
                   activePlaylist === null
                     ? "bg-primary text-primary-foreground"
                     : "bg-muted text-muted-foreground hover:bg-muted/80"
@@ -195,7 +195,7 @@ const ResourcesMedia = ({ initialVideos }: ResourcesMediaProps) => {
                 <button
                   key={pl.id}
                   onClick={() => handleFilterChange(pl.id)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors focus:outline-hidden focus:ring-2 focus:ring-primary ${
                     activePlaylist === pl.id
                       ? "bg-primary text-primary-foreground"
                       : "bg-muted text-muted-foreground hover:bg-muted/80"

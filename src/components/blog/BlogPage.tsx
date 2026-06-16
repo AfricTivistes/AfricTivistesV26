@@ -129,8 +129,8 @@ const BlogPage = ({ initialPostsData, initialCategories, initialSearch = "" }: B
         verticalPadding="pt-24 pb-16 lg:pt-32 lg:pb-20"
         patternOpacity="opacity-15"
       >
-        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/5 blur-sm" aria-hidden="true" />
-        <div className="absolute -bottom-32 -left-16 w-96 h-96 rounded-full bg-white/[0.03]" aria-hidden="true" />
+        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/5 blur-xs" aria-hidden="true" />
+        <div className="absolute -bottom-32 -left-16 w-96 h-96 rounded-full bg-white/3" aria-hidden="true" />
       </GradientHero>
 
       {/* Filters Section */}
@@ -142,7 +142,7 @@ const BlogPage = ({ initialPostsData, initialCategories, initialSearch = "" }: B
               <Link
                 to="/blog?page=1"
                 className={cn(
-                  "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shrink-0",
+                  "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all whitespace-nowrap focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 shrink-0",
                   !currentCat
                     ? "bg-primary text-primary-foreground shadow-md shadow-primary/25"
                     : "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -165,7 +165,7 @@ const BlogPage = ({ initialPostsData, initialCategories, initialSearch = "" }: B
                     key={filter.key}
                     to={`/blog?cat=${catSlug}&page=1`}
                     className={cn(
-                      "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shrink-0",
+                      "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all whitespace-nowrap focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 shrink-0",
                       isSelected
                         ? "bg-primary text-primary-foreground shadow-md shadow-primary/25"
                         : "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -192,9 +192,9 @@ const BlogPage = ({ initialPostsData, initialCategories, initialSearch = "" }: B
                       key={cat.id}
                       to={`/blog?cat=${catSlug}&page=1`}
                       className={cn(
-                        "px-3 py-1.5 rounded-lg text-xs font-medium transition-all whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shrink-0",
+                        "px-3 py-1.5 rounded-lg text-xs font-medium transition-all whitespace-nowrap focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 shrink-0",
                         isSelected
-                          ? "bg-primary text-primary-foreground shadow-sm"
+                          ? "bg-primary text-primary-foreground shadow-xs"
                           : "bg-muted/40 text-muted-foreground hover:bg-muted hover:text-foreground"
                       )}
                       data-testid={`filter-cat-${catSlug}`}
@@ -249,7 +249,7 @@ const BlogPage = ({ initialPostsData, initialCategories, initialSearch = "" }: B
             {currentCat && (
               <Link
                 to="/blog?page=1"
-                className="text-primary font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded-sm"
+                className="text-primary font-medium hover:underline focus:outline-hidden focus:ring-2 focus:ring-primary rounded-sm"
               >
                 {t("blog.all")}
               </Link>

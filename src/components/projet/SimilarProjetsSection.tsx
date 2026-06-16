@@ -54,7 +54,7 @@ const SimilarProjetsSection = ({ projets, similarTitle, similarDesc, viewAllLabe
                   onFocus={() => prefetch(p.slug)}
                   className="group block bg-card rounded-2xl border border-border overflow-hidden transition-all hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 duration-300"
                 >
-                  <div className="aspect-[16/10] overflow-hidden bg-muted relative">
+                  <div className="aspect-16/10 overflow-hidden bg-muted relative">
                     {img ? (
                       <img
                         src={img}
@@ -69,7 +69,7 @@ const SimilarProjetsSection = ({ projets, similarTitle, similarDesc, viewAllLabe
                       <div className="w-full h-full pattern-kente" />
                     )}
                     {pThematique && (
-                      <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-white">
+                      <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-xs text-white">
                         {pThematique.name}
                       </span>
                     )}
