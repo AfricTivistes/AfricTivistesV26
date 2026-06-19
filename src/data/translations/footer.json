@@ -1,34 +1,34 @@
 {
   "_grp_pied_de_page": {
-    "_label": "Pied de page",
     "footer.desc": {
-      "fr": "Les Civic Tech au service des démocraties africaines.",
-      "en": "Civic tech organisations supporting African democracies."
-    },
-    "footer.newsletter": {
-      "fr": "Newsletter",
-      "en": "Newsletter"
-    },
-    "footer.receiveNewsletter": {
-      "fr": "Restons connectés",
-      "en": "Let's stay in touch"
+      "fr": "Réseau panafricain de civic tech et d'innovation citoyenne au service de la démocratie et de la gouvernance.",
+      "en": "A pan-African network for civic tech and citizen-led innovation in the service of democracy and governance."
     },
     "footer.navigation": {
       "fr": "Navigation",
       "en": "Navigation"
     },
-    "footer.contact": {
-      "fr": "Contact",
-      "en": "Contact"
-    },
-    "footer.equivalency": {
-      "fr": "Equivalency Determination",
-      "en": "Equivalency Determination"
+    "footer.receiveNewsletter": {
+      "fr": "Restons connectés",
+      "en": "Let's stay in touch"
     },
     "footer.rights": {
       "fr": "Tous droits réservés.",
       "en": "All rights reserved."
     },
+    "footer.newsletter": {
+      "fr": "Newsletter",
+      "en": "Newsletter"
+    },
+    "footer.equivalency": {
+      "fr": "Equivalency Determination",
+      "en": "Equivalency Determination"
+    },
+    "footer.contact": {
+      "fr": "Contact",
+      "en": "Contact"
+    },
+    "_label": "Pied de page",
     "footer.tagline": {
       "fr": "Les Civic Tech au service des démocraties africaines.",
       "en": "Civic tech organisations supporting African democracies."
