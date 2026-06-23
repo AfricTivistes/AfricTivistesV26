@@ -4,6 +4,9 @@ import { ClientRouter } from "astro:transitions";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer.astro";
 
+/** Hôte WordPress (preconnect/dns-prefetch). Lu depuis l'env, jamais codé en dur. */
+const wpHost = (import.meta.env.PUBLIC_WP_HOST ?? "").replace(/\/$/, "");
+
 type ImageMime = "image/avif" | "image/webp" | "image/jpeg" | "image/png" | "image/svg+xml";
 
 interface Props {
@@ -105,8 +108,12 @@ const ogImageAbsolute = ogImageUrl.startsWith("http") ? ogImageUrl : `${siteOrig
     <link rel="preload" as="image" href="/bg.webp" type="image/jpeg" fetchpriority="low" />
 
     {/* Preconnect to WordPress media CDN (used by most subpages) */}
-    <link rel="preconnect" href="https://update.africtivistes.org" crossorigin />
-    <link rel="dns-prefetch" href="https://update.africtivistes.org" />
+    {wpHost && (
+      <Fragment>
+        <link rel="preconnect" href={wpHost} crossorigin />
+        <link rel="dns-prefetch" href={wpHost} />
+      </Fragment>
+    )}
 
     {/* Self-hosted fonts (P2) : evite 2 RTT vers fonts.googleapis.com +
         fonts.gstatic.com + le download du CSS bloquant. Les .woff2 sont des

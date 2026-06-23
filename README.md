@@ -2,7 +2,7 @@
 
 Site web officiel d'**AfricTivistes — Ligue des Cybercitoyens Africains**, une organisation panafricaine de civic tech qui promeut la démocratie numérique et la participation citoyenne à travers l'Afrique.
 
-Construit avec **Astro 5** en mode SSR, ce projet est une refonte complète orientée performance, accessibilité et bilingualisme (français / anglais).
+Construit avec **Astro 6** en mode SSR, ce projet est une refonte complète orientée performance, accessibilité et bilingualisme (français / anglais).
 
 ---
 
@@ -44,15 +44,15 @@ AfricTivistes intervient sur cinq axes stratégiques : innovation technologique,
 
 | Catégorie | Technologie |
 |---|---|
-| Framework | [Astro 5](https://astro.build) (SSR, `output: "server"`) |
-| Adapter | `@astrojs/node` (standalone) |
+| Framework | [Astro 6](https://astro.build) (SSR, `output: "server"`) |
+| Adapter | `@astrojs/netlify` |
 | UI interactif | React 18 (islands via `client:only="react"`) |
-| Styles | Tailwind CSS 3 + CSS variables (HSL) |
+| Styles | Tailwind CSS 4 (config CSS-first via `@tailwindcss/vite`) + CSS variables (HSL) |
 | Composants UI | shadcn/ui (Radix UI + class-variance-authority) |
 | Formulaires | React Hook Form + Zod |
 | Données | TanStack Query (React Query v5) |
 | Animations | Framer Motion (LazyMotion) |
-| CMS | WordPress REST API (`update.africtivistes.org`) |
+| CMS | WordPress REST API (hôte configuré via `PUBLIC_WP_HOST`) |
 | Graphiques | Recharts |
 | Icônes | Lucide React |
 | Typage | TypeScript (strict) |
@@ -63,7 +63,7 @@ AfricTivistes intervient sur cinq axes stratégiques : innovation technologique,
 
 - **Node.js** ≥ 20
 - **npm** ≥ 10
-- Accès à l'instance WordPress (`update.africtivistes.org`) avec un compte applicatif
+- Accès à une instance WordPress (URL renseignée via la variable d'environnement `PUBLIC_WP_HOST`)
 
 ---
 
@@ -76,7 +76,15 @@ cd AfricTivistesV26
 
 # Installer les dépendances
 npm install
+
+# Configurer les variables d'environnement
+cp .env.example .env
+# puis renseigner PUBLIC_WP_HOST et les autres valeurs dans .env
 ```
+
+> Les secrets et URLs de back-office sont chargés depuis `.env` (ignoré par git).
+> Aucune URL d'instance WordPress n'est codée en dur dans les sources : voir
+> `.env.example` pour la liste des variables attendues.
 
 ---
 
@@ -136,11 +144,12 @@ africtivistes-V2026-astro/
 │   │   │   ├── blog/           # (index, [slug])
 │   │   │   └── resources/      # (publications, toolkits, media)
 │   │   └── en/                 # Routes anglaises (miroir, auto-générées)
-│   └── index.css               # Variables CSS globales + base Tailwind
-├── astro.config.mjs
-├── tailwind.config.ts
+│   └── index.css               # Base Tailwind 4 (@theme) + variables CSS globales
+├── .env.example                # Modèle des variables d'environnement
+├── astro.config.mjs            # Adapter Netlify, intégration React, Tailwind (Vite)
 ├── tsconfig.json
 ├── components.json             # Config shadcn/ui
+├── netlify.toml                # Configuration de déploiement Netlify
 └── AGENTS.md                   # Documentation interne pour les développeurs
 ```
 
@@ -150,7 +159,7 @@ africtivistes-V2026-astro/
 
 ### SSR & Rendu
 
-Le site tourne en **mode SSR** (`output: "server"`) avec l'adaptateur Node.js standalone. Chaque requête génère la page côté serveur, ce qui permet :
+Le site tourne en **mode SSR** (`output: "server"`) avec l'adaptateur **Netlify** (`@astrojs/netlify`). Chaque requête génère la page côté serveur, ce qui permet :
 
 - Le fetch des données WordPress au moment du rendu (pas de stale content)
 - L'injection de données dans `window.__PRELOAD__` pour l'hydratation côté client sans double requête
@@ -167,7 +176,7 @@ Le site supporte **deux langues** : français (`/fr/`) et anglais (`/en/`).
 
 ### Intégration WordPress
 
-Le CMS WordPress (`update.africtivistes.org`) centralise tout le contenu éditorial. L'intégration (`src/lib/wordpress.ts`) expose des fonctions dédiées :
+Le CMS WordPress centralise tout le contenu éditorial. L'hôte de l'API est lu depuis la variable d'environnement `PUBLIC_WP_HOST` (jamais codé en dur). L'intégration (`src/lib/wordpress.ts`) expose des fonctions dédiées :
 
 | Fonction | Données récupérées |
 |---|---|
@@ -211,16 +220,13 @@ Chaque fichier JSON contient le contenu bilingue complet : hero, introduction, v
 
 ## Déploiement
 
-Le build produit un serveur Node.js standalone dans `dist/` :
+Le déploiement cible **Netlify** via l'adaptateur `@astrojs/netlify`. Le build génère les fonctions serverless et les assets attendus par Netlify (configuration dans `netlify.toml`) :
 
 ```bash
 npm run build
-
-# Lancer le serveur de production
-node dist/server/entry.mjs
 ```
 
-Pour un déploiement conteneurisé, l'entrée est `dist/server/entry.mjs`. Le port et l'hôte peuvent être configurés via les variables d'environnement standard de Node.
+Sur Netlify, le déploiement est automatique à chaque push (build command `npm run build`). Les variables d'environnement (`PUBLIC_WP_HOST`, clés Infomaniak, etc.) doivent être définies dans les **paramètres du site Netlify** — elles ne sont jamais commitées dans le dépôt.
 
 ---
 
