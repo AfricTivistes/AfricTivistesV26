@@ -4,7 +4,12 @@ import logoAfrictivistes from "@/assets/logo.svg?url";
    1. CONFIG
    ================================================================ */
 
-const WP_API_BASE = "https://update.africtivistes.org/wp-json/wp/v2";
+/**
+ * Hôte WordPress configurable via la variable d'environnement `PUBLIC_WP_HOST`
+ * (cf. `.env` / `.env.example`). Aucune URL n'est codée en dur dans les sources.
+ */
+const WP_HOST = (import.meta.env.PUBLIC_WP_HOST ?? "").replace(/\/$/, "");
+const WP_API_BASE = `${WP_HOST}/wp-json/wp/v2`;
 const DEFAULT_TIMEOUT_MS = 8000;
 const DEFAULT_RETRY = 1;
 
@@ -190,7 +195,7 @@ const LANG_CATEGORIES_FALLBACK: Record<Lang, number[]> = {
   en: [63, 2609, 4663, 1927, 1635, 4805, 5913, 5968, 4492, 5984, 5972, 6034, 6592, 7181, 6730, 6734, 1525],
 };
 
-const LANG_CATEGORIES_ENDPOINT = "https://update.africtivistes.org/wp-json/africtivistes/v1/lang-categories";
+const LANG_CATEGORIES_ENDPOINT = `${WP_HOST}/wp-json/africtivistes/v1/lang-categories`;
 const LANG_CATEGORIES_STORAGE_KEY = "aft_lang_cats_v1";
 const LANG_CATEGORIES_TTL_MS = 24 * 60 * 60 * 1000; /* 24h */
 
@@ -1170,7 +1175,7 @@ export interface TimelineItem {
   description: string;
 }
 
-const TIMELINE_ENDPOINT = "https://update.africtivistes.org/wp-json/africtivistes/v1/timeline";
+const TIMELINE_ENDPOINT = `${WP_HOST}/wp-json/africtivistes/v1/timeline`;
 
 export async function fetchTimeline(lang: Lang): Promise<TimelineItem[]> {
   const url = `${TIMELINE_ENDPOINT}?lang=${encodeURIComponent(lang)}`;
