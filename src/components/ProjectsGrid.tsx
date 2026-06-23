@@ -27,6 +27,7 @@ const ProjectsGrid = ({ initialProjets, initialThematiques }: ProjectsGridProps)
   });
   const controls = useAnimation();
   const isPaused = useRef(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   const filtered = activeType === null
     ? projets
@@ -132,14 +133,24 @@ const ProjectsGrid = ({ initialProjets, initialThematiques }: ProjectsGridProps)
         {/* Carousel (aucun filtre) */}
         {activeType === null ? (
           <div
-            className="overflow-hidden"
+            ref={carouselRef}
+            className="overflow-hidden cursor-grab active:cursor-grabbing"
             onMouseEnter={pauseScroll}
             onMouseLeave={resumeScroll}
           >
+            {/* drag="x" partage le meme `x` que l'auto-scroll : on met
+                l'animation en pause pendant le geste (onDragStart) puis on la
+                reprend (onDragEnd). touchAction "pan-y" laisse le scroll
+                vertical de la page passer tout en captant le swipe horizontal. */}
             <motion.div
               animate={controls}
+              drag="x"
+              dragConstraints={carouselRef}
+              dragElastic={0.08}
+              onDragStart={pauseScroll}
+              onDragEnd={resumeScroll}
               className="flex gap-5 w-max"
-              style={{ willChange: "transform" }}
+              style={{ willChange: "transform", touchAction: "pan-y" }}
             >
               {[...projets, ...projets].map((p, i) => (
                 <div key={`${p.id}-${i}`} style={{ width: CARD_WIDTH, flexShrink: 0 }}>
