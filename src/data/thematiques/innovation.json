@@ -8,7 +8,7 @@
   "borderColor": "border-amber-400/30",
   "gradientFrom": "from-amber-400",
   "gradientTo": "to-yellow-500",
-  "heroImage": "https://update.africtivistes.org/wp-content/uploads/2025/03/Plan-strategique-AfricTivistes-Francais-1.pdf",
+  "heroImage": "/wp-uploads/2025/03/Plan-strategique-AfricTivistes-Francais-1.pdf",
   "titleKey": "nav.projects.innovation",
   "descKey": "projectThemes.innovation.desc",
   "fr": {
