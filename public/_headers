@@ -25,6 +25,14 @@
 /*.png
   Cache-Control: public, max-age=31536000, immutable
 
+# WP media proxy (cf. _redirects /wp-uploads/* -> update.africtivistes.org).
+# WP n'envoie pas de Cache-Control utilisable ; on force ici un cache long
+# cote edge Netlify pour eliminer la latence WP (et les ERR_NETWORK_CHANGED
+# lies a la lenteur de l'origine + saturation HTTP/2).
+/wp-uploads/*
+  Cache-Control: public, max-age=86400, s-maxage=2592000, stale-while-revalidate=31536000
+  X-Content-Type-Options: nosniff
+
 # SSR pages: serve stale from CDN while revalidating in background.
 # Reduces perceived latency from ~3.5s to near-instant on repeat visits.
 /fr/*

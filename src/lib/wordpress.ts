@@ -60,12 +60,21 @@ interface WpFetchOptions<T> {
 
    On utilise un reviver JSON.parse pour capturer aussi bien les NULs sous
    forme `\u0000` echappee dans le JSON que les NULs bruts inseres dans la
-   reponse. */
+   reponse.
+
+   Egalement : on rebase toutes les URLs `wp-content/uploads/*` du host WP
+   vers `/wp-uploads/*` afin qu'elles transitent par le proxy Netlify Edge
+   (voir public/_redirects + public/_headers). Cela resout les
+   `net::ERR_NETWORK_CHANGED` observes en prod (origine WP lente sans
+   Cache-Control + saturation HTTP/2 sur l'origine externe). */
+const WP_UPLOADS_RE = /https?:\/\/update\.africtivistes\.org\/wp-content\/uploads\//g;
+// eslint-disable-next-line no-control-regex
+const C0_RE = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g;
+
 function parseWpJson<T>(text: string): T {
   return JSON.parse(text, (_key, value) => {
     if (typeof value === "string") {
-      // eslint-disable-next-line no-control-regex
-      return value.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, "");
+      return value.replace(WP_UPLOADS_RE, "/wp-uploads/").replace(C0_RE, "");
     }
     return value;
   }) as T;

@@ -1,3 +1,8 @@
+# Proxy WP media via Netlify Edge (cache + same-origin, fix ERR_NETWORK_CHANGED).
+# Toute URL /wp-uploads/* est servie par Netlify et reecrite transparently vers
+# l'origine WordPress. Le cache long est configure dans public/_headers.
+/wp-uploads/*  https://update.africtivistes.org/wp-content/uploads/:splat  200
+
 / /fr/ 302
 
 # Admin locale aliases
