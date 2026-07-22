@@ -2441,6 +2441,12 @@ collections:
             widget: object
             collapsed: true
             fields:
+              - label: "relatedContent"
+                name: "projet.relatedContent"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
               - label: "similarTitle"
                 name: "projet.similarTitle"
                 widget: object
@@ -2809,6 +2815,12 @@ collections:
                   - { label: "English", name: "en", widget: string }
               - label: "related"
                 name: "blogPost.related"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "linkedInitiatives"
+                name: "blogPost.linkedInitiatives"
                 widget: object
                 fields:
                   - { label: "Français", name: "fr", widget: string }

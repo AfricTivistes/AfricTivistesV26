@@ -7,10 +7,12 @@ import {
   fetchPlateformesByIds,
   fetchPartenairesByIds,
   fetchProjetMeres,
+  fetchPosts,
   getOgImageUrl,
   stripHtml,
   collectPhases,
   slimWpProjets,
+  slimWpPosts,
   type WPProjet,
 } from "@/lib/wordpress";
 
@@ -31,6 +33,7 @@ let initialSimilarProjets: WPProjet[] | undefined;
 let initialPlateformes: Awaited<ReturnType<typeof fetchPlateformesByIds>> | undefined;
 let initialPartenaires: Awaited<ReturnType<typeof fetchPartenairesByIds>> | undefined;
 let initialProjetsMeres: Awaited<ReturnType<typeof fetchProjetMeres>> | undefined;
+let initialRelatedPosts: Awaited<ReturnType<typeof fetchPosts>> | undefined;
 
 if (projet) {
   const thematiqueId = projet.thematique?.[0];
@@ -73,6 +76,13 @@ if (projet) {
   initialPlateformes = plateformes;
   initialPartenaires = partenaires;
   initialProjetsMeres = projetsMeres;
+
+  /* Contenus liés : articles/publications dont le champ ACF `initiatives`
+     contient ce projet (filtre REST ?related_projet=). */
+  const related = await fetchPosts({ perPage: 6, relatedProjet: projet.id }).catch(
+    () => ({ posts: [], totalPages: 1, total: 0 }),
+  );
+  initialRelatedPosts = { ...related, posts: slimWpPosts(related.posts) };
 }
 
 const ogTitle = projet ? `${stripHtml(projet.title.rendered)} | AfricTivistes` : undefined;
@@ -95,5 +105,6 @@ const ogImage = projet ? getOgImageUrl(projet) ?? undefined : undefined;
     initialPlateformes={initialPlateformes}
     initialPartenaires={initialPartenaires}
     initialProjetsMeres={initialProjetsMeres}
+    initialRelatedPosts={initialRelatedPosts}
   />
 </BaseLayout>

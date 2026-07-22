@@ -28,7 +28,7 @@ const HeroSection = ({ title, imageUrl, thematiqueName, thematiqueSlug, pays, la
           alt=""
           className="w-full h-full object-cover scale-105"
           loading="eager"
-          fetchPriority="high"
+          {...({ fetchpriority: "high" } as Record<string, string>)}
           decoding="async"
           width="1920"
           height="1080"

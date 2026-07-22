@@ -40,11 +40,11 @@ export function usePosts(
   } = {},
 ) {
   const { lang } = useI18n();
-  const { page = 1, perPage = 9, categories, categoriesExclude, search, enabled = true } = options;
+  const { page = 1, perPage = 9, categories, categoriesExclude, relatedProjet, search, enabled = true } = options;
 
   return useQuery({
-    queryKey: ["posts", { page, perPage, categories, categoriesExclude, search, lang }],
-    queryFn: () => fetchPosts({ page, perPage, categories, categoriesExclude, search, lang }),
+    queryKey: ["posts", { page, perPage, categories, categoriesExclude, relatedProjet, search, lang }],
+    queryFn: () => fetchPosts({ page, perPage, categories, categoriesExclude, relatedProjet, search, lang }),
     enabled,
     initialData: hookOpts.initialData,
   });
