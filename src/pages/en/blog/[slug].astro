@@ -4,9 +4,11 @@ import BlogPost from "@/components/blog/BlogPost";
 import {
   fetchPostBySlug,
   fetchPosts,
+  fetchProjetsByIds,
   getOgImageUrl,
   slimWpPost,
   slimWpPosts,
+  slimWpProjets,
   stripHtml,
 } from "@/lib/wordpress";
 
@@ -39,6 +41,15 @@ if (post && post.categories && post.categories.length > 0) {
   };
 }
 
+/* Initiatives associées : lecture directe du champ ACF `initiatives`
+   (IDs de projets) du post. Sens Article/Publication -> Initiatives. */
+let initialLinkedInitiatives = undefined;
+const linkedIds = Array.isArray(post?.acf?.initiatives) ? post.acf.initiatives : [];
+if (linkedIds.length > 0) {
+  const projets = await fetchProjetsByIds(linkedIds).catch(() => []);
+  initialLinkedInitiatives = slimWpProjets(projets);
+}
+
 const ogTitle = post ? `${stripHtml(post.title.rendered)} | AfricTivistes` : undefined;
 const ogDescription = post ? stripHtml(post.excerpt.rendered).slice(0, 200) : undefined;
 const ogImage = post ? getOgImageUrl(post) ?? undefined : undefined;
@@ -56,6 +67,7 @@ const ogImage = post ? getOgImageUrl(post) ?? undefined : undefined;
     lang={lang}
     initialPost={initialPost}
     initialRelatedPosts={initialRelatedPosts}
+    initialLinkedInitiatives={initialLinkedInitiatives}
     client:idle
   />
 </BaseLayout>

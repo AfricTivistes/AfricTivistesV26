@@ -498,6 +498,8 @@ export interface WPPost {
   date: string;
   featured_media: number;
   categories: number[];
+  /** Champ ACF : initiatives (projets) rattachées à ce contenu. */
+  acf?: { initiatives?: number[] | null };
   translations?: Record<string, number>;
   lang?: string;
   _embedded?: WPEmbedMedia;
@@ -515,6 +517,8 @@ export interface FetchPostsOptions {
   perPage?: number;
   categories?: number[];
   categoriesExclude?: number[];
+  /** Filtre par initiative rattachée (champ ACF `initiatives`). Sens Initiative → Articles. */
+  relatedProjet?: number;
   search?: string;
   lang?: string;
 }
@@ -522,7 +526,7 @@ export interface FetchPostsOptions {
 export async function fetchPosts(
   options: FetchPostsOptions = {},
 ): Promise<{ posts: WPPost[]; totalPages: number; total: number }> {
-  const { page = 1, perPage = 9, categories, categoriesExclude, search, lang } = options;
+  const { page = 1, perPage = 9, categories, categoriesExclude, relatedProjet, search, lang } = options;
   const params = new URLSearchParams({
     page: String(page),
     per_page: String(perPage),
@@ -530,9 +534,13 @@ export async function fetchPosts(
   });
 
   const langCats = await getLangCategoryIds(lang);
+  if (relatedProjet) params.set("related_projet", String(relatedProjet));
   if (categories?.length) {
     params.set("categories", categories.join(","));
-  } else if (langCats) {
+  } else if (langCats && !relatedProjet) {
+    // related_projet encode déjà la langue (l'article pointe vers le projet
+    // de sa langue) : on ne restreint donc pas par catégorie de langue, ce
+    // qui permet de mêler articles + publications rattachés à l'initiative.
     params.set("categories", langCats.join(","));
   }
   if (categoriesExclude?.length) {

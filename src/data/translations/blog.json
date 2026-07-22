@@ -67,6 +67,10 @@
       "fr": "Articles similaires",
       "en": "Related articles"
     },
+    "blogPost.linkedInitiatives": {
+      "fr": "Initiatives associées",
+      "en": "Related initiatives"
+    },
     "blogPost.categories": {
       "fr": "Catégories",
       "en": "Categories"

@@ -178,6 +178,10 @@
   },
   "_grp_projets_similaires": {
     "_label": "Projets similaires",
+    "projet.relatedContent": {
+      "fr": "Contenus liés",
+      "en": "Related content"
+    },
     "projet.similarTitle": {
       "fr": "Projets connexes",
       "en": "Related projects"

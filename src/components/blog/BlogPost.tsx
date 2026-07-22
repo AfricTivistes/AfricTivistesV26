@@ -16,9 +16,11 @@ import { ArrowLeft, Calendar, Facebook, Linkedin, Mail, Tag } from "lucide-react
 import { getFeaturedImageUrl, getPostCategories, formatDate, CATEGORY_IDS } from "@/lib/wordpress";
 import type { WPPost } from "@/lib/wordpress";
 import { useI18n } from "@/lib/i18n";
-import { usePostBySlug, usePostById, usePosts } from "@/hooks/use-wordpress";
-import { PostGrid, PostGridSkeleton } from "@/components/posts";
+import type { WPProjet } from "@/lib/wordpress";
+import { usePostBySlug, usePostById } from "@/hooks/use-wordpress";
+import { RelatedPostsSection } from "@/components/posts";
 import NewsletterCard from "@/components/posts/NewsletterCard";
+import LinkedInitiativesSection from "@/components/blog/LinkedInitiativesSection";
 
 /** Reusable share buttons block — SSR-safe (reads window.location only after hydration). */
 const ShareButtons = ({ title, label }: { title: string; label: string }) => {
@@ -79,49 +81,11 @@ interface BlogPostProps {
   initialPost?: WPPost | null;
   /** Server-rendered related posts (up to 4, same categories). Used as initialData. */
   initialRelatedPosts?: { posts: WPPost[]; totalPages: number; total: number };
+  /** Initiatives rattachées à ce post (via étiquette = slug d'initiative). SSR. */
+  initialLinkedInitiatives?: WPProjet[];
 }
 
-/** Related posts section — fetches posts from the same categories */
-const RelatedPosts = ({
-  categories,
-  excludeId,
-  lang,
-  initialData,
-}: {
-  categories: number[];
-  excludeId: number;
-  lang: string;
-  initialData?: { posts: WPPost[]; totalPages: number; total: number };
-}) => {
-  const { t } = useI18n();
-  // Fetch more than needed so we can exclude current post and still show 3
-  const { data, isLoading } = usePosts(
-    {
-      perPage: 4,
-      categories,
-    },
-    { initialData },
-  );
-
-  const related = (data?.posts ?? []).filter((p) => p.id !== excludeId).slice(0, 3);
-
-  if (!isLoading && related.length === 0) return null;
-
-  return (
-    <section className="section-container pt-12 pb-8 border-t border-border mt-16">
-      <h2 className="text-2xl font-bold text-foreground font-heading mb-8">
-        {t("blogPost.related")}
-      </h2>
-      {isLoading ? (
-        <PostGridSkeleton count={3} variant="landscape" columns={3} />
-      ) : (
-        <PostGrid posts={related} variant="landscape" columns={3} />
-      )}
-    </section>
-  );
-};
-
-const BlogPost = ({ slug: slugProp, initialPost, initialRelatedPosts }: BlogPostProps = {}) => {
+const BlogPost = ({ slug: slugProp, initialPost, initialRelatedPosts, initialLinkedInitiatives }: BlogPostProps = {}) => {
   const { t, lang } = useI18n();
   const params = useParams<{ slug: string }>();
   const slug = slugProp ?? params.slug;
@@ -237,7 +201,7 @@ const BlogPost = ({ slug: slugProp, initialPost, initialRelatedPosts }: BlogPost
                     width="750"
                     height="750"
                     loading="eager"
-                    fetchPriority="high"
+                    {...({ fetchpriority: "high" } as Record<string, string>)}
                     decoding="async"
                   />
                 </div>
@@ -284,6 +248,14 @@ const BlogPost = ({ slug: slugProp, initialPost, initialRelatedPosts }: BlogPost
                 </div>
               )}
 
+              {/* Initiatives associées — carte compacte, juste après Catégories */}
+              {initialLinkedInitiatives && initialLinkedInitiatives.length > 0 && (
+                <LinkedInitiativesSection
+                  projets={initialLinkedInitiatives}
+                  title={t("blogPost.linkedInitiatives")}
+                />
+              )}
+
               {/* Newsletter */}
               <NewsletterCard />
             </aside>
@@ -292,10 +264,10 @@ const BlogPost = ({ slug: slugProp, initialPost, initialRelatedPosts }: BlogPost
 
         {/* Related posts */}
         {post.categories.length > 0 && (
-          <RelatedPosts
+          <RelatedPostsSection
+            title={t("blogPost.related")}
             categories={post.categories}
             excludeId={post.id}
-            lang={lang}
             initialData={initialRelatedPosts}
           />
         )}

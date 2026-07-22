@@ -10,6 +10,7 @@ import PhaseTimeline from "@/components/projet/PhaseTimeline";
 import PartnersSection from "@/components/projet/PartnersSection";
 import PlateformesSection from "@/components/projet/PlateformesSection";
 import SimilarProjetsSection from "@/components/projet/SimilarProjetsSection";
+import { RelatedPostsSection } from "@/components/posts";
 import { ProjetSkeleton, ProjetNotFound } from "@/components/projet/ProjetStates";
 import {
   getProjetImageUrl,
@@ -28,6 +29,7 @@ import type {
   WPProjet,
   WPPlateforme,
   WPProjetMere,
+  WPPost,
 } from "@/lib/wordpress";
 import { useI18n } from "@/lib/i18n";
 import {
@@ -46,6 +48,8 @@ interface ProjetDetailProps {
   initialPlateformes?: WPPlateforme[];
   initialPartenaires?: WPPartenaire[];
   initialProjetsMeres?: WPProjetMere[];
+  /** Contenus (articles + publications) rattachés à l'initiative (champ ACF). SSR. */
+  initialRelatedPosts?: { posts: WPPost[]; totalPages: number; total: number };
 }
 const ProjetDetail = ({
   slug: slugProp,
@@ -54,6 +58,7 @@ const ProjetDetail = ({
   initialPlateformes,
   initialPartenaires,
   initialProjetsMeres,
+  initialRelatedPosts,
 }: ProjetDetailProps = {}) => {
   const { t, lang } = useI18n();
   const params = useParams<{ slug: string }>();
@@ -265,6 +270,14 @@ const ProjetDetail = ({
           plateformes={linkedPlateformes}
           platformsLabel={t("projet.platforms")}
           platformsDesc={t("projet.platformsDesc")}
+        />
+
+        <RelatedPostsSection
+          title={t("projet.relatedContent")}
+          relatedProjet={projet.id}
+          limit={6}
+          bordered={false}
+          initialData={initialRelatedPosts}
         />
 
         <SimilarProjetsSection
