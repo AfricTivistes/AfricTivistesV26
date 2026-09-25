@@ -90,7 +90,7 @@ const VideoPlaylist = ({ initialVideos, initialPlaylistId, initialVideosByPlayli
 
   const viewAllHref = activePlaylist
     ? `https://www.youtube.com/playlist?list=${activePlaylist}`
-    : "https://www.youtube.com/@AfricTivistes/playlists";
+    : "https://www.youtube.com/@africtivistes8303/playlists";
 
   const formatDate = (dateStr: string) => {
     try {
