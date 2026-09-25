@@ -589,12 +589,12 @@ collections:
                   - { label: "Français", name: "fr", widget: text }
                   - { label: "English", name: "en", widget: text }
               - { label: "🖼 hero Image", name: "_img_heroImage", widget: image }
-          - label: "Mission (5)"
+          - label: "Mission (6)"
             name: "_grp_mission"
             widget: object
             collapsed: true
             fields:
-              - { label: "Image mission", name: "_img_missionImage", widget: image }
+              - { label: "🖼 mission Image", name: "_img_missionImage", widget: image }
               - label: "missionTitle"
                 name: "about.missionTitle"
                 widget: object
@@ -1967,7 +1967,7 @@ collections:
                 fields:
                   - { label: "Français", name: "fr", widget: string }
                   - { label: "English", name: "en", widget: string }
-          - label: "Présentation (4)"
+          - label: "Présentation (5)"
             name: "_grp_presentation"
             widget: object
             collapsed: true
@@ -2436,7 +2436,7 @@ collections:
                 fields:
                   - { label: "Français", name: "fr", widget: string }
                   - { label: "English", name: "en", widget: string }
-          - label: "Projets similaires (2)"
+          - label: "Projets similaires (3)"
             name: "_grp_projets_similaires"
             widget: object
             collapsed: true
@@ -2790,7 +2790,7 @@ collections:
                 fields:
                   - { label: "Français", name: "fr", widget: string }
                   - { label: "English", name: "en", widget: string }
-          - label: "Article détail (5)"
+          - label: "Article détail (6)"
             name: "_grp_article_detail"
             widget: object
             collapsed: true
@@ -3066,7 +3066,7 @@ collections:
         label: "Newsletter (8)"
         file: "src/data/translations/newsletter.json"
         fields:
-          - label: "Newsletter (8)"
+          - label: "Newsletter (10)"
             name: "_grp_newsletter"
             widget: object
             collapsed: true
@@ -3105,8 +3105,8 @@ collections:
                 name: "newsletter.thanks"
                 widget: object
                 fields:
-                  - { label: "Français", name: "fr", widget: string }
-                  - { label: "English", name: "en", widget: string }
+                  - { label: "Français", name: "fr", widget: text }
+                  - { label: "English", name: "en", widget: text }
               - label: "soon"
                 name: "newsletter.soon"
                 widget: object
@@ -3119,6 +3119,18 @@ collections:
                 fields:
                   - { label: "Français", name: "fr", widget: text }
                   - { label: "English", name: "en", widget: text }
+              - label: "success"
+                name: "newsletter.success"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "error"
+                name: "newsletter.error"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
       - name: "footer"
         label: "Pied de page (8)"
         file: "src/data/translations/footer.json"
@@ -3132,8 +3144,8 @@ collections:
                 name: "footer.desc"
                 widget: object
                 fields:
-                  - { label: "Français", name: "fr", widget: string }
-                  - { label: "English", name: "en", widget: string }
+                  - { label: "Français", name: "fr", widget: text }
+                  - { label: "English", name: "en", widget: text }
               - label: "newsletter"
                 name: "footer.newsletter"
                 widget: object
@@ -3616,6 +3628,55 @@ collections:
                 name: programmes
                 widget: list
                 field: { label: "Programme", name: programme, widget: string }
+      - name: "testimonials-headings"
+        label: "Témoignages & partenaires — titres"
+        file: "src/data/translations/testimonials.json"
+        fields:
+          - label: "Témoignages (3)"
+            name: "_grp_temoignages"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "label"
+                name: "testimonials.label"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "title"
+                name: "testimonials.title"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "subtitle"
+                name: "testimonials.subtitle"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: text }
+                  - { label: "English", name: "en", widget: text }
+          - label: "Partenaires (1)"
+            name: "_grp_partenaires"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "title"
+                name: "partners.title"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+          - label: "Plateformes (1)"
+            name: "_grp_plateformes"
+            widget: object
+            collapsed: true
+            fields:
+              - label: "title"
+                name: "platforms.title"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
       - name: "misc"
         label: "Divers (3)"
         file: "src/data/translations/misc.json"

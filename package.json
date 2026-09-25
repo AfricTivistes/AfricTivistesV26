@@ -7,6 +7,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "typecheck": "astro check",
+    "cms:check": "node scripts/cms-check.mjs",
+    "cms:gen": "node scripts/cms-gen.mjs --write",
+    "cms:gen:check": "node scripts/cms-gen.mjs --check",
+    "cms:langs": "node scripts/cms-langs.mjs",
     "astro": "astro"
   },
   "dependencies": {
@@ -35,6 +39,7 @@
     "@astrojs/check": "^0.9.9",
     "@tailwindcss/vite": "^4.3.1",
     "@types/node": "^25.6.0",
+    "js-yaml": "^4.3.2",
     "typescript": "^5.9.3"
   }
 }
