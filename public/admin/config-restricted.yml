@@ -392,12 +392,12 @@ collections:
                   - { label: "Français", name: "fr", widget: text }
                   - { label: "English", name: "en", widget: text }
               - { label: "🖼 hero Image", name: "_img_heroImage", widget: image }
-          - label: "Mission (5)"
+          - label: "Mission (6)"
             name: "_grp_mission"
             widget: object
             collapsed: true
             fields:
-              - { label: "Image mission", name: "_img_missionImage", widget: image }
+              - { label: "🖼 mission Image", name: "_img_missionImage", widget: image }
               - label: "missionTitle"
                 name: "about.missionTitle"
                 widget: object
@@ -1679,7 +1679,7 @@ collections:
                 fields:
                   - { label: "Français", name: "fr", widget: string }
                   - { label: "English", name: "en", widget: string }
-          - label: "Présentation (4)"
+          - label: "Présentation (5)"
             name: "_grp_presentation"
             widget: object
             collapsed: true
@@ -1888,8 +1888,8 @@ collections:
                 name: "footer.desc"
                 widget: object
                 fields:
-                  - { label: "Français", name: "fr", widget: string }
-                  - { label: "English", name: "en", widget: string }
+                  - { label: "Français", name: "fr", widget: text }
+                  - { label: "English", name: "en", widget: text }
               - label: "newsletter"
                 name: "footer.newsletter"
                 widget: object
