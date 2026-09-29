@@ -44,7 +44,79 @@
     "history.timelineTitle": {
       "fr": "Les grandes étapes de notre parcours",
       "en": "Key milestones in our journey"
-    }
+    },
+    "history.timeline": [
+      {
+        "year": "2015",
+        "titleFr": "Fondation et premier sommet à Dakar",
+        "titleEn": "Foundation and First Summit in Dakar",
+        "descFr": "Création de la Ligue africaine des blogueurs et web-activistes pour la démocratie. Des blogueurs et cyber-activistes de 35 pays africains posent les bases d’un réseau panafricain inédit, porté par la conviction que le numérique est un levier de transformation démocratique.\nOrganisation du premier Sommet AfricTivistes à Dakar, rassemblant des activistes, blogueurs et acteurs de la société civile de tout le continent. Cet événement fondateur consolide le réseau et lance une dynamique collective durable.",
+        "descEn": "Launch of the African League of Bloggers and Web Activists for Democracy. Bloggers and cyber-activists from 35 African countries are laying the foundations for a unique pan-African network, driven by the conviction that digital technology is a catalyst for democratic change.\nOrganisation of the first AfricTivistes Summit in Dakar, bringing together activists, bloggers and civil society representatives from across the continent. This landmark event strengthens the network and sets in motion a lasting collective momentum."
+      },
+      {
+        "year": "2016",
+        "titleFr": "Premières actions de terrain",
+        "titleEn": "First field actions",
+        "descFr": "Déploiement des premières campagnes de sensibilisation numérique et observation citoyenne des élections dans plusieurs pays africains. Le réseau se mobilise notamment sur la situation en Gambie.",
+        "descEn": "Launch of the first digital awareness campaigns and citizen election monitoring initiatives in several African countries. The network is focusing its efforts in particular on the situation in The Gambia."
+      },
+      {
+        "year": "2017",
+        "titleFr": "Lancement du programme Afrique Média Cybersécurité (AMC)",
+        "titleEn": "Launch of the Africa Media Cybersecurity (AMC) programme",
+        "descFr": "Lancement d’un vaste programme de formation à la cybersécurité pour plus de 500 journalistes et acteurs des médias dans 10 pays d’Afrique de l’Ouest (Guinée, Sénégal, Mauritanie, Gambie, Niger, Burkina Faso, Côte d’Ivoire, Mali, Bénin, Togo).",
+        "descEn": "Launch of a comprehensive cybersecurity training programme for over 500 journalists and media professionals in 10 West African countries (Guinea, Senegal, Mauritania, The Gambia, Niger, Burkina Faso, Côte d’Ivoire, Mali, Benin and Togo)."
+      },
+      {
+        "year": "2018",
+        "titleFr": "Deuxième Sommet AfricTivistes à Ouagadougou",
+        "titleEn": "Second AfricTivistes Summit in Ouagadougou",
+        "descFr": "Plus de 100 acteurs de changement venus de 32 pays autour du thème “De la démocratie numérique en Afrique”. Clôture du programme Afrique Média CyberSécurité. Remise du 1er Prix Anna Gueye à Rosebell Kagumire (Ouganda).",
+        "descEn": "Over 100 change-makers from 32 countries gathered to discuss the theme “Digital Democracy in Africa”. The Africa Media Cybersecurity programme came to a close. The first Anna Gueye Prize was awarded to Rosebell Kagumire (Uganda)."
+      },
+      {
+        "year": "2019",
+        "titleFr": "Observation électorale et engagement civique",
+        "titleEn": "Election Monitoring and Civic Engagement",
+        "descFr": "Prises de position contre les projets de modification constitutionnelle permettant des troisièmes mandats, notamment en Guinée, à travers des communiqués et des actions de sensibilisation.\nDénonciation des arrestations de militants, journalistes et manifestants dans plusieurs pays africains.\nDocumentation des manipulations numériques (bots, astroturfing, faux narratifs)\nLancement du Youth Civic Engagement Workshop à Dakar\nLancement du programme AfricTivistes Civic Engagement Tour (ACET)",
+        "descEn": "Taking a stand against proposed constitutional amendments that would allow third terms in office, particularly in Guinea, through press releases and awareness-raising campaigns.\nCondemning the arrests of activists, journalists and protesters in several African countries.\nDocumentation of digital manipulation (bots, astroturfing, fake narratives)\nLaunch of the Youth Civic Engagement Workshop in Dakar\nLaunch of the AfricTivistes Civic Engagement Tour (ACET)"
+      },
+      {
+        "year": "2020",
+        "titleFr": "Résilience numérique face au Covid-19",
+        "titleEn": "Digital resilience in the face of COVID-19",
+        "descFr": "Adaptation de l’ensemble des programmes au format numérique. Lancement de campagnes de lutte contre la désinformation liée au COVID-19 et plaidoyer pour la liberté d’accès à l’information.",
+        "descEn": "Adaptation of all programmes to a digital format. Launch of campaigns to combat COVID-19-related disinformation and advocacy for freedom of access to information."
+      },
+      {
+        "year": "2021",
+        "titleFr": "Abidjan 2021 : souveraineté numérique et formation citoyenne",
+        "titleEn": "Abidjan 2021 : digital sovereignty and civic education",
+        "descFr": "Troisième Sommet autour du thème “Promouvoir le développement et la gouvernance démocratique de l’Internet en Afrique”.\nLancement du MOOC Charter Project Africa sur la CADEG — plus de 2 000 apprenants inscrits.\nRemise du Prix Civic Action Prize à Djamila Boubacar Sahabi.",
+        "descEn": "Third Summit on the theme “Promoting the development and democratic governance of the Internet in Africa”.\nLaunch of the Charter Project Africa MOOC on CADEG — over 2,000 learners enrolled.\nPresentation of the Civic Action Prize to Djamila Boubacar Sahabi."
+      },
+      {
+        "year": "2022-2023",
+        "titleFr": "Sahel Insight, CitizenLab et ateliers citoyens",
+        "titleEn": "Sahel Insight, CitizenLab and citizens’s workshops",
+        "descFr": "Dans le cadre du projet Sahel Insight, déploiement d’ateliers citoyens et de campagnes en ligne au Sahel pour renforcer l’engagement civique et la demande de redevabilité gouvernementale.\nLancement de CitizenLab Bénin.\nEn octobre 2023, Prix Média & Démocratie attribué à la radio Sud FM (Sénégal).\nExpansion à 45 pays, 400+ membres actifs.",
+        "descEn": "As part of the Sahel Insight project, a series of public workshops and online campaigns are being rolled out across the Sahel to strengthen civic engagement and demand for government accountability.\nLaunch of CitizenLab Benin.\nIn October 2023, the Media & Democracy Award was presented to Sud FM radio (Senegal).\nExpansion to 45 countries, with over 400 active members."
+      },
+      {
+        "year": "2024",
+        "titleFr": "Innovation IA et plaidoyer pour l’accès à Internet",
+        "titleEn": "AI innovation and advocacy for internet access",
+        "descFr": "Lancement d’un MOOC dédié à la cybersécurité.\nEn février 2024, saisine de la Cour de justice de la CEDEAO pour dénoncer les coupures d’Internet imposées par les autorités sénégalaises.\nIntégration progressive de l’IA dans les programmes.",
+        "descEn": "Launch of a MOOC on cybersecurity.\nIn February 2024, a case was brought before the ECOWAS Court of Justice to challenge the internet blackouts imposed by the Senegalese authorities.\nThe gradual integration of AI into the curriculum."
+      },
+      {
+        "year": "2025",
+        "titleFr": "Vers une nouvelle décennie",
+        "titleEn": "Towards a new decade",
+        "descFr": "Célébration des 10 ans d’AfricTivistes. Lancement d’une vision stratégique pour la prochaine décennie, axée sur l’endogénéité technologique, le renforcement de la démocratie numérique et la souveraineté des données en Afrique.",
+        "descEn": "Celebration of AfricTivistes’ 10th anniversary. Launch of a strategic vision for the next decade, focused on technological endogeneity, strengthening digital democracy and data sovereignty in Africa."
+      }
+    ]
   },
   "_grp_statistiques": {
     "_label": "Statistiques",

@@ -2,23 +2,35 @@
 import Reveal from "@/components/astro/Reveal.astro";
 import SectionHeader from "@/components/SectionHeader.astro";
 import { type Lang } from "@/lib/i18n";
-import { fetchTimeline, decodeHtmlEntities } from "@/lib/wordpress";
+import historyData from "@/data/translations/history.json";
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 
-const items = await fetchTimeline(lang);
-const timelineItems = items.map((item, i) => {
-  const yearOnly = (item.year.match(/^\d{4}/)?.[0] ?? item.year);
-  return {
-    ...item,
-    title: decodeHtmlEntities(item.title),
-    description: decodeHtmlEntities(item.description),
-    side: i % 2 === 0 ? "left" : "right",
-    badgeShort: yearOnly.slice(2),
-    yearLabel: item.year,
-  };
-});
+interface TimelineEntry {
+  year: string;
+  titleFr: string;
+  titleEn: string;
+  descFr: string;
+  descEn: string;
+}
+
+// Les jalons sont éditables dans le CMS (Page Histoire › Chronologie), plus
+// dans WordPress : l'ancien endpoint /africtivistes/v1/timeline n'est plus lu.
+const entries = ((historyData._grp_chronologie as any)["history.timeline"] ?? []) as TimelineEntry[];
+const timelineItems = entries
+  .filter((item) => item?.year && (lang === "fr" ? item.titleFr : item.titleEn))
+  .sort((a, b) => String(a.year).localeCompare(String(b.year)))
+  .map((item, i) => {
+    const yearOnly = item.year.match(/^\d{4}/)?.[0] ?? item.year;
+    return {
+      title: lang === "fr" ? item.titleFr : item.titleEn,
+      description: lang === "fr" ? item.descFr : item.descEn,
+      side: i % 2 === 0 ? "left" : "right",
+      badgeShort: yearOnly.slice(2),
+      yearLabel: item.year,
+    };
+  });
 
 const sparklesPath = '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>';
 ---
@@ -46,7 +58,7 @@ const sparklesPath = '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.
                     {item.yearLabel}
                   </span>
                   <h3 class="font-heading text-lg font-bold text-card-foreground mb-2">{item.title}</h3>
-                  <p class="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                  <p class="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{item.description}</p>
                 </div>
               </div>
             </div>
@@ -59,7 +71,7 @@ const sparklesPath = '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.
                     <div class="inline-block bg-card rounded-xl p-6 border border-border shadow-xs hover:shadow-lg hover:border-primary/20 transition-all max-w-lg ml-auto">
                       <span class="inline-block text-xs font-bold text-secondary bg-secondary/10 px-2.5 py-1 rounded-full mb-3">{item.yearLabel}</span>
                       <h3 class="font-heading text-xl font-bold text-card-foreground mb-2">{item.title}</h3>
-                      <p class="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                      <p class="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{item.description}</p>
                     </div>
                   </div>
                   <div class="relative">
@@ -83,7 +95,7 @@ const sparklesPath = '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.
                     <div class="inline-block bg-card rounded-xl p-6 border border-border shadow-xs hover:shadow-lg hover:border-secondary/20 transition-all max-w-lg">
                       <span class="inline-block text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full mb-3">{item.yearLabel}</span>
                       <h3 class="font-heading text-xl font-bold text-card-foreground mb-2">{item.title}</h3>
-                      <p class="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                      <p class="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{item.description}</p>
                     </div>
                   </div>
                 </>

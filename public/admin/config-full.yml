@@ -1021,7 +1021,7 @@ collections:
                   - { label: "Français", name: "fr", widget: text }
                   - { label: "English", name: "en", widget: text }
               - { label: "🖼 origin Image", name: "_img_originImage", widget: image }
-          - label: "Chronologie (2)"
+          - label: "Chronologie (3)"
             name: "_grp_chronologie"
             widget: object
             collapsed: true
@@ -1038,6 +1038,17 @@ collections:
                 fields:
                   - { label: "Français", name: "fr", widget: string }
                   - { label: "English", name: "en", widget: string }
+              - label: "Jalons de la chronologie"
+                name: "history.timeline"
+                widget: list
+                collapsed: true
+                summary: "{{fields.year}} — {{fields.titleFr}}"
+                fields:
+                  - { label: "Année", name: year, widget: string, hint: "Ex. 2015 ou 2022-2023 — sert au tri et à la pastille" }
+                  - { label: "Titre FR", name: titleFr, widget: string }
+                  - { label: "Titre EN", name: titleEn, widget: string }
+                  - { label: "Description FR", name: descFr, widget: text }
+                  - { label: "Description EN", name: descEn, widget: text }
           - label: "Statistiques (1)"
             name: "_grp_statistiques"
             widget: object
