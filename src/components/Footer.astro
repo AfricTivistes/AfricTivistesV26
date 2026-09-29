@@ -1,5 +1,6 @@
 ---
 import { t, type Lang } from "@/lib/i18n";
+import { langPath } from "@/lib/paths";
 import NewsletterForm from "@/components/NewsletterForm";
 import logo from "@/assets/logo.svg?url";
 
@@ -95,7 +96,7 @@ const year = new Date().getFullYear();
             {navItems.map((item) => (
               <li>
                 <a
-                  href={`/${lang}${item.path === "/" ? "/" : item.path}`}
+                  href={langPath(lang, item.path)}
                   class="text-sm text-white/60 transition-colors hover:text-white focus:outline-hidden focus:ring-2 focus:ring-primary rounded-sm"
                   data-testid={`link-footer-${item.labelKey}`}
                 >

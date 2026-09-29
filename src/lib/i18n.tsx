@@ -19,6 +19,7 @@ import newsletter from "@/data/translations/newsletter.json";
 import testimonials from "@/data/translations/testimonials.json";
 import footer from "@/data/translations/footer.json";
 import misc from "@/data/translations/misc.json";
+import { ensureTrailingSlash } from "@/lib/paths";
 
 export type Lang = "fr" | "en";
 
@@ -121,7 +122,9 @@ function navigateToLang(l: Lang) {
   } else {
     nextPath = "/" + l + (pathname === "/" ? "/" : pathname);
   }
-  const nextUrl = nextPath + search + hash;
+  // Slash final : sinon un utilisateur arrivé sur une URL legacy sans slash
+  // propage la forme non canonique et repart sur une 301 à chaque bascule.
+  const nextUrl = ensureTrailingSlash(nextPath) + search + hash;
 
   // Use Astro's ClientRouter navigate (already loaded if View Transitions
   // are active). Access the cached module via the import map — no async

@@ -9,9 +9,11 @@ import { fetchPostBySlug } from "@/lib/wordpress";
 const { slug } = Astro.params;
 
 if (slug) {
-  const post = await fetchPostBySlug(slug);
+  // Plafonne l'attente : les valeurs par defaut (8 s x 2 essais) laissent
+  // l'internaute devant un ecran blanc jusqu'a 16 s sur un vieux lien.
+  const post = await fetchPostBySlug(slug, { timeoutMs: 2500, retry: 0 });
   if (post) {
-    return Astro.redirect(`/fr/blog/${slug}`, 301);
+    return Astro.redirect(`/fr/blog/${slug}/`, 301);
   }
 }
 

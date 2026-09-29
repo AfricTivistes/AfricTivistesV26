@@ -41,7 +41,7 @@ const readLabel = t("releases.read", lang);
               <article role="listitem">
                 <div class="group bg-card rounded-xl border border-border overflow-hidden transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1">
                   <a
-                    href={`/${lang}/blog/${post.slug}`}
+                    href={`/${lang}/blog/${post.slug}/`}
                     class="block focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2"
                     aria-label={`${readLabel} : ${title}`}
                   >
@@ -77,7 +77,7 @@ const readLabel = t("releases.read", lang);
 
       <div class="text-center mt-5">
         <a
-          href={`/${lang}/resources/publications`}
+          href={`/${lang}/resources/publications/`}
           class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm"
           aria-label={t("publications.viewAll", lang)}
         >

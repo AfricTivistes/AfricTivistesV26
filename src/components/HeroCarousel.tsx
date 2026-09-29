@@ -87,7 +87,7 @@ export default function HeroCarousel({
             aria-hidden={isActive ? "false" : "true"}
           >
             <a
-              href={`/${lang}/blog/${post.slug}`}
+              href={`/${lang}/blog/${post.slug}/`}
               className="group block absolute inset-0"
               aria-label={title}
             >

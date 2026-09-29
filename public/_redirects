@@ -3,7 +3,7 @@
 # l'origine WordPress. Le cache long est configure dans public/_headers.
 /wp-uploads/*  https://update.africtivistes.org/wp-content/uploads/:splat  200
 
-/ /fr/ 302
+/ /fr/ 200
 
 # Admin locale aliases
 /fr/admin    /admin/    301
@@ -12,28 +12,28 @@
 /en/admin/   /admin/    301
 
 # Ancien site → nouveau site (FR)
-/fr/africtivistes                /fr/about            301
-/fr/africtivistes/               /fr/about            301
-/fr/africtivistes/adherer/       /fr/about/join       301
-/fr/africtivistes/histoire/      /fr/about/history    301
-/fr/africtivistes/valeurs/       /fr/about/values     301
-/fr/nos-publications/            /fr/resources/publications 301
-/fr/actualites                   /fr/blog             301
-/fr/actualites/*                 /fr/blog             301
-/fr/programmes                   /fr/initiatives      301
-/fr/programmes/*                 /fr/initiatives      301
-/fr/boite-a-outil-africtivistes/ /fr/resources/toolkits 301
+/fr/africtivistes                /fr/about/            301
+/fr/africtivistes/               /fr/about/            301
+/fr/africtivistes/adherer/       /fr/about/join/       301
+/fr/africtivistes/histoire/      /fr/about/history/    301
+/fr/africtivistes/valeurs/       /fr/about/values/     301
+/fr/nos-publications/            /fr/resources/publications/ 301
+/fr/actualites                   /fr/blog/             301
+/fr/actualites/*                 /fr/blog/             301
+/fr/programmes                   /fr/initiatives/      301
+/fr/programmes/*                 /fr/initiatives/      301
+/fr/boite-a-outil-africtivistes/ /fr/resources/toolkits/ 301
 
 # Ancien site → nouveau site (EN)
 /en/africtivistes-en/            /en/              301
 /en/home                         /en/              301
 /en/home/                        /en/              301
-/en/africtivistes/adherer/       /en/about/join       301
-/en/africtivistes/histoire/      /en/about/history    301
-/en/africtivistes/valeurs/       /en/about/values     301
-/en/nos-publications/            /en/resources/publications 301
-/en/actualites                   /en/blog             301
-/en/actualites/*                 /en/blog             301
-/en/programmes                   /en/initiatives      301
-/en/programmes/*                 /en/initiatives      301
-/en/boite-a-outil-africtivistes/ /en/resources/toolkits 301
+/en/africtivistes/adherer/       /en/about/join/       301
+/en/africtivistes/histoire/      /en/about/history/    301
+/en/africtivistes/valeurs/       /en/about/values/     301
+/en/nos-publications/            /en/resources/publications/ 301
+/en/actualites                   /en/blog/             301
+/en/actualites/*                 /en/blog/             301
+/en/programmes                   /en/initiatives/      301
+/en/programmes/*                 /en/initiatives/      301
+/en/boite-a-outil-africtivistes/ /en/resources/toolkits/ 301

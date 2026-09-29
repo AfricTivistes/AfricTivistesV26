@@ -25,6 +25,7 @@ import {
   type ReactNode,
 } from "react";
 import { I18nContext } from "@/lib/i18n";
+import { ensureTrailingSlash, langPath } from "@/lib/paths";
 
 /* -------------------------------------------------------------------------- */
 /* Context                                                                    */
@@ -90,10 +91,11 @@ function shouldSkipLangPrefix(path: string): boolean {
 }
 
 function withLangPrefix(path: string, lang?: "fr" | "en"): string {
-  if (shouldSkipLangPrefix(path)) return path;
+  // Les chemins déjà préfixés ou externes sortent ici, mais ils doivent quand même
+  // être normalisés — d'où le `ensureTrailingSlash` (inerte sur une URL externe).
+  if (shouldSkipLangPrefix(path)) return ensureTrailingSlash(path);
   if (!path.startsWith("/")) return path;
-  const finalLang = lang ?? getCurrentLang();
-  return "/" + finalLang + path;
+  return langPath(lang ?? getCurrentLang(), path);
 }
 
 function resolveTo(to: To, lang?: "fr" | "en"): string {
@@ -161,10 +163,15 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(function NavL
       window.removeEventListener("hashchange", onChange);
     };
   }, []);
+  // Les deux côtés sont normalisés avec slash final : `href` en porte un depuis
+  // `resolveTo`, `window.location.pathname` pas toujours. Comparer les formes brutes
+  // casserait l'état actif (et `href + "/"` produirait un double slash).
+  const hrefPath = ensureTrailingSlash(href.split(/[?#]/)[0]);
+  const currentPath = ensureTrailingSlash(pathname);
   const isActive = pathname
     ? end
-      ? pathname === href
-      : pathname === href || pathname.startsWith(href + "/")
+      ? currentPath === hrefPath
+      : currentPath === hrefPath || currentPath.startsWith(hrefPath)
     : false;
   const args = { isActive, isPending: false };
   const resolvedClass = typeof className === "function" ? className(args) : className;

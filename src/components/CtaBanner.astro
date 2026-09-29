@@ -1,6 +1,7 @@
 ---
 import Reveal from "@/components/astro/Reveal.astro";
 import { t, type Lang } from "@/lib/i18n";
+import { langPath } from "@/lib/paths";
 
 interface Props {
   lang: Lang;
@@ -24,9 +25,7 @@ const {
   gradientTo,
 } = Astro.props;
 
-const href = linkTo.startsWith("/") && !linkTo.startsWith(`/${lang}/`)
-  ? `/${lang}${linkTo}`
-  : linkTo;
+const href = langPath(lang, linkTo);
 ---
 <section class="py-20">
   <div class="section-container">

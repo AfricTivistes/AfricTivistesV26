@@ -1,3 +1,7 @@
 ---
-return Astro.redirect("/fr/");
+// Filet de sécurité uniquement. En production, `public/_redirects` sert la home
+// FR à `/` en rewrite 200 (Netlify applique `_redirects` avant la fonction SSR,
+// déclarée sur `/*`), donc cette route n'est jamais atteinte. Conservée pour
+// éviter un 404 à la racine si la règle venait à disparaître.
+return Astro.redirect("/fr/", 301);
 ---

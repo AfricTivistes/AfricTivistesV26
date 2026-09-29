@@ -3,6 +3,7 @@ import "@/index.css";
 import { ClientRouter } from "astro:transitions";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer.astro";
+import { ensureTrailingSlash } from "@/lib/paths";
 
 /** Hôte WordPress (preconnect/dns-prefetch). Lu depuis l'env, jamais codé en dur. */
 const wpHost = (import.meta.env.PUBLIC_WP_HOST ?? "").replace(/\/$/, "");
@@ -62,7 +63,12 @@ function detectMime(url: string): ImageMime | undefined {
 
 const preloadType = preloadImage ? (preloadImageType ?? detectMime(preloadImage)) : undefined;
 
-const canonicalUrl = canonical ?? Astro.url.href;
+// Canonique toujours sous forme slashée : avec `trailingSlash: "ignore"`, les
+// routes SSR répondent 200 avec ET sans slash. C'est cette balise — et non une
+// redirection — qui désigne la version à indexer.
+const canonicalUrl =
+  canonical ??
+  new URL(ensureTrailingSlash(Astro.url.pathname) + Astro.url.search, Astro.site ?? Astro.url).href;
 
 // Pick a sensible OG image: explicit > preload (if raster) > generic logo
 function pickOgImage(): string {
@@ -194,16 +200,18 @@ const ogImageAbsolute = ogImageUrl.startsWith("http") ? ogImageUrl : `${siteOrig
     <meta name="twitter:image" content={ogImageAbsolute} />
 
     {/* hreflang alternates */}
-    <link rel="alternate" hreflang="fr" href={new URL(Astro.url.pathname.replace(/^\/(en|fr)\//, "/fr/"), Astro.site ?? Astro.url).href} />
-    <link rel="alternate" hreflang="en" href={new URL(Astro.url.pathname.replace(/^\/(en|fr)\//, "/en/"), Astro.site ?? Astro.url).href} />
+    <link rel="alternate" hreflang="fr" href={new URL(ensureTrailingSlash(Astro.url.pathname.replace(/^\/(en|fr)\//, "/fr/")), Astro.site ?? Astro.url).href} />
+    <link rel="alternate" hreflang="en" href={new URL(ensureTrailingSlash(Astro.url.pathname.replace(/^\/(en|fr)\//, "/en/")), Astro.site ?? Astro.url).href} />
 
     {/* Prefetch the alternate-language version of this page so the language
         switch is instant. The browser keeps it in cache; ClientRouter reuses it. */}
     <link
       rel="prefetch"
-      href={Astro.url.pathname.startsWith("/en")
-        ? Astro.url.pathname.replace(/^\/en/, "/fr") + Astro.url.search
-        : Astro.url.pathname.replace(/^\/fr/, "/en") + Astro.url.search}
+      href={ensureTrailingSlash(
+        Astro.url.pathname.startsWith("/en")
+          ? Astro.url.pathname.replace(/^\/en/, "/fr")
+          : Astro.url.pathname.replace(/^\/fr/, "/en"),
+      ) + Astro.url.search}
     />
 
     {/* View Transitions: instant client-side navigation between Astro pages.

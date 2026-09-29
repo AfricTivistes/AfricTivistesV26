@@ -575,11 +575,14 @@ export async function fetchPostById(id: number): Promise<WPPost | null> {
   return wpFetch<WPPost | null>(`/posts/${id}`, { _embed: "true" }, { fallback: null });
 }
 
-export async function fetchPostBySlug(slug: string): Promise<WPPost | null> {
+export async function fetchPostBySlug(
+  slug: string,
+  opts?: { timeoutMs?: number; retry?: number },
+): Promise<WPPost | null> {
   const posts = await wpFetch<WPPost[]>(
     "/posts",
     { slug, _embed: "true" },
-    { fallback: [] },
+    { fallback: [], ...opts },
   );
   return posts[0] || null;
 }
