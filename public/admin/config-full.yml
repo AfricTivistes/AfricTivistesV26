@@ -345,59 +345,6 @@ collections:
                 fields:
                   - { label: "Français", name: "fr", widget: string }
                   - { label: "English", name: "en", widget: string }
-          - label: "Piliers (8)"
-            name: "_grp_piliers"
-            widget: object
-            collapsed: true
-            fields:
-              - label: "pillar1Title"
-                name: "aboutPreview.pillar1Title"
-                widget: object
-                fields:
-                  - { label: "Français", name: "fr", widget: string }
-                  - { label: "English", name: "en", widget: string }
-              - label: "pillar1Desc"
-                name: "aboutPreview.pillar1Desc"
-                widget: object
-                fields:
-                  - { label: "Français", name: "fr", widget: text }
-                  - { label: "English", name: "en", widget: text }
-              - label: "pillar2Title"
-                name: "aboutPreview.pillar2Title"
-                widget: object
-                fields:
-                  - { label: "Français", name: "fr", widget: string }
-                  - { label: "English", name: "en", widget: string }
-              - label: "pillar2Desc"
-                name: "aboutPreview.pillar2Desc"
-                widget: object
-                fields:
-                  - { label: "Français", name: "fr", widget: string }
-                  - { label: "English", name: "en", widget: string }
-              - label: "pillar3Title"
-                name: "aboutPreview.pillar3Title"
-                widget: object
-                fields:
-                  - { label: "Français", name: "fr", widget: string }
-                  - { label: "English", name: "en", widget: string }
-              - label: "pillar3Desc"
-                name: "aboutPreview.pillar3Desc"
-                widget: object
-                fields:
-                  - { label: "Français", name: "fr", widget: string }
-                  - { label: "English", name: "en", widget: string }
-              - label: "pillar4Title"
-                name: "aboutPreview.pillar4Title"
-                widget: object
-                fields:
-                  - { label: "Français", name: "fr", widget: string }
-                  - { label: "English", name: "en", widget: string }
-              - label: "pillar4Desc"
-                name: "aboutPreview.pillar4Desc"
-                widget: object
-                fields:
-                  - { label: "Français", name: "fr", widget: string }
-                  - { label: "English", name: "en", widget: string }
       - name: "programmes-home"
         label: "Accueil — Programmes (5)"
         file: "src/data/translations/programmes-home.json"
@@ -625,7 +572,7 @@ collections:
                 fields:
                   - { label: "Français", name: "fr", widget: text }
                   - { label: "English", name: "en", widget: text }
-          - label: "Approche (10)"
+          - label: "Approche — piliers accueil + À propos (14)"
             name: "_grp_approche"
             widget: object
             collapsed: true
@@ -652,8 +599,8 @@ collections:
                 name: "about.approach1Desc"
                 widget: object
                 fields:
-                  - { label: "Français", name: "fr", widget: text }
-                  - { label: "English", name: "en", widget: text }
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
               - label: "approach2Title"
                 name: "about.approach2Title"
                 widget: object
@@ -686,6 +633,30 @@ collections:
                   - { label: "English", name: "en", widget: string }
               - label: "approach4Desc"
                 name: "about.approach4Desc"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "approach5Title"
+                name: "about.approach5Title"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "approach5Desc"
+                name: "about.approach5Desc"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "approach6Title"
+                name: "about.approach6Title"
+                widget: object
+                fields:
+                  - { label: "Français", name: "fr", widget: string }
+                  - { label: "English", name: "en", widget: string }
+              - label: "approach6Desc"
+                name: "about.approach6Desc"
                 widget: object
                 fields:
                   - { label: "Français", name: "fr", widget: string }

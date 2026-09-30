@@ -217,46 +217,62 @@
     }
   },
   "_grp_approche": {
-    "about.approachSubtitle": {
-      "fr": "Comment nous agissons",
-      "en": "How we take action"
-    },
-    "about.approach4Title": {
-      "fr": "Mobiliser",
-      "en": "Mobilize"
-    },
-    "about.approach3Title": {
-      "fr": "Outiller",
-      "en": "Equip"
-    },
+    "_label": "Approche — piliers accueil + À propos",
     "about.approachTitle": {
       "fr": "Notre approche",
       "en": "Our approach"
     },
-    "about.approach2Title": {
-      "fr": "Connecter",
-      "en": "Connect"
+    "about.approachSubtitle": {
+      "fr": "Comment nous agissons",
+      "en": "How we take action"
     },
     "about.approach1Title": {
-      "fr": "Former",
-      "en": "Train"
+      "fr": "Création de communautés & mise en réseau",
+      "en": "Community building & networking"
     },
-    "_label": "Approche",
     "about.approach1Desc": {
-      "fr": "Renforcer les capacités des acteurs du changement à travers des formations en ligne et en présentiel.",
-      "en": "Build the capacities of change agents through online and in-person training."
+      "fr": "Des communautés qui agissent",
+      "en": "Communities taking action"
+    },
+    "about.approach2Title": {
+      "fr": "Capacitation",
+      "en": "Capacitation"
     },
     "about.approach2Desc": {
-      "fr": "Créer des réseaux panafricains de blogueurs, activistes et citoyens engagés.",
-      "en": "Create pan-African networks of bloggers, activists and engaged citizens."
+      "fr": "Des compétences pour agir",
+      "en": "Skills for taking action"
+    },
+    "about.approach3Title": {
+      "fr": "Campagnes",
+      "en": "Campaigns"
     },
     "about.approach3Desc": {
-      "fr": "Développer des plateformes et outils technologiques au service de la démocratie.",
-      "en": "Develop platforms and technological tools in service of democracy."
+      "fr": "Des voix citoyennes pour le changement",
+      "en": "Citizens’ voices for change"
+    },
+    "about.approach4Title": {
+      "fr": "Outils",
+      "en": "Tools"
     },
     "about.approach4Desc": {
-      "fr": "Engager les communautés dans la surveillance citoyenne et la redevabilité.",
-      "en": "Engage communities in citizen monitoring and accountability."
+      "fr": "Des solutions numériques au service des citoyens",
+      "en": "Digital solutions for citizens"
+    },
+    "about.approach5Title": {
+      "fr": "Consultations",
+      "en": "Consultations"
+    },
+    "about.approach5Desc": {
+      "fr": "Un dialogue multi-acteurs pour des solutions durables",
+      "en": "A multi-stakeholder dialogue for sustainable solutions"
+    },
+    "about.approach6Title": {
+      "fr": "Recherches, documentation & analyses",
+      "en": "Research, documentation & analysis"
+    },
+    "about.approach6Desc": {
+      "fr": "Des données pour éclairer l’action",
+      "en": "Data to inform action"
     }
   }
 }

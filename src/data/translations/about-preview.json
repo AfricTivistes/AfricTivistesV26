@@ -36,40 +36,5 @@
       "fr": "En savoir plus sur AfricTivistes",
       "en": "Learn more about AfricTivistes"
     }
-  },
-  "_grp_piliers": {
-    "aboutPreview.pillar4Title": {
-      "fr": "Mobiliser",
-      "en": "Mobilize"
-    },
-    "aboutPreview.pillar3Title": {
-      "fr": "Outiller",
-      "en": "Equip"
-    },
-    "aboutPreview.pillar2Title": {
-      "fr": "Connecter",
-      "en": "Connect"
-    },
-    "aboutPreview.pillar1Title": {
-      "fr": "Former",
-      "en": "Train"
-    },
-    "aboutPreview.pillar1Desc": {
-      "fr": "Renforcer les capacités des acteurs du changement à travers des formations en ligne et en présentiel.",
-      "en": "Building the capacities of change agents through online and in-person training."
-    },
-    "aboutPreview.pillar2Desc": {
-      "fr": "Créer des réseaux panafricains de blogueurs, activistes et citoyens engagés.",
-      "en": "Creating pan-African networks of bloggers, activists and engaged citizens."
-    },
-    "aboutPreview.pillar3Desc": {
-      "fr": "Développer des plateformes et outils technologiques au service de la démocratie.",
-      "en": "Developing platforms and technological tools in service of democracy."
-    },
-    "aboutPreview.pillar4Desc": {
-      "fr": "Engager les communautés dans la surveillance citoyenne et la redevabilité.",
-      "en": "Engaging communities in citizen monitoring and accountability."
-    },
-    "_label": "Piliers"
   }
 }
