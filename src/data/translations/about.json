@@ -156,7 +156,7 @@
     "_label": "Galerie images",
     "_img_galleryImage1": "https://innovdemocracy.africtivistes.com/images/photo_officielle.jpg",
     "_img_galleryImage2": "https://citizenlabbenin.africtivistes.org/wp-content/uploads/2023/11/presentation-ACLB.jpeg",
-    "_img_galleryImage3": "/form2.webp"
+    "_img_galleryImage3": "https://www.socialnetlink.org/wp-content/uploads/2025/11/Tik-tok-Summit-Dakar-1024x532.jpg"
   },
   "_grp_appel_a_l_action": {
     "_label": "Appel à l'action",
@@ -217,58 +217,58 @@
     }
   },
   "_grp_approche": {
-    "_label": "Approche — piliers accueil + À propos",
-    "about.approachTitle": {
-      "fr": "Notre approche",
-      "en": "Our approach"
-    },
     "about.approachSubtitle": {
       "fr": "Comment nous agissons",
       "en": "How we take action"
     },
-    "about.approach1Title": {
-      "fr": "Création de communautés & mise en réseau",
-      "en": "Community building & networking"
-    },
-    "about.approach1Desc": {
-      "fr": "Des communautés qui agissent",
-      "en": "Communities taking action"
-    },
-    "about.approach2Title": {
-      "fr": "Capacitation",
-      "en": "Capacitation"
-    },
-    "about.approach2Desc": {
-      "fr": "Des compétences pour agir",
-      "en": "Skills for taking action"
-    },
-    "about.approach3Title": {
-      "fr": "Campagnes",
-      "en": "Campaigns"
-    },
-    "about.approach3Desc": {
-      "fr": "Des voix citoyennes pour le changement",
-      "en": "Citizens’ voices for change"
-    },
-    "about.approach4Title": {
-      "fr": "Outils",
-      "en": "Tools"
-    },
-    "about.approach4Desc": {
-      "fr": "Des solutions numériques au service des citoyens",
-      "en": "Digital solutions for citizens"
+    "about.approach6Title": {
+      "fr": "Recherches, documentation & analyses",
+      "en": "Research, documentation & analysis"
     },
     "about.approach5Title": {
       "fr": "Consultations",
       "en": "Consultations"
     },
+    "about.approach4Title": {
+      "fr": "Outils",
+      "en": "Tools"
+    },
+    "about.approach3Title": {
+      "fr": "Campagnes",
+      "en": "Campaigns"
+    },
+    "about.approachTitle": {
+      "fr": "Notre approche",
+      "en": "Our approach"
+    },
+    "about.approach2Title": {
+      "fr": "Capacitation",
+      "en": "Capacitation"
+    },
+    "about.approach1Title": {
+      "fr": "Création de communautés & mise en réseau",
+      "en": "Community building & networking"
+    },
+    "_label": "Approche — piliers accueil + À propos",
+    "about.approach1Desc": {
+      "fr": "Des communautés qui agissent",
+      "en": "Communities taking action"
+    },
+    "about.approach2Desc": {
+      "fr": "Des compétences pour agir",
+      "en": "Skills for taking action"
+    },
+    "about.approach3Desc": {
+      "fr": "Des voix citoyennes pour le changement",
+      "en": "Citizens’ voices for change"
+    },
+    "about.approach4Desc": {
+      "fr": "Des solutions numériques au service des citoyens",
+      "en": "Digital solutions for citizens"
+    },
     "about.approach5Desc": {
       "fr": "Un dialogue multi-acteurs pour des solutions durables",
       "en": "A multi-stakeholder dialogue for sustainable solutions"
-    },
-    "about.approach6Title": {
-      "fr": "Recherches, documentation & analyses",
-      "en": "Research, documentation & analysis"
     },
     "about.approach6Desc": {
       "fr": "Des données pour éclairer l’action",
