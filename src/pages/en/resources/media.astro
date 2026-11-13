@@ -2,7 +2,7 @@
 export const prerender = true;
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ResourcesMedia from "@/components/resources/ResourcesMedia";
-import { fetchYouTubeVideosSSR } from "@/lib/youtube";
+import { getVideosServer } from "@/lib/youtube.server";
 
 const lang = "en";
 
@@ -10,7 +10,7 @@ const lang = "en";
    proxy needed on the server). Result is passed as a prop to ResourcesMedia
    to hydrate the first paint and skip the skeleton. Switching to a specific
    playlist is still handled client-side by TanStack Query. */
-const initialVideos = await fetchYouTubeVideosSSR().catch(() => []);
+const initialVideos = await getVideosServer(null);
 ---
 <BaseLayout lang={lang}>
   <ResourcesMedia client:idle lang={lang} initialVideos={initialVideos} />
